@@ -216,7 +216,7 @@ function OurWorkPage() {
       {/* ── FEATURED PROJECTS GRID SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[10px] px-[15px]">
         <section
-          className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fcfbf8] border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] px-6 py-20 md:px-12 lg:px-16 bg-no-repeat"
+          className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fcfbf8] border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] px-4 py-16 md:px-8 lg:px-10 bg-no-repeat"
           style={{
             backgroundImage: `url(${welBg})`,
             backgroundAttachment: "fixed",
@@ -241,9 +241,9 @@ function OurWorkPage() {
               Our Completed Masterpieces
             </h2>
           </motion.div>
-
+ 
           {/* Symmetrical Projects Grid Layout */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {projects.map((p, idx) => (
               <motion.div
                 key={p.title}
