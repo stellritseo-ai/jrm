@@ -243,55 +243,45 @@ function OurWorkPage() {
           </motion.div>
 
           {/* Symmetrical Projects Grid Layout */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {projects.map((p, idx) => (
               <motion.div
                 key={p.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: Math.min(idx * 0.1, 0.35), ease: "easeOut" }}
-                className="group bg-white rounded-2xl border border-neutral-200/60 shadow-sm hover:shadow-xl hover:border-[#577a4c]/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between text-left"
+                transition={{ duration: 0.8, delay: Math.min(idx * 0.08, 0.35), ease: "easeOut" }}
+                className="group relative overflow-hidden aspect-[4/3] bg-[#fcfbf8] rounded-2xl border border-[#eae8e1] shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer"
               >
-                {/* Image Container with zoom scale */}
-                <div className="relative overflow-hidden aspect-[16/10] bg-neutral-100 border-b border-neutral-100">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute top-4 left-4 z-15 inline-flex items-center gap-1 bg-white/90 backdrop-blur-md text-[#3d5636] text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-sm select-none">
+                {/* Image */}
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[0.16, 1, 0.3, 1]"
+                />
+
+                {/* Hover overlay with blur and JRM branding color */}
+                <div className="absolute inset-0 bg-[#111a0a]/80 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[3px] z-10 flex flex-col items-center justify-center p-6 text-center">
+                  <span className="inline-flex items-center gap-1 text-[#a5b89d] text-[10px] font-bold uppercase tracking-widest mb-3 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
                     <MapPin className="w-3.5 h-3.5" />
                     {p.location}
                   </span>
-                </div>
-
-                {/* Content body */}
-                <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-5">
-                  <div className="space-y-3">
-                    <h3 className="text-md md:text-lg font-bold text-neutral-900 leading-snug tracking-wide group-hover:text-[#4a6e28] transition-colors duration-300">
-                      {p.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed">
-                      {p.desc}
-                    </p>
-                  </div>
-
-                  {/* Services Provided Badges */}
-                  <div className="pt-4 border-t border-neutral-100">
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block mb-2 select-none">
-                      Services Provided
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {p.services.map((s) => (
-                        <span
-                          key={s}
-                          className="bg-[#577a4c]/10 text-[#3d5636] text-[10px] font-bold px-3 py-1 rounded-md"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
+                  
+                  <h3 className="text-sm md:text-md font-bold text-white leading-snug tracking-wide max-w-[95%] transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 delay-[50ms]" style={{ fontFamily: "Georgia, serif" }}>
+                    {p.title}
+                  </h3>
+                  
+                  <div className="w-8 h-[1.5px] bg-[#a5b89d]/60 my-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-[100ms]" />
+                  
+                  <div className="flex flex-wrap justify-center gap-1.5 transform translate-y-3 group-hover:translate-y-0 transition-all duration-500 delay-[150ms]">
+                    {p.services.map((s) => (
+                      <span
+                        key={s}
+                        className="bg-white/10 border border-white/15 text-white text-[9px] font-semibold px-2 py-0.5 rounded"
+                      >
+                        {s}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </motion.div>
