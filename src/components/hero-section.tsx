@@ -38,7 +38,7 @@ export function HeroSection() {
               <span>{t("welcome.badge")}</span>
             </div>
 
-            <h1 className="whitespace-nowrap text-[12px] min-[360px]:text-[13.5px] min-[375px]:text-[14px] min-[414px]:text-[15.5px] min-[440px]:text-[16.5px] sm:text-[22px] md:text-[26px] lg:text-[32px] xl:text-[36px] leading-[1.3] md:leading-[1.5] capitalize font-bold tracking-tight -mt-[10px] md:-mt-[20px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+            <h1 className="text-[20px] sm:text-[22px] md:text-[26px] lg:text-[32px] xl:text-[36px] sm:whitespace-nowrap text-balance leading-[1.3] md:leading-[1.5] capitalize font-bold tracking-tight -mt-[10px] md:-mt-[20px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
               {t("hero.title")}
             </h1>
 
