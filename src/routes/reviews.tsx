@@ -211,8 +211,13 @@ function ReviewsPage() {
       {/* ── EDITORIAL SPLIT LAYOUT GRID ── */}
       <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[10px] px-[15px]">
         <section
-          className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fcfbf8] border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] px-6 py-20 md:px-12 lg:px-16"
-          style={{ backgroundImage: `url(${welBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+          className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fcfbf8] border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] px-6 py-20 md:px-12 lg:px-16 bg-no-repeat"
+          style={{
+            backgroundImage: `url(${welBg})`,
+            backgroundAttachment: "fixed",
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center"
+          }}
         >
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20 items-start">
             
@@ -400,7 +405,8 @@ function ReviewsPage() {
           className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#1c140d] text-white px-6 py-20 md:px-12 lg:px-16 text-center border border-neutral-800 shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative overflow-hidden"
           style={{
             backgroundImage: "linear-gradient(to bottom, rgba(28,20,13,0.96), rgba(28,20,13,0.98)), url(/src/assets/wel-bg.png)",
-            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+            backgroundSize: "100% 100%",
             backgroundPosition: "center",
           }}
         >
