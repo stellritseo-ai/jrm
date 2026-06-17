@@ -9,7 +9,7 @@ export function SiteFooter() {
     "/",
     "/about",
     "/#services",
-    "/#gallery",
+    "/work",
     "/reviews",
     "/#consultation",
     "/contact",
