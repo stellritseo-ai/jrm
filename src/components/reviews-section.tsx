@@ -13,7 +13,7 @@ export function ReviewsSection() {
 
   return (
     <div className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
-      <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fbfaf7] px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[0.8fr_2fr] items-center overflow-hidden">
+      <section id="reviews" className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fbfaf7] px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[0.8fr_2fr] items-center overflow-hidden">
 
         {/* Left Column: Rating & Trust */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-[420px] mx-auto lg:mx-0 w-full">

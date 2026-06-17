@@ -41,7 +41,7 @@ export function ServicesSection() {
 
   return (
     <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
-      <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#f8f8f8] px-[30px] py-[50px] border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.04)] overflow-hidden">
+      <section id="services" className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#f8f8f8] px-[30px] py-[50px] border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.04)] overflow-hidden">
 
         {/* Top Row Grid: Left Text Column + 3 Right Image Cards */}
         <div className="grid lg:grid-cols-[40%_1fr] gap-12 lg:gap-16 items-center">

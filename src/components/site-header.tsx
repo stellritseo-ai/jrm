@@ -9,11 +9,11 @@ import { useTranslation } from "@/context/translation-context";
 
 const navItems = [
   { key: "nav.home", to: "/" },
-  { key: "nav.about", to: "/" },
-  { key: "nav.services", to: "/", hasDropdown: true },
-  { key: "nav.work", to: "/" },
-  { key: "nav.reviews", to: "/" },
-  { key: "nav.contact", to: "/" },
+  { key: "nav.about", to: "/about" },
+  { key: "nav.services", to: "/", hash: "services", hasDropdown: true },
+  { key: "nav.work", to: "/", hash: "gallery" },
+  { key: "nav.reviews", to: "/", hash: "reviews" },
+  { key: "nav.contact", to: "/", hash: "contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -116,6 +116,7 @@ export function SiteHeader() {
                         <Link
                           key={item.key}
                           to={item.to}
+                          hash={"hash" in item ? item.hash : undefined}
                           className="text-lg font-medium text-neutral-800 hover:text-[#4d4d2b] transition-colors py-1.5 border-b border-neutral-100 w-full text-center"
                         >
                           {t(item.key)}
@@ -143,6 +144,7 @@ export function SiteHeader() {
                   <Link
                     key={item.key}
                     to={item.to}
+                    hash={"hash" in item ? item.hash : undefined}
                     onClick={() => setActiveItem(item.key)}
                     className={
                       isActive
@@ -162,7 +164,7 @@ export function SiteHeader() {
             {/* Desktop CTA buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="#contact"
+                href="/#contact"
                 className="rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] hover:from-[#4d6c43] hover:to-[#33472c] px-6 py-2 text-white text-sm font-normal hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-sm"
               >
                 {t("nav.talk")}

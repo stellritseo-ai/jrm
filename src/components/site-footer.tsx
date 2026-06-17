@@ -5,6 +5,16 @@ import { useTranslation } from "@/context/translation-context";
 export function SiteFooter() {
   const { t, language } = useTranslation();
 
+  const quickLinks = [
+    "/",
+    "/about",
+    "/#services",
+    "/#gallery",
+    "/#reviews",
+    "/#consultation",
+    "/#contact",
+  ];
+
   return (
     <div className="w-full bg-[#f4f3ef] pt-0 pb-[15px] px-[15px]">
       <footer
@@ -35,7 +45,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                 <li key={num}>
-                  <a href="#" className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
+                  <a href="/#services" className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
                     {t(`footer.service.${num}` as any)}
                   </a>
                 </li>
@@ -51,7 +61,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
                 <li key={num}>
-                  <a href="#" className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
+                  <a href={quickLinks[num - 1]} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
                     {t(`footer.link.${num}` as any)}
                   </a>
                 </li>

@@ -15,7 +15,7 @@ export function QuoteSection() {
 
   return (
     <div className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
-      <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-white px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[1fr_1.3fr] items-stretch">
+      <section id="consultation" className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-white px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[1fr_1.3fr] items-stretch">
 
         {/* Service Area Card */}
         <div
