@@ -163,12 +163,12 @@ export function SiteHeader() {
 
             {/* Desktop CTA buttons */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] hover:from-[#4d6c43] hover:to-[#33472c] px-6 py-2 text-white text-sm font-normal hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-sm"
               >
                 {t("nav.talk")}
-              </a>
+              </Link>
               <a
                 href="tel:2104295526"
                 className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#32322d] to-[#1e1e1a] hover:from-[#23231f] hover:to-[#121210] px-6 py-2 text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-sm"

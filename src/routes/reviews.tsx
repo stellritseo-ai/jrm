@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
@@ -456,12 +456,12 @@ function ReviewsPage() {
               >
                 Call Robert Now
               </a>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-neutral-900 px-8 py-3.5 text-white text-[14px] font-bold tracking-wider uppercase transition-all duration-300 shadow-lg hover:scale-[1.03]"
               >
                 Book Design Consult
-              </a>
+              </Link>
             </div>
           </motion.div>
         </section>

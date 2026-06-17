@@ -426,7 +426,7 @@ function LetUsTalkPage() {
                   </div>
                   <h4 className="text-sm font-bold text-neutral-900">📞 Call Robert Directly</h4>
                   <p className="mt-3 text-md font-bold text-[#3d5636] group-hover:underline">(210) 429-5526</p>
-                  <p className="mt-2 text-xs text-neutral-500 font-light leading-relaxed">
+                  <p className="mt-2 text-xs text-neutral-500 font-light leading-relaxed font-light">
                     Speak with the owner today to schedule your consultation or discuss your project.
                   </p>
                 </a>
@@ -440,8 +440,8 @@ function LetUsTalkPage() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <h4 className="text-sm font-bold text-neutral-900">📧 Send an Email</h4>
-                  <p className="mt-3 text-sm font-bold text-[#3d5636] group-hover:underline truncate">robertsa210@icloud.com</p>
-                  <p className="mt-2 text-xs text-neutral-500 font-light leading-relaxed">
+                  <p className="mt-3 text-sm font-bold text-[#3d5636] group-hover:underline truncate font-light">robertsa210@icloud.com</p>
+                  <p className="mt-2 text-xs text-neutral-500 font-light leading-relaxed font-light font-light">
                     Share your project details, inspirations, or questions with us.
                   </p>
                 </a>
@@ -463,7 +463,7 @@ function LetUsTalkPage() {
                     <AlertTriangle className="w-5 h-5" />
                   </div>
                   <h4 className="text-sm font-bold text-red-900">⚡ 24/7 Emergency Services</h4>
-                  <p className="mt-3 text-xs text-red-950 font-light leading-relaxed">
+                  <p className="mt-3 text-xs text-red-950 font-light leading-relaxed font-light">
                     For urgent issues requiring immediate attention to protect your property, call our main line anytime.
                   </p>
                 </div>
@@ -496,7 +496,7 @@ function LetUsTalkPage() {
                     </label>
                     <input
                       type="text"
-                      placeholder="John Smith"
+                      placeholder="Your Name"
                       className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all"
                     />
                   </div>
@@ -506,7 +506,7 @@ function LetUsTalkPage() {
                     </label>
                     <input
                       type="email"
-                      placeholder="example@email.com"
+                      placeholder="Email Address"
                       className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all"
                     />
                   </div>
@@ -520,7 +520,7 @@ function LetUsTalkPage() {
                     </label>
                     <input
                       type="tel"
-                      placeholder="(210) 000-0000"
+                      placeholder="Phone Number"
                       className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all"
                     />
                   </div>
@@ -530,7 +530,7 @@ function LetUsTalkPage() {
                     </label>
                     <input
                       type="text"
-                      placeholder="San Antonio, TX"
+                      placeholder="Property Address"
                       className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all"
                     />
                   </div>
@@ -598,7 +598,7 @@ function LetUsTalkPage() {
                   <textarea
                     rows={4}
                     placeholder="Tell us about your project vision, timeline, and goals..."
-                    className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all resize-none"
+                    className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all resize-none font-light"
                   />
                 </div>
 
@@ -612,7 +612,7 @@ function LetUsTalkPage() {
               </form>
 
               <div className="pt-2 border-t border-neutral-100 text-center">
-                <span className="text-[11px] text-neutral-500 font-light">
+                <span className="text-[11px] text-neutral-500 font-light font-light">
                   We typically respond to all inquiries within one business day.
                 </span>
               </div>
