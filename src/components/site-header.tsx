@@ -13,7 +13,7 @@ const navItems = [
   { key: "nav.services", to: "/", hash: "services", hasDropdown: true },
   { key: "nav.work", to: "/", hash: "gallery" },
   { key: "nav.reviews", to: "/", hash: "reviews" },
-  { key: "nav.contact", to: "/", hash: "contact" },
+  { key: "nav.contact", to: "/contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -164,7 +164,7 @@ export function SiteHeader() {
             {/* Desktop CTA buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="/#contact"
+                href="/contact"
                 className="rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] hover:from-[#4d6c43] hover:to-[#33472c] px-6 py-2 text-white text-sm font-normal hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-sm"
               >
                 {t("nav.talk")}

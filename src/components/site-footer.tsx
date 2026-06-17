@@ -12,7 +12,7 @@ export function SiteFooter() {
     "/#gallery",
     "/#reviews",
     "/#consultation",
-    "/#contact",
+    "/contact",
   ];
 
   return (
