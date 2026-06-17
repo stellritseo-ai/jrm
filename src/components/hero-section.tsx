@@ -27,7 +27,7 @@ export function HeroSection() {
           className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#111a0a]/95 via-[#1c2b11]/80 md:via-[#1c2b11]/50 to-transparent z-10"
         />
 
-        <div className="relative z-20 w-full px-3 py-16 sm:px-6 md:px-12 md:py-24 lg:px-16 flex items-center">
+        <div className="relative z-20 w-full px-6 py-16 md:px-12 md:py-24 lg:px-16 flex items-center">
           <div className="max-w-4xl text-white">
             {/* Welcome Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs md:text-sm font-semibold uppercase tracking-wider mt-[60px] sm:mt-[80px] md:mt-[100px] mb-5 md:mb-8 animate-fade-in shadow-sm select-none">
@@ -38,7 +38,7 @@ export function HeroSection() {
               <span>{t("welcome.badge")}</span>
             </div>
 
-            <h1 className="text-[20px] sm:text-[22px] md:text-[26px] lg:text-[32px] xl:text-[36px] sm:whitespace-nowrap text-balance leading-[1.3] md:leading-[1.5] capitalize font-bold tracking-tight -mt-[10px] md:-mt-[20px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+            <h1 className="whitespace-nowrap text-[10px] min-[375px]:text-[12px] min-[425px]:text-[13px] sm:text-[20px] md:text-[24px] lg:text-[32px] xl:text-[36px] leading-[1.3] md:leading-[1.5] capitalize font-bold tracking-tight -mt-[10px] md:-mt-[20px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
               {t("hero.title")}
             </h1>
 
