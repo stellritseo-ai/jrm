@@ -1,6 +1,7 @@
 import { useTranslation } from "@/context/translation-context";
 import { ClipboardList, Images } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 export function GetStartedSection() {
   const { t } = useTranslation();
@@ -54,20 +55,20 @@ export function GetStartedSection() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#consultation"
+            <Link
+              to="/lets-talk"
               className="inline-flex items-center justify-center gap-2 border border-white/60 hover:border-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:scale-[1.03] active:scale-[0.98] text-white text-[13px] md:text-[14px] font-medium rounded-full px-8 py-3 transition-all duration-300 min-w-[220px]"
             >
               <ClipboardList className="w-4 h-4 text-white/90" />
               <span>{t("getstarted.btn.consultation")}</span>
-            </a>
-            <a
-              href="#work"
+            </Link>
+            <Link
+              to="/work"
               className="inline-flex items-center justify-center gap-2 border border-white/60 hover:border-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:scale-[1.03] active:scale-[0.98] text-white text-[13px] md:text-[14px] font-medium rounded-full px-8 py-3 transition-all duration-300 min-w-[220px]"
             >
               <Images className="w-4 h-4 text-white/90" />
               <span>{t("getstarted.btn.gallery")}</span>
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>

@@ -1,6 +1,7 @@
 import { Star, User } from "lucide-react";
 import { useTranslation } from "@/context/translation-context";
 import reviewComp from "@/assets/review-comp.webp";
+import { Link } from "@tanstack/react-router";
 
 const reviewsList = [
   { textKey: "reviews.1.text", nameKey: "reviews.1.name", dateKey: "reviews.1.date" },
@@ -39,12 +40,12 @@ export function ReviewsSection() {
           />
 
           {/* CTA Button */}
-          <a
-            href="#contact"
+          <Link
+            to="/reviews"
             className="inline-flex items-center justify-center bg-gradient-to-r from-[#2c241d] to-[#1a1511] hover:from-[#3d3228] hover:to-[#221c16] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-full px-8 py-4 transition-all duration-300 shadow-[0_4px_14px_rgba(34,28,22,0.25)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
             {t("reviews.readall")}
-          </a>
+          </Link>
         </div>
 
         {/* Right Column: Infinite Review Marquee */}

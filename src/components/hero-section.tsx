@@ -3,6 +3,7 @@ import heroVideo from "@/assets/jrmvideo.mp4";
 import { useTranslation } from "@/context/translation-context";
 import { ClipboardList, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 export function HeroSection() {
   const { t } = useTranslation();
@@ -74,20 +75,20 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
               className="mt-8 md:mt-10 flex flex-wrap items-center justify-center md:justify-start gap-4"
             >
-              <a
-                href="#consultation"
+              <Link
+                to="/lets-talk"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] px-6 py-3 text-white text-sm font-semibold hover:from-[#4d6c43] hover:to-[#33472c] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_14px_rgba(87,122,76,0.35)]"
               >
                 <ClipboardList className="w-4 h-4" />
                 <span>{t("hero.btn.consultation")}</span>
-              </a>
-              <a
-                href="#book"
+              </Link>
+              <Link
+                to="/lets-talk"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
               >
                 <Calendar className="w-4 h-4" />
                 <span>{t("hero.btn.book")}</span>
-              </a>
+              </Link>
             </motion.div>
 
             {/* Star Rating Trust Widget */}

@@ -3,6 +3,7 @@ import welBg from "@/assets/wel-bg.png";
 import welImg from "@/assets/wel-img.webp";
 import { useTranslation } from "@/context/translation-context";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 export function WelcomeSection() {
   const { t } = useTranslation();
@@ -54,12 +55,12 @@ export function WelcomeSection() {
               >
                 {t("welcome.btn.call")}
               </a>
-              <a
-                href="#consultation"
+              <Link
+                to="/lets-talk"
                 className="rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] hover:from-[#4d6c43] hover:to-[#33472c] px-7 py-3 text-white text-sm font-normal hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md"
               >
                 {t("welcome.btn.consultation")}
-              </a>
+              </Link>
             </div>
           </motion.div>
 

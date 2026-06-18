@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 const services = [
   { key: "services.remodeling", image: houseRemodeling },
@@ -65,12 +66,12 @@ export function ServicesSection() {
                 {t("services.description")}
               </p>
               <div className="mt-7">
-                <a
-                  href="#work"
+                <Link
+                  to="/work"
                   className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#577a4c] to-[#3d5636] hover:from-[#4d6c43] hover:to-[#33472c] text-white rounded-full px-7 py-3 text-[14px] font-bold shadow-[0_4px_14px_rgba(87,122,76,0.3)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   {t("services.btn.more")}
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -110,13 +111,16 @@ export function ServicesSection() {
                         {t((s.key + ".desc") as any)}
                       </p>
 
-                      <div className="pt-2">
-                        <span className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5">
-                          <span>View More</span>
-                          <ArrowRight className="w-3 h-3" />
-                          <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#84a377]" />
-                        </span>
-                      </div>
+                        <div className="pt-2">
+                          <Link
+                            to="/services"
+                            className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5"
+                          >
+                            <span>View More</span>
+                            <ArrowRight className="w-3 h-3" />
+                            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#84a377]" />
+                          </Link>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -177,11 +181,14 @@ export function ServicesSection() {
                           </p>
 
                           <div className="pt-2">
-                            <span className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5">
+                            <Link
+                              to="/services"
+                              className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5"
+                            >
                               <span>View More</span>
                               <ArrowRight className="w-3 h-3" />
                               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#84a377]" />
-                            </span>
+                            </Link>
                           </div>
                         </div>
                       </div>

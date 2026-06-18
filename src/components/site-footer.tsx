@@ -128,46 +128,46 @@ export function SiteFooter() {
         <div className="mt-14 border-t border-white/10 pt-8 flex flex-col gap-5 text-[13px] md:text-sm text-neutral-300 font-light text-center relative z-10 w-full">
           {/* Row 1 */}
           <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-12 gap-y-3">
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               San Antonio Landscape Design Contractor
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Licensed Remodeler San Antonio
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Custom Outdoor Kitchen San Antonio
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Hardscaping Contractor Near Me
             </a>
           </div>
           {/* Row 2 */}
           <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-12 gap-y-3">
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Landscaping and construction company
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Kitchen remodel San Antonio
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Whole house remodeling San Antonio
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Custom home builder San Antonio
             </a>
           </div>
           {/* Row 3 */}
           <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-12 gap-y-3">
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               New home construction contractor
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Fireplace installation San Antonio
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Fence installation San Antonio
             </a>
-            <a href="#" className="underline hover:text-white transition-colors duration-200">
+            <a href="/services" className="underline hover:text-white transition-colors duration-200">
               Artificial grass installation San Antonio
             </a>
           </div>
