@@ -12,16 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  vite: {
-    ssr: {
-      external: ["mongoose", "mongodb"],
-    },
-  },
   nitro: {
     preset: "vercel",
-    rollupConfig: {
-      external: ["mongoose", "mongodb"],
-    },
-    traceDeps: ["mongoose", "mongodb"],
-  } as any,
+  },
 });
