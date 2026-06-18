@@ -543,8 +543,16 @@ export const loginAdminFn = createServerFn({ method: "POST" })
     }
     
     // Generate secure unique session token
-    const crypto = await import("crypto");
-    const sessionToken = crypto.randomBytes(32).toString("hex");
+    let sessionToken = "";
+    if (typeof globalThis !== "undefined" && globalThis.crypto && globalThis.crypto.getRandomValues) {
+      const array = new Uint8Array(32);
+      globalThis.crypto.getRandomValues(array);
+      sessionToken = Array.from(array)
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
+    } else {
+      sessionToken = Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join("");
+    }
     
     user.sessionToken = sessionToken;
     await user.save();
