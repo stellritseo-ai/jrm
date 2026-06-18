@@ -18,10 +18,10 @@ import { FloatingChat } from "@/components/floating-chat";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JRM Construction Landscape Design — San Antonio, TX" },
-      { name: "description", content: "JRM Construction Landscape Design offers premier landscaping and construction services in San Antonio, TX with 24/7 emergency assistance." },
-      { property: "og:title", content: "JRM Construction Landscape Design" },
-      { property: "og:description", content: "Premier landscaping and construction services in San Antonio, TX." },
+      { title: "JRM Construction Landscaping Design | San Antonio's Trusted Remodeling & Outdoor Living Experts Since 1989" },
+      { name: "description", content: "San Antonio's premier licensed, insured, and bonded construction company. 35+ years of experience in house remodeling, outdoor kitchens, custom fireplaces, hardscapes & artificial turf. Free consultations. Call (210) 429-5526." },
+      { property: "og:title", content: "JRM Construction Landscaping Design | San Antonio's Trusted Remodeling & Outdoor Living Experts Since 1989" },
+      { property: "og:description", content: "San Antonio's premier licensed, insured, and bonded construction company. 35+ years of experience in house remodeling, outdoor kitchens, custom fireplaces, hardscapes & artificial turf. Free consultations. Call (210) 429-5526." },
     ],
   }),
   component: Index,
