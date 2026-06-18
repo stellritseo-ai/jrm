@@ -63,7 +63,7 @@ export const translations = {
 
     // Hero Section
     "hero.title": "Outdoor Visions Come To Life\nBuilding America's Dreams",
-    "hero.description": "San Antonio Outdoor Living is a Concrete Contractor in San Antonio, TX. We offer Landscaping,\nOutdoor Kitchen Design, Hardscaping and more!",
+    "hero.description": "JRM Construction Landscaping Design is a Concrete Contractor in San Antonio, TX. We offer Landscaping,\nOutdoor Kitchen Design, Hardscaping and more!",
     "hero.btn.consultation": "Get Your Free Consultation",
     "hero.btn.book": "Book A Service",
 
