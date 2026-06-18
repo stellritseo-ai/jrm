@@ -1,4 +1,6 @@
 import "./lib/error-capture";
+import "mongoose";
+import "mongodb";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
