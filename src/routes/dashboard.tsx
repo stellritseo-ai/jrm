@@ -313,6 +313,14 @@ function DashboardPage() {
   const seenWebEmailsRef = useRef<Set<string>>(new Set());
   const seenChatMessagesRef = useRef<Set<string>>(new Set());
 
+  // Sort sessions newest-first by lastMessageTime so new/active chats bubble to the top
+  const sortByLatest = (sessions: ChatSession[]) =>
+    [...sessions].sort((a, b) => {
+      const ta = a.lastMessageTime ? new Date(a.lastMessageTime).getTime() : 0;
+      const tb = b.lastMessageTime ? new Date(b.lastMessageTime).getTime() : 0;
+      return tb - ta;
+    });
+
   // Keep the active session ID ref updated
   useEffect(() => {
     activeSessionIdRef.current = activeSessionId;
@@ -339,7 +347,7 @@ function DashboardPage() {
       console.log("[Socket] Admin received message:", msg);
 
       setChatSessions((prev) => {
-        return prev.map((session) => {
+        const updated = prev.map((session) => {
           if (session.id === msg.sessionId) {
             const exists = session.messages.some((m) => m.id === msg.id);
             if (exists) return session;
@@ -355,6 +363,7 @@ function DashboardPage() {
           }
           return session;
         });
+        return sortByLatest(updated); // Bubble updated session to top
       });
     });
 
@@ -381,7 +390,7 @@ function DashboardPage() {
     getLeads().then(setLeads);
     getReviews().then(setReviews);
     getChatSessions().then((sessions) => {
-      setChatSessions(sessions);
+      setChatSessions(sortByLatest(sessions));
       sessions.forEach((s) => {
         s.messages.forEach((m) => seenChatMessagesRef.current.add(m.id));
       });
@@ -400,7 +409,7 @@ function DashboardPage() {
   // Poll database every 3 seconds to sync chat messages, sessions, and web emails in real-time
   useEffect(() => {
     const interval = setInterval(() => {
-      getChatSessions().then(setChatSessions);
+      getChatSessions().then((sessions) => setChatSessions(sortByLatest(sessions)));
       getWebEmails().then(setWebEmails);
     }, 3000);
     return () => clearInterval(interval);
