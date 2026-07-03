@@ -1,0 +1,8 @@
+node_modules
+.vercel
+node_modules/.vite
+.env
+.tanstack
+.gemini
+.DS_Store
+dist
