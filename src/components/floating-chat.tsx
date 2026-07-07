@@ -103,7 +103,7 @@ export function FloatingChat() {
 
   const handlePreChatSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!preChatData.name.trim() || !preChatData.email.trim() || !preChatData.phone.trim()) return;
+    if (!preChatData.name.trim() || !preChatData.email.trim()) return;
 
     setIsConnecting(true);
     try {
@@ -311,16 +311,18 @@ export function FloatingChat() {
             <form onSubmit={handlePreChatSubmit} className="flex-1 p-5 bg-[#fbfaf7] flex flex-col justify-center overflow-y-auto space-y-3.5 text-left">
               <div className="text-center mb-1 select-none">
                 <h3 className="text-sm font-extrabold text-neutral-800 uppercase tracking-wider mb-1">
-                  Start Live Chat
+                  {language === "es" ? "Iniciar Chat en Vivo" : "Start Live Chat"}
                 </h3>
                 <p className="text-[10.5px] text-neutral-500 font-light leading-normal">
-                  Please introduce yourself to start chatting with Robert and the team.
+                  {language === "es" 
+                    ? "Por favor introduce tus datos para comenzar a chatear con Robert y el equipo."
+                    : "Please introduce yourself to start chatting with Robert and the team."}
                 </p>
               </div>
 
               <div>
                 <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
-                  Your Name
+                  {language === "es" ? "Tu Nombre" : "Your Name"}
                 </label>
                 <input
                   type="text"
@@ -334,7 +336,7 @@ export function FloatingChat() {
 
               <div>
                 <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
-                  Email Address
+                  {language === "es" ? "Correo Electrónico" : "Email Address"}
                 </label>
                 <input
                   type="email"
@@ -348,7 +350,7 @@ export function FloatingChat() {
 
               <div>
                 <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-600 mb-1">
-                  Your City
+                  {language === "es" ? "Tu Ciudad" : "Your City"}
                 </label>
                 <select
                   value={preChatData.city}
@@ -369,7 +371,9 @@ export function FloatingChat() {
                 disabled={isConnecting}
                 className="w-full py-2.5 bg-[#4a6741] text-white hover:bg-[#3d5535] disabled:bg-neutral-200 disabled:text-neutral-400 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-sm active:scale-98 mt-1.5"
               >
-                {isConnecting ? "Connecting..." : "Start Chatting"}
+                {isConnecting 
+                  ? (language === "es" ? "Conectando..." : "Connecting...") 
+                  : (language === "es" ? "Comenzar Chat" : "Start Chatting")}
               </button>
             </form>
           ) : (
