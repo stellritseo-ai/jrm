@@ -26,6 +26,7 @@ import { Route as HouseRemodelingRouteImport } from './routes/house-remodeling'
 import { Route as HardscapesRouteImport } from './routes/hardscapes'
 import { Route as GetFreeConsultationRouteImport } from './routes/get-free-consultation'
 import { Route as FencingRouteImport } from './routes/fencing'
+import { Route as DesignServiceRouteImport } from './routes/design-service'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CustomFireplacesRouteImport } from './routes/custom-fireplaces'
 import { Route as CoveredPatiosRouteImport } from './routes/covered-patios'
@@ -123,6 +124,11 @@ const FencingRoute = FencingRouteImport.update({
   path: '/fencing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignServiceRoute = DesignServiceRouteImport.update({
+  id: '/design-service',
+  path: '/design-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/covered-patios': typeof CoveredPatiosRoute
   '/custom-fireplaces': typeof CustomFireplacesRoute
   '/dashboard': typeof DashboardRoute
+  '/design-service': typeof DesignServiceRoute
   '/fencing': typeof FencingRoute
   '/get-free-consultation': typeof GetFreeConsultationRoute
   '/hardscapes': typeof HardscapesRoute
@@ -221,6 +228,7 @@ export interface FileRoutesByTo {
   '/covered-patios': typeof CoveredPatiosRoute
   '/custom-fireplaces': typeof CustomFireplacesRoute
   '/dashboard': typeof DashboardRoute
+  '/design-service': typeof DesignServiceRoute
   '/fencing': typeof FencingRoute
   '/get-free-consultation': typeof GetFreeConsultationRoute
   '/hardscapes': typeof HardscapesRoute
@@ -252,6 +260,7 @@ export interface FileRoutesById {
   '/covered-patios': typeof CoveredPatiosRoute
   '/custom-fireplaces': typeof CustomFireplacesRoute
   '/dashboard': typeof DashboardRoute
+  '/design-service': typeof DesignServiceRoute
   '/fencing': typeof FencingRoute
   '/get-free-consultation': typeof GetFreeConsultationRoute
   '/hardscapes': typeof HardscapesRoute
@@ -284,6 +293,7 @@ export interface FileRouteTypes {
     | '/covered-patios'
     | '/custom-fireplaces'
     | '/dashboard'
+    | '/design-service'
     | '/fencing'
     | '/get-free-consultation'
     | '/hardscapes'
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/covered-patios'
     | '/custom-fireplaces'
     | '/dashboard'
+    | '/design-service'
     | '/fencing'
     | '/get-free-consultation'
     | '/hardscapes'
@@ -344,6 +355,7 @@ export interface FileRouteTypes {
     | '/covered-patios'
     | '/custom-fireplaces'
     | '/dashboard'
+    | '/design-service'
     | '/fencing'
     | '/get-free-consultation'
     | '/hardscapes'
@@ -375,6 +387,7 @@ export interface RootRouteChildren {
   CoveredPatiosRoute: typeof CoveredPatiosRoute
   CustomFireplacesRoute: typeof CustomFireplacesRoute
   DashboardRoute: typeof DashboardRoute
+  DesignServiceRoute: typeof DesignServiceRoute
   FencingRoute: typeof FencingRoute
   GetFreeConsultationRoute: typeof GetFreeConsultationRoute
   HardscapesRoute: typeof HardscapesRoute
@@ -515,6 +528,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FencingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design-service': {
+      id: '/design-service'
+      path: '/design-service'
+      fullPath: '/design-service'
+      preLoaderRoute: typeof DesignServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -607,6 +627,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoveredPatiosRoute: CoveredPatiosRoute,
   CustomFireplacesRoute: CustomFireplacesRoute,
   DashboardRoute: DashboardRoute,
+  DesignServiceRoute: DesignServiceRoute,
   FencingRoute: FencingRoute,
   GetFreeConsultationRoute: GetFreeConsultationRoute,
   HardscapesRoute: HardscapesRoute,

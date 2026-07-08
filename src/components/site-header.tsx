@@ -33,6 +33,7 @@ const servicesSubMenu = [
   { label: "Landscape Lighting",to: "/landscape-lighting", hash: undefined },
   { label: "ADU Services",      to: "/adu-services", hash: undefined },
   { label: "Stamped Concrete / Overlay", to: "/stamped-concrete-overlay", hash: undefined },
+  { label: "Design Service",    to: "/design-service", hash: undefined },
 ] as const;
 
 export function SiteHeader() {
@@ -63,7 +64,8 @@ export function SiteHeader() {
         "/irrigation",
         "/landscape-lighting",
         "/adu-services",
-        "/stamped-concrete-overlay"
+        "/stamped-concrete-overlay",
+        "/design-service"
       ];
       return servicesPaths.some(path => currentPath.startsWith(path));
     }

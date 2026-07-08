@@ -94,6 +94,7 @@ export const translations = {
     "services.lighting": "LANDSCAPE LIGHTING",
     "services.adu": "ADU SERVICES",
     "services.stampedconcrete": "STAMPED CONCRETE",
+    "services.design": "DESIGN SERVICE",
     "services.remodeling.desc": "Complete home renovations, kitchen updates, and structural transformations.",
     "services.construction.desc": "Custom structural builds, additions, and quality new constructions.",
     "services.fireplace.desc": "Elegant, heat-safe custom fireplaces and stone surrounds.",
@@ -108,6 +109,7 @@ export const translations = {
     "services.lighting.desc": "Stunning low-voltage architectural and uplighting for plants and walkways.",
     "services.adu.desc": "Detached accessory dwelling units, pool houses, and guest quarters.",
     "services.stampedconcrete.desc": "Premium stamped concrete overlay, flagstone patterns, driveways, and patios.",
+    "services.design.desc": "Custom 3D renderings, blueprint drafting, and structural layout planning.",
     "services.btn.more": "View More of Our Work",
 
     // Get Started Section
@@ -300,6 +302,7 @@ export const translations = {
     "services.lighting": "ILUMINACIÓN DE PAISAJE",
     "services.adu": "SERVICIOS DE ADU",
     "services.stampedconcrete": "CONCRETO ESTAMPADO",
+    "services.design": "SERVICIO DE DISEÑO",
     "services.remodeling.desc": "Renovaciones completas del hogar, actualizaciones de cocina y transformaciones estructurales.",
     "services.construction.desc": "Construcciones estructurales a medida, ampliaciones y construcciones nuevas de calidad.",
     "services.fireplace.desc": "Chimeneas personalizadas elegantes y seguras contra el calor y marcos de piedra.",
@@ -314,6 +317,7 @@ export const translations = {
     "services.lighting.desc": "Impresionante iluminación arquitectónica y de acento de bajo voltaje para plantas y senderos.",
     "services.adu.desc": "Unidades de vivienda accesorias independientes, casas de piscina y cuartos de huéspedes.",
     "services.stampedconcrete.desc": "Revestimiento de concreto estampado premium, patrones de laja, entradas y patios.",
+    "services.design.desc": "Renders 3D personalizados, redacción de planos y planificación de diseño estructural.",
     "services.btn.more": "Ver Más de Nuestro Trabajo",
 
     // Get Started Section

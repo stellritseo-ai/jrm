@@ -12,6 +12,7 @@ import irrigation from "@/assets/svc-irrigation.jpg";
 import lighting from "@/assets/svc-landscape-lighting.jpg";
 import adu from "@/assets/svc-adu-services.jpg";
 import stampedConcrete from "@/assets/svc-stamped-concrete.jpg";
+import designService from "@/assets/svc-design-blueprint.png";
 import { useTranslation } from "@/context/translation-context";
 import { ArrowRight } from "lucide-react";
 import {
@@ -24,20 +25,21 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 
 const services = [
-  { key: "services.remodeling", image: houseRemodeling },
-  { key: "services.construction", image: newConstruction },
-  { key: "services.fireplace", image: fireplace },
-  { key: "services.fencing", image: fencing },
-  { key: "services.coveredpatios", image: coveredPatios },
-  { key: "services.turf", image: artificialTurf },
-  { key: "services.softscapes", image: softscapes },
-  { key: "services.kitchens", image: outdoorKitchens },
-  { key: "services.palmtrees", image: palmTrees },
-  { key: "services.hardscapes", image: hardscapes },
-  { key: "services.irrigation", image: irrigation },
-  { key: "services.lighting", image: lighting },
-  { key: "services.adu", image: adu },
-  { key: "services.stampedconcrete", image: stampedConcrete },
+  { key: "services.remodeling", image: houseRemodeling, to: "/house-remodeling" },
+  { key: "services.construction", image: newConstruction, to: "/new-construction" },
+  { key: "services.fireplace", image: fireplace, to: "/custom-fireplaces" },
+  { key: "services.fencing", image: fencing, to: "/fencing" },
+  { key: "services.coveredpatios", image: coveredPatios, to: "/covered-patios" },
+  { key: "services.turf", image: artificialTurf, to: "/artificial-turf" },
+  { key: "services.softscapes", image: softscapes, to: "/softscapes" },
+  { key: "services.kitchens", image: outdoorKitchens, to: "/outdoor-kitchens" },
+  { key: "services.palmtrees", image: palmTrees, to: "/palm-trees" },
+  { key: "services.hardscapes", image: hardscapes, to: "/hardscapes" },
+  { key: "services.irrigation", image: irrigation, to: "/irrigation" },
+  { key: "services.lighting", image: lighting, to: "/landscape-lighting" },
+  { key: "services.adu", image: adu, to: "/adu-services" },
+  { key: "services.stampedconcrete", image: stampedConcrete, to: "/stamped-concrete-overlay" },
+  { key: "services.design", image: designService, to: "/design-service" },
 ] as const;
 
 export function ServicesSection() {
@@ -121,7 +123,7 @@ export function ServicesSection() {
 
                         <div className="pt-2">
                           <Link
-                            to="/services"
+                            to={s.to}
                             className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5"
                           >
                             <span>View More</span>
@@ -190,7 +192,7 @@ export function ServicesSection() {
 
                           <div className="pt-2">
                             <Link
-                              to="/services"
+                              to={s.to}
                               className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5"
                             >
                               <span>View More</span>

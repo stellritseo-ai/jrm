@@ -42,6 +42,7 @@ import imgStampedConcrete from "@/assets/svc-stamped-concrete.jpg";
 import imgIrrigation from "@/assets/svc-irrigation.jpg";
 import imgLighting from "@/assets/svc-landscape-lighting.jpg";
 import imgCommercial from "@/assets/stats-jobsite.jpg";
+import imgDesign from "@/assets/svc-design-blueprint.png";
 import logo from "@/assets/jrm-logo.png";
 import welBg from "@/assets/wel-bg.png";
 import heroBg from "@/assets/hero-patio.jpg";
@@ -145,6 +146,24 @@ function ServicesPage() {
       ],
       link: "/custom-fireplaces",
       linkText: "Learn More About Custom Fireplaces →"
+    },
+    {
+      id: "design-service",
+      category: "residential",
+      title: "Design Service",
+      icon: Compass,
+      image: imgDesign,
+      badge: "📐",
+      desc: "Visualize your dream space before we lay the foundation. We provide state-of-the-art 3D renderings, elevations, floor plans, and site mapping to ensure your remodeling or outdoor project is planned to absolute perfection.",
+      items: [
+        "3D Architectural Renderings",
+        "Floor Plans & Side Elevations",
+        "Outdoor Living & Sports Court Layouts",
+        "Site & Landscape Space Planning",
+        "Construction & Permit Documentation"
+      ],
+      link: "/design-service",
+      linkText: "Learn More About Design Services →"
     },
     // Outdoor Living
     {
