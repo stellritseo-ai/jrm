@@ -15,7 +15,12 @@ import {
   ClipboardList,
   Eye,
   PenTool,
-  Grid
+  Grid,
+  ExternalLink,
+  Video,
+  Map,
+  Settings,
+  FileText
 } from "lucide-react";
 
 import imgBlueprint from "@/assets/svc-design-blueprint.png";
@@ -42,44 +47,44 @@ function DesignServicePage() {
 
   const designCapabilities = [
     {
-      title: "3D Architectural Renderings",
-      desc: "See your home extension, guest house, or complete remodel from multiple angles before construction starts.",
-      bullets: [
-        "Photorealistic material and color visualization",
-        "Day and night lighting perspectives",
-        "Walkthrough tours and interactive views",
-        "Clear alignment on expectations before breaking ground"
-      ]
+      title: "Architectural Design & Space Planning",
+      desc: "Custom layouts and spatial flows tailored to your property lot, setbacks, and family lifestyle.",
+      icon: Compass
     },
     {
-      title: "Detailed Site & Floor Plans",
-      desc: "Comprehensive 2D dimension layouts and side elevations that detail the exact structural parameters.",
-      bullets: [
-        "Accurate floor plans with exact room/structure sizes",
-        "Detailed front, side, and rear elevation schematics",
-        "Perfect mapping of doors, windows, and partition walls",
-        "Crucial data for construction accuracy and building permits"
-      ]
+      title: "Construction & Permit-Ready Plans",
+      desc: "Accurate blueprint drawings designed to meet local municipal building codes and city guidelines.",
+      icon: ClipboardList
     },
     {
-      title: "Sports Court & Putting Greens",
-      desc: "Specialized layouts for tennis, pickleball, and custom golf putting greens mapped exactly to your site.",
-      bullets: [
-        "Pickleball and tennis court dimension layouts",
-        "Golf putting green contouring and cup placements",
-        "Fencing, borders, and surrounding hardscape integration",
-        "Optimized space utilization for family recreation"
-      ]
+      title: "Photorealistic 3D Renderings",
+      desc: "High-fidelity material, texture, and color visualizations showing your project from multiple lighting angles.",
+      icon: Eye
     },
     {
-      title: "Landscape & Hardscape Layouts",
-      desc: "Seamless integration of outdoor kitchens, patios, walkways, pool decks, palm trees, and lighting.",
-      bullets: [
-        "Custom outdoor kitchen island shape planning",
-        "Paver pathways, pool surrounds, and fireplace layouts",
-        "Palm tree, sod, and plant selection placement guides",
-        "Low-voltage uplighting and path light positions"
-      ]
+      title: "Virtual Reality Walkthroughs",
+      desc: "Immersive virtual models that allow you to step inside and walk through the spaces before breaking ground.",
+      icon: Sparkles
+    },
+    {
+      title: "Construction Animations",
+      desc: "Dynamic video fly-throughs detailing structural transitions, layout views, and spatial connections.",
+      icon: Video
+    },
+    {
+      title: "Site Planning & Feasibility",
+      desc: "Zoning calculations, setback reviews, and drainage assessments for optimal structure placement.",
+      icon: Map
+    },
+    {
+      title: "Engineering Coordination",
+      desc: "Collaboration with structural and civil engineering experts to ensure absolute safety and stability.",
+      icon: Settings
+    },
+    {
+      title: "Construction Documentation",
+      desc: "Comprehensive specification lists, dimensions, and detailed schedules to guide the build phase.",
+      icon: FileText
     }
   ];
 
@@ -215,18 +220,18 @@ function DesignServicePage() {
             className="relative z-20 max-w-4xl mx-auto flex flex-col items-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
-              Premium 3D & Blueprint Services
+              Partnership with ARViz Designs
             </span>
 
             <h1
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Visualize Your Dreams In Full 3D
+              Professional Design &amp; Visualization Services
             </h1>
 
             <p className="mt-6 text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl font-light">
-              Don't guess how your home remodel, custom fireplace, covered patio, or sports court will look. JRM Construction provides state-of-the-art architectural blueprints and photorealistic 3D renderings to plan your project down to the millimeter.
+              Great projects begin with thoughtful planning. Through our partnership with ARViz Designs, we provide professional residential design and visualization services that help bring ideas to life before construction begins. Whether you're planning an addition, accessory dwelling unit (ADU), outdoor living space, remodel, or custom residential project, our collaborative design process allows you to confidently visualize your investment and make informed decisions throughout the planning phase.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -336,37 +341,112 @@ function DesignServicePage() {
               Core Capabilities
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-neutral-900 font-serif">
-              What We Plan & Design
+              What We Plan &amp; Design
             </h2>
             <p className="text-neutral-500 text-xs md:text-sm font-light">
               We provide full-service space planning for all residential remodels, structural additions, and outdoor recreation areas.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {designCapabilities.map((cap, idx) => (
-              <div key={idx} className="bg-white border border-[#eae8e1] rounded-2xl p-6 shadow-xs space-y-4 hover:shadow-md transition-shadow">
-                <div className="space-y-2">
-                  <h3 className="text-base md:text-lg font-bold text-neutral-800 uppercase tracking-wide flex items-center gap-2">
-                    <PenTool className="w-4.5 h-4.5 text-[#577a4c] shrink-0" />
-                    <span>{cap.title}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {designCapabilities.map((cap, idx) => {
+              const Icon = cap.icon;
+              return (
+                <div key={idx} className="bg-white border border-[#eae8e1] rounded-2xl p-6 shadow-xs space-y-3 hover:shadow-md transition-shadow flex flex-col">
+                  <div className="h-10 w-10 rounded-xl bg-[#577a4c]/10 flex items-center justify-center text-[#577a4c] shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-neutral-800 uppercase tracking-wide">
+                    {cap.title}
                   </h3>
-                  <p className="text-neutral-500 text-xs font-light leading-relaxed">
+                  <p className="text-neutral-500 text-[11px] font-light leading-relaxed flex-1">
                     {cap.desc}
                   </p>
                 </div>
-                <div className="border-t border-[#eae8e1] pt-4">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] md:text-xs text-neutral-600 font-medium">
-                    {cap.bullets.map((b, bidx) => (
-                      <li key={bidx} className="flex items-start gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#577a4c] mt-0.5 shrink-0" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+              );
+            })}
+          </div>
+        </section>
+      </div>
+
+      {/* ── ARVIZ DESIGNS PARTNERSHIP & RENDERINGS ── */}
+      <div className="w-full bg-[#f4f3ef] pt-[15px] pb-[15px] px-[15px]">
+        <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-white px-6 md:px-12 py-16 border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <span className="inline-block bg-[#577a4c]/10 text-[#3d5636] text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
+                Strategic Design Partnership
+              </span>
+              <h2 className="text-2xl md:text-3xl font-black text-neutral-900 font-serif">
+                ARViz Designs &amp; JRM Construction
+              </h2>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                By integrating professional design into the early stages of every project, we reduce uncertainty, improve communication, and create a more efficient path from concept to construction.
+              </p>
+              <p className="text-neutral-600 text-sm font-light leading-relaxed">
+                Through our partnership with <strong>ARViz Designs</strong>, our clients receive the benefit of advanced visualization technology and construction-focused design expertise, ensuring every project is carefully planned before work begins.
+              </p>
+              <div className="pt-2">
+                <a
+                  href="https://www.dropbox.com/scl/fo/wawflxz9f2o7mtreqc98k/AHCIBn4kfgZ4aOAPZU_Nn0?rlkey=ggwzi6v5rdkmqzb4cji3pghty&dl=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#577a4c] hover:bg-[#4d6c43] text-white font-bold text-xs shadow-md transition-colors"
+                >
+                  View Sample Renderings on Dropbox
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-5 bg-[#fcfbf8] border border-[#eae8e1] rounded-2xl p-6 shadow-sm space-y-6">
+              <div className="space-y-1">
+                <h3 className="text-sm font-bold text-neutral-800 uppercase tracking-wider">
+                  Meet the Lead Designer
+                </h3>
+                <p className="text-neutral-400 text-xs font-light">
+                  Direct contact for professional visualization services
+                </p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-[#577a4c]/10 flex items-center justify-center text-[#577a4c] text-sm font-bold">
+                    AR
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-neutral-800">Angel Ruiz</h4>
+                    <p className="text-neutral-500 text-[10px] uppercase font-semibold">ARViz Designs Partner</p>
+                  </div>
+                </div>
+                
+                <div className="border-t border-[#eae8e1] pt-4 space-y-3 text-xs">
+                  <a
+                    href="tel:2109018849"
+                    className="flex items-center gap-3 text-neutral-600 hover:text-[#577a4c] transition-colors"
+                  >
+                    <Phone className="w-4 h-4 text-neutral-400" />
+                    <span>210.901.8849</span>
+                  </a>
+                  <a
+                    href="mailto:Angel@ARViz-Designs.com"
+                    className="flex items-center gap-3 text-neutral-600 hover:text-[#577a4c] transition-colors"
+                  >
+                    <Mail className="w-4 h-4 text-neutral-400" />
+                    <span className="truncate">Angel@ARViz-Designs.com</span>
+                  </a>
+                  <a
+                    href="http://ARViz-Designs.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-neutral-600 hover:text-[#577a4c] transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4 text-neutral-400" />
+                    <span>ARViz-Designs.com</span>
+                  </a>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </section>
       </div>
@@ -520,7 +600,7 @@ function DesignServicePage() {
               Start your construction or landscaping journey with a custom layout design. Contact us today to discuss floor plans, 3D renderings, and spatial zoning with Principal Consultant Robert Thompson.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg mt-4 text-left">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mt-4 text-left">
               <a
                 href="tel:2104295526"
                 className="bg-white/5 border border-white/15 rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
@@ -529,7 +609,7 @@ function DesignServicePage() {
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-[9px] font-extrabold text-neutral-400 uppercase tracking-wider block">Call Direct</span>
+                  <span className="text-[9px] font-extrabold text-neutral-400 uppercase tracking-wider block">Call Direct (Robert)</span>
                   <span className="text-xs font-black text-white">(210) 429-5526</span>
                 </div>
               </a>
@@ -544,6 +624,19 @@ function DesignServicePage() {
                 <div>
                   <span className="text-[9px] font-extrabold text-neutral-400 uppercase tracking-wider block">Email Robert</span>
                   <span className="text-xs font-black text-white truncate">robertsa210@icloud.com</span>
+                </div>
+              </a>
+
+              <a
+                href="mailto:Angel@ARViz-Designs.com"
+                className="bg-white/5 border border-white/15 rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              >
+                <div className="h-9 w-9 rounded-xl bg-[#577a4c] flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[9px] font-extrabold text-neutral-400 uppercase tracking-wider block">Contact Designer (Angel)</span>
+                  <span className="text-xs font-black text-white truncate">Angel@ARViz-Designs.com</span>
                 </div>
               </a>
             </div>
