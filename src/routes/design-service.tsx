@@ -369,7 +369,7 @@ function DesignServicePage() {
         </section>
       </div>
 
-      {/* ── ARVIZ DESIGNS PARTNERSHIP & RENDERINGS ── */}
+      {/* ── ARVIZ DESIGNS PARTNERSHIP & RENDERINGS ──
       <div className="w-full bg-[#f4f3ef] pt-[15px] pb-[15px] px-[15px]">
         <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-white px-6 md:px-12 py-16 border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -398,7 +398,7 @@ function DesignServicePage() {
                 </a>
               </div>
             </div>
-            
+
             <div className="lg:col-span-5 bg-[#fcfbf8] border border-[#eae8e1] rounded-2xl p-6 shadow-sm space-y-6">
               <div className="space-y-1">
                 <h3 className="text-sm font-bold text-neutral-800 uppercase tracking-wider">
@@ -408,7 +408,7 @@ function DesignServicePage() {
                   Direct contact for professional visualization services
                 </p>
               </div>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-full bg-[#577a4c]/10 flex items-center justify-center text-[#577a4c] text-sm font-bold">
@@ -419,7 +419,7 @@ function DesignServicePage() {
                     <p className="text-neutral-500 text-[10px] uppercase font-semibold">ARViz Designs Partner</p>
                   </div>
                 </div>
-                
+
                 <div className="border-t border-[#eae8e1] pt-4 space-y-3 text-xs">
                   <a
                     href="tel:2109018849"
@@ -449,7 +449,7 @@ function DesignServicePage() {
             </div>
           </div>
         </section>
-      </div>
+      </div> */}
 
       {/* ── DESIGN-BUILD SERVICE SPECTRUM ── */}
       <div className="w-full bg-[#f4f3ef] pt-[15px] pb-[15px] px-[15px]">
