@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "JRM Construction Landscaping Design | San Antonio's Trusted Remodeling & Outdoor Living Experts Since 1989" },
       { property: "og:description", content: "San Antonio's premier licensed, insured, and bonded construction company. 35+ years of experience in house remodeling, outdoor kitchens, custom fireplaces, hardscapes & artificial turf. Free consultations. Call (210) 429-5526." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://jrmconstruction.vercel.app" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "JRM Construction Landscaping Design | San Antonio" },
       { name: "twitter:description", content: "35+ years of trusted construction & landscaping in San Antonio. Licensed, insured & bonded. Call (210) 429-5526." },
@@ -127,6 +127,37 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HomeAndConstructionBusiness",
+            "name": "JRM Construction Landscaping Design",
+            "image": "https://jrmconstructionservicellc.com/assets/jrm-logo.png",
+            "@id": "https://jrmconstructionservicellc.com/#business",
+            "url": "https://jrmconstructionservicellc.com/",
+            "telephone": "+12104295526",
+            "priceRange": "$$$",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "San Antonio",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              "San Antonio",
+              "New Braunfels",
+              "Boerne",
+              "Canyon Lake",
+              "Seguin"
+            ],
+            "description": "San Antonio's trusted licensed, insured, and bonded construction company with 35+ years of experience in house remodeling, outdoor kitchens, custom fireplaces, hardscapes, and landscaping.",
+            "founder": {
+              "@type": "Person",
+              "name": "Robert Thompson"
+            },
+            "foundingDate": "1989"
+          })}
+        </script>
       </head>
       <body>
         {children}

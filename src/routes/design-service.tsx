@@ -600,7 +600,7 @@ function DesignServicePage() {
               Start your construction or landscaping journey with a custom layout design. Contact us today to discuss floor plans, 3D renderings, and spatial zoning with Principal Consultant Robert Thompson.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mt-4 text-left">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl mt-4 text-left">
               <a
                 href="tel:2104295526"
                 className="bg-white/5 border border-white/15 rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
@@ -624,19 +624,6 @@ function DesignServicePage() {
                 <div>
                   <span className="text-[9px] font-extrabold text-neutral-400 uppercase tracking-wider block">Email Robert</span>
                   <span className="text-xs font-black text-white truncate">robertsa210@icloud.com</span>
-                </div>
-              </a>
-
-              <a
-                href="mailto:Angel@ARViz-Designs.com"
-                className="bg-white/5 border border-white/15 rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
-              >
-                <div className="h-9 w-9 rounded-xl bg-[#577a4c] flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[9px] font-extrabold text-neutral-400 uppercase tracking-wider block">Contact Designer (Angel)</span>
-                  <span className="text-xs font-black text-white truncate">Angel@ARViz-Designs.com</span>
                 </div>
               </a>
             </div>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Exclude administrative/private pages from search indexation
+Disallow: /dashboard
+Disallow: /login
+
+Sitemap: https://jrmconstructionservicellc.com/sitemap.xml
