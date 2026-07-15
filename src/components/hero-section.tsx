@@ -1,33 +1,66 @@
-import heroImage from "@/assets/hero-patio.jpg";
-import heroVideo from "@/assets/jrmvideo.mp4";
+import { useState, useEffect } from "react";
+import banner1 from "@/assets/banner1.jpeg";
+import banner2 from "@/assets/banner2.png";
+import banner3 from "@/assets/banner3.png";
 import { useTranslation } from "@/context/translation-context";
 import { ClipboardList, Calendar } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+
+const banners = [banner1, banner2, banner3];
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % banners.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
       <section
-        className="relative mx-auto max-w-[1400px] w-full bg-cover bg-center rounded-[10px] overflow-hidden border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.06)] min-h-[500px] md:min-h-[580px] lg:min-h-[640px] flex items-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        className="relative mx-auto max-w-[1400px] w-full rounded-[10px] overflow-hidden border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.06)] min-h-[500px] md:min-h-[580px] lg:min-h-[640px] flex items-center"
       >
-        {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src={heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+        {/* Slideshow background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ opacity: 1, scale: 1.08 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                opacity: { duration: 1.5, ease: "easeInOut" },
+                scale: { duration: 6, ease: "linear" }
+              }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${banners[currentSlide]})` }}
+            />
+          </AnimatePresence>
+        </div>
 
         {/* Premium Dark Forest & Shadow Overlay for High Contrast */}
         <div
           className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#111a0a]/95 via-[#1c2b11]/80 md:via-[#1c2b11]/50 to-transparent z-10"
         />
+
+        {/* Slide Indicator Dots */}
+        <div className="absolute bottom-6 right-6 md:right-12 z-20 flex gap-2">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentSlide === index ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
         <div className="relative z-20 w-full px-6 py-16 md:px-12 md:py-24 lg:px-16 flex items-center justify-center md:justify-start text-center md:text-left">
           <div className="max-w-4xl text-white flex flex-col items-center md:items-start">
