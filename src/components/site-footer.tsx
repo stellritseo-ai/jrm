@@ -2,6 +2,7 @@ import { Facebook, Twitter, Youtube } from "lucide-react";
 import logo from "@/assets/jrm-logo.png";
 import { useTranslation } from "@/context/translation-context";
 import { useSettings } from "@/context/settings-context";
+import { Link } from "@tanstack/react-router";
 
 export function SiteFooter() {
   const { t, language } = useTranslation();
@@ -9,24 +10,23 @@ export function SiteFooter() {
   const phoneClean = settings.officePhone.replace(/\D/g, "");
 
   const quickLinks = [
-    "/",
-    "/about",
-    "/services",
-    "/work",
-    "/reviews",
-    "/blog",
-    "/#consultation",
-    "/contact",
+    { label: "Home", to: "/" },
+    { label: "About Us", to: "/about" },
+    { label: "Our Services", to: "/services" },
+    { label: "Our Work", to: "/work" },
+    { label: "Customer Reviews", to: "/reviews" },
+    { label: "Blog / Guides", to: "/blog" },
+    { label: "Contact Us", to: "/contact" },
   ];
 
   const serviceLinks = [
-    "/house-remodeling",
-    "/new-construction",
-    "/custom-fireplaces",
-    "/fencing",
-    "/hardscapes",
-    "/covered-patios",
-    "/services",
+    { label: "House Remodeling", to: "/house-remodeling" },
+    { label: "New Construction", to: "/new-construction" },
+    { label: "Custom Fireplaces", to: "/custom-fireplaces" },
+    { label: "Fencing", to: "/fencing" },
+    { label: "Hardscapes", to: "/hardscapes" },
+    { label: "Covered Patios", to: "/covered-patios" },
+    { label: "All Services", to: "/services" },
   ];
 
   return (
@@ -57,11 +57,11 @@ export function SiteFooter() {
               {t("footer.title.services")}
             </h4>
             <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
-              {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                <li key={num}>
-                  <a href={serviceLinks[num - 1]} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
-                    {t(`footer.service.${num}` as any)}
-                  </a>
+              {serviceLinks.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -73,11 +73,11 @@ export function SiteFooter() {
               {t("footer.title.links")}
             </h4>
             <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
-              {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                <li key={num}>
-                  <a href={quickLinks[num - 1]} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
-                    {t(`footer.link.${num}` as any)}
-                  </a>
+              {quickLinks.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

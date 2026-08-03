@@ -14,7 +14,6 @@ const navItems = [
   { key: "nav.services", to: "/services",label: "Services" },
   { key: "nav.work",     to: "/work",    label: "Our Work" },
   { key: "nav.reviews",  to: "/reviews", label: "Reviews" },
-  { key: "nav.blog",     to: "/blog",    label: "Blog" },
   { key: "nav.contact",  to: "/contact", label: "Contact" },
 ] as const;
 
