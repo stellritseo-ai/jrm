@@ -14,6 +14,7 @@ export function SiteFooter() {
     "/services",
     "/work",
     "/reviews",
+    "/blog",
     "/#consultation",
     "/contact",
   ];

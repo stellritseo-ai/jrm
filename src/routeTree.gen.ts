@@ -38,7 +38,9 @@ import { Route as AduServicesRouteImport } from './routes/adu-services'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as LocationsLocationRouteImport } from './routes/locations/$location'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -185,9 +187,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsLocationRoute = LocationsLocationRouteImport.update({
   id: '/locations/$location',
   path: '/locations/$location',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -221,7 +233,9 @@ export interface FileRoutesByFullPath {
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
   '/work': typeof WorkRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -253,7 +267,9 @@ export interface FileRoutesByTo {
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
   '/work': typeof WorkRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -286,7 +302,9 @@ export interface FileRoutesById {
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
   '/work': typeof WorkRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -320,7 +338,9 @@ export interface FileRouteTypes {
     | '/softscapes'
     | '/stamped-concrete-overlay'
     | '/work'
+    | '/blog/$slug'
     | '/locations/$location'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -352,7 +372,9 @@ export interface FileRouteTypes {
     | '/softscapes'
     | '/stamped-concrete-overlay'
     | '/work'
+    | '/blog/$slug'
     | '/locations/$location'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -384,7 +406,9 @@ export interface FileRouteTypes {
     | '/softscapes'
     | '/stamped-concrete-overlay'
     | '/work'
+    | '/blog/$slug'
     | '/locations/$location'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -417,7 +441,9 @@ export interface RootRouteChildren {
   SoftscapesRoute: typeof SoftscapesRoute
   StampedConcreteOverlayRoute: typeof StampedConcreteOverlayRoute
   WorkRoute: typeof WorkRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   LocationsLocationRoute: typeof LocationsLocationRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -625,11 +651,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/$location': {
       id: '/locations/$location'
       path: '/locations/$location'
       fullPath: '/locations/$location'
       preLoaderRoute: typeof LocationsLocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -665,7 +705,9 @@ const rootRouteChildren: RootRouteChildren = {
   SoftscapesRoute: SoftscapesRoute,
   StampedConcreteOverlayRoute: StampedConcreteOverlayRoute,
   WorkRoute: WorkRoute,
+  BlogSlugRoute: BlogSlugRoute,
   LocationsLocationRoute: LocationsLocationRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
