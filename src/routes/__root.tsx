@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "msvalidate.01", content: "028651FABCA0EB84B344A4A9221DFA02" },
       { title: "JRM Construction Landscaping Design | San Antonio Construction, Remodeling & Outdoor Living Experts" },
       { name: "description", content: "San Antonio's premier licensed, insured & bonded general contractor with 35+ years experience. Expert house remodeling, custom outdoor kitchens, fireplaces, covered patios, hardscapes & artificial turf. Call (210) 429-5526." },
       { name: "author", content: "JRM Construction Landscaping Design" },
