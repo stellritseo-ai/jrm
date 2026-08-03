@@ -191,7 +191,7 @@ function BlogHubPage() {
                   className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-neutral-900 leading-tight"
                   style={{ fontFamily: "Georgia, serif" }}
                 >
-                  <Link to={`/blog/${featuredPost.slug}`} className="hover:text-[#577a4c] transition-colors">
+                  <Link to={`/blog/${featuredPost.slug}` as any} className="hover:text-[#577a4c] transition-colors">
                     {featuredPost.title}
                   </Link>
                 </h2>
@@ -202,7 +202,7 @@ function BlogHubPage() {
 
                 <div className="pt-2">
                   <Link
-                    to={`/blog/${featuredPost.slug}`}
+                    to={`/blog/${featuredPost.slug}` as any}
                     className="inline-flex items-center gap-2 rounded-full bg-[#577a4c] hover:bg-[#4d6c43] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-105"
                   >
                     <span>Read Full Guide</span>
@@ -261,7 +261,7 @@ function BlogHubPage() {
                         className="text-lg font-bold text-neutral-900 leading-snug group-hover:text-[#577a4c] transition-colors"
                         style={{ fontFamily: "Georgia, serif" }}
                       >
-                        <Link to={`/blog/${post.slug}`}>
+                        <Link to={`/blog/${post.slug}` as any}>
                           {post.title}
                         </Link>
                       </h3>
@@ -278,7 +278,7 @@ function BlogHubPage() {
                       <span className="text-[11px] font-medium text-neutral-700">{post.author.name}</span>
                     </div>
                     <Link
-                      to={`/blog/${post.slug}`}
+                      to={`/blog/${post.slug}` as any}
                       className="inline-flex items-center gap-1 text-xs font-bold text-[#3d5636] hover:text-[#577a4c] pt-3"
                     >
                       <span>Read Guide</span>
