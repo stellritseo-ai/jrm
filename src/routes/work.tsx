@@ -541,7 +541,7 @@ function OurWorkPage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1.5 shrink-0 items-center">
-                  {filtered[lightboxIndex].services.map((s) => (
+                  {filtered[lightboxIndex].services.map((s: string) => (
                     <span key={s} className="bg-white/10 border border-white/15 text-white text-[10px] font-semibold px-2.5 py-1 rounded-md">
                       {s}
                     </span>

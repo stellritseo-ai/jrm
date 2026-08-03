@@ -95,45 +95,46 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: idx * 0.15, ease: "easeOut" }}
-                className="group relative rounded-2xl overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[280px] lg:h-[340px] xl:h-[380px] border border-neutral-900/5 cursor-pointer"
               >
-                {/* Background image */}
-                <img
-                  src={s.image}
-                  alt={t(s.key)}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
+                <Link
+                  to={s.to}
+                  className="group relative block rounded-2xl overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[280px] lg:h-[340px] xl:h-[380px] border border-neutral-900/5 cursor-pointer"
+                >
+                  {/* Background image */}
+                  <img
+                    src={s.image}
+                    alt={t(s.key)}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
 
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
+                  {/* Dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
 
-                {/* Card Content */}
-                <div className="absolute inset-0 p-5 flex flex-col justify-end z-10 h-full text-center">
-                  <div className="flex flex-col gap-1 transition-all duration-500 group-hover:-translate-y-2">
-                    <h3 className="text-[15px] sm:text-base font-bold text-white leading-tight uppercase">
-                      {t(s.key)}
-                    </h3>
+                  {/* Card Content */}
+                  <div className="absolute inset-0 p-5 flex flex-col justify-end z-10 h-full text-center">
+                    <div className="flex flex-col gap-1 transition-all duration-500 group-hover:-translate-y-2">
+                      <h3 className="text-[15px] sm:text-base font-bold text-white leading-tight uppercase">
+                        {t(s.key)}
+                      </h3>
 
-                    {/* Hover detail drawer */}
-                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-[160px] group-hover:opacity-100 transition-all duration-500 ease-out space-y-2 text-center flex flex-col items-center">
-                      <p className="text-[12px] text-white/85 leading-snug mt-1.5 line-clamp-3 max-w-[95%]">
-                        {t((s.key + ".desc") as any)}
-                      </p>
+                      {/* Hover detail drawer */}
+                      <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-[160px] group-hover:opacity-100 transition-all duration-500 ease-out space-y-2 text-center flex flex-col items-center">
+                        <p className="text-[12px] text-white/85 leading-snug mt-1.5 line-clamp-3 max-w-[95%]">
+                          {t((s.key + ".desc") as any)}
+                        </p>
 
                         <div className="pt-2">
-                          <Link
-                            to={s.to}
-                            className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5"
-                          >
+                          <span className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5">
                             <span>View More</span>
                             <ArrowRight className="w-3 h-3" />
                             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#84a377]" />
-                          </Link>
+                          </span>
                         </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -165,7 +166,10 @@ export function ServicesSection() {
             <CarouselContent className="-ml-5">
               {slideItems.map((s, idx) => (
                 <CarouselItem key={`${s.key}-${idx}`} className="pl-5 sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
-                  <div className="group relative rounded-2xl overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[280px] lg:h-[340px] xl:h-[380px] border border-neutral-900/5 cursor-pointer">
+                  <Link
+                    to={s.to}
+                    className="group relative block rounded-2xl overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[280px] lg:h-[340px] xl:h-[380px] border border-neutral-900/5 cursor-pointer"
+                  >
                     {/* Background image */}
                     <img
                       src={s.image}
@@ -191,19 +195,16 @@ export function ServicesSection() {
                           </p>
 
                           <div className="pt-2">
-                            <Link
-                              to={s.to}
-                              className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5"
-                            >
+                            <span className="relative inline-flex items-center gap-1 text-[#84a377] font-bold text-[10px] uppercase tracking-widest pb-0.5">
                               <span>View More</span>
                               <ArrowRight className="w-3 h-3" />
                               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#84a377]" />
-                            </Link>
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </CarouselItem>
               ))}
             </CarouselContent>

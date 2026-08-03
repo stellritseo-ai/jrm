@@ -1,8 +1,55 @@
+# User-agent directives for JRM Construction Landscaping Design
+# Website: https://jrmconstructionservicellc.com
+
 User-agent: *
 Allow: /
-
-# Exclude administrative/private pages from search indexation
 Disallow: /dashboard
 Disallow: /login
+Disallow: /api/
 
+# Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Generative AI & LLM Search Crawlers (GEO / AI Search)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ByteSpider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap Location
 Sitemap: https://jrmconstructionservicellc.com/sitemap.xml

@@ -38,6 +38,7 @@ import { Route as AduServicesRouteImport } from './routes/adu-services'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocationsLocationRouteImport } from './routes/locations/$location'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -184,6 +185,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsLocationRoute = LocationsLocationRouteImport.update({
+  id: '/locations/$location',
+  path: '/locations/$location',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -215,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
   '/work': typeof WorkRoute
+  '/locations/$location': typeof LocationsLocationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -246,6 +253,7 @@ export interface FileRoutesByTo {
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
   '/work': typeof WorkRoute
+  '/locations/$location': typeof LocationsLocationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -278,6 +286,7 @@ export interface FileRoutesById {
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
   '/work': typeof WorkRoute
+  '/locations/$location': typeof LocationsLocationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -311,6 +320,7 @@ export interface FileRouteTypes {
     | '/softscapes'
     | '/stamped-concrete-overlay'
     | '/work'
+    | '/locations/$location'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/softscapes'
     | '/stamped-concrete-overlay'
     | '/work'
+    | '/locations/$location'
   id:
     | '__root__'
     | '/'
@@ -373,6 +384,7 @@ export interface FileRouteTypes {
     | '/softscapes'
     | '/stamped-concrete-overlay'
     | '/work'
+    | '/locations/$location'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -405,6 +417,7 @@ export interface RootRouteChildren {
   SoftscapesRoute: typeof SoftscapesRoute
   StampedConcreteOverlayRoute: typeof StampedConcreteOverlayRoute
   WorkRoute: typeof WorkRoute
+  LocationsLocationRoute: typeof LocationsLocationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -612,6 +625,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/$location': {
+      id: '/locations/$location'
+      path: '/locations/$location'
+      fullPath: '/locations/$location'
+      preLoaderRoute: typeof LocationsLocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -645,6 +665,7 @@ const rootRouteChildren: RootRouteChildren = {
   SoftscapesRoute: SoftscapesRoute,
   StampedConcreteOverlayRoute: StampedConcreteOverlayRoute,
   WorkRoute: WorkRoute,
+  LocationsLocationRoute: LocationsLocationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

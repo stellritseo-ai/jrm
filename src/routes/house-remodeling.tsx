@@ -34,8 +34,13 @@ export const Route = createFileRoute("/house-remodeling")({
       { name: "description", content: "Transform your home with expert remodeling services in San Antonio. 35 years of experience in kitchen remodels, bathroom renovations & whole-home renovations. Licensed & insured. Free consultation. Call (210) 429-5526." },
       { property: "og:title", content: "House Remodeling San Antonio | Kitchen & Bathroom Renovations | JRM Construction" },
       { property: "og:description", content: "Transform your home with expert remodeling services in San Antonio. 35 years of experience in kitchen remodels, bathroom renovations & whole-home renovations. Licensed & insured. Free consultation. Call (210) 429-5526." },
-      { property: "og:type", content: "website" }
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/house-remodeling" },
+      { name: "twitter:card", content: "summary_large_image" }
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/house-remodeling" }
+    ]
   }),
   component: HouseRemodelingPage,
 });
@@ -69,10 +74,45 @@ function HouseRemodelingPage() {
       number: "04",
       title: "Final Review",
       subtitle: "Your Complete Satisfaction",
-      icon: Sparkles,
-      desc: "We aren't finished until you are thrilled. We conduct a thorough final walk-through to ensure every detail meets our high standards and your complete satisfaction."
+      icon: ShieldCheck,
+      desc: "We conduct a thorough final walkthrough together to ensure every detail meets your expectations and our high standards. Your satisfaction is our primary goal."
     }
   ];
+
+  return (
+    <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "serviceType": "House Remodeling",
+                "provider": {
+                  "@id": "https://jrmconstructionservicellc.com/#business"
+                },
+                "areaServed": "San Antonio, TX",
+                "description": "Full-service house remodeling including kitchen remodels, bathroom renovations, master suites, and room additions in San Antonio.",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "House Remodeling", "item": "https://jrmconstructionservicellc.com/house-remodeling" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
 
   const expertiseList = [
     {
