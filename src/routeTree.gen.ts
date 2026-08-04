@@ -29,6 +29,7 @@ import { Route as FencingRouteImport } from './routes/fencing'
 import { Route as DesignServiceRouteImport } from './routes/design-service'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CustomFireplacesRouteImport } from './routes/custom-fireplaces'
+import { Route as CustomDecksRouteImport } from './routes/custom-decks'
 import { Route as CoveredPatiosRouteImport } from './routes/covered-patios'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -142,6 +143,11 @@ const CustomFireplacesRoute = CustomFireplacesRouteImport.update({
   path: '/custom-fireplaces',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomDecksRoute = CustomDecksRouteImport.update({
+  id: '/custom-decks',
+  path: '/custom-decks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CoveredPatiosRoute = CoveredPatiosRouteImport.update({
   id: '/covered-patios',
   path: '/covered-patios',
@@ -213,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/contact-us': typeof ContactUsRoute
   '/covered-patios': typeof CoveredPatiosRoute
+  '/custom-decks': typeof CustomDecksRoute
   '/custom-fireplaces': typeof CustomFireplacesRoute
   '/dashboard': typeof DashboardRoute
   '/design-service': typeof DesignServiceRoute
@@ -247,6 +254,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/contact-us': typeof ContactUsRoute
   '/covered-patios': typeof CoveredPatiosRoute
+  '/custom-decks': typeof CustomDecksRoute
   '/custom-fireplaces': typeof CustomFireplacesRoute
   '/dashboard': typeof DashboardRoute
   '/design-service': typeof DesignServiceRoute
@@ -282,6 +290,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/contact-us': typeof ContactUsRoute
   '/covered-patios': typeof CoveredPatiosRoute
+  '/custom-decks': typeof CustomDecksRoute
   '/custom-fireplaces': typeof CustomFireplacesRoute
   '/dashboard': typeof DashboardRoute
   '/design-service': typeof DesignServiceRoute
@@ -318,6 +327,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/contact-us'
     | '/covered-patios'
+    | '/custom-decks'
     | '/custom-fireplaces'
     | '/dashboard'
     | '/design-service'
@@ -352,6 +362,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/contact-us'
     | '/covered-patios'
+    | '/custom-decks'
     | '/custom-fireplaces'
     | '/dashboard'
     | '/design-service'
@@ -386,6 +397,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/contact-us'
     | '/covered-patios'
+    | '/custom-decks'
     | '/custom-fireplaces'
     | '/dashboard'
     | '/design-service'
@@ -421,6 +433,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ContactUsRoute: typeof ContactUsRoute
   CoveredPatiosRoute: typeof CoveredPatiosRoute
+  CustomDecksRoute: typeof CustomDecksRoute
   CustomFireplacesRoute: typeof CustomFireplacesRoute
   DashboardRoute: typeof DashboardRoute
   DesignServiceRoute: typeof DesignServiceRoute
@@ -588,6 +601,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CustomFireplacesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/custom-decks': {
+      id: '/custom-decks'
+      path: '/custom-decks'
+      fullPath: '/custom-decks'
+      preLoaderRoute: typeof CustomDecksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/covered-patios': {
       id: '/covered-patios'
       path: '/covered-patios'
@@ -685,6 +705,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ContactUsRoute: ContactUsRoute,
   CoveredPatiosRoute: CoveredPatiosRoute,
+  CustomDecksRoute: CustomDecksRoute,
   CustomFireplacesRoute: CustomFireplacesRoute,
   DashboardRoute: DashboardRoute,
   DesignServiceRoute: DesignServiceRoute,

@@ -25,6 +25,7 @@ const servicesSubMenu = [
   { label: "Fencing",           to: "/fencing", hash: undefined },
   { label: "Hardscapes",        to: "/hardscapes", hash: undefined },
   { label: "Covered Patios",    to: "/covered-patios", hash: undefined },
+  { label: "Custom Decks",      to: "/custom-decks", hash: undefined },
   { label: "Artificial Turf",   to: "/artificial-turf", hash: undefined },
   { label: "Softscapes",        to: "/softscapes", hash: undefined },
   { label: "Outdoor Kitchens",  to: "/outdoor-kitchens", hash: undefined },

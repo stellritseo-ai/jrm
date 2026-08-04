@@ -11,6 +11,7 @@ import hardscapes from "@/assets/svc-hardscapes.jpg";
 import irrigation from "@/assets/svc-irrigation.jpg";
 import lighting from "@/assets/svc-landscape-lighting.jpg";
 import adu from "@/assets/svc-adu-services.jpg";
+import customDecks from "@/assets/svc-custom-decks.jpg";
 import stampedConcrete from "@/assets/svc-stamped-concrete.jpg";
 import designService from "@/assets/svc-design-blueprint.png";
 import { useTranslation } from "@/context/translation-context";
@@ -38,6 +39,7 @@ const services = [
   { key: "services.irrigation", image: irrigation, to: "/irrigation" },
   { key: "services.lighting", image: lighting, to: "/landscape-lighting" },
   { key: "services.adu", image: adu, to: "/adu-services" },
+  { key: "services.decks", image: customDecks, to: "/custom-decks" },
   { key: "services.stampedconcrete", image: stampedConcrete, to: "/stamped-concrete-overlay" },
   { key: "services.design", image: designService, to: "/design-service" },
 ] as const;

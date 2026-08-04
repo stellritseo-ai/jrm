@@ -80,7 +80,13 @@
   <!-- Service Pages -->
   <url>
     <loc>https://jrmconstructionservicellc.com/house-remodeling</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jrmconstructionservicellc.com/custom-decks</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
