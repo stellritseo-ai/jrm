@@ -228,30 +228,55 @@ function CustomDecksPage() {
                 Premium Outdoor Living
               </span>
               <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-900 leading-tight" style={{ fontFamily: "Georgia, serif" }}>
-                Built For Comfort, Longevity & Unmatched Views
+                Decking Materials & Design Options
               </h2>
               <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed">
-                Whether you envision a spacious single-level deck surrounding your pool, a multi-tier platform for hillside entertaining, or an elegant second-story composite balcony, JRM Construction delivers structural integrity and flawless finish work.
+                Your choice of decking materials is essential for your deck's design and long-term cost and should be discussed with your builder. Wood decks have been popular recently because they often look beautiful and complement your home well. Cedar is an excellent choice if you want a natural-looking finish that will last a long time. We offer <strong>Ipe, Tigerwood, Cedar, and Treated Pine</strong>.
+              </p>
+              <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed">
+                With composite and PVC materials, you can get all of this classic elegance with way less maintenance hassle...which also means you save more money on upkeep! But what's even better? Both varieties come in many colors, so picking one is easy! We carry all lines of <strong>TREX, TimberTech, and AZEK</strong>.
               </p>
 
               <ul className="space-y-2.5 pt-2 text-xs md:text-sm text-neutral-700">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#577a4c] shrink-0" />
-                  <span>35+ years of licensed carpentry & general contracting expertise</span>
+                  <span>Wood Decks: Ipe, Tigerwood, Cedar, and Treated Pine</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#577a4c] shrink-0" />
-                  <span>Top-tier Trex, TimberTech & cedar composite material options</span>
+                  <span>Composite & PVC: Official installers for TREX, TimberTech & AZEK</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#577a4c] shrink-0" />
-                  <span>Full structural engineering, city permitting & HOA approvals handled</span>
+                  <span>35+ years of master carpentry, engineering & local permitting expertise</span>
                 </li>
               </ul>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 h-80 md:h-96">
               <img src={imgDecks} alt="Custom Decks San Antonio" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* ── BACKYARD SANCTUARY CALLOUT SECTION ── */}
+      <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[10px] px-[15px]">
+        <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fcfbf8] border border-[#eae8e1] shadow-sm px-6 py-12 md:px-12 text-center">
+          <div className="max-w-4xl mx-auto space-y-4">
+            <span className="inline-block bg-[#577a4c]/10 text-[#3d5636] border border-[#577a4c]/20 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              Your Outdoor Sanctuary
+            </span>
+            <h3 className="text-xl md:text-3xl font-extrabold text-neutral-900" style={{ fontFamily: "Georgia, serif" }}>
+              Your Backyard Deserves To Be Your Sanctuary
+            </h3>
+            <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed max-w-3xl mx-auto">
+              Imagine lounging in the sun with a glass of lemonade and enjoying nature's sounds, sights, and smells. Your family will love hosting game nights or cooking together on your new deck while you show off your mad grill skills!
+            </p>
+            <div className="pt-4">
+              <p className="text-sm md:text-base font-bold text-[#3d5636] tracking-wide uppercase">
+                Give us a call today to start <span className="underline decoration-[#577a4c] decoration-2">INTEGRATING</span> your outdoor <span className="underline decoration-[#577a4c] decoration-2">DREAMS</span> into a <span className="underline decoration-[#577a4c] decoration-2">REALITY</span>.
+              </p>
             </div>
           </div>
         </section>
