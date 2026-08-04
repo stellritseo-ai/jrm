@@ -1405,7 +1405,7 @@ function DashboardPage() {
                   </div>
                   <div className="flex items-center gap-2 bg-white border border-[#eae8e1] px-4 py-2 rounded-xl text-xs font-semibold text-neutral-600 shadow-xs">
                     <Calendar className="h-4 w-4 text-[#3d5636]" />
-                    <span>June 2026 Summary</span>
+                    <span>{new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} Summary</span>
                   </div>
                 </div>
 
@@ -3189,7 +3189,7 @@ function DashboardPage() {
 
       {/* ── FOOTER BAR ── */}
       <footer className="bg-[#1c140d] border-t border-neutral-800 text-neutral-400 py-4 text-center text-[10px] font-medium tracking-wide">
-        <span>© 2026 JRM Construction Landscape Design · Internal Admin Portal · Secured Session Design By <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-[#577a4c]">StellR IT LLC</a></span>
+        <span>© {new Date().getFullYear()} JRM Construction Landscape Design · Internal Admin Portal · Secured Session Design By <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-[#577a4c]">StellR IT LLC</a></span>
       </footer>
 
       {/* ── MODAL: LEAD REVIEW & DETAILS ── */}
