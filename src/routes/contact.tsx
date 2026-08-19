@@ -29,12 +29,23 @@ import contactHero from "@/assets/stats-jobsite.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact JRM Construction Landscape Design — San Antonio, TX" },
-      { name: "description", content: "Contact JRM Construction for free estimates, on-site design consultations, or 24/7 emergency service in San Antonio, TX." },
-      { property: "og:title", content: "Contact JRM Construction Landscape Design" },
-      { property: "og:description", content: "Connect with owner Robert Thompson for premium remodeling and landscape solutions in San Antonio, TX." },
-      { property: "og:type", content: "website" }
+      { title: "Contact JRM Construction | Free Estimate San Antonio, TX" },
+      { name: "description", content: "Contact JRM Construction Services LLC in San Antonio, TX. Call (210) 429-5526 or submit a request for your free remodeling or construction estimate." },
+      { property: "og:title", content: "Contact JRM Construction | Free Estimate San Antonio, TX" },
+      { property: "og:description", content: "Contact JRM Construction Services LLC in San Antonio, TX. Call (210) 429-5526 or submit a request for your free remodeling or construction estimate." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/contact" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact JRM Construction | San Antonio TX" },
+      { name: "twitter:description", content: "Call (210) 429-5526 for your free on-site consultation with owner Robert Thompson." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/contact" }
+    ]
   }),
   component: ContactPage,
 });
@@ -162,6 +173,33 @@ function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "ContactPage",
+                "@id": "https://jrmconstructionservicellc.com/contact#webpage",
+                "url": "https://jrmconstructionservicellc.com/contact",
+                "name": "Contact JRM Construction Landscaping Design",
+                "description": "Get in touch with JRM Construction Services LLC for free estimates, consultations, and general contracting in San Antonio, TX.",
+                "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/contact#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://jrmconstructionservicellc.com/contact" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

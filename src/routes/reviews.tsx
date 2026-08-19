@@ -23,12 +23,23 @@ import reviewsHero from "@/assets/welcome-pavilion.jpg";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Client Reviews & Testimonials — JRM Construction, San Antonio" },
-      { name: "description", content: "Read real client reviews and testimonials for JRM Construction Landscape Design. Serving San Antonio, Boerne, New Braunfels, and surrounding areas." },
-      { property: "og:title", content: "Client Reviews & Testimonials — JRM Construction" },
-      { property: "og:description", content: "What San Antonio homeowners & businesses say about JRM Construction. 35+ years of trusted contracting legacy." },
-      { property: "og:type", content: "website" }
+      { title: "Customer Reviews & Testimonials | JRM Construction San Antonio TX" },
+      { name: "description", content: "Read verified 5-star customer reviews for JRM Construction Services LLC. Over 35 years of trusted general contracting & remodeling in San Antonio, TX." },
+      { property: "og:title", content: "Customer Reviews & Testimonials | JRM Construction San Antonio TX" },
+      { property: "og:description", content: "Read verified 5-star customer reviews for JRM Construction Services LLC. Over 35 years of trusted general contracting & remodeling in San Antonio, TX." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/reviews" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Customer Reviews | JRM Construction San Antonio TX" },
+      { name: "twitter:description", content: "35+ years of verified 5-star client satisfaction across San Antonio & Central Texas." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/reviews" }
+    ]
   }),
   component: ReviewsPage,
 });
@@ -160,6 +171,33 @@ function ReviewsPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": "https://jrmconstructionservicellc.com/reviews#webpage",
+                "url": "https://jrmconstructionservicellc.com/reviews",
+                "name": "Customer Reviews & Testimonials | JRM Construction",
+                "description": "Verified 5-star customer testimonials and reviews for JRM Construction Services LLC in San Antonio, TX.",
+                "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/reviews#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://jrmconstructionservicellc.com/reviews" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

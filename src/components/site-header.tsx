@@ -9,39 +9,41 @@ import { useTranslation } from "@/context/translation-context";
 import { useSettings } from "@/context/settings-context";
 
 const navItems = [
-  { key: "nav.home",     to: "/",        label: "Home" },
-  { key: "nav.about",    to: "/about",   label: "About" },
-  { key: "nav.services", to: "/services",label: "Services" },
-  { key: "nav.work",     to: "/work",    label: "Our Work" },
-  { key: "nav.reviews",  to: "/reviews", label: "Reviews" },
-  { key: "nav.contact",  to: "/contact", label: "Contact" },
+  { key: "nav.home", to: "/", label: "Home" },
+  { key: "nav.about", to: "/about", label: "About" },
+  { key: "nav.services", to: "/services", label: "Services" },
+  // { key: "nav.areas",    to: "/service-areas", label: "Service Areas" },
+  { key: "nav.work", to: "/work", label: "Our Work" },
+  { key: "nav.reviews", to: "/reviews", label: "Reviews" },
+  { key: "nav.contact", to: "/contact", label: "Contact" },
 ] as const;
 
 const servicesSubMenu = [
-  { label: "Palm Trees",        to: "/palm-trees", hash: undefined },
-  { label: "House Remodeling",  to: "/house-remodeling", hash: undefined },
-  { label: "New Construction",  to: "/new-construction", hash: undefined },
-  { label: "Fireplace",         to: "/custom-fireplaces", hash: undefined },
-  { label: "Fencing",           to: "/fencing", hash: undefined },
-  { label: "Hardscapes",        to: "/hardscapes", hash: undefined },
-  { label: "Covered Patios",    to: "/covered-patios", hash: undefined },
-  { label: "Custom Decks",      to: "/custom-decks", hash: undefined },
-  { label: "Artificial Turf",   to: "/artificial-turf", hash: undefined },
-  { label: "Softscapes",        to: "/softscapes", hash: undefined },
-  { label: "Outdoor Kitchens",  to: "/outdoor-kitchens", hash: undefined },
+  { label: "General Contracting", to: "/general-contracting", hash: undefined },
+  { label: "House Remodeling", to: "/house-remodeling", hash: undefined },
+  { label: "New Construction", to: "/new-construction", hash: undefined },
+  { label: "Commercial Services", to: "/commercial", hash: undefined },
+  { label: "Covered Patios", to: "/covered-patios", hash: undefined },
+  { label: "Outdoor Kitchens", to: "/outdoor-kitchens", hash: undefined },
   { label: "Custom Fireplaces", to: "/custom-fireplaces", hash: undefined },
-  { label: "Irrigation",        to: "/irrigation", hash: undefined },
-  { label: "Landscape Lighting",to: "/landscape-lighting", hash: undefined },
-  { label: "ADU Services",      to: "/adu-services", hash: undefined },
+  { label: "Hardscapes", to: "/hardscapes", hash: undefined },
   { label: "Stamped Concrete / Overlay", to: "/stamped-concrete-overlay", hash: undefined },
-  { label: "Design Service",    to: "/design-service", hash: undefined },
+  { label: "Custom Decks", to: "/custom-decks", hash: undefined },
+  { label: "Artificial Turf", to: "/artificial-turf", hash: undefined },
+  { label: "Fencing", to: "/fencing", hash: undefined },
+  { label: "ADU Services", to: "/adu-services", hash: undefined },
+  { label: "Design Service", to: "/design-service", hash: undefined },
+  { label: "Softscapes", to: "/softscapes", hash: undefined },
+  { label: "Palm Trees", to: "/palm-trees", hash: undefined },
+  { label: "Irrigation", to: "/irrigation", hash: undefined },
+  { label: "Landscape Lighting", to: "/landscape-lighting", hash: undefined },
 ] as const;
 
 export function SiteHeader() {
   const { t } = useTranslation();
   const { settings } = useSettings();
   const phoneClean = settings.officePhone.replace(/\D/g, "");
-  
+
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -72,8 +74,8 @@ export function SiteHeader() {
     }
     return currentPath.startsWith(itemTo);
   };
-  const [scrolled, setScrolled]     = useState(false);
-  const [menuOpen, setMenuOpen]      = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
@@ -120,19 +122,18 @@ export function SiteHeader() {
           `}
         >
           <div
-            className={`relative flex items-center w-full transition-all duration-300 ${
-              scrolled
-                ? "px-4 sm:px-6 lg:px-10 xl:px-16 py-2.5 justify-between"
-                : "px-6 md:px-8 py-[10px] justify-between rounded-b-[19px]"
-            }`}
+            className={`relative flex items-center w-full transition-all duration-300 ${scrolled
+              ? "px-4 sm:px-6 lg:px-10 xl:px-16 py-2.5 justify-between"
+              : "px-6 md:px-8 py-[10px] justify-between rounded-b-[19px]"
+              }`}
             style={
               !scrolled
                 ? {
-                    backgroundImage: `url(${headerBg})`,
-                    backgroundSize: "100% 100%",
-                    backgroundRepeat: "no-repeat",
-                    backgroundColor: "#fcfbf8",
-                  }
+                  backgroundImage: `url(${headerBg})`,
+                  backgroundSize: "100% 100%",
+                  backgroundRepeat: "no-repeat",
+                  backgroundColor: "#fcfbf8",
+                }
                 : undefined
             }
           >
@@ -141,9 +142,8 @@ export function SiteHeader() {
               <img
                 src={logo}
                 alt="JRM Construction Landscape Design"
-                className={`w-auto object-contain transition-all duration-300 ${
-                  scrolled ? "h-11 md:h-[52px]" : "h-16 md:h-20"
-                }`}
+                className={`w-auto object-contain transition-all duration-300 ${scrolled ? "h-11 md:h-[52px]" : "h-16 md:h-20"
+                  }`}
               />
             </Link>
 
@@ -191,7 +191,7 @@ export function SiteHeader() {
                         <div className="w-[220px] bg-[#23321e] p-6 text-left flex flex-col justify-between shrink-0 relative overflow-hidden">
                           {/* Background Texture Overlay */}
                           <div className="absolute inset-0 bg-cover bg-center opacity-[0.03] select-none pointer-events-none" style={{ backgroundImage: `url(${headerBg})` }} />
-                          
+
                           <div className="space-y-4 relative z-10">
                             <span className="inline-block bg-[#577a4c] text-white text-[8px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                               Established 1989
@@ -319,16 +319,14 @@ export function SiteHeader() {
                         {/* Services accordion trigger */}
                         <button
                           onClick={() => setServicesOpen(!servicesOpen)}
-                          className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-semibold text-[15px] transition-all duration-200 cursor-pointer group ${
-                            isItemActive(item.key, item.to)
-                              ? "bg-[#577a4c]/10 text-[#3d5636]"
-                              : "text-neutral-800 hover:bg-[#577a4c]/8 hover:text-[#3d5636]"
-                          }`}
+                          className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-semibold text-[15px] transition-all duration-200 cursor-pointer group ${isItemActive(item.key, item.to)
+                            ? "bg-[#577a4c]/10 text-[#3d5636]"
+                            : "text-neutral-800 hover:bg-[#577a4c]/8 hover:text-[#3d5636]"
+                            }`}
                         >
                           <span className="flex items-center gap-3">
-                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                              isItemActive(item.key, item.to) ? "bg-[#577a4c]" : "bg-[#577a4c]/40"
-                            }`} />
+                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isItemActive(item.key, item.to) ? "bg-[#577a4c]" : "bg-[#577a4c]/40"
+                              }`} />
                             Services
                           </span>
                           <motion.div
@@ -361,11 +359,10 @@ export function SiteHeader() {
                                       to={sub.to}
                                       hash={sub.hash}
                                       onClick={closeMenu}
-                                      className={`block px-3 py-2 text-[12px] font-semibold rounded-lg transition-all duration-150 ${
-                                        currentPath === sub.to
-                                          ? "text-[#3d5636] bg-[#577a4c]/8"
-                                          : "text-neutral-600 hover:text-[#3d5636] hover:bg-[#577a4c]/8"
-                                      }`}
+                                      className={`block px-3 py-2 text-[12px] font-semibold rounded-lg transition-all duration-150 ${currentPath === sub.to
+                                        ? "text-[#3d5636] bg-[#577a4c]/8"
+                                        : "text-neutral-600 hover:text-[#3d5636] hover:bg-[#577a4c]/8"
+                                        }`}
                                     >
                                       {sub.label}
                                     </Link>
@@ -389,15 +386,13 @@ export function SiteHeader() {
                       <Link
                         to={item.to}
                         onClick={closeMenu}
-                        className={`flex items-center gap-3 w-full px-4 py-3.5 rounded-xl font-semibold text-[15px] transition-all duration-200 ${
-                          isItemActive(item.key, item.to)
-                            ? "bg-[#577a4c]/10 text-[#3d5636]"
-                            : "text-neutral-800 hover:bg-[#577a4c]/8 hover:text-[#3d5636]"
-                        }`}
+                        className={`flex items-center gap-3 w-full px-4 py-3.5 rounded-xl font-semibold text-[15px] transition-all duration-200 ${isItemActive(item.key, item.to)
+                          ? "bg-[#577a4c]/10 text-[#3d5636]"
+                          : "text-neutral-800 hover:bg-[#577a4c]/8 hover:text-[#3d5636]"
+                          }`}
                       >
-                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                          isItemActive(item.key, item.to) ? "bg-[#577a4c]" : "bg-neutral-300"
-                        }`} />
+                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isItemActive(item.key, item.to) ? "bg-[#577a4c]" : "bg-neutral-300"
+                          }`} />
                         {item.label}
                       </Link>
                     </motion.div>

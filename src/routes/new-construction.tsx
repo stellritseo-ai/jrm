@@ -29,12 +29,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/new-construction")({
   head: () => ({
     meta: [
-      { title: "New Construction San Antonio | Custom Home Builder | JRM Construction" },
-      { name: "description", content: "Build your dream home or commercial property with San Antonio's trusted new construction experts. 35 years of experience. Licensed, insured & bonded. Free consultation. Call (210) 429-5526." },
-      { property: "og:title", content: "New Construction San Antonio | Custom Home Builder | JRM Construction" },
-      { property: "og:description", content: "Build your dream home or commercial property with San Antonio's trusted new construction experts. 35 years of experience. Licensed, insured & bonded. Free consultation. Call (210) 429-5526." },
-      { property: "og:type", content: "website" }
+      { title: "New Construction San Antonio TX | Custom Home Builder | JRM Construction" },
+      { name: "description", content: "Build your dream custom home or structural addition with San Antonio's trusted new construction contractor. 35+ years experience. Licensed & bonded. Call (210) 429-5526." },
+      { property: "og:title", content: "New Construction San Antonio TX | Custom Home Builder | JRM Construction" },
+      { property: "og:description", content: "Build your dream custom home or structural addition with San Antonio's trusted new construction contractor. 35+ years experience. Licensed & bonded. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/new-construction" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "New Construction San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Custom homes, structural additions & guest houses in San Antonio and 80-mile radius." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/new-construction" }
+    ]
   }),
   component: NewConstructionPage,
 });
@@ -138,6 +149,35 @@ function NewConstructionPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/new-construction#service",
+                "name": "New Construction & Custom Home Building San Antonio TX",
+                "serviceType": "Custom Home Builder & New Construction",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Full-service new home construction, custom residential builds, structural framing, and turnkey construction in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/new-construction#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "New Construction", "item": "https://jrmconstructionservicellc.com/new-construction" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

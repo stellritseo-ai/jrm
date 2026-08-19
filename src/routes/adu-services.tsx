@@ -32,12 +32,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/adu-services")({
   head: () => ({
     meta: [
-      { title: "Accessory Dwelling Unit (ADU) Builders San Antonio — JRM Construction" },
-      { name: "description", content: "Expand your property with a custom backyard cottage, guest house, or garage conversion. Over 35 years of expert ADU design & construction in San Antonio. Free consultation. Call (210) 429-5526." },
-      { property: "og:title", content: "Accessory Dwelling Unit (ADU) Construction & Design in San Antonio" },
-      { property: "og:description", content: "Professional custom ADUs, in-law suites, and garage apartments built to code. Seamlessly integrated into your property with owner-led construction." },
-      { property: "og:type", content: "website" }
+      { title: "ADU Builders San Antonio TX | Guest Houses & In-Law Suites | JRM" },
+      { name: "description", content: "Custom detached ADUs, mother-in-law suites, backyard cottages & garage conversions in San Antonio, TX. 35+ years experience. Free consultation. Call (210) 429-5526." },
+      { property: "og:title", content: "ADU Builders San Antonio TX | Guest Houses & In-Law Suites | JRM" },
+      { property: "og:description", content: "Custom detached ADUs, mother-in-law suites, backyard cottages & garage conversions in San Antonio, TX. 35+ years experience. Free consultation. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/adu-services" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ADU Builders San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Turnkey accessory dwelling unit (ADU) and guest house construction in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/adu-services" }
+    ]
   }),
   component: ADUServicesPage,
 });
@@ -206,6 +217,35 @@ function ADUServicesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/adu-services#service",
+                "name": "Accessory Dwelling Unit (ADU) Construction San Antonio TX",
+                "serviceType": "ADU Builder & General Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom detached ADUs, granny flats, guest houses, in-law suites, and garage conversions in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/adu-services#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "ADU Services", "item": "https://jrmconstructionservicellc.com/adu-services" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

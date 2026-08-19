@@ -13,6 +13,7 @@ import { Route as WorkRouteImport } from './routes/work'
 import { Route as StampedConcreteOverlayRouteImport } from './routes/stamped-concrete-overlay'
 import { Route as SoftscapesRouteImport } from './routes/softscapes'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as PalmTreesRouteImport } from './routes/palm-trees'
 import { Route as OutdoorKitchensRouteImport } from './routes/outdoor-kitchens'
@@ -25,6 +26,7 @@ import { Route as IrrigationRouteImport } from './routes/irrigation'
 import { Route as HouseRemodelingRouteImport } from './routes/house-remodeling'
 import { Route as HardscapesRouteImport } from './routes/hardscapes'
 import { Route as GetFreeConsultationRouteImport } from './routes/get-free-consultation'
+import { Route as GeneralContractingRouteImport } from './routes/general-contracting'
 import { Route as FencingRouteImport } from './routes/fencing'
 import { Route as DesignServiceRouteImport } from './routes/design-service'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -39,6 +41,7 @@ import { Route as AduServicesRouteImport } from './routes/adu-services'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocationsIndexRouteImport } from './routes/locations/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as LocationsLocationRouteImport } from './routes/locations/$location'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
@@ -61,6 +64,11 @@ const SoftscapesRoute = SoftscapesRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReviewsRoute = ReviewsRouteImport.update({
@@ -121,6 +129,11 @@ const HardscapesRoute = HardscapesRouteImport.update({
 const GetFreeConsultationRoute = GetFreeConsultationRouteImport.update({
   id: '/get-free-consultation',
   path: '/get-free-consultation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeneralContractingRoute = GeneralContractingRouteImport.update({
+  id: '/general-contracting',
+  path: '/general-contracting',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FencingRoute = FencingRouteImport.update({
@@ -193,6 +206,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -224,6 +242,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/design-service': typeof DesignServiceRoute
   '/fencing': typeof FencingRoute
+  '/general-contracting': typeof GeneralContractingRoute
   '/get-free-consultation': typeof GetFreeConsultationRoute
   '/hardscapes': typeof HardscapesRoute
   '/house-remodeling': typeof HouseRemodelingRoute
@@ -236,6 +255,7 @@ export interface FileRoutesByFullPath {
   '/outdoor-kitchens': typeof OutdoorKitchensRoute
   '/palm-trees': typeof PalmTreesRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
@@ -243,6 +263,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
   '/blog/': typeof BlogIndexRoute
+  '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -259,6 +280,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/design-service': typeof DesignServiceRoute
   '/fencing': typeof FencingRoute
+  '/general-contracting': typeof GeneralContractingRoute
   '/get-free-consultation': typeof GetFreeConsultationRoute
   '/hardscapes': typeof HardscapesRoute
   '/house-remodeling': typeof HouseRemodelingRoute
@@ -271,6 +293,7 @@ export interface FileRoutesByTo {
   '/outdoor-kitchens': typeof OutdoorKitchensRoute
   '/palm-trees': typeof PalmTreesRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
@@ -278,6 +301,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
   '/blog': typeof BlogIndexRoute
+  '/locations': typeof LocationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -295,6 +319,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/design-service': typeof DesignServiceRoute
   '/fencing': typeof FencingRoute
+  '/general-contracting': typeof GeneralContractingRoute
   '/get-free-consultation': typeof GetFreeConsultationRoute
   '/hardscapes': typeof HardscapesRoute
   '/house-remodeling': typeof HouseRemodelingRoute
@@ -307,6 +332,7 @@ export interface FileRoutesById {
   '/outdoor-kitchens': typeof OutdoorKitchensRoute
   '/palm-trees': typeof PalmTreesRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
@@ -314,6 +340,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
   '/blog/': typeof BlogIndexRoute
+  '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -332,6 +359,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/design-service'
     | '/fencing'
+    | '/general-contracting'
     | '/get-free-consultation'
     | '/hardscapes'
     | '/house-remodeling'
@@ -344,6 +372,7 @@ export interface FileRouteTypes {
     | '/outdoor-kitchens'
     | '/palm-trees'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/softscapes'
     | '/stamped-concrete-overlay'
@@ -351,6 +380,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/locations/$location'
     | '/blog/'
+    | '/locations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -367,6 +397,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/design-service'
     | '/fencing'
+    | '/general-contracting'
     | '/get-free-consultation'
     | '/hardscapes'
     | '/house-remodeling'
@@ -379,6 +410,7 @@ export interface FileRouteTypes {
     | '/outdoor-kitchens'
     | '/palm-trees'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/softscapes'
     | '/stamped-concrete-overlay'
@@ -386,6 +418,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/locations/$location'
     | '/blog'
+    | '/locations'
   id:
     | '__root__'
     | '/'
@@ -402,6 +435,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/design-service'
     | '/fencing'
+    | '/general-contracting'
     | '/get-free-consultation'
     | '/hardscapes'
     | '/house-remodeling'
@@ -414,6 +448,7 @@ export interface FileRouteTypes {
     | '/outdoor-kitchens'
     | '/palm-trees'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/softscapes'
     | '/stamped-concrete-overlay'
@@ -421,6 +456,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/locations/$location'
     | '/blog/'
+    | '/locations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -438,6 +474,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   DesignServiceRoute: typeof DesignServiceRoute
   FencingRoute: typeof FencingRoute
+  GeneralContractingRoute: typeof GeneralContractingRoute
   GetFreeConsultationRoute: typeof GetFreeConsultationRoute
   HardscapesRoute: typeof HardscapesRoute
   HouseRemodelingRoute: typeof HouseRemodelingRoute
@@ -450,6 +487,7 @@ export interface RootRouteChildren {
   OutdoorKitchensRoute: typeof OutdoorKitchensRoute
   PalmTreesRoute: typeof PalmTreesRoute
   ReviewsRoute: typeof ReviewsRoute
+  ServiceAreasRoute: typeof ServiceAreasRoute
   ServicesRoute: typeof ServicesRoute
   SoftscapesRoute: typeof SoftscapesRoute
   StampedConcreteOverlayRoute: typeof StampedConcreteOverlayRoute
@@ -457,6 +495,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   LocationsLocationRoute: typeof LocationsLocationRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  LocationsIndexRoute: typeof LocationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -487,6 +526,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reviews': {
@@ -571,6 +617,13 @@ declare module '@tanstack/react-router' {
       path: '/get-free-consultation'
       fullPath: '/get-free-consultation'
       preLoaderRoute: typeof GetFreeConsultationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/general-contracting': {
+      id: '/general-contracting'
+      path: '/general-contracting'
+      fullPath: '/general-contracting'
+      preLoaderRoute: typeof GeneralContractingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fencing': {
@@ -671,6 +724,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -710,6 +770,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   DesignServiceRoute: DesignServiceRoute,
   FencingRoute: FencingRoute,
+  GeneralContractingRoute: GeneralContractingRoute,
   GetFreeConsultationRoute: GetFreeConsultationRoute,
   HardscapesRoute: HardscapesRoute,
   HouseRemodelingRoute: HouseRemodelingRoute,
@@ -722,6 +783,7 @@ const rootRouteChildren: RootRouteChildren = {
   OutdoorKitchensRoute: OutdoorKitchensRoute,
   PalmTreesRoute: PalmTreesRoute,
   ReviewsRoute: ReviewsRoute,
+  ServiceAreasRoute: ServiceAreasRoute,
   ServicesRoute: ServicesRoute,
   SoftscapesRoute: SoftscapesRoute,
   StampedConcreteOverlayRoute: StampedConcreteOverlayRoute,
@@ -729,6 +791,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   LocationsLocationRoute: LocationsLocationRoute,
   BlogIndexRoute: BlogIndexRoute,
+  LocationsIndexRoute: LocationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

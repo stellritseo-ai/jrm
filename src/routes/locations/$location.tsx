@@ -346,9 +346,18 @@ const locationsData: Record<string, LocationInfo> = {
   }
 };
 
+function getLocationInfo(loc?: string): LocationInfo {
+  if (!loc) return locationsData["san-antonio-tx"];
+  if (locationsData[loc]) return locationsData[loc];
+  if (locationsData[`${loc}-tx`]) return locationsData[`${loc}-tx`];
+  const cleaned = loc.replace(/-tx$/, "");
+  if (locationsData[cleaned]) return locationsData[cleaned];
+  return locationsData["san-antonio-tx"];
+}
+
 export const Route = createFileRoute("/locations/$location")({
   head: ({ params }) => {
-    const info = locationsData[params.location] || locationsData["san-antonio-tx"];
+    const info = getLocationInfo(params.location);
     return {
       meta: [
         { title: info.title },
@@ -375,7 +384,7 @@ export const Route = createFileRoute("/locations/$location")({
 
 function LocationPage() {
   const params = Route.useParams();
-  const info = locationsData[params.location] || locationsData["san-antonio-tx"];
+  const info = getLocationInfo(params.location);
 
   const servicesList = [
     { title: "House Remodeling", image: imgRemodeling, link: "/house-remodeling", desc: `Comprehensive interior renovations, kitchen updates, and bathroom remodels in ${info.city}.` },

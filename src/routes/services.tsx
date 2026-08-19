@@ -50,12 +50,23 @@ import heroBg from "@/assets/hero-patio.jpg";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Our Services — JRM Construction Landscape Design, San Antonio" },
-      { name: "description", content: "Explore our comprehensive range of residential and commercial design-build solutions, home remodeling, outdoor living spaces, fireplaces, landscaping, and construction services in San Antonio, TX." },
-      { property: "og:title", content: "Our Services — JRM Construction Landscape Design" },
-      { property: "og:description", content: "Over 35 years of trusted craftsmanship, license, and owner-led oversight in San Antonio, Texas." },
-      { property: "og:type", content: "website" }
+      { title: "Construction & Remodeling Services San Antonio TX | JRM Construction" },
+      { name: "description", content: "Explore full-service residential & commercial general contracting, house remodeling, custom outdoor kitchens, covered patios & hardscapes in San Antonio, TX. 35+ years experience." },
+      { property: "og:title", content: "Construction & Remodeling Services San Antonio TX | JRM Construction" },
+      { property: "og:description", content: "Explore full-service residential & commercial general contracting, house remodeling, custom outdoor kitchens, covered patios & hardscapes in San Antonio, TX. 35+ years experience." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/services" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Services | JRM Construction San Antonio TX" },
+      { name: "twitter:description", content: "Comprehensive residential and commercial construction services in San Antonio and 80-mile radius." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/services" }
+    ]
   }),
   component: ServicesPage,
 });
@@ -73,7 +84,25 @@ function ServicesPage() {
   ];
 
   const servicesData = [
-    // Residential
+    // Residential / General Contracting
+    {
+      id: "general-contracting",
+      category: "residential",
+      title: "General Contracting",
+      icon: Hammer,
+      image: imgConstruction,
+      badge: "🔨",
+      desc: "Turnkey project management and master construction oversight for residential additions, whole-home builds, and complex commercial renovations. Fully licensed, insured & bonded.",
+      items: [
+        "Turnkey Construction Management",
+        "Residential & Commercial Builds",
+        "Permitting & Engineering Coordination",
+        "Structural Wall Removals & Framing",
+        "Owner Robert Thompson Supervision"
+      ],
+      link: "/general-contracting",
+      linkText: "Learn More About General Contracting →"
+    },
     {
       id: "remodeling",
       category: "residential",
@@ -439,6 +468,34 @@ function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/services#service",
+                "name": "Construction & Remodeling Services San Antonio TX",
+                "serviceType": "General Contracting & Landscape Design",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Comprehensive residential and commercial construction, remodeling, and outdoor living design solutions in San Antonio, Texas."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/services#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

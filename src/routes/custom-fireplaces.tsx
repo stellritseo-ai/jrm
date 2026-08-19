@@ -28,12 +28,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/custom-fireplaces")({
   head: () => ({
     meta: [
-      { title: "Custom Fireplaces San Antonio | Indoor & Outdoor Fireplace Design | JRM Construction" },
-      { name: "description", content: "Design your dream custom fireplace in San Antonio. Indoor & outdoor stone fireplaces, gas fireplaces, fire pits & more. 35 years of master craftsmanship. Free consultation. Call (210) 429-5526." },
-      { property: "og:title", content: "Custom Fireplaces San Antonio | Indoor & Outdoor Fireplace Design | JRM Construction" },
-      { property: "og:description", content: "Design your dream custom fireplace in San Antonio. Indoor & outdoor stone fireplaces, gas fireplaces, fire pits & more. 35 years of master craftsmanship. Free consultation. Call (210) 429-5526." },
-      { property: "og:type", content: "website" }
+      { title: "Custom Fireplaces San Antonio TX | Outdoor Fire Pits | JRM Construction" },
+      { name: "description", content: "Custom indoor stone fireplaces, outdoor fireplaces & gas fire pits in San Antonio, TX. 35+ years master masonry craftsmanship. Call (210) 429-5526." },
+      { property: "og:title", content: "Custom Fireplaces San Antonio TX | Outdoor Fire Pits | JRM Construction" },
+      { property: "og:description", content: "Custom indoor stone fireplaces, outdoor fireplaces & gas fire pits in San Antonio, TX. 35+ years master masonry craftsmanship. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/custom-fireplaces" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Custom Fireplaces San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Master-crafted indoor & outdoor masonry fireplaces in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/custom-fireplaces" }
+    ]
   }),
   component: CustomFireplacesPage,
 });
@@ -130,6 +141,35 @@ function CustomFireplacesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/custom-fireplaces#service",
+                "name": "Custom Fireplace Construction San Antonio TX",
+                "serviceType": "Fireplace Installation & Masonry Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom indoor stone fireplaces, outdoor fire pits, gas hearths, and stone masonry in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/custom-fireplaces#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Custom Fireplaces", "item": "https://jrmconstructionservicellc.com/custom-fireplaces" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

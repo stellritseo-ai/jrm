@@ -28,12 +28,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/artificial-turf")({
   head: () => ({
     meta: [
-      { title: "Artificial Turf & Synthetic Lawn Installation San Antonio — JRM Construction" },
-      { name: "description", content: "Flawless green lawn 365 days a year with zero maintenance. Premium artificial turf, pet runs, putting greens in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Artificial Turf & Synthetic Lawns in San Antonio | JRM Construction" },
-      { property: "og:description", content: "Antimicrobial pet turf, backyard putting greens, paver inlays, and construction-grade drainage base installation." },
-      { property: "og:type", content: "website" }
+      { title: "Artificial Turf Installation San Antonio TX | Synthetic Grass | JRM" },
+      { name: "description", content: "Premium artificial turf, pet turf systems & custom backyard putting greens in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:title", content: "Artificial Turf Installation San Antonio TX | Synthetic Grass | JRM" },
+      { property: "og:description", content: "Premium artificial turf, pet turf systems & custom backyard putting greens in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/artificial-turf" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Artificial Turf Installation San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Low-maintenance synthetic turf, pet grass & putting greens in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/artificial-turf" }
+    ]
   }),
   component: ArtificialTurfPage,
 });
@@ -124,6 +135,35 @@ function ArtificialTurfPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/artificial-turf#service",
+                "name": "Artificial Turf & Synthetic Lawn Installation San Antonio TX",
+                "serviceType": "Artificial Turf Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Premium artificial turf lawns, pet turf systems, backyard putting greens, and commercial synthetic turf installation in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/artificial-turf#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Artificial Turf", "item": "https://jrmconstructionservicellc.com/artificial-turf" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

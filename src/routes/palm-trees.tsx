@@ -29,12 +29,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/palm-trees")({
   head: () => ({
     meta: [
-      { title: "Palm Tree Installation & Landscape Design San Antonio — JRM Construction" },
-      { name: "description", content: "Transform your San Antonio property with cold-hardy palm trees and expert resort-style landscape design by Robert Thompson and JRM. Call (210) 429-5526." },
-      { property: "og:title", content: "Palm Tree Installation & Landscape Design in San Antonio" },
-      { property: "og:description", content: "Professional palm tree selection, strategic installation, and tropical-themed landscape design in Texas with 35+ years of expertise." },
-      { property: "og:type", content: "website" }
+      { title: "Palm Tree Installation San Antonio TX | Cold Hardy Palms | JRM" },
+      { name: "description", content: "Cold-hardy palm tree sourcing, specimen palm planting & tropical landscape design in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:title", content: "Palm Tree Installation San Antonio TX | Cold Hardy Palms | JRM" },
+      { property: "og:description", content: "Cold-hardy palm tree sourcing, specimen palm planting & tropical landscape design in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/palm-trees" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Palm Tree Installation San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Cold-hardy Texas palms, resort-style landscaping & planting in San Antonio, TX." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/palm-trees" }
+    ]
   }),
   component: PalmTreesPage,
 });
@@ -123,6 +134,35 @@ function PalmTreesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/palm-trees#service",
+                "name": "Palm Tree Sourcing & Installation San Antonio TX",
+                "serviceType": "Palm Tree Installation Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Cold-hardy palm tree sourcing, large specimen planting, and tropical landscape design in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/palm-trees#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Palm Trees", "item": "https://jrmconstructionservicellc.com/palm-trees" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

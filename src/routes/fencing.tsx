@@ -28,12 +28,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/fencing")({
   head: () => ({
     meta: [
-      { title: "Custom Fencing Services San Antonio — JRM Construction" },
-      { name: "description", content: "Secure and beautify your property with custom wood, wrought iron, composite, or vinyl fencing in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Custom Fencing Services in San Antonio | JRM Construction" },
-      { property: "og:description", content: "Privacy fences, security wrought iron, modern composite solutions, and stone column gate integration." },
-      { property: "og:type", content: "website" }
+      { title: "Fence Company San Antonio TX | Custom Wood & Wrought Iron | JRM" },
+      { name: "description", content: "Custom wood privacy fences, wrought iron fencing, composite fences & automated gates in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:title", content: "Fence Company San Antonio TX | Custom Wood & Wrought Iron | JRM" },
+      { property: "og:description", content: "Custom wood privacy fences, wrought iron fencing, composite fences & automated gates in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/fencing" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Fence Company San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Custom cedar, wrought iron, and composite privacy fences in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/fencing" }
+    ]
   }),
   component: FencingPage,
 });
@@ -121,6 +132,35 @@ function FencingPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/fencing#service",
+                "name": "Custom Fencing Services San Antonio TX",
+                "serviceType": "Fence Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom wood privacy fences, wrought iron security fences, vinyl fencing, and automated entry gates in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/fencing#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Fencing", "item": "https://jrmconstructionservicellc.com/fencing" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

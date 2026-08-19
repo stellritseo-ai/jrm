@@ -17,20 +17,58 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#f4f3ef] px-4 py-16 text-center">
+      <div className="max-w-xl rounded-2xl border border-[#eae8e1] bg-white p-8 md:p-12 shadow-sm">
+        <span className="inline-block rounded-full bg-[#577a4c]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#3d5636] mb-4">
+          Error 404 · Page Not Found
+        </span>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3" style={{ fontFamily: "Georgia, serif" }}>
+          Looking for Construction Services?
+        </h1>
+        <p className="text-sm text-neutral-600 font-light leading-relaxed mb-8">
+          The page you are looking for may have been moved or updated. Explore our main construction services or contact owner Robert Thompson directly.
         </p>
-        <div className="mt-6">
+
+        <div className="grid grid-cols-2 gap-3 text-left mb-8">
+          <Link
+            to="/general-contracting"
+            className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
+          >
+            🔨 General Contracting →
+          </Link>
+          <Link
+            to="/house-remodeling"
+            className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
+          >
+            🏠 House Remodeling →
+          </Link>
+          <Link
+            to="/covered-patios"
+            className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
+          >
+            🌿 Covered Patios →
+          </Link>
+          <Link
+            to="/service-areas"
+            className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
+          >
+            📍 80-Mile Service Areas →
+          </Link>
+        </div>
+
+        <div className="flex flex-wrap gap-3 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-[#577a4c] px-6 py-2.5 text-xs font-bold text-white uppercase tracking-wider hover:bg-[#4d6c43] transition-colors"
           >
-            Go home
+            Back to Homepage
           </Link>
+          <a
+            href="tel:2104295526"
+            className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-6 py-2.5 text-xs font-bold text-neutral-800 hover:bg-neutral-50 transition-colors"
+          >
+            Call (210) 429-5526
+          </a>
         </div>
       </div>
     </div>

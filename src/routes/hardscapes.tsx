@@ -27,12 +27,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/hardscapes")({
   head: () => ({
     meta: [
-      { title: "Custom Hardscape Design & Installation San Antonio — JRM Construction" },
-      { name: "description", content: "Lay the foundation for outdoor living. Flagstone patios, retaining walls, pavers, and custom outdoor kitchen bases in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Custom Hardscape Design & Installation in San Antonio" },
-      { property: "og:description", content: "Flagstone patios, interlocking pavers, retaining walls, steps, and drainage solutions designed and built to last." },
-      { property: "og:type", content: "website" }
+      { title: "Hardscape Contractor San Antonio TX | Flagstone & Stone Masonry | JRM Construction" },
+      { name: "description", content: "Custom flagstone patios, stone retaining walls, paver walkways & masonry hardscapes in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:title", content: "Hardscape Contractor San Antonio TX | Flagstone & Stone Masonry | JRM Construction" },
+      { property: "og:description", content: "Custom flagstone patios, stone retaining walls, paver walkways & masonry hardscapes in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/hardscapes" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Hardscape Contractor San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Custom flagstone, pavers, retaining walls & outdoor living masonry in San Antonio, TX." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/hardscapes" }
+    ]
   }),
   component: HardscapesPage,
 });
@@ -123,6 +134,35 @@ function HardscapesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/hardscapes#service",
+                "name": "Hardscape Design & Installation San Antonio TX",
+                "serviceType": "Hardscape Contractor & Stone Masonry",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom flagstone patios, stone retaining walls, paver walkways, and outdoor living hardscaping in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/hardscapes#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Hardscapes", "item": "https://jrmconstructionservicellc.com/hardscapes" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

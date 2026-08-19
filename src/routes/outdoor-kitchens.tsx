@@ -29,12 +29,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/outdoor-kitchens")({
   head: () => ({
     meta: [
-      { title: "Outdoor Kitchens San Antonio | Custom BBQ Islands & Grill Stations | JRM Construction" },
-      { name: "description", content: "Transform your backyard with a custom outdoor kitchen in San Antonio. Built-in grills, granite countertops, bars & more. 35 years of craftsmanship. Free consultation. Call (210) 429-5526." },
-      { property: "og:title", content: "Outdoor Kitchens San Antonio | Custom BBQ Islands & Grill Stations | JRM Construction" },
-      { property: "og:description", content: "Transform your backyard with a custom outdoor kitchen in San Antonio. Built-in grills, granite countertops, bars & more. 35 years of craftsmanship. Free consultation. Call (210) 429-5526." },
-      { property: "og:type", content: "website" }
+      { title: "Outdoor Kitchens San Antonio TX | Custom BBQ Islands | JRM Construction" },
+      { name: "description", content: "Custom outdoor kitchens, built-in BBQ grill islands, granite countertops & stone bars in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:title", content: "Outdoor Kitchens San Antonio TX | Custom BBQ Islands | JRM Construction" },
+      { property: "og:description", content: "Custom outdoor kitchens, built-in BBQ grill islands, granite countertops & stone bars in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/outdoor-kitchens" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Outdoor Kitchens San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Custom outdoor kitchens, built-in grills, and bars in San Antonio and 80-mile radius." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/outdoor-kitchens" }
+    ]
   }),
   component: OutdoorKitchensPage,
 });
@@ -125,6 +136,35 @@ function OutdoorKitchensPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/outdoor-kitchens#service",
+                "name": "Outdoor Kitchen Design & Construction San Antonio TX",
+                "serviceType": "Outdoor Kitchen Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom masonry outdoor kitchens, built-in BBQ grills, pizza ovens, granite countertops, and bar seating in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/outdoor-kitchens#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Outdoor Kitchens", "item": "https://jrmconstructionservicellc.com/outdoor-kitchens" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

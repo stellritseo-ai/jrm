@@ -27,12 +27,23 @@ import heroImage from "@/assets/hero-patio.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About JRM Construction Landscape Design — San Antonio, TX" },
-      { name: "description", content: "Learn about JRM Construction Landscape Design, our 35 years of experience in San Antonio, TX, and our commitment to quality." },
-      { property: "og:title", content: "About JRM Construction Landscape Design" },
-      { property: "og:description", content: "Premier landscaping and construction services in San Antonio, TX with 35 years of experience." },
-      { property: "og:type", content: "website" }
+      { title: "About JRM Construction | 35+ Years General Contractor San Antonio TX" },
+      { name: "description", content: "Learn about JRM Construction Services LLC & founder Robert Thompson. 35+ years of trusted general contracting, house remodeling & craftsmanship in San Antonio, TX." },
+      { property: "og:title", content: "About JRM Construction | 35+ Years General Contractor San Antonio TX" },
+      { property: "og:description", content: "Learn about JRM Construction Services LLC & founder Robert Thompson. 35+ years of trusted general contracting, house remodeling & craftsmanship in San Antonio, TX." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/about" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About JRM Construction | San Antonio General Contractor" },
+      { name: "twitter:description", content: "35+ years of licensed, insured & bonded general contracting in San Antonio, TX." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/about" }
+    ]
   }),
   component: AboutPage,
 });
@@ -94,6 +105,34 @@ function AboutPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "AboutPage",
+                "@id": "https://jrmconstructionservicellc.com/about#webpage",
+                "url": "https://jrmconstructionservicellc.com/about",
+                "name": "About JRM Construction Landscaping Design",
+                "description": "Learn about JRM Construction Services LLC, 35+ years of master general contracting, and founder Robert Thompson.",
+                "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" },
+                "about": { "@id": "https://jrmconstructionservicellc.com/#business" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/about#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "About", "item": "https://jrmconstructionservicellc.com/about" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

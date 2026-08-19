@@ -13,6 +13,7 @@ export function SiteFooter() {
     { label: "Home", to: "/" },
     { label: "About Us", to: "/about" },
     { label: "Our Services", to: "/services" },
+    { label: "Service Areas (80 Miles)", to: "/service-areas" },
     { label: "Our Work", to: "/work" },
     { label: "Customer Reviews", to: "/reviews" },
     { label: "Blog / Guides", to: "/blog" },
@@ -20,13 +21,15 @@ export function SiteFooter() {
   ];
 
   const serviceLinks = [
+    { label: "General Contracting", to: "/general-contracting" },
     { label: "House Remodeling", to: "/house-remodeling" },
     { label: "New Construction", to: "/new-construction" },
-    { label: "Custom Fireplaces", to: "/custom-fireplaces" },
-    { label: "Fencing", to: "/fencing" },
-    { label: "Hardscapes", to: "/hardscapes" },
+    { label: "Commercial Services", to: "/commercial" },
     { label: "Covered Patios", to: "/covered-patios" },
-    { label: "All Services", to: "/services" },
+    { label: "Outdoor Kitchens", to: "/outdoor-kitchens" },
+    { label: "Custom Fireplaces", to: "/custom-fireplaces" },
+    { label: "Hardscapes", to: "/hardscapes" },
+    { label: "All 18 Services", to: "/services" },
   ];
 
   return (
@@ -58,8 +61,11 @@ export function SiteFooter() {
             </h4>
             <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
               {serviceLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
+                    className="hover:text-white transition-colors duration-200"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -74,8 +80,11 @@ export function SiteFooter() {
             </h4>
             <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
               {quickLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className="hover:text-white hover:translate-x-0.5 transition-all duration-200 block">
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
+                    className="hover:text-white transition-colors duration-200"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -83,107 +92,280 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Column 4: Contact Us (Width: 3/12) */}
+          {/* Column 4: Contact & Socials (Width: 3/12) */}
           <div className="lg:col-span-3">
             <h4 className="text-lg font-bold text-white mb-5 tracking-wide">
               {t("footer.title.contact")}
             </h4>
-            <ul className="mt-4 space-y-3.5 text-[15px] text-neutral-300 font-light">
-              <li className="leading-normal">{t("footer.contact.consultant")}</li>
-              <li className="hover:text-white transition-colors duration-200">
-                <a href={`tel:${phoneClean}`}>Robert: {settings.officePhone}</a>
+            <ul className="mt-4 space-y-3 text-[14px] text-neutral-300 font-light">
+              <li className="text-white font-semibold">
+                Principal & Design Consultant:
+                <div className="text-neutral-200 font-normal">Robert Thompson</div>
               </li>
-              <li className="hover:text-white transition-colors duration-200">
-                <a href="tel:2103793505">{t("footer.contact.arturo")}</a>
+              <li>
+                <span className="text-neutral-400">Robert:</span>{" "}
+                <a
+                  href={`tel:${phoneClean || "2104295526"}`}
+                  className="font-medium text-white hover:underline transition-all"
+                >
+                  {settings.officePhone || "(210) 429-5526"}
+                </a>
               </li>
-              <li className="hover:text-white transition-colors duration-200">
-                <a href={`mailto:${settings.adminEmail}`}>Email: {settings.adminEmail}</a>
+              <li>
+                <span className="text-neutral-400">Arturo (Spanish) :</span>{" "}
+                <a
+                  href="tel:2103793505"
+                  className="font-medium text-white hover:underline transition-all"
+                >
+                  (210) 379-3505
+                </a>
               </li>
-              <li>{t("footer.contact.address")}</li>
+              <li>
+                <span className="text-neutral-400">Email:</span>{" "}
+                <a
+                  href={`mailto:${settings.adminEmail || "robertsa210@icloud.com"}`}
+                  className="font-medium text-white hover:underline transition-all"
+                >
+                  {settings.adminEmail || "robertsa210@icloud.com"}
+                </a>
+              </li>
+              <li className="leading-snug">
+                <span className="text-neutral-400">Address:</span>{" "}
+                <span className="text-neutral-200">San Antonio, TX (80-Mile Service Area)</span>
+              </li>
             </ul>
 
             {/* Social Icons */}
-            <div className="mt-6 flex gap-3.5">
-              {/* Facebook */}
+            <div className="mt-6 flex items-center gap-3">
               <a
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3b5998] hover:bg-[#3b5998]/80 text-white transition-all duration-300 shadow-sm"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                aria-label="Facebook"
               >
-                <Facebook className="h-4.5 w-4.5 fill-current" />
+                <Facebook className="w-4 h-4" />
               </a>
-              {/* Twitter */}
               <a
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1da1f2] hover:bg-[#1da1f2]/80 text-white transition-all duration-300 shadow-sm"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                aria-label="Twitter"
               >
-                <Twitter className="h-4.5 w-4.5 fill-current" />
+                <Twitter className="w-4 h-4" />
               </a>
-              {/* YouTube */}
               <a
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff0000] hover:bg-[#ff0000]/80 text-white transition-all duration-300 shadow-sm"
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                aria-label="YouTube"
               >
-                <Youtube className="h-4.5 w-4.5" />
-              </a>
-              {/* X */}
-              <a
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-black hover:bg-neutral-800 text-white transition-all duration-300 shadow-sm"
-              >
-                <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
+                <Youtube className="w-4 h-4" />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Underlined SEO Links Block */}
-        <div className="mt-14 border-t border-white/10 pt-8 flex flex-col gap-5 text-[13px] md:text-sm text-neutral-300 font-light text-center relative z-10 w-full">
-          {/* Row 1 */}
-          <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-12 gap-y-3">
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              San Antonio Landscape Design Contractor
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Licensed Remodeler San Antonio
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Custom Outdoor Kitchen San Antonio
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Hardscaping Contractor Near Me
-            </a>
-          </div>
-          {/* Row 2 */}
-          <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-12 gap-y-3">
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Landscaping and construction company
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Kitchen remodel San Antonio
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Whole house remodeling San Antonio
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Custom home builder San Antonio
-            </a>
-          </div>
-          {/* Row 3 */}
-          <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-12 gap-y-3">
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              New home construction contractor
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Fireplace installation San Antonio
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Fence installation San Antonio
-            </a>
-            <a href="/services" className="underline hover:text-white transition-colors duration-200">
-              Artificial grass installation San Antonio
-            </a>
+        {/* Categorized SEO & Service Directory (Pixel-Perfect Structure) */}
+        <div className="mt-14 pt-8 border-t border-white/10 relative z-10 w-full">
+          <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+              {/* Category 1: Construction & Remodeling */}
+              <div>
+                <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#577a4c]" />
+                  Construction & Remodeling
+                </h5>
+                <ul className="space-y-2.5 text-[13px] text-neutral-400 font-light">
+                  <li>
+                    <Link to="/general-contracting" className="hover:text-white transition-colors duration-150">
+                      General Contractor San Antonio TX
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/house-remodeling" className="hover:text-white transition-colors duration-150">
+                      Licensed Home Remodeler San Antonio
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/new-construction" className="hover:text-white transition-colors duration-150">
+                      Custom Home Builder & Additions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/commercial" className="hover:text-white transition-colors duration-150">
+                      Commercial Construction Contractor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/adu-services" className="hover:text-white transition-colors duration-150">
+                      ADU & Guest House Builders
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/stamped-concrete-overlay" className="hover:text-white transition-colors duration-150">
+                      Stamped Concrete & Overlay Patios
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Category 2: Outdoor Living & Landscaping */}
+              <div>
+                <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#577a4c]" />
+                  Outdoor Living & Landscaping
+                </h5>
+                <ul className="space-y-2.5 text-[13px] text-neutral-400 font-light">
+                  <li>
+                    <Link to="/covered-patios" className="hover:text-white transition-colors duration-150">
+                      Covered Patio Builder & Pergolas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/outdoor-kitchens" className="hover:text-white transition-colors duration-150">
+                      Custom Outdoor Kitchens & BBQs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/custom-fireplaces" className="hover:text-white transition-colors duration-150">
+                      Outdoor Fireplaces & Stone Fire Pits
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/hardscapes" className="hover:text-white transition-colors duration-150">
+                      Hardscaping & Retaining Walls
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/custom-decks" className="hover:text-white transition-colors duration-150">
+                      Custom Composite & Wood Decks
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/artificial-turf" className="hover:text-white transition-colors duration-150">
+                      Artificial Turf & Putting Greens
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/fencing" className="hover:text-white transition-colors duration-150">
+                      Wood Privacy & Iron Fencing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/landscape-lighting" className="hover:text-white transition-colors duration-150">
+                      Landscape Lighting & 3D Design
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Category 3: Regional Service Areas (80-Mile Radius) */}
+              <div>
+                <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#577a4c]" />
+                  Central Texas Service Areas
+                </h5>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "san-antonio-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    San Antonio
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "alamo-heights-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Alamo Heights
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "boerne-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Boerne
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "new-braunfels-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    New Braunfels
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "seguin-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Seguin
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "canyon-lake-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Canyon Lake
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "kerrville-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Kerrville
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "fredericksburg-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Fredericksburg
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "bulverde-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Bulverde
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "schertz-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Schertz
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "helotes-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Helotes
+                  </Link>
+                  <Link
+                    to="/locations/$location"
+                    params={{ location: "universal-city-tx" }}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-150"
+                  >
+                    Universal City
+                  </Link>
+                </div>
+                <div className="mt-4 pt-3 border-t border-white/5">
+                  <Link
+                    to="/service-areas"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#a5b89d] hover:text-white font-medium transition-colors"
+                  >
+                    View All 15 Service Areas & Coverage Map &rarr;
+                  </Link>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 

@@ -28,12 +28,19 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/custom-decks")({
   head: () => ({
     meta: [
-      { title: "Custom Decks San Antonio | Composite & Wood Deck Contractors | JRM Construction" },
-      { name: "description", content: "Transform your outdoor living with custom decks in San Antonio, TX. Composite & hardwood decks, multi-tier platforms, railing systems & built-in seating. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Custom Decks San Antonio | Composite & Wood Deck Contractors | JRM Construction" },
-      { property: "og:description", content: "Transform your outdoor living with custom decks in San Antonio, TX. Composite & hardwood decks, multi-tier platforms, railing systems & built-in seating. 35+ years experience." },
+      { title: "Custom Decks San Antonio TX | Composite & Wood Deck Builder | JRM" },
+      { name: "description", content: "Custom composite decks, cedar decking, multi-tier platforms & deck railings in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:title", content: "Custom Decks San Antonio TX | Composite & Wood Deck Builder | JRM" },
+      { property: "og:description", content: "Custom composite decks, cedar decking, multi-tier platforms & deck railings in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://jrmconstructionservicellc.com/custom-decks" }
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/custom-decks" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Custom Decks San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Premium Trex composite and wood deck builders in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
     links: [
       { rel: "canonical", href: "https://jrmconstructionservicellc.com/custom-decks" }

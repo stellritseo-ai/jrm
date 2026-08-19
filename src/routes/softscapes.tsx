@@ -26,12 +26,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/softscapes")({
   head: () => ({
     meta: [
-      { title: "Softscape Design & Installation San Antonio — JRM Construction" },
-      { name: "description", content: "Bring your landscape to life. Custom planting beds, Texas-native xeriscaping, ornamental trees, and sod installation in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Softscape Design & Installation in San Antonio | JRM Construction" },
-      { property: "og:description", content: "Water-wise gardens, colorful annual beds, soil preparation, and irrigation zones coordination." },
-      { property: "og:type", content: "website" }
+      { title: "Softscape & Planting Installation San Antonio TX | JRM Construction" },
+      { name: "description", content: "Custom softscapes, Texas native plants, drought-tolerant xeriscaping, flower beds & trees in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:title", content: "Softscape & Planting Installation San Antonio TX | JRM Construction" },
+      { property: "og:description", content: "Custom softscapes, Texas native plants, drought-tolerant xeriscaping, flower beds & trees in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/softscapes" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Softscapes & Planting San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Texas-native plantings, garden design, and lush softscapes across San Antonio & Central Texas." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/softscapes" }
+    ]
   }),
   component: SoftscapesPage,
 });
@@ -122,6 +133,35 @@ function SoftscapesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/softscapes#service",
+                "name": "Softscape Design & Planting Services San Antonio TX",
+                "serviceType": "Landscape Planting & Softscape Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom flower beds, native Texas plantings, ornamental trees, sod installation, and xeriscaping in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/softscapes#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Softscapes", "item": "https://jrmconstructionservicellc.com/softscapes" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

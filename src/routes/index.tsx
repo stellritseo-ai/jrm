@@ -18,10 +18,22 @@ import { FloatingChat } from "@/components/floating-chat";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JRM Construction Landscaping Design | San Antonio's Trusted Remodeling & Outdoor Living Experts Since 1989" },
-      { name: "description", content: "San Antonio's premier licensed, insured & bonded construction company. 35+ years of experience in house remodeling, outdoor kitchens, custom fireplaces, hardscapes & artificial turf. Free consultations. Call (210) 429-5526." },
-      { property: "og:title", content: "JRM Construction Landscaping Design | San Antonio's Trusted Remodeling & Outdoor Living Experts Since 1989" },
-      { property: "og:description", content: "San Antonio's premier licensed, insured & bonded construction company. 35+ years of experience in house remodeling, outdoor kitchens, custom fireplaces, hardscapes & artificial turf. Free consultations. Call (210) 429-5526." },
+      { title: "General Contractor San Antonio TX | JRM Construction Services LLC" },
+      { name: "description", content: "San Antonio's trusted licensed, insured & bonded general contractor with 35+ years experience. Expert house remodeling, custom outdoor kitchens, covered patios, hardscapes & construction. Call (210) 429-5526." },
+      { property: "og:title", content: "General Contractor San Antonio TX | JRM Construction Services LLC" },
+      { property: "og:description", content: "San Antonio's trusted licensed, insured & bonded general contractor with 35+ years experience. Expert house remodeling, custom outdoor kitchens, covered patios, hardscapes & construction. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "General Contractor San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "35+ years of trusted construction, house remodeling & outdoor living in San Antonio, TX. Call (210) 429-5526." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com" },
     ],
   }),
   component: Index,

@@ -26,12 +26,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/commercial")({
   head: () => ({
     meta: [
-      { title: "Commercial Construction & Landscaping San Antonio | JRM Construction" },
-      { name: "description", content: "Expert commercial construction & landscaping services in San Antonio. New construction, build-outs, commercial landscaping & more. Licensed, insured & bonded. Call (210) 429-5526." },
-      { property: "og:title", content: "Commercial Construction & Landscaping San Antonio | JRM Construction" },
-      { property: "og:description", content: "Expert commercial construction & landscaping services in San Antonio. New construction, build-outs, commercial landscaping & more. Licensed, insured & bonded." },
-      { property: "og:type", content: "website" }
+      { title: "Commercial Contractor San Antonio TX | Commercial Construction | JRM Construction" },
+      { name: "description", content: "San Antonio's trusted commercial contractor for retail build-outs, tenant improvements, structural framing & commercial landscaping. Call (210) 429-5526." },
+      { property: "og:title", content: "Commercial Contractor San Antonio TX | Commercial Construction | JRM Construction" },
+      { property: "og:description", content: "San Antonio's trusted commercial contractor for retail build-outs, tenant improvements, structural framing & commercial landscaping. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/commercial" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Commercial Contractor San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Licensed, insured & bonded commercial construction contractor in San Antonio, TX." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/commercial" }
+    ]
   }),
   component: CommercialPage,
 });
@@ -131,6 +142,35 @@ function CommercialPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/commercial#service",
+                "name": "Commercial Construction & Contracting San Antonio TX",
+                "serviceType": "Commercial General Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Turnkey commercial general contracting, retail build-outs, tenant improvements, structural framing, and commercial landscaping in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/commercial#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Commercial Services", "item": "https://jrmconstructionservicellc.com/commercial" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

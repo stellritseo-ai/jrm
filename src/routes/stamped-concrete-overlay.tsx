@@ -31,12 +31,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/stamped-concrete-overlay")({
   head: () => ({
     meta: [
-      { title: "Stamped Concrete Contractor San Antonio | Overlay Surfaces — JRM" },
-      { name: "description", content: "Transform your patios, driveways, walkways, and pool decks with custom stamped concrete and overlay. Over 35 years of hardscape design in San Antonio. Free quote. Call (210) 429-5526." },
-      { property: "og:title", content: "Stamped Concrete & Decorative Overlays in San Antonio, TX" },
-      { property: "og:description", content: "Professional slate, flagstone, cobblestone, and brick patterns. High-durability finishes sealed for San Antonio climates by Robert Thompson." },
-      { property: "og:type", content: "website" }
+      { title: "Stamped Concrete Contractor San Antonio TX | Overlay Surfaces | JRM Construction" },
+      { name: "description", content: "Custom stamped concrete patios, driveways, pool decks & decorative concrete overlays in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:title", content: "Stamped Concrete Contractor San Antonio TX | Overlay Surfaces | JRM Construction" },
+      { property: "og:description", content: "Custom stamped concrete patios, driveways, pool decks & decorative concrete overlays in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/stamped-concrete-overlay" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Stamped Concrete Contractor San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Decorative concrete overlays, stamped patios & driveways in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/stamped-concrete-overlay" }
+    ]
   }),
   component: StampedConcretePage,
 });
@@ -105,6 +116,35 @@ function StampedConcretePage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/stamped-concrete-overlay#service",
+                "name": "Stamped Concrete & Overlay Services San Antonio TX",
+                "serviceType": "Stamped Concrete Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Decorative stamped concrete patios, concrete overlays, driveways, walkways, and pool decks in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/stamped-concrete-overlay#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Stamped Concrete Overlay", "item": "https://jrmconstructionservicellc.com/stamped-concrete-overlay" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── HERO SECTION ── */}

@@ -28,12 +28,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/landscape-lighting")({
   head: () => ({
     meta: [
-      { title: "Landscape Lighting Design & Installation San Antonio — JRM Construction" },
-      { name: "description", content: "Enhance security and beautify your backyard with custom low-voltage LED landscape lighting. 35+ years experience in San Antonio, TX. Call (210) 429-5526." },
-      { property: "og:title", content: "Landscape Lighting Design & Installation in San Antonio" },
-      { property: "og:description", content: "Walkway lights, architectural uplighting, patio deck lights, smart timers, and energy-efficient systems designed and built by JRM." },
-      { property: "og:type", content: "website" }
+      { title: "Landscape Lighting San Antonio TX | Outdoor LED Lighting | JRM" },
+      { name: "description", content: "Custom low-voltage LED landscape lighting, architectural uplighting, patio lights & path illumination in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:title", content: "Landscape Lighting San Antonio TX | Outdoor LED Lighting | JRM" },
+      { property: "og:description", content: "Custom low-voltage LED landscape lighting, architectural uplighting, patio lights & path illumination in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/landscape-lighting" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Landscape Lighting San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Custom low-voltage architectural and garden illumination across San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/landscape-lighting" }
+    ]
   }),
   component: LandscapeLightingPage,
 });
@@ -133,6 +144,35 @@ function LandscapeLightingPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/landscape-lighting#service",
+                "name": "Landscape Lighting Design & Installation San Antonio TX",
+                "serviceType": "Landscape Lighting Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom low-voltage LED landscape lighting, architectural uplighting, patio deck lights, and pathway illumination in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/landscape-lighting#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Landscape Lighting", "item": "https://jrmconstructionservicellc.com/landscape-lighting" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

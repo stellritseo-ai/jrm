@@ -32,12 +32,23 @@ import statsJobsite from "@/assets/stats-jobsite.jpg";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Our Work & Portfolio — JRM Construction, San Antonio" },
-      { name: "description", content: "Explore the JRM Construction portfolio of completed home remodels, masonry hardscapes, covered patios, outdoor kitchens, and landscape designs." },
-      { property: "og:title", content: "Our Work & Portfolio — JRM Construction" },
-      { property: "og:description", content: "Browse featured design-build projects and landscape masterpieces in San Antonio and surrounding Texas communities." },
-      { property: "og:type", content: "website" }
+      { title: "Construction & Remodeling Portfolio San Antonio TX | JRM Construction" },
+      { name: "description", content: "Explore our photo gallery of completed house remodels, covered patios, custom outdoor kitchens, fireplaces & hardscapes across San Antonio & Central Texas." },
+      { property: "og:title", content: "Construction & Remodeling Portfolio San Antonio TX | JRM Construction" },
+      { property: "og:description", content: "Explore our photo gallery of completed house remodels, covered patios, custom outdoor kitchens, fireplaces & hardscapes across San Antonio & Central Texas." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/work" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Project Portfolio | JRM Construction San Antonio TX" },
+      { name: "twitter:description", content: "Over 35 years of completed construction, remodeling and outdoor living projects in San Antonio, TX." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/work" }
+    ]
   }),
   component: OurWorkPage,
 });
@@ -270,6 +281,33 @@ function OurWorkPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "@id": "https://jrmconstructionservicellc.com/work#webpage",
+                "url": "https://jrmconstructionservicellc.com/work",
+                "name": "Project Portfolio & Recent Work | JRM Construction",
+                "description": "Gallery of completed general contracting, house remodeling, covered patios, and outdoor living projects across San Antonio, TX.",
+                "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/work#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Our Work", "item": "https://jrmconstructionservicellc.com/work" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO ── */}

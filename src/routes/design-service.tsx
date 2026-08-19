@@ -32,12 +32,23 @@ import heroBg from "@/assets/hero-patio.jpg";
 export const Route = createFileRoute("/design-service")({
   head: () => ({
     meta: [
-      { title: "3D Design & Space Planning Services San Antonio — JRM Construction" },
-      { name: "description", content: "Visualize your home remodeling, covered patio, outdoor kitchen, or landscape project in beautiful 3D before building. Over 35 years of trusted design-build experience. Call (210) 429-5526." },
-      { property: "og:title", content: "3D Rendering, Site Planning & Architectural Design in San Antonio" },
-      { property: "og:description", content: "Get high-end 3D renderings, floor plans, elevations, and site layouts for your next project. Custom architectural and space planning services." },
-      { property: "og:type", content: "website" }
+      { title: "3D Landscape & Architectural Design San Antonio TX | JRM Construction" },
+      { name: "description", content: "3D architectural renderings, custom landscape design & site planning in San Antonio, TX. Visualize your home remodel or outdoor living build before breaking ground. Call (210) 429-5526." },
+      { property: "og:title", content: "3D Landscape & Architectural Design San Antonio TX | JRM Construction" },
+      { property: "og:description", content: "3D architectural renderings, custom landscape design & site planning in San Antonio, TX. Visualize your home remodel or outdoor living build before breaking ground. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/design-service" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "3D Design & Space Planning San Antonio TX | JRM" },
+      { name: "twitter:description", content: "Photorealistic 3D architectural renderings and master site planning in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/design-service" }
+    ]
   }),
   component: DesignServicePage,
 });
@@ -199,6 +210,35 @@ function DesignServicePage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/design-service#service",
+                "name": "3D Landscape & Architectural Design Services San Antonio TX",
+                "serviceType": "Landscape Architect & 3D Design Service",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Photorealistic 3D renderings, master site planning, floor plans, and permit drawings in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/design-service#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Design Services", "item": "https://jrmconstructionservicellc.com/design-service" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

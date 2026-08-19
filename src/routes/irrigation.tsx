@@ -27,12 +27,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/irrigation")({
   head: () => ({
     meta: [
-      { title: "Professional Irrigation & Sprinkler Services San Antonio — JRM Construction" },
-      { name: "description", content: "Get code-compliant, professional irrigation design, installation, repairs, and smart controller upgrades in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Irrigation Services in San Antonio | JRM Construction" },
-      { property: "og:description", content: "Efficient sprinkler systems, drip irrigation, seasonal checks, and TCEQ backflow compliance designed and built by JRM." },
-      { property: "og:type", content: "website" }
+      { title: "Sprinkler & Irrigation Repair San Antonio TX | JRM Construction" },
+      { name: "description", content: "Professional sprinkler repair, smart irrigation installation & drip system design in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:title", content: "Sprinkler & Irrigation Repair San Antonio TX | JRM Construction" },
+      { property: "og:description", content: "Professional sprinkler repair, smart irrigation installation & drip system design in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/irrigation" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Sprinkler & Irrigation Services San Antonio TX | JRM" },
+      { name: "twitter:description", content: "Water-wise sprinkler design, drip systems, and smart controller upgrades in San Antonio, TX." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/irrigation" }
+    ]
   }),
   component: IrrigationPage,
 });
@@ -132,6 +143,35 @@ function IrrigationPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/irrigation#service",
+                "name": "Sprinkler & Irrigation Services San Antonio TX",
+                "serviceType": "Irrigation & Sprinkler Repair Contractor",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Smart sprinkler system design, drip irrigation, backflow prevention, and seasonal sprinkler repairs in San Antonio, TX."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/irrigation#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Irrigation", "item": "https://jrmconstructionservicellc.com/irrigation" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}

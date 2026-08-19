@@ -27,12 +27,23 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/covered-patios")({
   head: () => ({
     meta: [
-      { title: "Covered Patios San Antonio | Custom Pergolas & Patio Covers | JRM Construction" },
-      { name: "description", content: "Create the perfect outdoor living space with custom covered patios in San Antonio. Pergolas, screened enclosures & more. 35 years of experience. Free consultation. Call (210) 429-5526." },
-      { property: "og:title", content: "Covered Patios San Antonio | Custom Pergolas & Patio Covers | JRM Construction" },
-      { property: "og:description", content: "Create the perfect outdoor living space with custom covered patios in San Antonio. Pergolas, screened enclosures & more. 35 years of experience. Free consultation. Call (210) 429-5526." },
-      { property: "og:type", content: "website" }
+      { title: "Covered Patio Builder San Antonio TX | Custom Pergolas | JRM Construction" },
+      { name: "description", content: "Custom covered patio roofs, solid pavilions, pergolas & outdoor shelters in San Antonio, TX. 35+ years experience. Free consultation. Call (210) 429-5526." },
+      { property: "og:title", content: "Covered Patio Builder San Antonio TX | Custom Pergolas | JRM Construction" },
+      { property: "og:description", content: "Custom covered patio roofs, solid pavilions, pergolas & outdoor shelters in San Antonio, TX. 35+ years experience. Free consultation. Call (210) 429-5526." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/covered-patios" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Covered Patio Builder San Antonio TX | JRM Construction" },
+      { name: "twitter:description", content: "Custom solid-roof patio covers, pergolas & outdoor living in San Antonio & Hill Country." },
+      { name: "geo.region", content: "US-TX" },
+      { name: "geo.placename", content: "San Antonio, TX" },
+      { name: "geo.position", content: "29.424122;-98.493628" },
+      { name: "ICBM", content: "29.424122, -98.493628" },
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/covered-patios" }
+    ]
   }),
   component: CoveredPatiosPage,
 });
@@ -115,6 +126,35 @@ function CoveredPatiosPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://jrmconstructionservicellc.com/covered-patios#service",
+                "name": "Covered Patio & Pergola Construction San Antonio TX",
+                "serviceType": "Covered Patio Builder",
+                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
+                "areaServed": "San Antonio, TX and 80-mile radius",
+                "description": "Custom covered patios, solid pavilions, cedar pergolas, and outdoor living structures designed for Texas weather."
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/covered-patios#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
+                  { "@type": "ListItem", "position": 3, "name": "Covered Patios", "item": "https://jrmconstructionservicellc.com/covered-patios" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO SECTION ── */}
