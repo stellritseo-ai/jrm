@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Phone, ChevronDown, X, Menu, ExternalLink, ChevronRight } from "lucide-react";
+import { Phone, ChevronDown, X, ExternalLink, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/jrm-logo.png";
 import headerBg from "@/assets/header-bg.webp";
@@ -12,7 +12,6 @@ const navItems = [
   { key: "nav.home", to: "/", label: "Home" },
   { key: "nav.about", to: "/about", label: "About" },
   { key: "nav.services", to: "/services", label: "Services" },
-  // { key: "nav.areas",    to: "/service-areas", label: "Service Areas" },
   { key: "nav.work", to: "/work", label: "Our Work" },
   { key: "nav.reviews", to: "/reviews", label: "Reviews" },
   { key: "nav.contact", to: "/contact", label: "Contact" },
@@ -37,6 +36,27 @@ const servicesSubMenu = [
   { label: "Palm Trees", to: "/palm-trees", hash: undefined },
   { label: "Irrigation", to: "/irrigation", hash: undefined },
   { label: "Landscape Lighting", to: "/landscape-lighting", hash: undefined },
+] as const;
+
+const workSubMenu = [
+  { label: "All Projects", category: "All" },
+  { label: "House Remodeling", category: "House Remodeling" },
+  { label: "Covered Patios", category: "Covered Patios" },
+  { label: "Outdoor Kitchens", category: "Outdoor Kitchens" },
+  { label: "Custom Fireplaces", category: "Custom Fireplaces" },
+  { label: "Hardscapes", category: "Hardscapes" },
+  { label: "Stamped Concrete / Overlay", category: "Stamped Concrete / Overlay" },
+  { label: "Custom Decks", category: "Custom Decks" },
+  { label: "Artificial Turf", category: "Artificial Turf" },
+  { label: "Fencing", category: "Fencing" },
+  { label: "ADU Services", category: "ADU Services" },
+  { label: "Softscapes", category: "Softscapes" },
+  { label: "Palm Trees", category: "Palm Trees" },
+  { label: "Irrigation", category: "Irrigation" },
+  { label: "Landscape Lighting", category: "Landscape Lighting" },
+  { label: "New Construction", category: "New Construction" },
+  { label: "Commercial Services", category: "Commercial Services" },
+  { label: "General Contracting", category: "General Contracting" },
 ] as const;
 
 export function SiteHeader() {
@@ -68,15 +88,23 @@ export function SiteHeader() {
         "/landscape-lighting",
         "/adu-services",
         "/stamped-concrete-overlay",
-        "/design-service"
+        "/design-service",
+        "/custom-decks",
+        "/commercial",
+        "/general-contracting"
       ];
       return servicesPaths.some(path => currentPath.startsWith(path));
     }
+    if (itemKey === "nav.work") {
+      return currentPath.startsWith("/work") || currentPath.startsWith("/our-work");
+    }
     return currentPath.startsWith(itemTo);
   };
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [workOpen, setWorkOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -90,7 +118,11 @@ export function SiteHeader() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const closeMenu = () => { setMenuOpen(false); setServicesOpen(false); };
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setServicesOpen(false);
+    setWorkOpen(false);
+  };
 
   return (
     <>
@@ -172,6 +204,8 @@ export function SiteHeader() {
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navItems.map((item) => {
                 const isActive = isItemActive(item.key, item.to);
+
+                // Services Dropdown
                 if (item.key === "nav.services") {
                   return (
                     <div key={item.key} className="relative group py-2">
@@ -216,7 +250,7 @@ export function SiteHeader() {
                         </div>
 
                         {/* Right services grid */}
-                        <div className="flex-1 p-5 grid grid-cols-2 gap-x-3 gap-y-0.5 bg-[#fbfaf7]">
+                        <div className="flex-1 p-5 grid grid-cols-2 gap-x-3 gap-y-0.5 bg-[#fbfaf7] max-h-[420px] overflow-y-auto">
                           {servicesSubMenu.map((sub) => (
                             <Link
                               key={sub.label}
@@ -233,6 +267,72 @@ export function SiteHeader() {
                     </div>
                   );
                 }
+
+                // Our Work Dropdown
+                if (item.key === "nav.work") {
+                  return (
+                    <div key={item.key} className="relative group py-2">
+                      <Link
+                        to="/work"
+                        search={{ category: undefined }}
+                        className={
+                          isActive
+                            ? "border border-[#577a4c]/40 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md text-[15px] font-semibold text-[#3d5636] shadow-[0_2px_12px_rgba(87,122,76,0.06)] flex items-center gap-1.5 transition-all duration-200"
+                            : "border border-transparent px-4 py-1.5 rounded-full flex items-center gap-1.5 text-[15px] font-medium text-neutral-800 hover:text-[#3d5636] hover:bg-[#577a4c]/8 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                        }
+                      >
+                        {t(item.key)}
+                        <ChevronDown className="h-3.5 w-3.5 text-neutral-500 group-hover:rotate-180 transition-transform duration-250" />
+                      </Link>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[660px] bg-white border border-[#eae8e1] rounded-3xl shadow-[0_20px_50px_rgba(43,58,38,0.18)] opacity-0 scale-95 invisible group-hover:opacity-100 group-hover:scale-100 group-hover:visible transition-all duration-300 origin-top z-50 flex overflow-hidden">
+                        {/* Left sidebar call-out */}
+                        <div className="w-[220px] bg-[#23321e] p-6 text-left flex flex-col justify-between shrink-0 relative overflow-hidden">
+                          {/* Background Texture Overlay */}
+                          <div className="absolute inset-0 bg-cover bg-center opacity-[0.03] select-none pointer-events-none" style={{ backgroundImage: `url(${headerBg})` }} />
+
+                          <div className="space-y-4 relative z-10">
+                            <span className="inline-block bg-[#577a4c] text-white text-[8px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                              Portfolio Gallery
+                            </span>
+                            <h3 className="text-white text-sm font-black font-serif leading-snug">
+                              Our Completed Work
+                            </h3>
+                            <p className="text-[#8fa886] text-[10px] font-light leading-relaxed">
+                              Filter by service category to explore real photos of our craftsmanship across Central Texas.
+                            </p>
+                          </div>
+
+                          <div className="relative z-10 pt-4 border-t border-white/10">
+                            <Link
+                              to="/work"
+                              search={{ category: undefined }}
+                              className="inline-flex items-center gap-1 text-white hover:text-[#8fa886] text-[10px] font-bold uppercase tracking-wider transition-colors"
+                            >
+                              View Full Portfolio
+                              <ChevronRight className="h-3 w-3" />
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* Right categories grid */}
+                        <div className="flex-1 p-5 grid grid-cols-2 gap-x-3 gap-y-0.5 bg-[#fbfaf7] max-h-[420px] overflow-y-auto">
+                          {workSubMenu.map((sub) => (
+                            <Link
+                              key={sub.label}
+                              to="/work"
+                              search={sub.category === "All" ? { category: undefined } : { category: sub.category }}
+                              className="group/item flex items-center gap-2 px-3 py-1.5 text-[12px] font-bold text-neutral-800 hover:text-[#3d5636] hover:bg-[#577a4c]/5 rounded-xl transition-all duration-200 text-left hover:scale-[1.01]"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#577a4c]/20 group-hover/item:bg-[#577a4c] group-hover/item:scale-125 transition-all duration-200 shrink-0" />
+                              <span>{sub.label}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.key}
@@ -308,6 +408,7 @@ export function SiteHeader() {
               {/* ── Nav Links ── */}
               <nav className="flex-1 overflow-y-auto px-4 py-5 space-y-1">
                 {navItems.map((item, idx) => {
+                  // Mobile Services Accordion
                   if (item.key === "nav.services") {
                     return (
                       <motion.div
@@ -318,7 +419,10 @@ export function SiteHeader() {
                       >
                         {/* Services accordion trigger */}
                         <button
-                          onClick={() => setServicesOpen(!servicesOpen)}
+                          onClick={() => {
+                            setServicesOpen(!servicesOpen);
+                            if (!servicesOpen) setWorkOpen(false);
+                          }}
                           className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-semibold text-[15px] transition-all duration-200 cursor-pointer group ${isItemActive(item.key, item.to)
                             ? "bg-[#577a4c]/10 text-[#3d5636]"
                             : "text-neutral-800 hover:bg-[#577a4c]/8 hover:text-[#3d5636]"
@@ -362,6 +466,80 @@ export function SiteHeader() {
                                       className={`block px-3 py-2 text-[12px] font-semibold rounded-lg transition-all duration-150 ${currentPath === sub.to
                                         ? "text-[#3d5636] bg-[#577a4c]/8"
                                         : "text-neutral-600 hover:text-[#3d5636] hover:bg-[#577a4c]/8"
+                                        }`}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  }
+
+                  // Mobile Our Work Accordion
+                  if (item.key === "nav.work") {
+                    return (
+                      <motion.div
+                        key={item.key}
+                        initial={{ opacity: 0, x: 24 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.06 + 0.1, duration: 0.35, ease: "easeOut" }}
+                      >
+                        {/* Our Work accordion trigger */}
+                        <button
+                          onClick={() => {
+                            setWorkOpen(!workOpen);
+                            if (!workOpen) setServicesOpen(false);
+                          }}
+                          className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-semibold text-[15px] transition-all duration-200 cursor-pointer group ${isItemActive(item.key, item.to)
+                            ? "bg-[#577a4c]/10 text-[#3d5636]"
+                            : "text-neutral-800 hover:bg-[#577a4c]/8 hover:text-[#3d5636]"
+                            }`}
+                        >
+                          <span className="flex items-center gap-3">
+                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isItemActive(item.key, item.to) ? "bg-[#577a4c]" : "bg-[#577a4c]/40"
+                              }`} />
+                            Our Work
+                          </span>
+                          <motion.div
+                            animate={{ rotate: workOpen ? 180 : 0 }}
+                            transition={{ duration: 0.25 }}
+                          >
+                            <ChevronDown className="h-4 w-4 text-neutral-400 group-hover:text-[#577a4c]" />
+                          </motion.div>
+                        </button>
+
+                        {/* Our Work submenu */}
+                        <AnimatePresence>
+                          {workOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                            >
+                              <div className="ml-4 mt-1 mb-2 pl-4 border-l-2 border-[#577a4c]/20 grid grid-cols-2 gap-x-2 gap-y-0.5 max-h-[300px] overflow-y-auto">
+                                {workSubMenu.map((sub, subIdx) => (
+                                  <motion.div
+                                    key={sub.label}
+                                    initial={{ opacity: 0, y: 6 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: subIdx * 0.02 }}
+                                  >
+                                    <Link
+                                      to="/work"
+                                      search={sub.category === "All" ? { category: undefined } : { category: sub.category }}
+                                      onClick={closeMenu}
+                                      className={`block px-3 py-2 text-[12px] font-semibold rounded-lg transition-all duration-150 ${
+                                        (currentPath === "/work" && (location.search as any)?.category === sub.category) ||
+                                        (currentPath === "/work" && sub.category === "All" && !(location.search as any)?.category)
+                                          ? "text-[#3d5636] bg-[#577a4c]/8"
+                                          : "text-neutral-600 hover:text-[#3d5636] hover:bg-[#577a4c]/8"
                                         }`}
                                     >
                                       {sub.label}

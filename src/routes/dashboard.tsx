@@ -2449,21 +2449,24 @@ function DashboardPage() {
                             onChange={(e) => setSelectedUploadCategory(e.target.value)}
                             className="w-full bg-white border border-neutral-200 rounded-xl px-3 py-2.5 text-xs text-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#577a4c]"
                           >
-                            <option value="Palm Trees">Palm Trees</option>
                             <option value="House Remodeling">House Remodeling</option>
-                            <option value="New Construction">New Construction</option>
-                            <option value="Fireplace">Fireplace</option>
-                            <option value="Fencing">Fencing</option>
-                            <option value="Hardscapes">Hardscapes</option>
                             <option value="Covered Patios">Covered Patios</option>
-                            <option value="Artificial Turf">Artificial Turf</option>
-                            <option value="Softscapes">Softscapes</option>
                             <option value="Outdoor Kitchens">Outdoor Kitchens</option>
                             <option value="Custom Fireplaces">Custom Fireplaces</option>
+                            <option value="Hardscapes">Hardscapes</option>
+                            <option value="Stamped Concrete / Overlay">Stamped Concrete / Overlay</option>
+                            <option value="Custom Decks">Custom Decks</option>
+                            <option value="Artificial Turf">Artificial Turf</option>
+                            <option value="Fencing">Fencing</option>
+                            <option value="ADU Services">ADU Services</option>
+                            <option value="Softscapes">Softscapes</option>
+                            <option value="Palm Trees">Palm Trees</option>
                             <option value="Irrigation">Irrigation</option>
                             <option value="Landscape Lighting">Landscape Lighting</option>
-                            <option value="ADU Services">ADU Services</option>
-                            <option value="Stamped Concrete / Overlay">Stamped Concrete / Overlay</option>
+                            <option value="New Construction">New Construction</option>
+                            <option value="Commercial Services">Commercial Services</option>
+                            <option value="General Contracting">General Contracting</option>
+                            <option value="Design Service">Design Service</option>
                           </select>
                         </div>
 
@@ -2751,14 +2754,24 @@ function DashboardPage() {
                                 className="w-full bg-[#fcfbf8] border border-neutral-200 rounded-xl px-3.5 py-2 text-xs text-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#577a4c]"
                               >
                                 <option value="General">General</option>
-                                <option value="Remodeling">Remodeling</option>
-                                <option value="Hardscapes">Hardscapes</option>
+                                <option value="House Remodeling">House Remodeling</option>
+                                <option value="Covered Patios">Covered Patios</option>
                                 <option value="Outdoor Kitchens">Outdoor Kitchens</option>
-                                <option value="Outdoor Fireplaces">Outdoor Fireplaces</option>
-                                <option value="Landscaping">Landscaping</option>
+                                <option value="Custom Fireplaces">Custom Fireplaces</option>
+                                <option value="Hardscapes">Hardscapes</option>
+                                <option value="Stamped Concrete / Overlay">Stamped Concrete / Overlay</option>
+                                <option value="Custom Decks">Custom Decks</option>
                                 <option value="Artificial Turf">Artificial Turf</option>
                                 <option value="Fencing">Fencing</option>
+                                <option value="ADU Services">ADU Services</option>
+                                <option value="Softscapes">Softscapes</option>
+                                <option value="Palm Trees">Palm Trees</option>
+                                <option value="Irrigation">Irrigation</option>
+                                <option value="Landscape Lighting">Landscape Lighting</option>
                                 <option value="New Construction">New Construction</option>
+                                <option value="Commercial Services">Commercial Services</option>
+                                <option value="General Contracting">General Contracting</option>
+                                <option value="Design Service">Design Service</option>
                                 <option value="Custom">Custom / Write-in...</option>
                               </select>
                             </div>

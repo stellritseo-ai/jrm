@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
@@ -28,8 +28,25 @@ import outdoorKitchens from "@/assets/svc-outdoor-kitchens.jpg";
 import softscapes from "@/assets/svc-softscapes.jpg";
 import fencing from "@/assets/svc-fencing.jpg";
 import statsJobsite from "@/assets/stats-jobsite.jpg";
+import coveredPatios from "@/assets/svc-covered-patios.jpg";
+import customDecks from "@/assets/svc-custom-decks.jpg";
+import stampedConcrete from "@/assets/svc-stamped-concrete.jpg";
+import aduServices from "@/assets/svc-adu-services.jpg";
+import palmTrees from "@/assets/svc-palm-trees.jpg";
+import irrigation from "@/assets/svc-irrigation.jpg";
+import landscapeLighting from "@/assets/svc-landscape-lighting.jpg";
+import hardscapes from "@/assets/svc-hardscapes.jpg";
+
+interface WorkSearchParams {
+  category?: string;
+}
 
 export const Route = createFileRoute("/work")({
+  validateSearch: (search: Record<string, unknown>): WorkSearchParams => {
+    return {
+      category: typeof search.category === "string" && search.category ? search.category : undefined,
+    };
+  },
   head: () => ({
     meta: [
       { title: "Construction & Remodeling Portfolio San Antonio TX | JRM Construction" },
@@ -58,92 +75,184 @@ const CATEGORY_ROUTE_MAP: Record<string, string> = {
   "House Remodeling": "/house-remodeling",
   "New Construction": "/new-construction",
   "Fireplace": "/custom-fireplaces",
+  "Custom Fireplaces": "/custom-fireplaces",
   "Fencing": "/fencing",
   "Hardscapes": "/hardscapes",
   "Covered Patios": "/covered-patios",
   "Artificial Turf": "/artificial-turf",
   "Softscapes": "/softscapes",
   "Outdoor Kitchens": "/outdoor-kitchens",
-  "Custom Fireplaces": "/custom-fireplaces",
   "Irrigation": "/irrigation",
   "Landscape Lighting": "/landscape-lighting",
   "ADU Services": "/adu-services",
   "Stamped Concrete / Overlay": "/stamped-concrete-overlay",
+  "Custom Decks": "/custom-decks",
+  "Commercial Services": "/commercial",
+  "General Contracting": "/general-contracting",
+  "Design Service": "/design-service",
   "General": "/services"
 };
+
+const DEFAULT_WORK_CATEGORIES = [
+  "All",
+  "House Remodeling",
+  "Covered Patios",
+  "Outdoor Kitchens",
+  "Custom Fireplaces",
+  "Hardscapes",
+  "Stamped Concrete / Overlay",
+  "Custom Decks",
+  "Artificial Turf",
+  "Fencing",
+  "ADU Services",
+  "Softscapes",
+  "Palm Trees",
+  "Irrigation",
+  "Landscape Lighting",
+  "New Construction",
+  "Commercial Services",
+  "General Contracting"
+];
 
 const STATIC_PROJECTS = [
   {
     title: "Complete Home Remodel & Backyard Transformation",
     location: "San Antonio, TX",
     image: houseRemodeling,
-    category: "Remodeling",
+    category: "House Remodeling",
     services: ["House Remodeling", "Covered Patio", "Outdoor Kitchen", "Hardscapes", "Softscapes"],
   },
   {
-    title: "Custom Indoor Stone Fireplace & Mantel",
+    title: "Custom Covered Patio & Cedar Pergola Pavilion",
     location: "Boerne, TX",
-    image: fireplace,
-    category: "Outdoor Living",
-    services: ["Custom Fireplace", "Interior Finishing"],
+    image: coveredPatios,
+    category: "Covered Patios",
+    services: ["Covered Patios", "Outdoor Living", "Carpentry", "Ceiling Fans"],
   },
   {
-    title: "Resort-Style Backyard & Artificial Turf",
-    location: "San Antonio, TX",
-    image: artificialTurf,
-    category: "Landscaping",
-    services: ["Artificial Turf", "Hardscapes", "Softscapes", "Fire Pit Installation"],
-  },
-  {
-    title: "Commercial New Construction & Landscaping",
-    location: "San Antonio Medical Center",
-    image: newConstruction,
-    category: "Construction",
-    services: ["New Construction", "Commercial Landscaping", "Hardscapes", "Softscapes"],
-  },
-  {
-    title: "Custom Outdoor Kitchen & Covered Patio",
+    title: "Custom Outdoor Kitchen & Stainless BBQ Station",
     location: "New Braunfels, TX",
     image: outdoorKitchens,
-    category: "Outdoor Living",
-    services: ["Outdoor Kitchen", "Covered Patio", "Hardscapes", "Softscapes"],
+    category: "Outdoor Kitchens",
+    services: ["Outdoor Kitchens", "Granite Countertops", "Bar Seating", "Hardscapes"],
   },
   {
-    title: "Full Landscape Design & Palm Tree Installation",
-    location: "Canyon Lake, TX",
-    image: softscapes,
-    category: "Landscaping",
-    services: ["Softscapes", "Palm Tree Installation", "Hardscapes", "Retaining Wall"],
+    title: "Custom Indoor & Outdoor Stone Fireplace",
+    location: "Boerne, TX",
+    image: fireplace,
+    category: "Custom Fireplaces",
+    services: ["Custom Fireplaces", "Masonry", "Stone Mantel", "Interior Finishing"],
   },
   {
-    title: "Custom Fencing & Privacy Screen",
+    title: "Limestone Hardscape Pavers & Retaining Wall",
+    location: "San Antonio, TX",
+    image: hardscapes,
+    category: "Hardscapes",
+    services: ["Hardscapes", "Travertine Pavers", "Retaining Wall", "Steps"],
+  },
+  {
+    title: "Decorative Stamped Concrete Patio & Overlay",
+    location: "Schertz, TX",
+    image: stampedConcrete,
+    category: "Stamped Concrete / Overlay",
+    services: ["Stamped Concrete / Overlay", "Stained Concrete", "Pool Deck"],
+  },
+  {
+    title: "Custom Multi-Level Composite & Cedar Deck",
+    location: "Bulverde, TX",
+    image: customDecks,
+    category: "Custom Decks",
+    services: ["Custom Decks", "Trex Composite", "Railing", "Outdoor Living"],
+  },
+  {
+    title: "Resort-Style Backyard & Premium Artificial Turf",
+    location: "San Antonio, TX",
+    image: artificialTurf,
+    category: "Artificial Turf",
+    services: ["Artificial Turf", "Pet Turf", "Putting Green", "Drainage"],
+  },
+  {
+    title: "Horizontal Cedar Privacy Fence & Custom Gate",
     location: "San Antonio, TX",
     image: fencing,
     category: "Fencing",
-    services: ["Fencing", "Hardscapes", "Softscapes"],
+    services: ["Fencing", "Horizontal Cedar", "Steel Posts", "Privacy Screen"],
   },
   {
-    title: "New Custom Home Construction",
+    title: "Modern Backyard ADU & Guest House Suite",
+    location: "Alamo Heights, TX",
+    image: aduServices,
+    category: "ADU Services",
+    services: ["ADU Services", "Guest House", "Framing", "Interior Finishing"],
+  },
+  {
+    title: "Native Texas Planting, Beds & Softscape Design",
+    location: "Canyon Lake, TX",
+    image: softscapes,
+    category: "Softscapes",
+    services: ["Softscapes", "Drip Irrigation", "Texas Native Plants", "Mulch"],
+  },
+  {
+    title: "Lush Tropical Palm Tree Delivery & Installation",
+    location: "San Antonio, TX",
+    image: palmTrees,
+    category: "Palm Trees",
+    services: ["Palm Trees", "Specimen Palms", "Tropical Landscaping"],
+  },
+  {
+    title: "Smart Water-Efficient Irrigation & Sprinkler System",
+    location: "Seguin, TX",
+    image: irrigation,
+    category: "Irrigation",
+    services: ["Irrigation", "Smart Controller", "Drip Lines", "Backflow Testing"],
+  },
+  {
+    title: "Architectural Low-Voltage Landscape Lighting",
+    location: "Boerne, TX",
+    image: landscapeLighting,
+    category: "Landscape Lighting",
+    services: ["Landscape Lighting", "LED Uplighting", "Pathway Lights", "Security"],
+  },
+  {
+    title: "New Custom Home Construction & Structural Framing",
     location: "Schertz, TX",
     image: statsJobsite,
-    category: "Construction",
-    services: ["New Construction", "Hardscapes", "Softscapes", "Interior Finishing"],
+    category: "New Construction",
+    services: ["New Construction", "Structural Framing", "Foundation", "Masonry"],
+  },
+  {
+    title: "Commercial Build-Out & Structural Renovation",
+    location: "San Antonio Medical Center",
+    image: newConstruction,
+    category: "Commercial Services",
+    services: ["Commercial Services", "Tenant Improvement", "General Contracting"],
   },
 ];
 
 function OurWorkPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const search = Route.useSearch();
+  const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState<string>(search.category || "All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [projects, setProjects] = useState<any[]>([]);
 
+  // Synchronize category state when search param in URL changes
+  useEffect(() => {
+    if (search.category) {
+      setActiveCategory(search.category);
+    } else {
+      setActiveCategory("All");
+    }
+  }, [search.category]);
+
   const categories = useMemo(() => {
-    const list = new Set<string>();
+    const list = new Set<string>(DEFAULT_WORK_CATEGORIES);
     projects.forEach((p) => {
-      if (p.category) {
-        list.add(p.category);
+      if (p.category && p.category.trim() && p.category !== "General") {
+        list.add(p.category.trim());
       }
     });
-    return ["All", ...Array.from(list)];
+    return Array.from(list);
   }, [projects]);
 
   useEffect(() => {
@@ -152,7 +261,7 @@ function OurWorkPage() {
         const photos = await getGalleryPhotos();
         if (photos && photos.length > 0) {
           const mapped = photos.map((photo, index) => {
-            const url = photo.url.toLowerCase();
+            const url = (photo.url || "").toLowerCase();
             let category = photo.category || "General";
             let title = photo.title || "JRM Custom Craftsmanship";
             const caption = photo.caption || "";
@@ -161,51 +270,47 @@ function OurWorkPage() {
             // Infer category and details based on file name patterns ONLY if category is General or blank
             if (category === "General" || !category) {
               if (url.includes("kitchen")) {
-                category = "Outdoor Living";
+                category = "Outdoor Kitchens";
                 title = photo.title || "Custom Outdoor Kitchen & Grill Station";
                 services = caption ? [caption] : ["Outdoor Kitchen", "Granite Countertops", "Hardscapes"];
-              } else if (url.includes("pavilion")) {
-                category = "Outdoor Living";
-                title = photo.title || "Rustic Covered Pavilion & Pergola";
+              } else if (url.includes("pavilion") || url.includes("patio")) {
+                category = "Covered Patios";
+                title = photo.title || "Rustic Covered Pavilion & Patio";
                 services = caption ? [caption] : ["Covered Patio", "Cedar Pergola", "Carpentry"];
               } else if (url.includes("pool")) {
-                category = "Outdoor Living";
+                category = "Hardscapes";
                 title = photo.title || "Resort-Style Pool Deck & Masonry";
                 services = caption ? [caption] : ["Pool Deck", "Flagstone Coping", "Hardscapes"];
-              } else if (url.includes("patio")) {
-                category = "Outdoor Living";
-                title = photo.title || "Premium Flagstone Patio Extension";
-                services = caption ? [caption] : ["Flagstone Patio", "Hardscapes", "Outdoor Living"];
               } else if (url.includes("fireplace")) {
-                category = "Outdoor Living";
+                category = "Custom Fireplaces";
                 title = photo.title || "Custom Floor-to-Ceiling Stone Fireplace";
                 services = caption ? [caption] : ["Masonry Fireplace", "Stone Accent Wall", "Hardscapes"];
               } else if (url.includes("turf")) {
-                category = "Landscaping";
+                category = "Artificial Turf";
                 title = photo.title || "Premium Artificial Turf Installation";
                 services = caption ? [caption] : ["Artificial Turf", "Soil Preparation", "Drainage System"];
               } else if (url.includes("softscapes")) {
-                category = "Landscaping";
+                category = "Softscapes";
                 title = photo.title || "Native Texas Planting & Softscape Design";
                 services = caption ? [caption] : ["Softscapes", "Drip Irrigation", "Planting Beds"];
               } else if (url.includes("hardscapes")) {
-                category = "Landscaping";
+                category = "Hardscapes";
                 title = photo.title || "Limestone Retaining Wall & Steps";
                 services = caption ? [caption] : ["Retaining Wall", "Limestone Steps", "Hardscapes"];
               } else if (url.includes("fence") || url.includes("fencing")) {
                 category = "Fencing";
                 title = photo.title || "Horizontal Cedar Privacy Fence";
                 services = caption ? [caption] : ["Cedar Fencing", "Steel Posts", "Privacy Screen"];
-              } else if (url.includes("construction")) {
-                category = "Construction";
-                title = photo.title || "New Custom Home Construction";
+              } else if (url.includes("palm")) {
+                category = "Palm Trees";
+                title = photo.title || "Specimen Palm Tree Installation";
+                services = caption ? [caption] : ["Palm Trees", "Landscape Accent"];
+              } else if (url.includes("construction") || url.includes("jobsite")) {
+                category = "New Construction";
+                title = photo.title || "Custom Construction & Structural Framing";
                 services = caption ? [caption] : ["New Construction", "Framing", "Foundation Work"];
-              } else if (url.includes("jobsite")) {
-                category = "Construction";
-                title = photo.title || "Custom Structural Framing Work";
-                services = caption ? [caption] : ["Structural Framing", "Framing Inspection", "Construction"];
               } else if (url.includes("remodeling")) {
-                category = "Remodeling";
+                category = "House Remodeling";
                 title = photo.title || "Complete Kitchen & Bath Home Renovation";
                 services = caption ? [caption] : ["House Remodeling", "Custom Cabinetry", "Tile Backsplash"];
               }
@@ -230,7 +335,20 @@ function OurWorkPage() {
               services
             };
           });
-          setProjects(mapped);
+
+          // Combine with STATIC_PROJECTS for unmatched categories to ensure comprehensive display
+          const combined = [...mapped];
+          STATIC_PROJECTS.forEach(staticP => {
+            const existsInMapped = mapped.some(
+              m => m.category.toLowerCase().replace(/[^a-z0-9]/g, "") ===
+                   staticP.category.toLowerCase().replace(/[^a-z0-9]/g, "")
+            );
+            if (!existsInMapped) {
+              combined.push(staticP);
+            }
+          });
+
+          setProjects(combined);
         } else {
           setProjects(STATIC_PROJECTS);
         }
@@ -242,9 +360,39 @@ function OurWorkPage() {
     loadGallery();
   }, []);
 
-  const filtered = activeCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
+  const handleCategorySelect = (cat: string) => {
+    setActiveCategory(cat);
+    setLightboxIndex(null);
+    navigate({
+      to: "/work",
+      search: { category: cat === "All" ? undefined : cat },
+      replace: true,
+    });
+  };
+
+  const filtered = useMemo(() => {
+    if (!activeCategory || activeCategory === "All") {
+      return projects;
+    }
+
+    const norm = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const target = norm(activeCategory);
+
+    return projects.filter((p) => {
+      const pCat = norm(p.category || "General");
+      if (pCat === target) return true;
+      if (pCat && target && (pCat.includes(target) || target.includes(pCat))) return true;
+      if (p.services && Array.isArray(p.services)) {
+        if (p.services.some((s: string) => {
+          const sNorm = norm(s);
+          return sNorm === target || sNorm.includes(target) || target.includes(sNorm);
+        })) {
+          return true;
+        }
+      }
+      return false;
+    });
+  }, [projects, activeCategory]);
 
   const openLightbox = (idx: number) => setLightboxIndex(idx);
   const closeLightbox = () => setLightboxIndex(null);
@@ -329,7 +477,7 @@ function OurWorkPage() {
             className="relative z-20 max-w-4xl mx-auto flex flex-col items-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
-              Our Portfolio
+              {activeCategory === "All" ? "Our Portfolio" : `${activeCategory} Portfolio`}
             </span>
             <h1 className="text-[26px] sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               Transforming San Antonio Properties,<br className="hidden sm:inline" /> One Project at a Time
@@ -375,29 +523,49 @@ function OurWorkPage() {
               Featured Gallery
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 tracking-tight" style={{ fontFamily: "Georgia, serif" }}>
-              Our Completed Masterpieces
+              {activeCategory === "All" ? "Our Completed Masterpieces" : `${activeCategory} Projects`}
             </h2>
             <p className="mt-3 text-sm text-neutral-500 font-light leading-relaxed">
               Click any photo to view it full screen. Use arrow keys or swipe to navigate.
             </p>
           </motion.div>
 
-          {/* Category Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10 overflow-x-auto pb-1">
-            {categories.map((cat) => (
+          {/* Category Filter Tabs — Only shown on main /work page */}
+          {activeCategory === "All" && (
+            <div className="flex flex-wrap justify-center gap-2 mb-10 overflow-x-auto pb-1 max-w-5xl mx-auto">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => handleCategorySelect(cat)}
+                  className={`whitespace-nowrap px-4 py-2 rounded-full text-[12px] font-bold uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
+                    activeCategory === cat
+                      ? "bg-[#577a4c] text-white border-[#577a4c] shadow-md scale-[1.02]"
+                      : "bg-white/80 text-neutral-600 border-neutral-200 hover:border-[#577a4c] hover:text-[#577a4c] hover:bg-white"
+                  }`}
+                >
+                  {cat === "All" ? "All Projects" : cat}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Sub-menu Specific Category View Bar */}
+          {activeCategory !== "All" && (
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 pb-4 border-b border-neutral-200/60 max-w-2xl mx-auto text-center">
+              <span className="text-sm text-neutral-600 font-medium">
+                Showing <strong className="text-[#3d5636] font-bold">{filtered.length}</strong> project{filtered.length === 1 ? "" : "s"} under <strong className="text-[#3d5636] font-bold">&ldquo;{activeCategory}&rdquo;</strong>
+              </span>
               <button
-                key={cat}
-                onClick={() => { setActiveCategory(cat); setLightboxIndex(null); }}
-                className={`whitespace-nowrap px-5 py-2 rounded-full text-[12px] font-bold uppercase tracking-wider border transition-all duration-300 ${
-                  activeCategory === cat
-                    ? "bg-[#577a4c] text-white border-[#577a4c] shadow-md"
-                    : "bg-white/80 text-neutral-600 border-neutral-200 hover:border-[#577a4c] hover:text-[#577a4c]"
-                }`}
+                type="button"
+                onClick={() => handleCategorySelect("All")}
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white border border-[#577a4c]/30 text-[#3d5636] text-xs font-bold hover:bg-[#577a4c] hover:text-white transition-all shadow-xs cursor-pointer"
               >
-                {cat}
+                <ChevronLeft className="w-3.5 h-3.5" />
+                View All Projects
               </button>
-            ))}
-          </div>
+            </div>
+          )}
 
           {/* 4-Column Photo Grid */}
           <motion.div
@@ -407,12 +575,12 @@ function OurWorkPage() {
             <AnimatePresence mode="popLayout">
               {filtered.map((p, idx) => (
                 <motion.div
-                  key={p.title}
+                  key={`${p.title}-${p.image}-${idx}`}
                   layout
                   initial={{ opacity: 0, scale: 0.92 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.88 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05, ease: "easeOut" }}
+                  transition={{ duration: 0.4, delay: idx * 0.04, ease: "easeOut" }}
                   className="group relative rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 bg-neutral-200 aspect-[4/3]"
                   onClick={() => openLightbox(idx)}
                 >
@@ -421,6 +589,7 @@ function OurWorkPage() {
                     src={p.image}
                     alt={p.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
                   />
 
                   {/* Hover overlay */}
@@ -455,8 +624,17 @@ function OurWorkPage() {
 
           {/* Empty state */}
           {filtered.length === 0 && (
-            <div className="text-center py-20 text-neutral-400 text-sm">
-              No projects in this category yet. Check back soon!
+            <div className="text-center py-20 bg-white/50 rounded-2xl border border-dashed border-neutral-300 my-6">
+              <p className="text-neutral-500 text-sm font-medium">
+                No projects found under &ldquo;{activeCategory}&rdquo; yet.
+              </p>
+              <button
+                type="button"
+                onClick={() => handleCategorySelect("All")}
+                className="mt-4 px-6 py-2.5 rounded-full bg-[#577a4c] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#45623c] transition-colors shadow-sm cursor-pointer"
+              >
+                View All Projects
+              </button>
             </div>
           )}
         </section>
