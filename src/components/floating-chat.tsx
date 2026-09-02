@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { MessageCircle, Phone, Mail, X, Send } from "lucide-react";
 import { useTranslation } from "@/context/translation-context";
 import favIcon from "@/assets/fav.png";
@@ -133,17 +133,36 @@ export function FloatingChat() {
     }
   };
 
-  // Poll database every 3 seconds to pull incoming admin replies in real-time
+  // Poll database every 5 seconds — ONLY when the chat window is open and the tab is visible
   useEffect(() => {
-    if (typeof window === "undefined" || !chatSession?.id) return;
-    const interval = setInterval(async () => {
-      const refreshed = await getChatSessionById(chatSession.id);
-      if (refreshed) {
-        setChatSession(refreshed);
-      }
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [chatSession?.id]);
+    if (typeof window === "undefined" || !chatSession?.id || !isOpen) return;
+
+    let interval: ReturnType<typeof setInterval> | null = null;
+
+    const startPolling = () => {
+      if (interval) return;
+      interval = setInterval(async () => {
+        const refreshed = await getChatSessionById(chatSession.id);
+        if (refreshed) setChatSession(refreshed);
+      }, 5000);
+    };
+
+    const stopPolling = () => {
+      if (interval) { clearInterval(interval); interval = null; }
+    };
+
+    const onVisibility = () => {
+      if (document.hidden) stopPolling(); else startPolling();
+    };
+
+    if (!document.hidden) startPolling();
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      stopPolling();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [chatSession?.id, isOpen]);
 
   // Trigger tooltip notification after 4 seconds
   useEffect(() => {
@@ -173,7 +192,15 @@ export function FloatingChat() {
     }
   };
 
-  const handleSend = async (e: React.FormEvent) => {
+  // Track bot-reply timeout so we can cancel it on unmount
+  const botReplyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clean up bot-reply timer on unmount
+  useEffect(() => () => {
+    if (botReplyTimerRef.current) clearTimeout(botReplyTimerRef.current);
+  }, []);
+
+  const handleSend = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim() || !chatSession) return;
 
@@ -196,14 +223,14 @@ export function FloatingChat() {
       }
     }
 
-    // 2. Trigger fallback simulated response after 15 seconds
-    // only if the admin hasn't active-responded since then
-    setTimeout(async () => {
+    // 2. Trigger fallback simulated response after 15 seconds only if admin hasn't replied
+    if (botReplyTimerRef.current) clearTimeout(botReplyTimerRef.current);
+    const sessionIdSnapshot = chatSession.id;
+    botReplyTimerRef.current = setTimeout(async () => {
       setIsTyping(false);
 
-      const fresh = await getChatSessionById(chatSession.id);
+      const fresh = await getChatSessionById(sessionIdSnapshot);
 
-      // If the very last message in the thread is still from the client, send the auto-bot reply
       if (fresh && fresh.messages.length > 0 && fresh.messages[fresh.messages.length - 1].sender === "client") {
         const botReply = await sendChatMessage(
           fresh.id,
@@ -215,7 +242,6 @@ export function FloatingChat() {
 
         if (botReply) {
           setChatSession(botReply);
-          // Emit bot message to socket so dashboard sees it instantly
           const lastMsg = botReply.messages[botReply.messages.length - 1];
           if (socketRef.current && lastMsg) {
             socketRef.current.emit("new-message", {
@@ -226,7 +252,7 @@ export function FloatingChat() {
         }
       }
     }, 15000);
-  };
+  }, [inputValue, chatSession, language]);
 
   const formatTime = (timestamp: string) => {
     try {
@@ -476,21 +502,25 @@ export function FloatingChat() {
           : "border-[#4a6741] text-[#4a6741] hover:scale-105"
           }`}
       >
-        {/* Pulsing ring animation when closed */}
+        {/* Pulsing ring — only rendered (and animated) when closed */}
         {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-[#4a6741]/40 animate-ping opacity-75"></span>
+          <span
+            className="absolute inset-0 rounded-full bg-[#4a6741]/40 opacity-75"
+            style={{ animation: "ping 1.5s cubic-bezier(0,0,0.2,1) infinite" }}
+          />
         )}
 
         {isOpen ? (
           <X className="h-6 w-6 transition-transform duration-300" />
         ) : (
-          <img 
-            src={favIcon} 
-            alt="Chat" 
+          <img
+            src={favIcon}
+            alt="Chat"
             className="h-10 w-10 rounded-full object-cover transition-transform duration-300 group-hover:scale-105 shadow-sm"
           />
         )}
       </button>
+      <style>{`@keyframes ping { 75%,100%{transform:scale(2);opacity:0} }`}</style>
     </div>
   );
 }

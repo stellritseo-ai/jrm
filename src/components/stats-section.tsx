@@ -1,8 +1,10 @@
+import { useRef, useEffect } from "react";
 import hit1 from "@/assets/hit1.webp";
 import hit2 from "@/assets/hit2.webp";
 import hit3 from "@/assets/hit3.webp";
 import exp from "@/assets/exp.webp";
 import { useTranslation } from "@/context/translation-context";
+
 
 const stats = [
   { icon: hit1, value: "5,000+", labelKey: "stats.label.complete_project" },
@@ -13,6 +15,26 @@ const stats = [
 
 export function StatsSection() {
   const { t } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Start/pause video only when it enters the viewport
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {/* ignore autoplay block */});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
@@ -55,11 +77,12 @@ export function StatsSection() {
         {/* Right Column: Jobsite Video Container with premium rounded styling */}
         <div className="w-full lg:col-start-4 lg:col-end-6 lg:row-start-1 lg:row-end-3 z-0 h-[320px] lg:h-[540px] relative rounded-3xl overflow-hidden border border-neutral-200/20 shadow-[0_15px_35px_rgba(0,0,0,0.04)]">
           <video
+            ref={videoRef}
             src="https://res.cloudinary.com/dgpdydebp/video/upload/v1781725575/IMG_5680_inkpef.mov"
             playsInline
-            autoPlay
             muted
             loop
+            preload="none"
             className="w-full h-full object-cover"
           />
         </div>

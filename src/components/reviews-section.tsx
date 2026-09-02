@@ -2,6 +2,7 @@ import { Star, User } from "lucide-react";
 import { useTranslation } from "@/context/translation-context";
 import reviewComp from "@/assets/review-comp.webp";
 import { Link } from "@tanstack/react-router";
+import { useRef, useEffect } from "react";
 
 const reviewsList = [
   { textKey: "reviews.1.text", nameKey: "reviews.1.name", dateKey: "reviews.1.date" },
@@ -11,9 +12,27 @@ const reviewsList = [
 
 export function ReviewsSection() {
   const { t } = useTranslation();
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Pause marquee animation when section is off-screen
+  useEffect(() => {
+    const section = sectionRef.current;
+    const marquee = marqueeRef.current;
+    if (!section || !marquee) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        marquee.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
+    <div ref={sectionRef} className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
       <section id="reviews" className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fbfaf7] px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[0.8fr_2fr] items-center overflow-hidden">
 
         {/* Left Column: Rating & Trust */}
@@ -55,7 +74,7 @@ export function ReviewsSection() {
           <div className="absolute inset-y-0 right-0 w-[40px] lg:w-[80px] bg-gradient-to-l from-[#fbfaf7] to-transparent z-10 pointer-events-none" />
 
           <div className="w-full overflow-hidden">
-            <div className="flex gap-6 w-fit animate-marquee">
+            <div ref={marqueeRef} className="flex gap-6 w-fit animate-marquee" style={{ willChange: "transform" }}>
               {[...reviewsList, ...reviewsList].map((r, i) => (
                 <div
                   key={i}

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 
 export type Language = "en" | "es";
 
@@ -28,9 +28,9 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("jrm-language", lang);
   };
 
-  const t = (key: TranslationKey): string => {
+  const t = useCallback((key: TranslationKey): string => {
     return translations[language][key] || translations["en"][key] || key;
-  };
+  }, [language]);
 
   return (
     <TranslationContext.Provider value={{ language, setLanguage, t }}>

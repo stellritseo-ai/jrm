@@ -30,18 +30,25 @@ export function HeroSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, scale: 1 }}
-              animate={{ opacity: 1, scale: 1.08 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{
-                opacity: { duration: 1.5, ease: "easeInOut" },
-                scale: { duration: 6, ease: "linear" }
-              }}
-              className="absolute inset-0 bg-cover bg-center"
+              transition={{ opacity: { duration: 1.5, ease: "easeInOut" } }}
+              className="absolute inset-0 bg-cover bg-center ken-burns-zoom"
               style={{ backgroundImage: `url(${banners[currentSlide]})` }}
             />
           </AnimatePresence>
         </div>
+        <style>{`
+          @keyframes kenBurns {
+            0%   { transform: scale(1); }
+            100% { transform: scale(1.08); }
+          }
+          .ken-burns-zoom {
+            will-change: transform;
+            animation: kenBurns 6s ease-in-out forwards;
+          }
+        `}</style>
 
         {/* Premium Dark Forest & Shadow Overlay for High Contrast */}
         <div

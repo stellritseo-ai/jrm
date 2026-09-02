@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Phone, ChevronDown, X, ExternalLink, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -67,7 +67,7 @@ export function SiteHeader() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const isItemActive = (itemKey: string, itemTo: string) => {
+  const isItemActive = useCallback((itemKey: string, itemTo: string) => {
     if (itemTo === "/") {
       return currentPath === "/";
     }
@@ -99,7 +99,7 @@ export function SiteHeader() {
       return currentPath.startsWith("/work") || currentPath.startsWith("/our-work");
     }
     return currentPath.startsWith(itemTo);
-  };
+  }, [currentPath]);
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
