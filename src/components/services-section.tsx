@@ -26,14 +26,14 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 
 const services = [
+  { key: "services.kitchens", image: outdoorKitchens, to: "/outdoor-kitchens" },
+  { key: "services.coveredpatios", image: coveredPatios, to: "/covered-patios" },
+  { key: "services.softscapes", image: softscapes, to: "/softscapes" },
+  { key: "services.turf", image: artificialTurf, to: "/artificial-turf" },
   { key: "services.remodeling", image: houseRemodeling, to: "/house-remodeling" },
   { key: "services.construction", image: newConstruction, to: "/new-construction" },
   { key: "services.fireplace", image: fireplace, to: "/custom-fireplaces" },
   { key: "services.fencing", image: fencing, to: "/fencing" },
-  { key: "services.coveredpatios", image: coveredPatios, to: "/covered-patios" },
-  { key: "services.turf", image: artificialTurf, to: "/artificial-turf" },
-  { key: "services.softscapes", image: softscapes, to: "/softscapes" },
-  { key: "services.kitchens", image: outdoorKitchens, to: "/outdoor-kitchens" },
   { key: "services.palmtrees", image: palmTrees, to: "/palm-trees" },
   { key: "services.hardscapes", image: hardscapes, to: "/hardscapes" },
   { key: "services.irrigation", image: irrigation, to: "/irrigation" },
