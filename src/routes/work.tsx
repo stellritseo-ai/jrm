@@ -65,6 +65,32 @@ export const Route = createFileRoute("/work")({
     ],
     links: [
       { rel: "canonical", href: "https://jrmconstructionservicellc.com/work" }
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://jrmconstructionservicellc.com/work#webpage",
+              "url": "https://jrmconstructionservicellc.com/work",
+              "name": "Project Portfolio & Recent Work | JRM Construction",
+              "description": "Gallery of completed general contracting, house remodeling, covered patios, and outdoor living projects across San Antonio, TX.",
+              "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://jrmconstructionservicellc.com/work#breadcrumb",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Our Work", "item": "https://jrmconstructionservicellc.com/work" }
+              ]
+            }
+          ]
+        })
+      }
     ]
   }),
   component: OurWorkPage,
@@ -234,7 +260,7 @@ function OurWorkPage() {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<string>(search.category || "All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<any[]>(STATIC_PROJECTS);
 
   // Synchronize category state when search param in URL changes
   useEffect(() => {
@@ -429,33 +455,6 @@ function OurWorkPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "CollectionPage",
-                "@id": "https://jrmconstructionservicellc.com/work#webpage",
-                "url": "https://jrmconstructionservicellc.com/work",
-                "name": "Project Portfolio & Recent Work | JRM Construction",
-                "description": "Gallery of completed general contracting, house remodeling, covered patios, and outdoor living projects across San Antonio, TX.",
-                "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" }
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://jrmconstructionservicellc.com/work#breadcrumb",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "Our Work", "item": "https://jrmconstructionservicellc.com/work" }
-                ]
-              }
-            ]
-          })
-        }}
-      />
       <SiteHeader />
 
       {/* ── CINEMATIC HERO ── */}

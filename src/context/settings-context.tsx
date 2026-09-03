@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { getPortalSettings, PortalSettings } from "@/lib/leads-store";
 import { Hammer, HardHat, Mail, Phone, Clock } from "lucide-react";
+import welBg from "@/assets/wel-bg.png";
 
 interface SettingsContextProps {
   settings: PortalSettings;
@@ -65,7 +66,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       <div 
         className="min-h-screen bg-[#1c140d] text-white flex flex-col items-center justify-center p-6 relative overflow-hidden select-none font-sans"
         style={{
-          backgroundImage: "linear-gradient(to bottom, rgba(28, 20, 13, 0.95), rgba(20, 16, 13, 0.98)), url('/src/assets/wel-bg.png')",
+          backgroundImage: `linear-gradient(to bottom, rgba(28, 20, 13, 0.95), rgba(20, 16, 13, 0.98)), url(${welBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}

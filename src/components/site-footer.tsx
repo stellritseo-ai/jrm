@@ -3,6 +3,7 @@ import logo from "@/assets/jrm-logo.png";
 import { useTranslation } from "@/context/translation-context";
 import { useSettings } from "@/context/settings-context";
 import { Link } from "@tanstack/react-router";
+import welBg from "@/assets/wel-bg.png";
 
 export function SiteFooter() {
   const { t, language } = useTranslation();
@@ -37,7 +38,7 @@ export function SiteFooter() {
       <footer
         className="mx-auto max-w-[1400px] w-full bg-[#1c140d] text-white px-8 md:px-12 py-16 rounded-t-none rounded-b-[10px] mt-0 border border-neutral-800/40 shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative overflow-hidden"
         style={{
-          backgroundImage: "linear-gradient(to bottom, rgba(28,20,13,0.97), rgba(28,20,13,0.98)), url(/src/assets/wel-bg.png)",
+          backgroundImage: `linear-gradient(to bottom, rgba(28,20,13,0.97), rgba(28,20,13,0.98)), url(${welBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

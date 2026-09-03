@@ -477,7 +477,7 @@ function LandscapeLightingPage() {
         <section
           className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#1c140d] text-white px-6 py-20 md:px-12 lg:px-16 text-center border border-neutral-800 shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative overflow-hidden"
           style={{
-            backgroundImage: "linear-gradient(to bottom, rgba(28,20,13,0.96), rgba(28,20,13,0.98)), url(/src/assets/wel-bg.png)",
+            backgroundImage: `linear-gradient(to bottom, rgba(28,20,13,0.96), rgba(28,20,13,0.98)), url(${welBg})`,
             backgroundAttachment: "fixed",
             backgroundSize: "100% 100%",
             backgroundPosition: "center",

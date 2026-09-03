@@ -5,6 +5,7 @@ import { User, Lock, ArrowRight, ShieldAlert } from "lucide-react";
 import { toast } from "sonner";
 import { loginAdmin, verifyAdminToken } from "@/lib/leads-store";
 import logo from "@/assets/jrm-logo.png";
+import welBg from "@/assets/wel-bg.png";
 
 export const Route = createFileRoute("/login")({
   head: () => ({
@@ -82,7 +83,7 @@ function LoginPage() {
   return (
     <div 
       className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center p-4 relative"
-      style={{ backgroundImage: "linear-gradient(to bottom, rgba(26, 22, 19, 0.96), rgba(20, 16, 13, 0.98)), url('/src/assets/wel-bg.png')" }}
+      style={{ backgroundImage: `linear-gradient(to bottom, rgba(26, 22, 19, 0.96), rgba(20, 16, 13, 0.98)), url(${welBg})` }}
     >
       {/* Back to main website link */}
       <div className="absolute top-6 left-6">

@@ -98,6 +98,7 @@ import { toast } from "sonner";
 import { io } from "socket.io-client";
 import { useSettings } from "@/context/settings-context";
 import logo from "@/assets/jrm-logo.png";
+import welBg from "@/assets/wel-bg.png";
 
 const formatChatTime = (timestamp: string) => {
   if (!timestamp) return "";
@@ -1181,7 +1182,7 @@ function DashboardPage() {
 
   if (isAuthenticated === null) {
     return (
-      <div className="min-h-screen bg-[#1c140d] flex flex-col items-center justify-center text-white" style={{ backgroundImage: "linear-gradient(to bottom, rgba(28, 20, 13, 0.95), rgba(20, 16, 13, 0.98)), url('/src/assets/wel-bg.png')" }}>
+      <div className="min-h-screen bg-[#1c140d] flex flex-col items-center justify-center text-white" style={{ backgroundImage: `linear-gradient(to bottom, rgba(28, 20, 13, 0.95), rgba(20, 16, 13, 0.98)), url(${welBg})` }}>
         <div className="flex flex-col items-center gap-3">
           <div className="h-10 w-10 rounded-full border-2 border-white/20 border-t-white animate-spin"></div>
           <p className="text-xs text-neutral-400 font-light tracking-widest uppercase mt-4">Robert's Office — Loading Portal...</p>

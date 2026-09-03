@@ -56,7 +56,7 @@ export function CTASection() {
         {/* Inner Card Container with textured linen background */}
         <div
           className="w-full rounded-[8px] bg-cover bg-center border border-[#eae8e1]/70 shadow-[0_10px_35px_rgba(0,0,0,0.02)] relative z-10 p-5 sm:p-8 md:p-10 lg:p-[40px_50px]"
-          style={{ backgroundImage: "url(/src/assets/wel-bg.png)", backgroundColor: "#fbfaf7" }}
+          style={{ backgroundImage: `url(${welBg})`, backgroundColor: "#fbfaf7" }}
         >
           {/* Badge */}
           <div className="inline-block bg-[#3f4a1f] text-white text-[10px] font-extrabold uppercase tracking-widest px-5 py-2 rounded-full mb-6 select-none shadow-sm">
