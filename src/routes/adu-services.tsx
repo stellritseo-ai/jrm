@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 import imgConstruction from "@/assets/svc-new-construction.jpg";
-import imgPavilion from "@/assets/welcome-pavilion.jpg";
+import imgAduConstruction from "@/assets/best-adu-construction.webp";
 import imgRemodelSvc from "@/assets/svc-house-remodeling.jpg";
 import imgJobsite from "@/assets/stats-jobsite.jpg";
 import welBg from "@/assets/wel-bg.png";
@@ -327,7 +327,7 @@ function ADUServicesPage() {
           <div className="lg:col-span-5 space-y-6">
             <div className="relative rounded-2xl overflow-hidden border border-[#eae8e1] shadow-xs group h-[220px] md:h-[260px]">
               <img
-                src={imgPavilion}
+                src={imgAduConstruction}
                 alt="Custom detached ADU structure"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
               />
