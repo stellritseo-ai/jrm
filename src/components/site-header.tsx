@@ -18,21 +18,21 @@ const navItems = [
 ] as const;
 
 const servicesSubMenu = [
+  { label: "Outdoor Kitchens", to: "/outdoor-kitchens", hash: undefined },
+  { label: "Covered Patios", to: "/covered-patios", hash: undefined },
+  { label: "Softscapes", to: "/softscapes", hash: undefined },
+  { label: "Artificial Turf", to: "/artificial-turf", hash: undefined },
   { label: "General Contracting", to: "/general-contracting", hash: undefined },
   { label: "House Remodeling", to: "/house-remodeling", hash: undefined },
   { label: "New Construction", to: "/new-construction", hash: undefined },
   { label: "Commercial Services", to: "/commercial", hash: undefined },
-  { label: "Covered Patios", to: "/covered-patios", hash: undefined },
-  { label: "Outdoor Kitchens", to: "/outdoor-kitchens", hash: undefined },
   { label: "Custom Fireplaces", to: "/custom-fireplaces", hash: undefined },
   { label: "Hardscapes", to: "/hardscapes", hash: undefined },
   { label: "Stamped Concrete / Overlay", to: "/stamped-concrete-overlay", hash: undefined },
   { label: "Custom Decks", to: "/custom-decks", hash: undefined },
-  { label: "Artificial Turf", to: "/artificial-turf", hash: undefined },
   { label: "Fencing", to: "/fencing", hash: undefined },
   { label: "ADU Services", to: "/adu-services", hash: undefined },
   { label: "Design Service", to: "/design-service", hash: undefined },
-  { label: "Softscapes", to: "/softscapes", hash: undefined },
   { label: "Palm Trees", to: "/palm-trees", hash: undefined },
   { label: "Irrigation", to: "/irrigation", hash: undefined },
   { label: "Landscape Lighting", to: "/landscape-lighting", hash: undefined },
@@ -535,11 +535,10 @@ export function SiteHeader() {
                                       to="/work"
                                       search={sub.category === "All" ? { category: undefined } : { category: sub.category }}
                                       onClick={closeMenu}
-                                      className={`block px-3 py-2 text-[12px] font-semibold rounded-lg transition-all duration-150 ${
-                                        (currentPath === "/work" && (location.search as any)?.category === sub.category) ||
+                                      className={`block px-3 py-2 text-[12px] font-semibold rounded-lg transition-all duration-150 ${(currentPath === "/work" && (location.search as any)?.category === sub.category) ||
                                         (currentPath === "/work" && sub.category === "All" && !(location.search as any)?.category)
-                                          ? "text-[#3d5636] bg-[#577a4c]/8"
-                                          : "text-neutral-600 hover:text-[#3d5636] hover:bg-[#577a4c]/8"
+                                        ? "text-[#3d5636] bg-[#577a4c]/8"
+                                        : "text-neutral-600 hover:text-[#3d5636] hover:bg-[#577a4c]/8"
                                         }`}
                                     >
                                       {sub.label}
