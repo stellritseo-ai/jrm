@@ -11,7 +11,8 @@ export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
       { title: "Robert's Office — Portal Access" },
-      { name: "description", content: "Authenticate to access JRM Construction Landscape Design business console." }
+      { name: "description", content: "Authenticate to access JRM Construction Landscape Design business console." },
+      { name: "robots", content: "noindex, nofollow" }
     ],
   }),
   component: LoginPage,

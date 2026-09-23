@@ -53,12 +53,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jrmconstructionservicellc.com/get-free-consultation</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://jrmconstructionservicellc.com/lets-talk</loc>
     <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -177,6 +171,12 @@
   <url>
     <loc>https://jrmconstructionservicellc.com/palm-trees</loc>
     <lastmod>2026-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jrmconstructionservicellc.com/best-selling-trees</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

@@ -324,6 +324,24 @@ function ServicesPage() {
       linkText: "Learn More About Palm Trees →"
     },
     {
+      id: "best-selling-trees",
+      category: "landscape",
+      title: "Best Selling Specimen Trees",
+      icon: Leaf,
+      image: imgPalms,
+      badge: "🌳",
+      desc: "Elevate your property instantly with hand-selected specimen trees acclimated to Central Texas. From magnificent Texas Live Oaks and Shumard Oaks to cold-hardy Sabal Palms and Little Gem Magnolias, we provide turn-key delivery and precision planting.",
+      items: [
+        "Hand-Selected Nursery Stock",
+        "Texas Live Oak & Red Maple",
+        "Cold-Hardy Specimen Palms",
+        "Deep Root Fertilization & Staking",
+        "Turnkey Sourcing, Delivery & Planting"
+      ],
+      link: "/best-selling-trees",
+      linkText: "Explore Best Selling Trees →"
+    },
+    {
       id: "turf",
       category: "landscape",
       title: "Artificial Turf",

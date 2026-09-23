@@ -29,12 +29,19 @@ import contactHero from "@/assets/stats-jobsite.jpg";
 export const Route = createFileRoute("/lets-talk")({
   head: () => ({
     meta: [
-      { title: "Let's Talk — JRM Construction Landscape Design, San Antonio" },
-      { name: "description", content: "Let's Talk. Contact JRM Construction for free estimates, on-site design consultations, or 24/7 emergency service in San Antonio, TX." },
-      { property: "og:title", content: "Let's Talk — JRM Construction Landscape Design" },
-      { property: "og:description", content: "Connect with owner Robert Thompson for premium remodeling and landscape solutions in San Antonio, TX." },
-      { property: "og:type", content: "website" }
+      { title: "Schedule a Consultation | JRM Construction San Antonio TX" },
+      { name: "description", content: "Schedule your free on-site consultation with owner Robert Thompson. 35+ years general contracting, home remodeling & outdoor living in San Antonio, TX. Call (210) 429-5526." },
+      { property: "og:title", content: "Schedule a Consultation | JRM Construction San Antonio TX" },
+      { property: "og:description", content: "Connect with owner Robert Thompson for premium remodeling and landscape solutions across San Antonio & 80-mile radius." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jrmconstructionservicellc.com/lets-talk" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Schedule Consultation | JRM Construction San Antonio" },
+      { name: "twitter:description", content: "Free estimates & design consultations with licensed master contractor Robert Thompson." }
     ],
+    links: [
+      { rel: "canonical", href: "https://jrmconstructionservicellc.com/lets-talk" }
+    ]
   }),
   component: LetUsTalkPage,
 });

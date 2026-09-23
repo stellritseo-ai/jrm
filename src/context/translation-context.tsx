@@ -66,6 +66,8 @@ export const translations = {
     "hero.description": "JRM Construction Landscaping Design is a Concrete Contractor in San Antonio, TX.\nWe offer Landscaping, Outdoor Kitchen Design, Hardscaping and more!",
     "hero.btn.consultation": "Get Your Free Consultation",
     "hero.btn.book": "Book A Service",
+    "hero.btn.design": "Design Service",
+    "hero.btn.bestsellingtree": "Best Selling Tree",
 
     // Welcome Section
     "welcome.badge": "JRM CONSTRUCTION LANDSCAPING DESIGN",
@@ -96,6 +98,7 @@ export const translations = {
     "services.decks": "CUSTOM DECKS",
     "services.stampedconcrete": "STAMPED CONCRETE",
     "services.design": "DESIGN SERVICE",
+    "services.bestsellingtrees": "BEST SELLING TREES",
     "services.remodeling.desc": "Complete home renovations, kitchen updates, and structural transformations.",
     "services.construction.desc": "Custom structural builds, additions, and quality new constructions.",
     "services.fireplace.desc": "Elegant, heat-safe custom fireplaces and stone surrounds.",
@@ -105,6 +108,7 @@ export const translations = {
     "services.softscapes.desc": "Custom gardens, sod installation, and premium plant selection.",
     "services.kitchens.desc": "Gourmet outdoor kitchens, built-in grills, and bar counters.",
     "services.palmtrees.desc": "Premium palm tree selection, planting, and tropical layouts.",
+    "services.bestsellingtrees.desc": "Specimen shade trees, privacy screens, flowering accents & hardy palms.",
     "services.hardscapes.desc": "Paver patios, stone retaining walls, walkways, and concrete work.",
     "services.irrigation.desc": "Efficient sprinkler systems, drip irrigation, and professional watering layouts.",
     "services.lighting.desc": "Stunning low-voltage architectural and uplighting for plants and walkways.",
@@ -280,6 +284,8 @@ export const translations = {
     "hero.description": "San Antonio Outdoor Living es un contratista de concreto en San Antonio, TX. ¡Ofrecemos paisajismo,\ndiseño de cocinas al aire libre, adoquines y más!",
     "hero.btn.consultation": "Obtenga Su Consulta Gratis",
     "hero.btn.book": "Reservar un Servicio",
+    "hero.btn.design": "Servicio de Diseño",
+    "hero.btn.bestsellingtree": "Árboles Más Vendidos",
 
     // Welcome Section
     "welcome.badge": "DISEÑO DE CONSTRUCCIÓN Y PAISAJISMO JRM",
@@ -310,6 +316,7 @@ export const translations = {
     "services.decks": "DECKS PERSONALIZADOS",
     "services.stampedconcrete": "CONCRETO ESTAMPADO",
     "services.design": "SERVICIO DE DISEÑO",
+    "services.bestsellingtrees": "ÁRBOLES MÁS VENDIDOS",
     "services.remodeling.desc": "Renovaciones completas del hogar, actualizaciones de cocina y transformaciones estructurales.",
     "services.construction.desc": "Construcciones estructurales a medida, ampliaciones y construcciones nuevas de calidad.",
     "services.fireplace.desc": "Chimeneas personalizadas elegantes y seguras contra el calor y marcos de piedra.",
@@ -319,6 +326,7 @@ export const translations = {
     "services.softscapes.desc": "Jardines personalizados, instalación de césped y selección de plantas premium.",
     "services.kitchens.desc": "Cocinas gourmet al aire libre, parrillas empotradas y barras de bar.",
     "services.palmtrees.desc": "Selección de palmeras premium, plantación y diseños tropicales.",
+    "services.bestsellingtrees.desc": "Árboles de sombra ejemplares, pantallas de privacidad y palmeras resistentes.",
     "services.hardscapes.desc": "Patios de adoquines, muros de contención de piedra, senderos y trabajos de concreto.",
     "services.irrigation.desc": "Sistemas de rociadores eficientes, riego por goteo y diseños de riego profesionales.",
     "services.lighting.desc": "Impresionante iluminación arquitectónica y de acento de bajo voltaje para plantas y senderos.",

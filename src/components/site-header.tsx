@@ -35,6 +35,7 @@ const servicesSubMenu = [
   { label: "Design Service", to: "/design-service", hash: undefined },
   { label: "Palm Trees", to: "/palm-trees", hash: undefined },
   { label: "Irrigation", to: "/irrigation", hash: undefined },
+  { label: "Best Selling Tree Services", to: "/best-selling-trees", hash: undefined },
   { label: "Landscape Lighting", to: "/landscape-lighting", hash: undefined },
 ] as const;
 
@@ -74,6 +75,7 @@ export function SiteHeader() {
     if (itemKey === "nav.services") {
       const servicesPaths = [
         "/services",
+        "/best-selling-trees",
         "/palm-trees",
         "/house-remodeling",
         "/new-construction",

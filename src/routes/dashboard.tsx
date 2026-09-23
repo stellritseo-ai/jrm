@@ -119,7 +119,8 @@ export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
       { title: "Robert's Office — JRM Construction Admin Portal" },
-      { name: "description", content: "Internal business management console for JRM Construction Landscape Design." }
+      { name: "description", content: "Internal business management console for JRM Construction Landscape Design." },
+      { name: "robots", content: "noindex, nofollow" }
     ],
   }),
   component: DashboardPage,

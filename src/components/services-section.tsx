@@ -14,6 +14,7 @@ import adu from "@/assets/svc-adu-services.jpg";
 import customDecks from "@/assets/svc-custom-decks.jpg";
 import stampedConcrete from "@/assets/svc-stamped-concrete.jpg";
 import designService from "@/assets/svc-design-blueprint.png";
+import bestSellingTreesImg from "@/assets/topselling/IMG_9756.webp";
 import { useTranslation } from "@/context/translation-context";
 import { ArrowRight } from "lucide-react";
 import {
@@ -35,6 +36,7 @@ const services = [
   { key: "services.fireplace", image: fireplace, to: "/custom-fireplaces" },
   { key: "services.fencing", image: fencing, to: "/fencing" },
   { key: "services.palmtrees", image: palmTrees, to: "/palm-trees" },
+  { key: "services.bestsellingtrees", image: bestSellingTreesImg, to: "/best-selling-trees" },
   { key: "services.hardscapes", image: hardscapes, to: "/hardscapes" },
   { key: "services.irrigation", image: irrigation, to: "/irrigation" },
   { key: "services.lighting", image: lighting, to: "/landscape-lighting" },

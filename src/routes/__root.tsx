@@ -148,6 +148,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "JRM Construction Landscaping Design | San Antonio TX" },
       { name: "twitter:description", content: "35+ years of trusted construction, house remodeling & outdoor living in San Antonio. Licensed, insured & bonded. Call (210) 429-5526." },
+      { property: "og:image", content: "https://jrmconstructionservicellc.com/assets/og-image.jpg" },
+      { property: "og:image:secure_url", content: "https://jrmconstructionservicellc.com/assets/og-image.jpg" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "JRM Construction Landscaping Design - General Contractor San Antonio TX" },
+      { name: "twitter:image", content: "https://jrmconstructionservicellc.com/assets/og-image.jpg" },
+      { name: "twitter:image:alt", content: "JRM Construction Landscaping Design - General Contractor San Antonio TX" },
+      { name: "theme-color", content: "#2c241d" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
       { name: "geo.region", content: "US-TX" },
       { name: "geo.placename", content: "San Antonio" },
       { name: "geo.position", content: "29.424122;-98.493628" },
@@ -155,13 +166,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       {
+        rel: "manifest",
+        href: "/manifest.webmanifest",
+      },
+      {
         rel: "icon",
         type: "image/png",
         href: favIcon,
-      },
-      {
-        rel: "canonical",
-        href: "https://jrmconstructionservicellc.com",
       },
       {
         rel: "preconnect",

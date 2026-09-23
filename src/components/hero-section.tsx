@@ -3,7 +3,7 @@ import banner1 from "@/assets/banner1.jpeg";
 import banner2 from "@/assets/banner2.png";
 import banner3 from "@/assets/banner3.png";
 import { useTranslation } from "@/context/translation-context";
-import { ClipboardList, Calendar, Compass } from "lucide-react";
+import { ClipboardList, Calendar, Compass, Trees } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 
@@ -144,7 +144,14 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
               >
                 <Compass className="w-4 h-4" />
-                <span>Design Service</span>
+                <span>{t("hero.btn.design") || "Design Service"}</span>
+              </Link>
+              <Link
+                to="/best-selling-trees"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
+              >
+                <Trees className="w-4 h-4" />
+                <span>{t("hero.btn.bestsellingtree") || "Best Selling Tree"}</span>
               </Link>
             </motion.div>
 

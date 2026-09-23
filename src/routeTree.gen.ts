@@ -36,6 +36,8 @@ import { Route as CoveredPatiosRouteImport } from './routes/covered-patios'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommercialRouteImport } from './routes/commercial'
+import { Route as BestSellingTreesRouteImport } from './routes/best-selling-trees'
+import { Route as BestSellingTreeRouteImport } from './routes/best-selling-tree'
 import { Route as ArtificialTurfRouteImport } from './routes/artificial-turf'
 import { Route as AduServicesRouteImport } from './routes/adu-services'
 import { Route as AboutUsRouteImport } from './routes/about-us'
@@ -181,6 +183,16 @@ const CommercialRoute = CommercialRouteImport.update({
   path: '/commercial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BestSellingTreesRoute = BestSellingTreesRouteImport.update({
+  id: '/best-selling-trees',
+  path: '/best-selling-trees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestSellingTreeRoute = BestSellingTreeRouteImport.update({
+  id: '/best-selling-tree',
+  path: '/best-selling-tree',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArtificialTurfRoute = ArtificialTurfRouteImport.update({
   id: '/artificial-turf',
   path: '/artificial-turf',
@@ -233,6 +245,8 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/adu-services': typeof AduServicesRoute
   '/artificial-turf': typeof ArtificialTurfRoute
+  '/best-selling-tree': typeof BestSellingTreeRoute
+  '/best-selling-trees': typeof BestSellingTreesRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
   '/contact-us': typeof ContactUsRoute
@@ -271,6 +285,8 @@ export interface FileRoutesByTo {
   '/about-us': typeof AboutUsRoute
   '/adu-services': typeof AduServicesRoute
   '/artificial-turf': typeof ArtificialTurfRoute
+  '/best-selling-tree': typeof BestSellingTreeRoute
+  '/best-selling-trees': typeof BestSellingTreesRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
   '/contact-us': typeof ContactUsRoute
@@ -310,6 +326,8 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/adu-services': typeof AduServicesRoute
   '/artificial-turf': typeof ArtificialTurfRoute
+  '/best-selling-tree': typeof BestSellingTreeRoute
+  '/best-selling-trees': typeof BestSellingTreesRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
   '/contact-us': typeof ContactUsRoute
@@ -350,6 +368,8 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/adu-services'
     | '/artificial-turf'
+    | '/best-selling-tree'
+    | '/best-selling-trees'
     | '/commercial'
     | '/contact'
     | '/contact-us'
@@ -388,6 +408,8 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/adu-services'
     | '/artificial-turf'
+    | '/best-selling-tree'
+    | '/best-selling-trees'
     | '/commercial'
     | '/contact'
     | '/contact-us'
@@ -426,6 +448,8 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/adu-services'
     | '/artificial-turf'
+    | '/best-selling-tree'
+    | '/best-selling-trees'
     | '/commercial'
     | '/contact'
     | '/contact-us'
@@ -465,6 +489,8 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   AduServicesRoute: typeof AduServicesRoute
   ArtificialTurfRoute: typeof ArtificialTurfRoute
+  BestSellingTreeRoute: typeof BestSellingTreeRoute
+  BestSellingTreesRoute: typeof BestSellingTreesRoute
   CommercialRoute: typeof CommercialRoute
   ContactRoute: typeof ContactRoute
   ContactUsRoute: typeof ContactUsRoute
@@ -689,6 +715,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommercialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/best-selling-trees': {
+      id: '/best-selling-trees'
+      path: '/best-selling-trees'
+      fullPath: '/best-selling-trees'
+      preLoaderRoute: typeof BestSellingTreesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-selling-tree': {
+      id: '/best-selling-tree'
+      path: '/best-selling-tree'
+      fullPath: '/best-selling-tree'
+      preLoaderRoute: typeof BestSellingTreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/artificial-turf': {
       id: '/artificial-turf'
       path: '/artificial-turf'
@@ -761,6 +801,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   AduServicesRoute: AduServicesRoute,
   ArtificialTurfRoute: ArtificialTurfRoute,
+  BestSellingTreeRoute: BestSellingTreeRoute,
+  BestSellingTreesRoute: BestSellingTreesRoute,
   CommercialRoute: CommercialRoute,
   ContactRoute: ContactRoute,
   ContactUsRoute: ContactUsRoute,

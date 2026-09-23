@@ -1,0 +1,28 @@
+{
+  "name": "JRM Construction Landscaping Design",
+  "short_name": "JRM Construction",
+  "description": "San Antonio's trusted licensed general contractor and luxury landscape design firm with 35+ years experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f3ef",
+  "theme_color": "#2c241d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/fav.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/jrm-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "business",
+    "lifestyle",
+    "home improvement"
+  ]
+}

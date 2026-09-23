@@ -28,6 +28,8 @@
 8. [Technical SEO, Crawlability & Core Web Vitals](#8-technical-seo-crawlability--core-web-vitals)
 9. [Conversion Rate Optimization (CRO) & Lead Generation](#9-conversion-rate-optimization-cro--lead-generation)
 10. [Maintenance, Monitoring & Google Search Console SOP](#10-maintenance-monitoring--google-search-console-sop)
+11. [GEO / AEO (Generative Engine Optimization) Direct-Answer Blueprint](#11-geo--aeo-generative-engine-optimization-direct-answer-blueprint)
+12. [Complete Page-by-Page Master SEO Audit & Specification Table](#12-complete-page-by-page-master-seo-audit--specification-table)
 
 ---
 
@@ -307,6 +309,11 @@ JRM proudly serves an **80-mile radius** from Central San Antonio. Below are the
 - **Secondary:** `outdoor lighting contractor San Antonio`, `architectural LED lighting San Antonio`, `patio and walkway lighting San Antonio TX`
 - **Target URL:** `https://jrmconstructionservicellc.com/landscape-lighting`
 
+#### 19. Best Selling Specimen Trees & Tree Installation
+- **Primary:** `best selling trees San Antonio TX`
+- **Secondary:** `specimen tree installation San Antonio`, `mature trees for sale San Antonio TX`, `Texas native shade trees San Antonio`, `container tree planting contractor San Antonio`, `live oak tree installation San Antonio TX`, `Sabal palm tree supplier San Antonio`, `Japanese blueberry tree San Antonio`, `Little Gem magnolia tree San Antonio TX`, `Shumard oak planting San Antonio`, `red maple tree San Antonio TX`, `crape myrtle installation San Antonio`, `Eagleston holly tree San Antonio`
+- **Target URL:** `https://jrmconstructionservicellc.com/best-selling-trees`
+
 ---
 
 ### D. Search Intent Categorization
@@ -384,6 +391,7 @@ To eliminate keyword cannibalization, each high-priority keyword is mapped exclu
 | `/design-service` | 3D Design Service | `3D landscape design San Antonio TX` | `architectural renderings San Antonio`, `remodeling blueprints San Antonio` |
 | `/softscapes` | Landscape Service | `landscape design San Antonio TX` | `softscape contractor San Antonio`, `native Texas plants landscaping` |
 | `/palm-trees` | Specialty Service | `palm tree installation San Antonio TX` | `cold hardy palms San Antonio`, `mature palm tree contractor San Antonio` |
+| `/best-selling-trees` | Specimen Tree Sourcing | `best selling trees San Antonio TX` | `specimen tree installation San Antonio`, `mature trees for sale San Antonio`, `live oak tree planting San Antonio` |
 | `/irrigation` | Irrigation Service | `irrigation system installation San Antonio TX` | `sprinkler system contractor San Antonio`, `drip irrigation San Antonio` |
 | `/landscape-lighting` | Lighting Service | `landscape lighting installation San Antonio TX` | `outdoor lighting contractor San Antonio`, `architectural LED lighting San Antonio` |
 | `/about` | About & E-E-A-T | `about JRM Construction San Antonio` | `Robert Thompson general contractor`, `contractor with 35 years experience San Antonio` |
@@ -429,6 +437,7 @@ https://jrmconstructionservicellc.com/
 │   ├── /artificial-turf                (Synthetic Grass & Pet Turf Systems)
 │   ├── /fencing                        (Custom Wood, Wrought Iron & Privacy Fences)
 │   ├── /palm-trees                     (Cold-Hardy Palm Tree Supply & Installation)
+│   ├── /best-selling-trees             (Top 10 Texas Specimen Trees & Turnkey Planting)
 │   ├── /irrigation                     (High-Efficiency Sprinkler Systems & Drip)
 │   ├── /landscape-lighting             (Low-Voltage LED Landscape Lighting)
 │   ├── /design-service                 (3D Architectural Renderings & Planning)
@@ -606,4 +615,110 @@ Each location landing page injects local geo-coordinates, city name, address, an
 
 ---
 
+## 11. GEO / AEO (Generative Engine Optimization) Direct-Answer Blueprint
+
+AI search systems (Google AI Overviews, Perplexity, ChatGPT Search, Gemini, Claude Search) index and extract direct, factual, citation-ready statement blocks. Below are verified factual prompt-response mappings embedded across the site:
+
+### Q1: What does JRM Construction Landscaping Design do?
+> **Direct Answer (Citation Ready):**  
+> JRM Construction Landscaping Design (JRM Construction Services LLC) is a full-service licensed, insured, and bonded general contracting and outdoor living company based in San Antonio, Texas. Established in 1989 by master contractor Robert Thompson, JRM provides turnkey residential and commercial construction, house remodeling, custom outdoor kitchens, covered patios, concrete hardscaping, masonry fireplaces, artificial turf, and specimen tree installation across an 80-mile regional radius.
+
+### Q2: Where does JRM Construction serve in Texas?
+> **Direct Answer (Citation Ready):**  
+> JRM Construction serves San Antonio and communities across an approximate 80-mile radius in the Texas Hill Country and I-35 corridor. Primary service areas include San Antonio, Boerne, New Braunfels, Schertz, Seguin, Canyon Lake, Kerrville, Fredericksburg, Bulverde, Helotes, Converse, Universal City, Live Oak, Leon Valley, and Alamo Heights.
+
+### Q3: What construction and remodeling services does JRM provide?
+> **Direct Answer (Citation Ready):**  
+> JRM Construction provides 19 specialized services:
+> 1. General Contracting & Turnkey Construction
+> 2. Whole House Remodeling (Kitchen & Bathroom Renovations)
+> 3. Custom Home Building & New Construction
+> 4. Commercial Construction & Tenant Improvements
+> 5. Accessory Dwelling Units (ADUs & Casitas)
+> 6. Custom Covered Patios & Cedar Pergolas
+> 7. Outdoor Kitchens & Custom BBQ Islands
+> 8. Indoor & Outdoor Custom Fireplaces & Fire Pits
+> 9. Stone Hardscaping, Flagstone Patios & Retaining Walls
+> 10. Stamped Concrete & Decorative Concrete Overlays
+> 11. Custom Composite (Trex) & Cedar Decks
+> 12. Privacy Fencing (Wood, Wrought Iron & Ornamental)
+> 13. Artificial Turf & Putting Green Systems
+> 14. 3D Architectural Design & Blueprints
+> 15. Native Texas Softscapes & Xeriscaping
+> 16. Cold-Hardy Palm Tree Supply & Installation
+> 17. Top-Selling Specimen Trees & Crane Planting
+> 18. Smart Drip & Sprinkler Irrigation Systems
+> 19. Low-Voltage Architectural LED Landscape Lighting
+
+### Q4: Does JRM build custom outdoor kitchens and covered patios?
+> **Direct Answer (Citation Ready):**  
+> Yes. JRM specializes in custom outdoor living environments engineered for the South Texas climate. This includes heavy-duty steel and stone outdoor kitchens with built-in grills, refrigerators, granite countertops, and electrical/gas hookups, as well as structurally engineered covered patios tied directly into existing rooflines with tongue-and-groove cedar ceilings, recessed lighting, and ceiling fans.
+
+### Q5: What are the best-selling trees JRM supplies and plants in San Antonio?
+> **Direct Answer (Citation Ready):**  
+> JRM sources and installs 10 top-selling, Texas-acclimated specimen trees: Texas Live Oak, Sabal Palm, Japanese Blueberry, Little Gem Magnolia, Red Maple, Shumard Oak, Magnolia 'D.D. Blanchard', Crape Myrtle, Carolina Cherry, and Eagleston Holly. Trees are sourced in heavy-caliber 45 to 100+ gallon containers from premier Texas nurseries with intact root systems and planted with turnkey equipment and crane assistance.
+
+### Q6: How does the JRM construction process work?
+> **Direct Answer (Citation Ready):**  
+> The JRM process follows four disciplined phases:  
+> 1. **On-Site Consultation:** Robert Thompson visits the property to evaluate grade, soil conditions, utilities, and client goals.  
+> 2. **Design & Transparent Quote:** Clear architectural plans, 3D renderings, material selection, and fixed-scope pricing.  
+> 3. **Owner-Led Construction:** Licensed, bonded crews execute excavation, structural build, plumbing, electrical, and masonry with on-site owner oversight.  
+> 4. **Final Walkthrough & Warranty:** Meticulous site cleanup, client inspection, and lifetime craftsmanship backing.
+
+### Q7: How do homeowners request a consultation?
+> **Direct Answer (Citation Ready):**  
+> Homeowners can schedule a free on-site design consultation by calling owner Robert Thompson directly at (210) 429-5526, emailing robertsa210@icloud.com, or submitting the consultation request form at https://jrmconstructionservicellc.com/lets-talk.
+
+---
+
+## 12. Complete Page-by-Page Master SEO Audit & Specification Table
+
+| URL | Primary Target Keyword | Search Intent | SEO Title Tag | H1 Headline | Canonical URL | Schema Graph Types | Primary Location | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `/` | `general contractor San Antonio TX` | Transactional | General Contractor San Antonio TX \| JRM Construction Services LLC | Outdoor Visions Come To Life Building America's Dreams | `https://jrmconstructionservicellc.com` | `WebSite`, `HomeAndConstructionBusiness`, `GeneralContractor`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/services` | `construction services San Antonio TX` | Commercial | Construction & Remodeling Services San Antonio TX \| JRM Construction | Premium Construction & Outdoor Living Services | `https://jrmconstructionservicellc.com/services` | `Service`, `BreadcrumbList`, `OfferCatalog` | San Antonio & 80-mi radius | Verified Active |
+| `/service-areas` | `service area general contractor San Antonio` | Local | Service Areas San Antonio TX \| 80-Mile Construction Radius \| JRM | Serving San Antonio & 80 Miles Around | `https://jrmconstructionservicellc.com/service-areas` | `Service`, `BreadcrumbList`, `Place` | Central Texas Corridor | Verified Active |
+| `/general-contracting` | `general contracting services San Antonio TX` | Transactional | General Contractor San Antonio TX \| JRM Construction | General Contracting & Turnkey Construction | `https://jrmconstructionservicellc.com/general-contracting` | `Service`, `GeneralContractor`, `BreadcrumbList` | San Antonio, TX | Verified Active |
+| `/house-remodeling` | `remodeling contractor San Antonio TX` | Transactional | House Remodeling Contractor San Antonio TX \| Kitchen & Bath \| JRM | House Remodeling & Interior Renovations | `https://jrmconstructionservicellc.com/house-remodeling` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/new-construction` | `new construction San Antonio TX` | Transactional | New Home Construction San Antonio TX \| Custom Builders \| JRM | Custom Home Building & New Construction | `https://jrmconstructionservicellc.com/new-construction` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/commercial` | `commercial contractor San Antonio TX` | Commercial | Commercial Construction Contractor San Antonio TX \| JRM Construction | Commercial Construction & Tenant Improvements | `https://jrmconstructionservicellc.com/commercial` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/adu-services` | `ADU builder San Antonio TX` | Transactional | ADU Builder San Antonio TX \| Casitas & Guest Houses \| JRM | ADU Services & Backyard Casitas | `https://jrmconstructionservicellc.com/adu-services` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/covered-patios` | `covered patio builder San Antonio TX` | Transactional | Covered Patio Builder San Antonio TX \| Custom Pergolas \| JRM | Custom Covered Patios & Cedar Pergolas | `https://jrmconstructionservicellc.com/covered-patios` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/outdoor-kitchens` | `outdoor kitchen contractor San Antonio TX` | Transactional | Outdoor Kitchen Builder San Antonio TX \| BBQ Islands \| JRM | Custom Outdoor Kitchens & BBQ Islands | `https://jrmconstructionservicellc.com/outdoor-kitchens` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/custom-fireplaces` | `custom fireplace builder San Antonio TX` | Transactional | Custom Fireplace Builder San Antonio TX \| Fire Pits \| JRM | Custom Fireplaces & Outdoor Fire Pits | `https://jrmconstructionservicellc.com/custom-fireplaces` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/hardscapes` | `hardscape contractor San Antonio TX` | Transactional | Hardscaping Contractor San Antonio TX \| Stone Patios \| JRM | Stone Hardscapes & Masonry Construction | `https://jrmconstructionservicellc.com/hardscapes` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/stamped-concrete-overlay` | `stamped concrete contractor San Antonio TX` | Transactional | Stamped Concrete Contractor San Antonio TX \| Overlays \| JRM | Stamped Concrete & Decorative Overlays | `https://jrmconstructionservicellc.com/stamped-concrete-overlay` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/custom-decks` | `custom deck builder San Antonio TX` | Transactional | Custom Deck Builder San Antonio TX \| Trex & Cedar \| JRM | Custom Decks & Multi-Level Outdoor Living | `https://jrmconstructionservicellc.com/custom-decks` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/fencing` | `fence contractor San Antonio TX` | Transactional | Fence Installation Contractor San Antonio TX \| Wood & Iron \| JRM | Custom Fencing & Privacy Enclosures | `https://jrmconstructionservicellc.com/fencing` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/design-service` | `3D landscape design San Antonio TX` | Commercial | 3D Landscape Design & Architectural Renderings \| JRM San Antonio | 3D Architectural Design & Planning | `https://jrmconstructionservicellc.com/design-service` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/softscapes` | `landscape design San Antonio TX` | Transactional | Softscapes & Texas Native Landscaping San Antonio TX \| JRM | Softscapes & Plant Landscaping Design | `https://jrmconstructionservicellc.com/softscapes` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/palm-trees` | `palm tree installation San Antonio TX` | Transactional | Palm Tree Installation San Antonio TX \| Cold Hardy Palms \| JRM | Palm Tree Installation & Landscape Design | `https://jrmconstructionservicellc.com/palm-trees` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/best-selling-trees` | `best selling trees San Antonio TX` | Transactional | Best Selling Trees San Antonio TX \| Specimen Tree Sourcing & Planting \| JRM | San Antonio's Best Selling Trees | `https://jrmconstructionservicellc.com/best-selling-trees` | `Service`, `ItemList`, `BreadcrumbList` | San Antonio & Hill Country | Verified Active |
+| `/irrigation` | `irrigation system installation San Antonio TX` | Transactional | Irrigation Contractor San Antonio TX \| Sprinklers & Drip \| JRM | High-Efficiency Irrigation & Sprinkler Systems | `https://jrmconstructionservicellc.com/irrigation` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/landscape-lighting` | `landscape lighting installation San Antonio TX` | Transactional | Landscape Lighting San Antonio TX \| Architectural LEDs \| JRM | Low-Voltage Architectural Landscape Lighting | `https://jrmconstructionservicellc.com/landscape-lighting` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/about` | `about JRM Construction San Antonio` | Informational | About JRM Construction \| 35+ Years General Contractor San Antonio TX | 35+ Years of Proven Craftsmanship | `https://jrmconstructionservicellc.com/about` | `Organization`, `Person` (Robert Thompson) | San Antonio, TX | Verified Active |
+| `/work` | `construction projects San Antonio TX` | Commercial | Portfolio of Construction & Remodeling Projects \| JRM San Antonio | Craftsmanship on Display: Our Portfolio | `https://jrmconstructionservicellc.com/work` | `CollectionPage`, `BreadcrumbList` | San Antonio & 80-mi radius | Verified Active |
+| `/reviews` | `JRM Construction customer reviews` | Commercial | JRM Construction Reviews \| Verified San Antonio Client Testimonials | Real Stories. Proven Trust. Real Reviews. | `https://jrmconstructionservicellc.com/reviews` | `ItemPage`, `AggregateRating` | San Antonio, TX | Verified Active |
+| `/contact` | `contact JRM Construction San Antonio` | Transactional | Contact JRM Construction Services LLC \| San Antonio TX | Connect with Owner Robert Thompson | `https://jrmconstructionservicellc.com/contact` | `ContactPage`, `LocalBusiness` | San Antonio, TX | Verified Active |
+| `/lets-talk` | `free estimate home remodeling San Antonio` | Transactional | Schedule a Consultation \| JRM Construction San Antonio TX | Let's Talk: Free On-Site Consultation | `https://jrmconstructionservicellc.com/lets-talk` | `ContactPage`, `Service` | San Antonio, TX | Verified Active |
+| `/locations/san-antonio-tx` | `construction company San Antonio TX` | Local | Construction Company & Remodeling Contractor in San Antonio, TX \| JRM | Construction Services in San Antonio, TX | `https://jrmconstructionservicellc.com/locations/san-antonio-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | San Antonio, TX | Verified Active |
+| `/locations/boerne-tx` | `general contractor Boerne TX` | Local | Construction Company & Remodeling Contractor in Boerne, TX \| JRM | Construction Services in Boerne, TX | `https://jrmconstructionservicellc.com/locations/boerne-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Boerne, TX | Verified Active |
+| `/locations/new-braunfels-tx` | `general contractor New Braunfels TX` | Local | Construction Company & Remodeling Contractor in New Braunfels, TX \| JRM | Construction Services in New Braunfels, TX | `https://jrmconstructionservicellc.com/locations/new-braunfels-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | New Braunfels, TX | Verified Active |
+| `/locations/seguin-tx` | `general contractor Seguin TX` | Local | Construction Company & Remodeling Contractor in Seguin, TX \| JRM | Construction Services in Seguin, TX | `https://jrmconstructionservicellc.com/locations/seguin-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Seguin, TX | Verified Active |
+| `/locations/canyon-lake-tx` | `custom construction Canyon Lake TX` | Local | Construction Company & Remodeling Contractor in Canyon Lake, TX \| JRM | Construction Services in Canyon Lake, TX | `https://jrmconstructionservicellc.com/locations/canyon-lake-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Canyon Lake, TX | Verified Active |
+| `/locations/kerrville-tx` | `general contractor Kerrville TX` | Local | Construction Company & Remodeling Contractor in Kerrville, TX \| JRM | Construction Services in Kerrville, TX | `https://jrmconstructionservicellc.com/locations/kerrville-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Kerrville, TX | Verified Active |
+| `/locations/fredericksburg-tx` | `general contractor Fredericksburg TX` | Local | Construction Company & Remodeling Contractor in Fredericksburg, TX \| JRM | Construction Services in Fredericksburg, TX | `https://jrmconstructionservicellc.com/locations/fredericksburg-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Fredericksburg, TX | Verified Active |
+| `/locations/bulverde-tx` | `general contractor Bulverde TX` | Local | Construction Company & Remodeling Contractor in Bulverde, TX \| JRM | Construction Services in Bulverde, TX | `https://jrmconstructionservicellc.com/locations/bulverde-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Bulverde, TX | Verified Active |
+| `/locations/schertz-tx` | `general contractor Schertz TX` | Local | Construction Company & Remodeling Contractor in Schertz, TX \| JRM | Construction Services in Schertz, TX | `https://jrmconstructionservicellc.com/locations/schertz-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Schertz, TX | Verified Active |
+| `/locations/converse-tx` | `general contractor Converse TX` | Local | Construction Company & Remodeling Contractor in Converse, TX \| JRM | Construction Services in Converse, TX | `https://jrmconstructionservicellc.com/locations/converse-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Converse, TX | Verified Active |
+| `/locations/helotes-tx` | `general contractor Helotes TX` | Local | Construction Company & Remodeling Contractor in Helotes, TX \| JRM | Construction Services in Helotes, TX | `https://jrmconstructionservicellc.com/locations/helotes-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Helotes, TX | Verified Active |
+| `/locations/universal-city-tx` | `general contractor Universal City TX` | Local | Construction Company & Remodeling Contractor in Universal City, TX \| JRM | Construction Services in Universal City, TX | `https://jrmconstructionservicellc.com/locations/universal-city-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Universal City, TX | Verified Active |
+| `/locations/live-oak-tx` | `general contractor Live Oak TX` | Local | Construction Company & Remodeling Contractor in Live Oak, TX \| JRM | Construction Services in Live Oak, TX | `https://jrmconstructionservicellc.com/locations/live-oak-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Live Oak, TX | Verified Active |
+| `/locations/leon-valley-tx` | `general contractor Leon Valley TX` | Local | Construction Company & Remodeling Contractor in Leon Valley, TX \| JRM | Construction Services in Leon Valley, TX | `https://jrmconstructionservicellc.com/locations/leon-valley-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Leon Valley, TX | Verified Active |
+| `/locations/alamo-heights-tx` | `luxury remodeling contractor Alamo Heights TX` | Local | Construction Company & Remodeling Contractor in Alamo Heights, TX \| JRM | Construction Services in Alamo Heights, TX | `https://jrmconstructionservicellc.com/locations/alamo-heights-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Alamo Heights, TX | Verified Active |
+
+---
+
 *Document compiled and maintained by the Technical SEO & Engineering Team for JRM Construction Services LLC.*
+

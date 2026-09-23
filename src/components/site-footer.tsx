@@ -30,6 +30,7 @@ export function SiteFooter() {
     { label: "Outdoor Kitchens", to: "/outdoor-kitchens" },
     { label: "Custom Fireplaces", to: "/custom-fireplaces" },
     { label: "Hardscapes", to: "/hardscapes" },
+    { label: "Best Selling Specimen Trees", to: "/best-selling-trees" },
     { label: "All 18 Services", to: "/services" },
   ];
 
@@ -259,6 +260,11 @@ export function SiteFooter() {
                   <li>
                     <Link to="/landscape-lighting" className="hover:text-white transition-colors duration-150">
                       Landscape Lighting & 3D Design
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/best-selling-trees" className="hover:text-white transition-colors duration-150">
+                      Best Selling Specimen Trees & Palms
                     </Link>
                   </li>
                 </ul>
