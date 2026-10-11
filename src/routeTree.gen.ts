@@ -9,203 +9,48 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorkRouteImport } from './routes/work'
-import { Route as StampedConcreteOverlayRouteImport } from './routes/stamped-concrete-overlay'
-import { Route as SoftscapesRouteImport } from './routes/softscapes'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ServiceAreasRouteImport } from './routes/service-areas'
-import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as PalmTreesRouteImport } from './routes/palm-trees'
-import { Route as OutdoorKitchensRouteImport } from './routes/outdoor-kitchens'
-import { Route as OurWorkRouteImport } from './routes/our-work'
-import { Route as NewConstructionRouteImport } from './routes/new-construction'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as LetsTalkRouteImport } from './routes/lets-talk'
-import { Route as LandscapeLightingRouteImport } from './routes/landscape-lighting'
-import { Route as IrrigationRouteImport } from './routes/irrigation'
-import { Route as HouseRemodelingRouteImport } from './routes/house-remodeling'
-import { Route as HardscapesRouteImport } from './routes/hardscapes'
-import { Route as GetFreeConsultationRouteImport } from './routes/get-free-consultation'
-import { Route as GeneralContractingRouteImport } from './routes/general-contracting'
-import { Route as FencingRouteImport } from './routes/fencing'
-import { Route as DesignServiceRouteImport } from './routes/design-service'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as CustomFireplacesRouteImport } from './routes/custom-fireplaces'
-import { Route as CustomDecksRouteImport } from './routes/custom-decks'
-import { Route as CoveredPatiosRouteImport } from './routes/covered-patios'
-import { Route as ContactUsRouteImport } from './routes/contact-us'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CommercialRouteImport } from './routes/commercial'
-import { Route as BestSellingTreesRouteImport } from './routes/best-selling-trees'
-import { Route as BestSellingTreeRouteImport } from './routes/best-selling-tree'
-import { Route as ArtificialTurfRouteImport } from './routes/artificial-turf'
-import { Route as AduServicesRouteImport } from './routes/adu-services'
-import { Route as AboutUsRouteImport } from './routes/about-us'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as LocationsIndexRouteImport } from './routes/locations/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as AduServicesRouteImport } from './routes/adu-services'
+import { Route as ArtificialTurfRouteImport } from './routes/artificial-turf'
+import { Route as BestSellingTreeRouteImport } from './routes/best-selling-tree'
+import { Route as BestSellingTreesRouteImport } from './routes/best-selling-trees'
+import { Route as CommercialRouteImport } from './routes/commercial'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
+import { Route as CoveredPatiosRouteImport } from './routes/covered-patios'
+import { Route as CustomDecksRouteImport } from './routes/custom-decks'
+import { Route as CustomFireplacesRouteImport } from './routes/custom-fireplaces'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DesignServiceRouteImport } from './routes/design-service'
+import { Route as FencingRouteImport } from './routes/fencing'
+import { Route as GeneralContractingRouteImport } from './routes/general-contracting'
+import { Route as GetFreeConsultationRouteImport } from './routes/get-free-consultation'
+import { Route as HardscapesRouteImport } from './routes/hardscapes'
+import { Route as HouseRemodelingRouteImport } from './routes/house-remodeling'
+import { Route as IrrigationRouteImport } from './routes/irrigation'
+import { Route as LandscapeLightingRouteImport } from './routes/landscape-lighting'
+import { Route as LetsTalkRouteImport } from './routes/lets-talk'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NewConstructionRouteImport } from './routes/new-construction'
+import { Route as OurWorkRouteImport } from './routes/our-work'
+import { Route as OutdoorKitchensRouteImport } from './routes/outdoor-kitchens'
+import { Route as PalmTreesRouteImport } from './routes/palm-trees'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SoftscapesRouteImport } from './routes/softscapes'
+import { Route as StampedConcreteOverlayRouteImport } from './routes/stamped-concrete-overlay'
+import { Route as WorkRouteImport } from './routes/work'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
-import { Route as LocationsLocationRouteImport } from './routes/locations/$location'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as LocationsIndexRouteImport } from './routes/locations/index'
+import { Route as LocationsLocationRouteImport } from './routes/locations/$location'
 
-const WorkRoute = WorkRouteImport.update({
-  id: '/work',
-  path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StampedConcreteOverlayRoute = StampedConcreteOverlayRouteImport.update({
-  id: '/stamped-concrete-overlay',
-  path: '/stamped-concrete-overlay',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SoftscapesRoute = SoftscapesRouteImport.update({
-  id: '/softscapes',
-  path: '/softscapes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServiceAreasRoute = ServiceAreasRouteImport.update({
-  id: '/service-areas',
-  path: '/service-areas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReviewsRoute = ReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PalmTreesRoute = PalmTreesRouteImport.update({
-  id: '/palm-trees',
-  path: '/palm-trees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OutdoorKitchensRoute = OutdoorKitchensRouteImport.update({
-  id: '/outdoor-kitchens',
-  path: '/outdoor-kitchens',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OurWorkRoute = OurWorkRouteImport.update({
-  id: '/our-work',
-  path: '/our-work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewConstructionRoute = NewConstructionRouteImport.update({
-  id: '/new-construction',
-  path: '/new-construction',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LetsTalkRoute = LetsTalkRouteImport.update({
-  id: '/lets-talk',
-  path: '/lets-talk',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LandscapeLightingRoute = LandscapeLightingRouteImport.update({
-  id: '/landscape-lighting',
-  path: '/landscape-lighting',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IrrigationRoute = IrrigationRouteImport.update({
-  id: '/irrigation',
-  path: '/irrigation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HouseRemodelingRoute = HouseRemodelingRouteImport.update({
-  id: '/house-remodeling',
-  path: '/house-remodeling',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HardscapesRoute = HardscapesRouteImport.update({
-  id: '/hardscapes',
-  path: '/hardscapes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GetFreeConsultationRoute = GetFreeConsultationRouteImport.update({
-  id: '/get-free-consultation',
-  path: '/get-free-consultation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GeneralContractingRoute = GeneralContractingRouteImport.update({
-  id: '/general-contracting',
-  path: '/general-contracting',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FencingRoute = FencingRouteImport.update({
-  id: '/fencing',
-  path: '/fencing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DesignServiceRoute = DesignServiceRouteImport.update({
-  id: '/design-service',
-  path: '/design-service',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomFireplacesRoute = CustomFireplacesRouteImport.update({
-  id: '/custom-fireplaces',
-  path: '/custom-fireplaces',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomDecksRoute = CustomDecksRouteImport.update({
-  id: '/custom-decks',
-  path: '/custom-decks',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CoveredPatiosRoute = CoveredPatiosRouteImport.update({
-  id: '/covered-patios',
-  path: '/covered-patios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactUsRoute = ContactUsRouteImport.update({
-  id: '/contact-us',
-  path: '/contact-us',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CommercialRoute = CommercialRouteImport.update({
-  id: '/commercial',
-  path: '/commercial',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BestSellingTreesRoute = BestSellingTreesRouteImport.update({
-  id: '/best-selling-trees',
-  path: '/best-selling-trees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BestSellingTreeRoute = BestSellingTreeRouteImport.update({
-  id: '/best-selling-tree',
-  path: '/best-selling-tree',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ArtificialTurfRoute = ArtificialTurfRouteImport.update({
-  id: '/artificial-turf',
-  path: '/artificial-turf',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AduServicesRoute = AduServicesRouteImport.update({
-  id: '/adu-services',
-  path: '/adu-services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutUsRoute = AboutUsRouteImport.update({
-  id: '/about-us',
-  path: '/about-us',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -213,14 +58,164 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsIndexRoute = LocationsIndexRouteImport.update({
-  id: '/locations/',
-  path: '/locations/',
+const AduServicesRoute = AduServicesRouteImport.update({
+  id: '/adu-services',
+  path: '/adu-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtificialTurfRoute = ArtificialTurfRouteImport.update({
+  id: '/artificial-turf',
+  path: '/artificial-turf',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestSellingTreeRoute = BestSellingTreeRouteImport.update({
+  id: '/best-selling-tree',
+  path: '/best-selling-tree',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestSellingTreesRoute = BestSellingTreesRouteImport.update({
+  id: '/best-selling-trees',
+  path: '/best-selling-trees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialRoute = CommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoveredPatiosRoute = CoveredPatiosRouteImport.update({
+  id: '/covered-patios',
+  path: '/covered-patios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomDecksRoute = CustomDecksRouteImport.update({
+  id: '/custom-decks',
+  path: '/custom-decks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomFireplacesRoute = CustomFireplacesRouteImport.update({
+  id: '/custom-fireplaces',
+  path: '/custom-fireplaces',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignServiceRoute = DesignServiceRouteImport.update({
+  id: '/design-service',
+  path: '/design-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FencingRoute = FencingRouteImport.update({
+  id: '/fencing',
+  path: '/fencing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeneralContractingRoute = GeneralContractingRouteImport.update({
+  id: '/general-contracting',
+  path: '/general-contracting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetFreeConsultationRoute = GetFreeConsultationRouteImport.update({
+  id: '/get-free-consultation',
+  path: '/get-free-consultation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HardscapesRoute = HardscapesRouteImport.update({
+  id: '/hardscapes',
+  path: '/hardscapes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HouseRemodelingRoute = HouseRemodelingRouteImport.update({
+  id: '/house-remodeling',
+  path: '/house-remodeling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IrrigationRoute = IrrigationRouteImport.update({
+  id: '/irrigation',
+  path: '/irrigation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandscapeLightingRoute = LandscapeLightingRouteImport.update({
+  id: '/landscape-lighting',
+  path: '/landscape-lighting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LetsTalkRoute = LetsTalkRouteImport.update({
+  id: '/lets-talk',
+  path: '/lets-talk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewConstructionRoute = NewConstructionRouteImport.update({
+  id: '/new-construction',
+  path: '/new-construction',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurWorkRoute = OurWorkRouteImport.update({
+  id: '/our-work',
+  path: '/our-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OutdoorKitchensRoute = OutdoorKitchensRouteImport.update({
+  id: '/outdoor-kitchens',
+  path: '/outdoor-kitchens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PalmTreesRoute = PalmTreesRouteImport.update({
+  id: '/palm-trees',
+  path: '/palm-trees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoftscapesRoute = SoftscapesRouteImport.update({
+  id: '/softscapes',
+  path: '/softscapes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StampedConcreteOverlayRoute = StampedConcreteOverlayRouteImport.update({
+  id: '/stamped-concrete-overlay',
+  path: '/stamped-concrete-overlay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -228,14 +223,19 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsLocationRoute = LocationsLocationRouteImport.update({
-  id: '/locations/$location',
-  path: '/locations/$location',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsLocationRoute = LocationsLocationRouteImport.update({
+  id: '/locations/$location',
+  path: '/locations/$location',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -526,228 +526,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/work': {
-      id: '/work'
-      path: '/work'
-      fullPath: '/work'
-      preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/stamped-concrete-overlay': {
-      id: '/stamped-concrete-overlay'
-      path: '/stamped-concrete-overlay'
-      fullPath: '/stamped-concrete-overlay'
-      preLoaderRoute: typeof StampedConcreteOverlayRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/softscapes': {
-      id: '/softscapes'
-      path: '/softscapes'
-      fullPath: '/softscapes'
-      preLoaderRoute: typeof SoftscapesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/service-areas': {
-      id: '/service-areas'
-      path: '/service-areas'
-      fullPath: '/service-areas'
-      preLoaderRoute: typeof ServiceAreasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reviews': {
-      id: '/reviews'
-      path: '/reviews'
-      fullPath: '/reviews'
-      preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/palm-trees': {
-      id: '/palm-trees'
-      path: '/palm-trees'
-      fullPath: '/palm-trees'
-      preLoaderRoute: typeof PalmTreesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/outdoor-kitchens': {
-      id: '/outdoor-kitchens'
-      path: '/outdoor-kitchens'
-      fullPath: '/outdoor-kitchens'
-      preLoaderRoute: typeof OutdoorKitchensRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/our-work': {
-      id: '/our-work'
-      path: '/our-work'
-      fullPath: '/our-work'
-      preLoaderRoute: typeof OurWorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/new-construction': {
-      id: '/new-construction'
-      path: '/new-construction'
-      fullPath: '/new-construction'
-      preLoaderRoute: typeof NewConstructionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lets-talk': {
-      id: '/lets-talk'
-      path: '/lets-talk'
-      fullPath: '/lets-talk'
-      preLoaderRoute: typeof LetsTalkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/landscape-lighting': {
-      id: '/landscape-lighting'
-      path: '/landscape-lighting'
-      fullPath: '/landscape-lighting'
-      preLoaderRoute: typeof LandscapeLightingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/irrigation': {
-      id: '/irrigation'
-      path: '/irrigation'
-      fullPath: '/irrigation'
-      preLoaderRoute: typeof IrrigationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/house-remodeling': {
-      id: '/house-remodeling'
-      path: '/house-remodeling'
-      fullPath: '/house-remodeling'
-      preLoaderRoute: typeof HouseRemodelingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hardscapes': {
-      id: '/hardscapes'
-      path: '/hardscapes'
-      fullPath: '/hardscapes'
-      preLoaderRoute: typeof HardscapesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/get-free-consultation': {
-      id: '/get-free-consultation'
-      path: '/get-free-consultation'
-      fullPath: '/get-free-consultation'
-      preLoaderRoute: typeof GetFreeConsultationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/general-contracting': {
-      id: '/general-contracting'
-      path: '/general-contracting'
-      fullPath: '/general-contracting'
-      preLoaderRoute: typeof GeneralContractingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fencing': {
-      id: '/fencing'
-      path: '/fencing'
-      fullPath: '/fencing'
-      preLoaderRoute: typeof FencingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/design-service': {
-      id: '/design-service'
-      path: '/design-service'
-      fullPath: '/design-service'
-      preLoaderRoute: typeof DesignServiceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/custom-fireplaces': {
-      id: '/custom-fireplaces'
-      path: '/custom-fireplaces'
-      fullPath: '/custom-fireplaces'
-      preLoaderRoute: typeof CustomFireplacesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/custom-decks': {
-      id: '/custom-decks'
-      path: '/custom-decks'
-      fullPath: '/custom-decks'
-      preLoaderRoute: typeof CustomDecksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/covered-patios': {
-      id: '/covered-patios'
-      path: '/covered-patios'
-      fullPath: '/covered-patios'
-      preLoaderRoute: typeof CoveredPatiosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact-us': {
-      id: '/contact-us'
-      path: '/contact-us'
-      fullPath: '/contact-us'
-      preLoaderRoute: typeof ContactUsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/commercial': {
-      id: '/commercial'
-      path: '/commercial'
-      fullPath: '/commercial'
-      preLoaderRoute: typeof CommercialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/best-selling-trees': {
-      id: '/best-selling-trees'
-      path: '/best-selling-trees'
-      fullPath: '/best-selling-trees'
-      preLoaderRoute: typeof BestSellingTreesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/best-selling-tree': {
-      id: '/best-selling-tree'
-      path: '/best-selling-tree'
-      fullPath: '/best-selling-tree'
-      preLoaderRoute: typeof BestSellingTreeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/artificial-turf': {
-      id: '/artificial-turf'
-      path: '/artificial-turf'
-      fullPath: '/artificial-turf'
-      preLoaderRoute: typeof ArtificialTurfRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/adu-services': {
-      id: '/adu-services'
-      path: '/adu-services'
-      fullPath: '/adu-services'
-      preLoaderRoute: typeof AduServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about-us': {
-      id: '/about-us'
-      path: '/about-us'
-      fullPath: '/about-us'
-      preLoaderRoute: typeof AboutUsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -757,18 +540,228 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/': {
-      id: '/locations/'
-      path: '/locations'
-      fullPath: '/locations/'
-      preLoaderRoute: typeof LocationsIndexRouteImport
+    '/adu-services': {
+      id: '/adu-services'
+      path: '/adu-services'
+      fullPath: '/adu-services'
+      preLoaderRoute: typeof AduServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/artificial-turf': {
+      id: '/artificial-turf'
+      path: '/artificial-turf'
+      fullPath: '/artificial-turf'
+      preLoaderRoute: typeof ArtificialTurfRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-selling-tree': {
+      id: '/best-selling-tree'
+      path: '/best-selling-tree'
+      fullPath: '/best-selling-tree'
+      preLoaderRoute: typeof BestSellingTreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-selling-trees': {
+      id: '/best-selling-trees'
+      path: '/best-selling-trees'
+      fullPath: '/best-selling-trees'
+      preLoaderRoute: typeof BestSellingTreesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial': {
+      id: '/commercial'
+      path: '/commercial'
+      fullPath: '/commercial'
+      preLoaderRoute: typeof CommercialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/covered-patios': {
+      id: '/covered-patios'
+      path: '/covered-patios'
+      fullPath: '/covered-patios'
+      preLoaderRoute: typeof CoveredPatiosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-decks': {
+      id: '/custom-decks'
+      path: '/custom-decks'
+      fullPath: '/custom-decks'
+      preLoaderRoute: typeof CustomDecksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-fireplaces': {
+      id: '/custom-fireplaces'
+      path: '/custom-fireplaces'
+      fullPath: '/custom-fireplaces'
+      preLoaderRoute: typeof CustomFireplacesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design-service': {
+      id: '/design-service'
+      path: '/design-service'
+      fullPath: '/design-service'
+      preLoaderRoute: typeof DesignServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fencing': {
+      id: '/fencing'
+      path: '/fencing'
+      fullPath: '/fencing'
+      preLoaderRoute: typeof FencingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/general-contracting': {
+      id: '/general-contracting'
+      path: '/general-contracting'
+      fullPath: '/general-contracting'
+      preLoaderRoute: typeof GeneralContractingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-free-consultation': {
+      id: '/get-free-consultation'
+      path: '/get-free-consultation'
+      fullPath: '/get-free-consultation'
+      preLoaderRoute: typeof GetFreeConsultationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hardscapes': {
+      id: '/hardscapes'
+      path: '/hardscapes'
+      fullPath: '/hardscapes'
+      preLoaderRoute: typeof HardscapesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/house-remodeling': {
+      id: '/house-remodeling'
+      path: '/house-remodeling'
+      fullPath: '/house-remodeling'
+      preLoaderRoute: typeof HouseRemodelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/irrigation': {
+      id: '/irrigation'
+      path: '/irrigation'
+      fullPath: '/irrigation'
+      preLoaderRoute: typeof IrrigationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landscape-lighting': {
+      id: '/landscape-lighting'
+      path: '/landscape-lighting'
+      fullPath: '/landscape-lighting'
+      preLoaderRoute: typeof LandscapeLightingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lets-talk': {
+      id: '/lets-talk'
+      path: '/lets-talk'
+      fullPath: '/lets-talk'
+      preLoaderRoute: typeof LetsTalkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-construction': {
+      id: '/new-construction'
+      path: '/new-construction'
+      fullPath: '/new-construction'
+      preLoaderRoute: typeof NewConstructionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-work': {
+      id: '/our-work'
+      path: '/our-work'
+      fullPath: '/our-work'
+      preLoaderRoute: typeof OurWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/outdoor-kitchens': {
+      id: '/outdoor-kitchens'
+      path: '/outdoor-kitchens'
+      fullPath: '/outdoor-kitchens'
+      preLoaderRoute: typeof OutdoorKitchensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/palm-trees': {
+      id: '/palm-trees'
+      path: '/palm-trees'
+      fullPath: '/palm-trees'
+      preLoaderRoute: typeof PalmTreesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/softscapes': {
+      id: '/softscapes'
+      path: '/softscapes'
+      fullPath: '/softscapes'
+      preLoaderRoute: typeof SoftscapesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stamped-concrete-overlay': {
+      id: '/stamped-concrete-overlay'
+      path: '/stamped-concrete-overlay'
+      fullPath: '/stamped-concrete-overlay'
+      preLoaderRoute: typeof StampedConcreteOverlayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -778,18 +771,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/$location': {
-      id: '/locations/$location'
-      path: '/locations/$location'
-      fullPath: '/locations/$location'
-      preLoaderRoute: typeof LocationsLocationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/$location': {
+      id: '/locations/$location'
+      path: '/locations/$location'
+      fullPath: '/locations/$location'
+      preLoaderRoute: typeof LocationsLocationRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
