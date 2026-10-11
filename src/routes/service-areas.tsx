@@ -198,7 +198,7 @@ function ServiceAreasPage() {
                 <span>Call (210) 429-5526</span>
               </a>
               <Link
-                to="/get-free-consultation"
+                to="/lets-talk"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-neutral-900 px-7 py-3 text-white text-sm font-bold backdrop-blur-md hover:scale-105 transition-all duration-300"
               >
                 <span>Free On-Site Consultation</span>

@@ -134,6 +134,29 @@ function OutdoorKitchensPage() {
     }
   ];
 
+  const faqs = [
+    {
+      q: "What countertops and masonry materials hold up best to Texas heat?",
+      a: "Dense natural granite, quartzite, and custom sealed concrete perform best under direct Texas sunlight because they resist high UV radiation, thermal expansion, and staining. We advise against soft marbles or low-grade resin quartz which can discolor or fissure outdoors."
+    },
+    {
+      q: "Can JRM install complete gas, electrical, and water plumbing lines?",
+      a: "Yes. Our team runs dedicated underground natural gas or propane hookups for built-in grills, outdoor-rated GFCI electrical circuits for beverage coolers and accent lighting, and hot/cold water supply and drainage lines for outdoor sinks."
+    },
+    {
+      q: "Should an outdoor kitchen be protected by a covered patio or pergola?",
+      a: "While high-grade stainless appliances withstand weather, an overhead patio cover or pergola drastically improves comfort, protects appliances from beating sun, and allows year-round cooking regardless of rain. We frequently build integrated patio roofs and outdoor kitchens together."
+    },
+    {
+      q: "How much does a custom outdoor kitchen cost in San Antonio?",
+      a: "Custom outdoor kitchen projects typically range from $8,000 to $18,000 for compact BBQ grill islands, and $20,000 to $50,000+ for comprehensive L-shaped or U-shaped entertaining suites complete with granite bars, sinks, and pizza ovens. Robert provides exact, itemized quotes."
+    },
+    {
+      q: "How do we protect outdoor kitchen plumbing during winter freezes?",
+      a: "We engineer all outdoor plumbing with accessible master shutoff valves and low-point drain spigots located inside insulated access doors, allowing you to winterize and drain water lines in under 2 minutes before freezing temperatures strike."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       {/* JSON-LD Schema */}
@@ -160,6 +183,18 @@ function OutdoorKitchensPage() {
                   { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
                   { "@type": "ListItem", "position": 3, "name": "Outdoor Kitchens", "item": "https://jrmconstructionservicellc.com/outdoor-kitchens" }
                 ]
+              },
+              {
+                "@type": "FAQPage",
+                "@id": "https://jrmconstructionservicellc.com/outdoor-kitchens#faq",
+                "mainEntity": faqs.map((faq) => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
               }
             ]
           })
@@ -456,6 +491,32 @@ function OutdoorKitchensPage() {
         </section>
       </div>
 
+      {/* ── FAQS SECTION ── */}
+      <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[15px] px-[15px]">
+        <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#f8f8f8] border border-[#eae8e1] shadow-sm px-6 py-14 md:px-12">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="text-center">
+              <span className="text-xs font-semibold text-[#577a4c] uppercase tracking-wider block mb-2">Got Questions?</span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-900" style={{ fontFamily: "Georgia, serif" }}>
+                Frequently Asked Questions About Outdoor Kitchens
+              </h2>
+              <p className="mt-2 text-xs md:text-sm text-neutral-600 max-w-2xl mx-auto">
+                Practical advice on layout design, materials, utility hookups, and maintenance for Texas outdoor kitchens.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-white border border-neutral-200/90 rounded-xl p-6 shadow-sm">
+                  <h3 className="text-base font-bold text-neutral-900 mb-2">{faq.q}</h3>
+                  <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
       {/* ── READY TO TRANSFORM BOTTOM CTA ── */}
       <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[15px] px-[15px]">
         <section
@@ -475,7 +536,7 @@ function OutdoorKitchensPage() {
             className="max-w-4xl mx-auto flex flex-col items-center"
           >
             {/* Logo */}
-            <img src={logo} alt="JRM" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
+            <img src={logo} alt="JRM Construction Services LLC Logo" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
 
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
               Turn Your Backyard into the Neighborhood’s Favorite Destination

@@ -200,7 +200,7 @@ function CustomDecksPage() {
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight drop-shadow-md"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Custom Decks & Elevated Balconies in San Antonio
+              Custom Deck Builder in San Antonio, TX
             </h1>
 
             <p className="mt-6 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-3xl mx-auto">

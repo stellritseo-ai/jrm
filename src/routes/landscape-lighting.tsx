@@ -28,9 +28,9 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/landscape-lighting")({
   head: () => ({
     meta: [
-      { title: "Landscape Lighting San Antonio TX | Outdoor LED Lighting | JRM" },
+      { title: "Landscape Lighting Installation San Antonio TX | LED Outdoor Lights | JRM" },
       { name: "description", content: "Custom low-voltage LED landscape lighting, architectural uplighting, patio lights & path illumination in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
-      { property: "og:title", content: "Landscape Lighting San Antonio TX | Outdoor LED Lighting | JRM" },
+      { property: "og:title", content: "Landscape Lighting Installation San Antonio TX | LED Outdoor Lights | JRM" },
       { property: "og:description", content: "Custom low-voltage LED landscape lighting, architectural uplighting, patio lights & path illumination in San Antonio, TX. 35+ years experience. Call (210) 429-5526." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://jrmconstructionservicellc.com/landscape-lighting" },
@@ -207,7 +207,7 @@ function LandscapeLightingPage() {
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Landscape Lighting in San Antonio
+              Landscape Lighting Installation in San Antonio, TX
             </h1>
 
             {/* Subtitle */}

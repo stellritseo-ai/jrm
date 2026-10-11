@@ -180,7 +180,7 @@ function StampedConcretePage() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/get-free-consultation"
+                to="/lets-talk"
                 className="bg-[#577a4c] hover:bg-[#3d5636] text-white px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
                 <span>Request Free Estimate</span>

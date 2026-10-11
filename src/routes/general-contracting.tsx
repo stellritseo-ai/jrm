@@ -37,10 +37,10 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/general-contracting")({
   head: () => ({
     meta: [
-      { title: "General Contractor San Antonio TX | Licensed General Contracting | JRM Construction" },
-      { name: "description", content: "San Antonio's trusted licensed, insured & bonded general contractor with 35+ years experience. Turnkey residential & commercial construction, remodeling & project management. Call (210) 429-5526." },
-      { property: "og:title", content: "General Contractor San Antonio TX | Licensed General Contracting | JRM Construction" },
-      { property: "og:description", content: "San Antonio's trusted licensed, insured & bonded general contractor with 35+ years experience. Turnkey residential & commercial construction, remodeling & project management. Call (210) 429-5526." },
+      { title: "General Contracting Services San Antonio TX | Licensed Contractor | JRM Construction" },
+      { name: "description", content: "San Antonio's trusted licensed, insured & bonded general contracting services. 35+ years experience in turnkey residential & commercial construction. Call (210) 429-5526." },
+      { property: "og:title", content: "General Contracting Services San Antonio TX | Licensed Contractor | JRM Construction" },
+      { property: "og:description", content: "San Antonio's trusted licensed, insured & bonded general contracting services. 35+ years experience in turnkey residential & commercial construction. Call (210) 429-5526." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://jrmconstructionservicellc.com/general-contracting" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -259,7 +259,7 @@ function GeneralContractingPage() {
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight drop-shadow-md"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Trusted General Contractor in San Antonio, TX
+              General Contracting Services in San Antonio, TX
             </h1>
 
             <p className="mt-6 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-3xl mx-auto">
@@ -275,7 +275,7 @@ function GeneralContractingPage() {
                 <span>Call Robert: (210) 429-5526</span>
               </a>
               <Link
-                to="/get-free-consultation"
+                to="/lets-talk"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-neutral-900 px-7 py-3 text-white text-sm font-bold backdrop-blur-md hover:scale-105 transition-all duration-300"
               >
                 <span>Request Free Estimate</span>

@@ -1,724 +1,483 @@
-# JRM Construction Services LLC — Complete SEO Documentation & Keyword Master Plan
+# JRM Construction Services LLC — Website & Master SEO Architecture
 
-**Website:** [https://www.jrmconstructionservicellc.com/](https://www.jrmconstructionservicellc.com/)  
-**Business Name:** JRM Construction Services LLC (d/b/a JRM Construction Landscaping Design)  
-**Primary Market:** San Antonio, Texas (Bexar County)  
-**Regional Service Area:** Approximately 80-mile radius across the Texas Hill Country, I-35 corridor, and Central Texas.  
-**Established:** 1989 (35+ Years of Owner-Led Craftsmanship)  
-**Founder & Master Contractor:** Robert Thompson  
-**Credentials:** Licensed, Insured & Bonded | Free On-Site Consultations  
-**Primary Phone:** (210) 429-5526  
-**Primary Email:** robertsa210@icloud.com  
+**Live Site:** [https://www.jrmconstructionservicellc.com/](https://www.jrmconstructionservicellc.com/)  
+**Framework:** TanStack Start (React 19 SSR, Nitro Server, File-based Routing)  
+**Deployment Platform:** Vercel  
+**Master Builder / Founder:** Robert Thompson (35+ Years of Proven Craftsmanship, Established 1989)  
 
 ---
 
-## Table of Contents
-1. [Executive SEO Strategy & Objectives](#1-executive-seo-strategy--objectives)
-2. [Complete Keyword Universe](#2-complete-keyword-universe)
-   - [A. Primary Core Brand & Category Keywords](#a-primary-core-brand--category-keywords)
-   - [B. Local Geo Keyword Matrix (San Antonio + 15 Regional Markets)](#b-local-geo-keyword-matrix-san-antonio--15-regional-markets)
-   - [C. Service-by-Service Keyword Clusters](#c-service-by-service-keyword-clusters)
-   - [D. Search Intent Categorization](#d-search-intent-categorization)
-   - [E. Informational & Blog Long-Tail Keywords](#e-informational--blog-long-tail-keywords)
-3. [Keyword-to-URL Mapping (Anti-Cannibalization Matrix)](#3-keyword-to-url-mapping-anti-cannibalization-matrix)
-4. [Site Architecture & URL Hierarchy](#4-site-architecture--url-hierarchy)
-5. [Local SEO & 80-Mile Service Area Strategy](#5-local-seo--80-mile-service-area-strategy)
-6. [On-Page SEO & Content Standards](#6-on-page-seo--content-standards)
-7. [Structured Data (JSON-LD Schema) Blueprint](#7-structured-data-json-ld-schema-blueprint)
-8. [Technical SEO, Crawlability & Core Web Vitals](#8-technical-seo-crawlability--core-web-vitals)
-9. [Conversion Rate Optimization (CRO) & Lead Generation](#9-conversion-rate-optimization-cro--lead-generation)
-10. [Maintenance, Monitoring & Google Search Console SOP](#10-maintenance-monitoring--google-search-console-sop)
-11. [GEO / AEO (Generative Engine Optimization) Direct-Answer Blueprint](#11-geo--aeo-generative-engine-optimization-direct-answer-blueprint)
-12. [Complete Page-by-Page Master SEO Audit & Specification Table](#12-complete-page-by-page-master-seo-audit--specification-table)
+## 1. Authoritative Business NAP & Verification Details
+
+| Field | Authoritative Business Value |
+| :--- | :--- |
+| **Legal Business Name** | JRM Construction Services LLC |
+| **Trade Name (d/b/a)** | JRM Construction Landscaping Design |
+| **Headquarters Location** | San Antonio, TX 78258 (Bexar County) |
+| **Primary Phone** | `(210) 429-5526` |
+| **Primary Email** | `robertsa210@icloud.com` |
+| **Operating Hours** | Mon – Fri: 7:00 AM – 6:00 PM \| Sat: 8:00 AM – 3:00 PM \| Sun: Closed |
+| **Primary Business Category** | General Contractor (`GeneralContractor`, `HomeAndConstructionBusiness`) |
+| **Secondary Categories** | Patio Enclosure Contractor, Deck Builder, Remodeling Contractor, Masonry Contractor |
+| **Licensing & Credentials** | Licensed, Insured & Bonded | Free On-Site Design Consultations |
+| **Regional Service Area** | 80-Mile Radius: San Antonio, Boerne, New Braunfels, Schertz, Cibolo, Seguin, Canyon Lake, Bulverde, Spring Branch, Helotes, Castroville, Alamo Heights, Stone Oak, Fair Oaks Ranch |
 
 ---
 
-## 1. Executive SEO Strategy & Objectives
+## 2. Master SEO Keyword Map (Core Pages & Canonical Service Routes)
 
-The primary goal of this SEO implementation is to establish **JRM Construction Services LLC** as the dominant, top-ranking authority for general contracting, home remodeling, outdoor living design, and construction services in **San Antonio, TX** and throughout the high-growth **80-mile regional corridor**.
+Every page on the website is mapped 1-to-1 to a distinct primary keyword focus and search intent to prevent internal cannibalization:
 
-### Strategic Principles:
-1. **Service + Location Intent Targeting**: Optimize individual landing pages for high-intent combinations (`remodeling contractor Boerne TX`, `covered patio builder San Antonio`, `custom home builder New Braunfels`) rather than generic global terms.
-2. **Zero Keyword Cannibalization**: Enforce a strict 1-to-1 keyword-to-canonical-URL map. Every page has a distinct primary keyword focus and search intent.
-3. **Legitimate Local SEO & E-E-A-T**: Every location page represents a verified service community with authentic local context, landmark references, zip codes, and unique FAQs. No duplicate or thin doorway pages.
-4. **Comprehensive Structured Data**: Deploy JSON-LD schemas across all page templates (`GeneralContractor`, `HomeAndConstructionBusiness`, `Service`, `BreadcrumbList`, `FAQPage`, `BlogPosting`, `WebSite`).
-5. **Speed, Core Web Vitals & Mobile First**: Fast loading times, zero layout shift (CLS), mobile-first click-to-call CTAs, and optimized responsive WebP imagery.
-
----
-
-## 2. Complete Keyword Universe
-
-### A. Primary Core Brand & Category Keywords
-
-| Keyword | Monthly Search Intent | Competition | Target Canonical URL |
-| :--- | :--- | :--- | :--- |
-| general contractor San Antonio TX | High / Transactional | High | `https://jrmconstructionservicellc.com/` & `/general-contracting` |
-| construction company San Antonio TX | High / Transactional | High | `https://jrmconstructionservicellc.com/general-contracting` |
-| construction contractor San Antonio TX | High / Commercial | Medium | `https://jrmconstructionservicellc.com/general-contracting` |
-| construction services San Antonio TX | High / Commercial | Medium | `https://jrmconstructionservicellc.com/services` |
-| remodeling contractor San Antonio TX | High / Transactional | High | `https://jrmconstructionservicellc.com/house-remodeling` |
-| home remodeling San Antonio TX | Very High / Transactional | High | `https://jrmconstructionservicellc.com/house-remodeling` |
-| home renovation San Antonio TX | High / Transactional | Medium | `https://jrmconstructionservicellc.com/house-remodeling` |
-| residential contractor San Antonio TX | Medium / Commercial | Medium | `https://jrmconstructionservicellc.com/new-construction` |
-| commercial contractor San Antonio TX | High / Commercial | High | `https://jrmconstructionservicellc.com/commercial` |
-| residential construction San Antonio TX | Medium / Commercial | Medium | `https://jrmconstructionservicellc.com/new-construction` |
-| commercial construction San Antonio TX | High / Commercial | High | `https://jrmconstructionservicellc.com/commercial` |
-| building contractor San Antonio TX | Medium / Commercial | Medium | `https://jrmconstructionservicellc.com/general-contracting` |
-| home improvement contractor San Antonio TX | Medium / Commercial | Medium | `https://jrmconstructionservicellc.com/house-remodeling` |
-| local contractor San Antonio TX | High / Local | Medium | `https://jrmconstructionservicellc.com/` |
-| licensed contractor San Antonio TX | High / Commercial | Medium | `https://jrmconstructionservicellc.com/about` |
-| JRM Construction San Antonio | Brand / Navigational | Low | `https://jrmconstructionservicellc.com/` |
-| JRM Construction Services LLC | Brand / Navigational | Low | `https://jrmconstructionservicellc.com/` |
-| JRM Construction Landscaping Design | Brand / Navigational | Low | `https://jrmconstructionservicellc.com/` |
+| Page / Route | Canonical URL | Primary Target Keyword | Secondary Supporting Keywords | Search Intent |
+| :--- | :--- | :--- | :--- | :--- |
+| **Homepage** | `/` | `general contractor san antonio` | `san antonio general contractors`, `licensed contractor san antonio`, `construction company san antonio tx` | Commercial / Local Authority |
+| **General Contracting** | `/general-contracting` | `general contracting services san antonio` | `turnkey construction contractor san antonio`, `residential general contractor san antonio`, `building contractor san antonio` | Commercial / Transactional |
+| **House Remodeling** | `/house-remodeling` | `house remodeling san antonio` | `home remodeling san antonio tx`, `kitchen remodeling san antonio`, `bathroom remodel san antonio tx`, `home additions san antonio` | High Commercial / Transactional |
+| **Covered Patios** | `/covered-patios` | `covered patio builder san antonio` | `patio covers san antonio tx`, `pergola builder san antonio`, `solid patio roof extension`, `outdoor pavilions san antonio` | High Commercial / Transactional |
+| **Outdoor Kitchens** | `/outdoor-kitchens` | `outdoor kitchens san antonio tx` | `bbq island builders san antonio`, `outdoor grill kitchen installers`, `custom outdoor bars san antonio`, `granite outdoor kitchens` | High-Ticket Commercial |
+| **Custom Decks** | `/custom-decks` | `custom deck builder san antonio` | `trex composite deck installer san antonio`, `wood deck builders san antonio tx`, `elevated balconies san antonio`, `patio decks` | High Commercial |
+| **Hardscapes & Masonry** | `/hardscapes` | `hardscape contractors san antonio` | `flagstone patio installation san antonio`, `retaining wall builders san antonio`, `paver walkways`, `stone masonry contractors` | Commercial / Local |
+| **Decorative Concrete** | `/stamped-concrete-overlay` | `stamped concrete contractor san antonio` | `concrete overlay san antonio tx`, `decorative concrete patios`, `stamped pool decks san antonio`, `concrete resurfacing` | Commercial / Transactional |
+| **New Home Construction** | `/new-construction` | `new home construction san antonio` | `custom home builder san antonio tx`, `residential new construction`, `ground up home builder san antonio`, `bonded builder` | High-Ticket Commercial |
+| **ADU & Guest Casitas** | `/adu-services` | `adu builders san antonio tx` | `accessory dwelling units san antonio`, `in law suite contractor san antonio`, `guest house builder san antonio`, `casita construction` | High-Growth Commercial |
+| **Commercial Construction** | `/commercial` | `commercial contractor san antonio tx` | `commercial build out san antonio`, `retail renovation contractor san antonio`, `tenant improvements san antonio`, `commercial GC` | B2B Commercial |
+| **Custom Fireplaces** | `/custom-fireplaces` | `custom outdoor fireplace builder san antonio`| `indoor stone fireplace san antonio`, `outdoor fire pit builder san antonio`, `masonry fireplace contractor`, `custom stone hearth` | Commercial / Niche |
+| **Fencing & Custom Gates**| `/fencing` | `fence installation san antonio tx` | `fence company san antonio tx`, `cedar privacy fence san antonio`, `wrought iron fence installation`, `automated gates san antonio` | High Commercial / Local |
+| **Artificial Turf** | `/artificial-turf` | `artificial turf installation san antonio` | `synthetic grass san antonio tx`, `putting green installation san antonio`, `pet turf systems san antonio`, `low maintenance lawn` | High Commercial / Local |
+| **Landscape Lighting** | `/landscape-lighting` | `landscape lighting installation san antonio` | `outdoor led lighting san antonio`, `architectural uplighting san antonio`, `low voltage landscape lights`, `patio lighting` | Commercial / Add-On |
+| **Irrigation & Sprinklers**| `/irrigation` | `sprinkler repair and irrigation san antonio` | `sprinkler repair san antonio tx`, `smart irrigation installation`, `drip irrigation contractor san antonio`, `backflow testing` | Commercial / Maintenance |
+| **Softscapes & Plants** | `/softscapes` | `softscape installation san antonio tx` | `native texas plant landscaping`, `drought tolerant landscaping san antonio`, `flower bed installation`, `mulch and sod` | Commercial / Design |
+| **Palm Trees & Nursery** | `/palm-trees` | `palm trees san antonio tx` | `cold hardy palm tree installation san antonio`, `windmill palm trees san antonio`, `mediterranean fan palms`, `palm tree delivery` | Commercial / Product |
+| **Best-Selling Trees** | `/best-selling-trees` | `trees for sale san antonio tx` | `native shade trees san antonio`, `texas red oak delivery`, `monterrey oak san antonio`, `tree installation service` | Commercial / Nursery |
+| **Design Blueprints & 3D** | `/design-service` | `landscape design blueprint san antonio` | `3d outdoor living design san antonio`, `architectural construction plans`, `backyard design consultation san antonio` | Commercial / Pre-Build |
+| **Project Portfolio** | `/work` | `construction projects san antonio tx` | `remodeling photo gallery san antonio`, `before and after construction photos`, `patio builder portfolio san antonio` | Visual Proof / Trust |
+| **Client Reviews** | `/reviews` | `jrm construction reviews san antonio` | `jrm construction services ratings`, `contractor reviews san antonio tx`, `verified homeowner testimonials robert thompson` | Social Proof / Decision |
+| **About Robert Thompson** | `/about` | `robert thompson general contractor san antonio`| `about jrm construction services`, `licensed general contractor history san antonio`, `35 years construction experience 1989` | E-E-A-T / Brand Trust |
+| **Contact Direct** | `/contact` | `contact jrm construction san antonio` | `contractor phone number san antonio tx`, `robert thompson contact info`, `jrm construction email address` | Transactional |
+| **Schedule Consultation** | `/lets-talk` | `free construction estimate san antonio tx` | `free remodeling consultation san antonio`, `quote for covered patio san antonio`, `schedule on-site builder meeting` | High Transactional |
 
 ---
 
-### B. Local Geo Keyword Matrix (San Antonio + 15 Regional Markets)
+## 3. Dedicated Regional Municipality Landing Pages (80-Mile Radius)
 
-JRM proudly serves an **80-mile radius** from Central San Antonio. Below are the primary target keyword sets for each verified regional community:
+JRM serves the entire Central Texas and Hill Country corridor. Each regional city has an authentic dedicated landing page featuring localized geological notes, municipal landmarks, and city-specific building permit FAQs:
 
-#### 1. San Antonio, TX (Primary Hub — Tier 1)
-- `general contractor San Antonio TX`
-- `construction company San Antonio TX`
-- `remodeling contractor San Antonio TX`
-- `home remodeling San Antonio TX`
-- `kitchen remodel San Antonio`
-- `bathroom remodel San Antonio TX`
-- `covered patio builder San Antonio`
-- `outdoor kitchen contractor San Antonio`
-- `artificial turf installation San Antonio`
-- `hardscape contractor San Antonio`
-- `stamped concrete contractor San Antonio`
-- `custom fireplace builder San Antonio`
-- `fence installation San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/san-antonio-tx` (and root domain)
-
-#### 2. Boerne, TX (Kendall County / Hill Country — Tier 2)
-- `general contractor Boerne TX`
-- `construction company Boerne TX`
-- `remodeling contractor Boerne TX`
-- `home remodeling Boerne TX`
-- `custom home builder Boerne TX`
-- `outdoor living builder Boerne TX`
-- `covered patio builder Boerne TX`
-- `masonry and hardscaping Boerne TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/boerne-tx`
-
-#### 3. New Braunfels, TX (Comal County — Tier 2)
-- `general contractor New Braunfels TX`
-- `construction company New Braunfels TX`
-- `remodeling contractor New Braunfels TX`
-- `home remodeling New Braunfels TX`
-- `outdoor kitchens New Braunfels TX`
-- `covered patios New Braunfels TX`
-- `artificial turf New Braunfels TX`
-- `custom decks New Braunfels TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/new-braunfels-tx`
-
-#### 4. Schertz, TX (Guadalupe / Bexar County — Tier 2)
-- `general contractor Schertz TX`
-- `construction company Schertz TX`
-- `remodeling contractor Schertz TX`
-- `home remodeling Schertz TX`
-- `kitchen remodeling Schertz TX`
-- `covered patio builder Schertz TX`
-- `fence installation Schertz TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/schertz-tx`
-
-#### 5. Seguin, TX (Guadalupe County — Tier 2)
-- `general contractor Seguin TX`
-- `construction company Seguin TX`
-- `remodeling contractor Seguin TX`
-- `home remodeling Seguin TX`
-- `concrete contractor Seguin TX`
-- `outdoor living builder Seguin TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/seguin-tx`
-
-#### 6. Canyon Lake, TX (Comal County — Tier 2)
-- `general contractor Canyon Lake TX`
-- `construction company Canyon Lake TX`
-- `custom decks Canyon Lake TX`
-- `outdoor living spaces Canyon Lake TX`
-- `home remodeling Canyon Lake TX`
-- `covered patio builder Canyon Lake TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/canyon-lake-tx`
-
-#### 7. Kerrville, TX (Kerr County / Hill Country — Tier 2)
-- `general contractor Kerrville TX`
-- `construction company Kerrville TX`
-- `remodeling contractor Kerrville TX`
-- `custom fireplaces Kerrville TX`
-- `home remodeling Kerrville TX`
-- `hardscapes and stone masonry Kerrville TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/kerrville-tx`
-
-#### 8. Fredericksburg, TX (Gillespie County / Hill Country — Tier 2)
-- `general contractor Fredericksburg TX`
-- `remodeling contractor Fredericksburg TX`
-- `ADU builder Fredericksburg TX`
-- `guest house construction Fredericksburg TX`
-- `luxury home remodeling Fredericksburg TX`
-- `outdoor living Fredericksburg TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/fredericksburg-tx`
-
-#### 9. Bulverde, TX (Comal County — Tier 2)
-- `general contractor Bulverde TX`
-- `construction company Bulverde TX`
-- `outdoor kitchen builder Bulverde TX`
-- `covered patios Bulverde TX`
-- `artificial turf Bulverde TX`
-- `home remodeling Bulverde TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/bulverde-tx`
-
-#### 10. Helotes, TX (Bexar County — Tier 2)
-- `general contractor Helotes TX`
-- `remodeling contractor Helotes TX`
-- `outdoor fireplace builder Helotes TX`
-- `custom covered patios Helotes TX`
-- `home renovation Helotes TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/helotes-tx`
-
-#### 11. Converse, TX (Bexar County — Tier 2)
-- `general contractor Converse TX`
-- `remodeling contractor Converse TX`
-- `home remodeling Converse TX`
-- `concrete and patio builder Converse TX`
-- `fence contractor Converse TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/converse-tx`
-
-#### 12. Universal City, TX (Bexar County — Tier 2)
-- `general contractor Universal City TX`
-- `home remodeling Universal City TX`
-- `construction contractor Universal City TX`
-- `covered patios Universal City TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/universal-city-tx`
-
-#### 13. Live Oak, TX (Bexar County — Tier 2)
-- `general contractor Live Oak TX`
-- `remodeling contractor Live Oak TX`
-- `home additions Live Oak TX`
-- `outdoor living builder Live Oak TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/live-oak-tx`
-
-#### 14. Leon Valley, TX (Bexar County — Tier 2)
-- `general contractor Leon Valley TX`
-- `home remodeling Leon Valley TX`
-- `concrete contractor Leon Valley TX`
-- `artificial turf Leon Valley TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/leon-valley-tx`
-
-#### 15. Alamo Heights, TX (Bexar County — Tier 2)
-- `luxury remodeling contractor Alamo Heights TX`
-- `general contractor Alamo Heights TX`
-- `kitchen remodel Alamo Heights San Antonio`
-- `custom home renovations Alamo Heights`
-- `high-end hardscaping Alamo Heights TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/locations/alamo-heights-tx`
+| Location Landing Page | Canonical URL | Primary Target Keyword | Secondary Local Keywords | Target Municipality & County |
+| :--- | :--- | :--- | :--- | :--- |
+| **San Antonio (HQ)** | `/locations/san-antonio` | `general contractor san antonio tx` | `home remodeling san antonio`, `covered patio builder san antonio` | San Antonio, TX (Bexar County) |
+| **Boerne** | `/locations/boerne` | `general contractor boerne tx` | `remodeling contractor boerne tx`, `hill country stone hardscapes boerne`, `custom patios boerne` | Boerne, TX (Kendall County) |
+| **New Braunfels** | `/locations/new-braunfels` | `general contractor new braunfels tx` | `remodeling new braunfels tx`, `outdoor kitchens new braunfels`, `covered patios new braunfels` | New Braunfels, TX (Comal County) |
+| **Schertz** | `/locations/schertz` | `general contractor schertz tx` | `home remodeling schertz tx`, `patio builder schertz tx`, `fence installation schertz` | Schertz, TX (Guadalupe County) |
+| **Cibolo** | `/locations/cibolo` | `general contractor cibolo tx` | `remodeling contractor cibolo tx`, `covered patio builder cibolo`, `concrete contractor cibolo` | Cibolo, TX (Guadalupe County) |
+| **Seguin** | `/locations/seguin` | `general contractor seguin tx` | `home remodeling seguin tx`, `outdoor living builder seguin`, `retaining walls seguin tx` | Seguin, TX (Guadalupe County) |
+| **Helotes** | `/locations/helotes` | `general contractor helotes tx` | `remodeling contractor helotes tx`, `outdoor fireplace builder helotes`, `custom decks helotes` | Helotes, TX (Bexar County) |
+| **Bulverde** | `/locations/bulverde` | `general contractor bulverde tx` | `hill country builder bulverde tx`, `patio covers bulverde`, `outdoor kitchens bulverde tx` | Bulverde, TX (Comal County) |
+| **Spring Branch** | `/locations/spring-branch` | `general contractor spring branch tx` | `custom home additions spring branch`, `remodeling spring branch tx`, `hardscapes` | Spring Branch, TX (Comal County) |
+| **Canyon Lake** | `/locations/canyon-lake` | `general contractor canyon lake tx` | `lakefront remodeling canyon lake tx`, `custom decks canyon lake`, `patios canyon lake tx` | Canyon Lake, TX (Comal County) |
+| **Castroville** | `/locations/castroville` | `general contractor castroville tx` | `home remodeling castroville tx`, `masonry contractor castroville`, `patio builder castroville` | Castroville, TX (Medina County) |
+| **Alamo Heights** | `/locations/alamo-heights` | `luxury remodeling contractor alamo heights tx`| `general contractor alamo heights tx`, `high end home renovations alamo heights` | Alamo Heights, TX (Bexar County) |
+| **Stone Oak** | `/locations/stone-oak` | `home remodeling stone oak san antonio` | `general contractor stone oak tx`, `outdoor kitchens stone oak`, `covered patios stone oak` | Stone Oak, San Antonio, TX |
+| **Fair Oaks Ranch** | `/locations/fair-oaks-ranch` | `general contractor fair oaks ranch tx` | `acreage home remodeling fair oaks ranch`, `custom outdoor living fair oaks ranch` | Fair Oaks Ranch, TX (Bexar / Kendall) |
 
 ---
 
-### C. Service-by-Service Keyword Clusters
+## 4. Technical SEO, Redirects & Canonical Crawl Rules
 
-#### 1. General Contracting & New Construction
-- **Primary:** `general contractor San Antonio TX`
-- **Secondary:** `general contracting services San Antonio`, `licensed general contractor San Antonio TX`, `commercial general contractor San Antonio`, `turnkey construction contractor San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/general-contracting`
+### Permanent 301 Redirect Mappings
+To maintain 100% crawl equity and eliminate duplicate URL penalties, legacy and redundant routes redirect permanently:
+- `/get-free-consultation` ➔ **301 Moved Permanently** ➔ `/lets-talk`
+- `/contact-us` ➔ **301 Moved Permanently** ➔ `/contact`
+- `/about-us` ➔ **301 Moved Permanently** ➔ `/about`
+- `/our-work` ➔ **301 Moved Permanently** ➔ `/work`
+- `/best-selling-tree` ➔ **301 Moved Permanently** ➔ `/best-selling-trees`
 
-#### 2. House Remodeling & Interior Renovations
-- **Primary:** `remodeling contractor San Antonio TX`
-- **Secondary:** `home remodeling San Antonio TX`, `kitchen remodeling San Antonio`, `bathroom remodel San Antonio TX`, `whole house remodeling San Antonio`, `room additions San Antonio TX`, `master suite remodel San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/house-remodeling`
-
-#### 3. Custom Home Building & New Construction
-- **Primary:** `new construction San Antonio TX`
-- **Secondary:** `custom home builder San Antonio`, `residential construction company San Antonio`, `turnkey home builder San Antonio TX`, `ground up construction San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/new-construction`
-
-#### 4. Commercial Construction & Tenant Improvements
-- **Primary:** `commercial contractor San Antonio TX`
-- **Secondary:** `commercial construction San Antonio`, `commercial remodeling contractor San Antonio`, `commercial build out San Antonio`, `retail renovation contractor San Antonio`, `commercial landscaping contractor San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/commercial`
-
-#### 5. ADU Services (Accessory Dwelling Units & Casitas)
-- **Primary:** `ADU builder San Antonio TX`
-- **Secondary:** `accessory dwelling unit San Antonio`, `guest house builder San Antonio`, `backyard casita builder San Antonio`, `mother in law suite contractor San Antonio`, `garage conversion San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/adu-services`
-
-#### 6. Covered Patios & Pergolas
-- **Primary:** `covered patio builder San Antonio TX`
-- **Secondary:** `custom covered patios San Antonio`, `patio cover contractor San Antonio`, `pergola builder San Antonio TX`, `cedar pergola installation San Antonio`, `insulated patio roof San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/covered-patios`
-
-#### 7. Outdoor Kitchens & BBQ Islands
-- **Primary:** `outdoor kitchen contractor San Antonio TX`
-- **Secondary:** `custom outdoor kitchens San Antonio`, `outdoor kitchen builder San Antonio`, `BBQ island contractor San Antonio`, `outdoor dining patio San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/outdoor-kitchens`
-
-#### 8. Custom Fireplaces & Outdoor Fire Pits
-- **Primary:** `custom fireplace builder San Antonio TX`
-- **Secondary:** `indoor fireplace remodel San Antonio`, `outdoor fireplace contractor San Antonio`, `stone fire pit builder San Antonio`, `gas fireplace installation San Antonio TX`, `masonry fireplace San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/custom-fireplaces`
-
-#### 9. Hardscapes & Stone Masonry
-- **Primary:** `hardscape contractor San Antonio TX`
-- **Secondary:** `hardscaping San Antonio TX`, `flagstone patio contractor San Antonio`, `stone retaining wall builder San Antonio`, `paver patio installation San Antonio`, `custom masonry San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/hardscapes`
-
-#### 10. Stamped Concrete & Concrete Overlays
-- **Primary:** `stamped concrete contractor San Antonio TX`
-- **Secondary:** `stamped concrete patio San Antonio`, `decorative concrete overlay San Antonio TX`, `concrete driveway contractor San Antonio`, `pool deck resurfacing San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/stamped-concrete-overlay`
-
-#### 11. Artificial Turf & Synthetic Grass
-- **Primary:** `artificial turf installation San Antonio TX`
-- **Secondary:** `synthetic grass contractor San Antonio`, `pet turf installation San Antonio`, `putting green contractor San Antonio TX`, `artificial lawn San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/artificial-turf`
-
-#### 12. Custom Decks & Multi-Level Decking
-- **Primary:** `custom deck builder San Antonio TX`
-- **Secondary:** `composite deck contractor San Antonio`, `Trex deck builder San Antonio`, `cedar deck installation San Antonio`, `pool deck contractor San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/custom-decks`
-
-#### 13. Custom Fencing (Wood, Iron, Composite)
-- **Primary:** `fence contractor San Antonio TX`
-- **Secondary:** `fence installation San Antonio TX`, `privacy fence builder San Antonio`, `wrought iron fence San Antonio`, `custom wood fencing San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/fencing`
-
-#### 14. 3D Architectural Design & Blueprints
-- **Primary:** `3D landscape design San Antonio TX`
-- **Secondary:** `architectural rendering contractor San Antonio`, `outdoor living design service San Antonio`, `remodeling blueprints San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/design-service`
-
-#### 15. Softscapes & Plant Landscaping
-- **Primary:** `landscape design San Antonio TX`
-- **Secondary:** `softscape contractor San Antonio`, `native Texas plants landscaping`, `drought tolerant landscaping San Antonio`, `xeriscaping contractor San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/softscapes`
-
-#### 16. Palm Tree Sourcing & Installation
-- **Primary:** `palm tree installation San Antonio TX`
-- **Secondary:** `cold hardy palm trees San Antonio`, `mature palm tree supplier San Antonio`, `tropical landscape contractor San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/palm-trees`
-
-#### 17. High-Efficiency Irrigation Systems
-- **Primary:** `irrigation system installation San Antonio TX`
-- **Secondary:** `sprinkler system contractor San Antonio`, `drip irrigation installation San Antonio`, `smart sprinkler repair San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/irrigation`
-
-#### 18. Low-Voltage Landscape Lighting
-- **Primary:** `landscape lighting installation San Antonio TX`
-- **Secondary:** `outdoor lighting contractor San Antonio`, `architectural LED lighting San Antonio`, `patio and walkway lighting San Antonio TX`
-- **Target URL:** `https://jrmconstructionservicellc.com/landscape-lighting`
-
-#### 19. Best Selling Specimen Trees & Tree Installation
-- **Primary:** `best selling trees San Antonio TX`
-- **Secondary:** `specimen tree installation San Antonio`, `mature trees for sale San Antonio TX`, `Texas native shade trees San Antonio`, `container tree planting contractor San Antonio`, `live oak tree installation San Antonio TX`, `Sabal palm tree supplier San Antonio`, `Japanese blueberry tree San Antonio`, `Little Gem magnolia tree San Antonio TX`, `Shumard oak planting San Antonio`, `red maple tree San Antonio TX`, `crape myrtle installation San Antonio`, `Eagleston holly tree San Antonio`
-- **Target URL:** `https://jrmconstructionservicellc.com/best-selling-trees`
+### Crawler Access Policy (`public/robots.txt`)
+- Conforms to **RFC 9309**.
+- Explicitly allows all public service routes, city landing pages, blog guides, images, and sitemaps.
+- Explicitly disallows private administrative routes (`/dashboard`, `/login`, `/api/`) across standard search engines (Googlebot, Bingbot) and AI search agents (GPTBot, ClaudeBot, PerplexityBot, Applebot-Extended).
+- Primary Sitemap index: `https://www.jrmconstructionservicellc.com/sitemap.xml`.
 
 ---
 
-### D. Search Intent Categorization
+## 5. Complete Keyword Inventory by Category
 
-1. **Transactional Intent (High Purchase Intent — Conversion Priority P0)**:
-   - *"hire general contractor San Antonio TX"*
-   - *"free estimate home remodeling San Antonio"*
-   - *"quote outdoor kitchen builder San Antonio"*
-   - *"cost to build covered patio San Antonio TX"*
-   - **Target Action:** Direct phone calls `(210) 429-5526` and submission of quote requests via `/get-free-consultation` or `/lets-talk`.
+### Category A: General Contractor & Core Brand Keywords
+- `general contractor san antonio`
+- `general contractor san antonio tx`
+- `san antonio general contractors`
+- `general contracting services san antonio`
+- `licensed general contractor san antonio tx`
+- `bonded general contractor san antonio`
+- `insured construction contractor san antonio`
+- `construction company san antonio tx`
+- `construction contractors san antonio`
+- `residential general contractor san antonio`
+- `building contractor san antonio tx`
+- `turnkey general contractor san antonio`
+- `local contractor san antonio tx`
+- `jrm construction services llc`
+- `jrm construction san antonio`
+- `jrm construction landscaping design`
+- `robert thompson contractor san antonio`
+- `robert thompson jrm construction`
 
-2. **Commercial Investigation Intent (Evaluating Providers — Trust Priority P1)**:
-   - *"best remodeling contractor San Antonio"*
-   - *"licensed general contractors near me San Antonio"*
-   - *"JRM Construction customer reviews"*
-   - *"top rated patio builders Hill Country TX"*
-   - **Target Action:** Showcase 35+ years experience, Robert Thompson founder oversight, portfolio photos on `/work`, 5-star ratings on `/reviews`.
+### Category B: House Remodeling & Whole-Home Renovations
+- `house remodeling san antonio`
+- `home remodeling san antonio tx`
+- `remodeling contractor san antonio tx`
+- `home renovation san antonio tx`
+- `whole house remodeling san antonio`
+- `room additions san antonio tx`
+- `home addition contractors san antonio`
+- `master suite addition san antonio`
+- `second story addition san antonio tx`
+- `interior home remodeling san antonio`
+- `structural wall removal contractor san antonio`
+- `living room remodel san antonio`
+- `home improvement contractor san antonio`
+- `licensed remodeler san antonio tx`
+- `residential renovation services san antonio`
 
-3. **Local Intent (Proximity / Geo Queries — Local SEO Priority P1)**:
-   - *"construction company near me"*
-   - *"remodeling contractor in Boerne TX"*
-   - *"covered patio builder New Braunfels"*
-   - *"general contractor Helotes TX"*
-   - **Target Action:** Serve hyper-relevant `/locations/[city-tx]` landing pages backed by `LocalBusiness` JSON-LD geo-coordinates and city-specific details.
+### Category C: Kitchen & Bathroom Remodeling
+- `kitchen remodeling san antonio`
+- `kitchen remodel san antonio tx`
+- `custom kitchen cabinets san antonio`
+- `kitchen island installation san antonio`
+- `granite kitchen countertops san antonio`
+- `quartz countertop installers san antonio`
+- `luxury kitchen renovation san antonio`
+- `open concept kitchen remodel san antonio`
+- `bathroom remodel san antonio tx`
+- `bathroom remodeling san antonio`
+- `walk in shower installation san antonio`
+- `custom master bathroom renovation san antonio`
+- `tub to shower conversion san antonio tx`
+- `bathroom vanity installation san antonio`
+- `spa bathroom remodel san antonio`
 
-4. **Informational Intent (Research & Education — Content Marketing Priority P2)**:
-   - *"how much does a kitchen remodel cost in San Antonio"*
-   - *"covered patio vs pergola Texas climate"*
-   - *"benefits of artificial turf in Texas drought"*
-   - **Target Action:** Engage readers via in-depth `/blog` articles and channel them into service consultation funnels.
+### Category D: Covered Patios, Pergolas & Outdoor Shelters
+- `covered patio builder san antonio`
+- `covered patio builder san antonio tx`
+- `patio covers san antonio tx`
+- `custom covered patios san antonio`
+- `solid roof patio cover san antonio`
+- `insulated patio roof san antonio`
+- `cedar pergola builder san antonio`
+- `timber pergola installation san antonio`
+- `modern aluminum pergola san antonio`
+- `outdoor pavilion builders san antonio`
+- `patio roof extension san antonio tx`
+- `screened patio enclosures san antonio`
+- `shingle roof tie in patio builder san antonio`
+- `wind rated covered patios san antonio`
+- `covered patio electrical and ceiling fan installation`
 
----
+### Category E: Outdoor Kitchens, BBQ Islands & Entertaining Bars
+- `outdoor kitchens san antonio tx`
+- `outdoor kitchen builders san antonio`
+- `bbq island builders san antonio`
+- `custom outdoor bbq island san antonio`
+- `built in gas grill installation san antonio`
+- `outdoor kitchen countertops granite san antonio`
+- `stone outdoor bar builder san antonio`
+- `outdoor pizza oven installation san antonio`
+- `l shaped outdoor kitchen san antonio`
+- `covered outdoor kitchen construction san antonio`
+- `outdoor kitchen gas line hookup san antonio`
+- `outdoor kitchen plumbing and sink installation`
+- `freeze proof outdoor kitchen plumbing san antonio`
+- `stainless steel outdoor kitchen appliances san antonio`
+- `outdoor kitchen and patio packages san antonio`
 
-### E. Informational & Blog Long-Tail Keywords
+### Category F: Custom Decks & Elevated Balconies
+- `custom deck builder san antonio`
+- `custom deck builder san antonio tx`
+- `trex composite deck installer san antonio`
+- `composite decking contractors san antonio`
+- `wood deck builders san antonio tx`
+- `pressure treated pine deck san antonio`
+- `multi tier deck builder san antonio`
+- `sloped yard deck construction san antonio`
+- `elevated balcony builder san antonio tx`
+- `pool deck construction san antonio`
+- `deck railing installation wrought iron san antonio`
+- `covered deck builder san antonio`
 
-1. **Article 1: Kitchen Remodeling Cost Guide**
-   - **Primary:** `kitchen remodeling costs San Antonio`
-   - **Long-tail:** `how much to remodel a kitchen in San Antonio TX`, `San Antonio kitchen remodel budget breakdown`, `permits needed for kitchen remodel San Antonio`
-   - **URL:** `https://jrmconstructionservicellc.com/blog/kitchen-remodeling-costs-san-antonio`
+### Category G: Hardscapes, Retaining Walls & Stone Masonry
+- `hardscape contractors san antonio`
+- `hardscaping san antonio tx`
+- `flagstone patio installation san antonio`
+- `natural stone masonry san antonio`
+- `paver patio installation san antonio`
+- `interlocking concrete pavers san antonio`
+- `stone retaining wall builders san antonio`
+- `limestone retaining walls san antonio tx`
+- `cinder block retaining wall with stone veneer`
+- `stone walkway installation san antonio`
+- `travertine paver patio san antonio`
+- `outdoor masonry steps san antonio`
+- `hill country limestone hardscapes san antonio`
+- `erosion control retaining wall san antonio`
+- `commercial hardscape contractor san antonio`
 
-2. **Article 2: Covered Patio vs. Pergola Guide**
-   - **Primary:** `covered patio vs pergola Texas`
-   - **Long-tail:** `best patio roof for Texas heat`, `cost of covered patio vs cedar pergola San Antonio`, `does a covered patio add home value in San Antonio`
-   - **URL:** `https://jrmconstructionservicellc.com/blog/covered-patio-vs-pergola-texas`
+### Category H: Stamped Concrete & Decorative Overlays
+- `stamped concrete contractor san antonio`
+- `stamped concrete patios san antonio tx`
+- `decorative concrete overlays san antonio`
+- `stamped concrete driveway san antonio`
+- `pool deck concrete resurfacing san antonio`
+- `colored concrete patio san antonio`
+- `slate pattern stamped concrete san antonio`
+- `wood plank stamped concrete san antonio`
+- `concrete stain and seal san antonio tx`
+- `commercial stamped concrete contractor san antonio`
+- `durable concrete overlay san antonio`
+- `cracked patio resurfacing san antonio`
 
-3. **Article 3: Artificial Turf San Antonio Guide**
-   - **Primary:** `artificial turf San Antonio guide`
-   - **Long-tail:** `is artificial grass worth it in San Antonio`, `pet turf vs real grass Texas`, `artificial turf water savings San Antonio`
-   - **URL:** `https://jrmconstructionservicellc.com/blog/artificial-turf-san-antonio-guide`
+### Category I: ADU (Accessory Dwelling Units) & Guest Casitas
+- `adu builders san antonio tx`
+- `accessory dwelling unit builders san antonio`
+- `detached adu construction san antonio`
+- `guest house builders san antonio tx`
+- `backyard casita builder san antonio`
+- `mother in law suite contractor san antonio`
+- `multigenerational home addition san antonio`
+- `garage conversion adu san antonio`
+- `turnkey adu design and build san antonio`
+- `bexar county adu permit requirements`
+- `guest house with kitchen and bath san antonio`
+- `small backyard cottage builder san antonio`
 
----
+### Category J: New Home Construction & Residential Builder
+- `new home construction san antonio`
+- `new home construction san antonio tx`
+- `custom home builder san antonio`
+- `residential construction company san antonio`
+- `ground up custom home builder san antonio`
+- `turnkey residential builder san antonio tx`
+- `acreage home construction san antonio`
+- `licensed home builder san antonio tx`
+- `on your lot custom home builder san antonio`
+- `custom structural additions san antonio`
 
-## 3. Keyword-to-URL Mapping (Anti-Cannibalization Matrix)
+### Category K: Commercial Construction & Tenant Improvements
+- `commercial contractor san antonio tx`
+- `commercial construction company san antonio`
+- `commercial general contractor san antonio`
+- `retail build out contractor san antonio`
+- `tenant improvement contractor san antonio tx`
+- `commercial interior remodeling san antonio`
+- `restaurant patio construction san antonio`
+- `commercial concrete and flatwork san antonio`
+- `commercial fencing and gate installation san antonio`
+- `commercial landscape design build san antonio`
 
-To eliminate keyword cannibalization, each high-priority keyword is mapped exclusively to its designated canonical URL:
+### Category L: Custom Masonry Fireplaces & Fire Pits
+- `custom outdoor fireplace builder san antonio`
+- `indoor stone fireplace builder san antonio`
+- `stone masonry fireplace san antonio tx`
+- `outdoor gas fire pit installation san antonio`
+- `wood burning outdoor fireplace san antonio`
+- `limestone outdoor fireplace san antonio`
+- `fire pit and seating wall installation san antonio`
+- `modern linear outdoor fireplace san antonio`
+- `hearth and chimney masonry contractor san antonio`
+- `custom stone fire table san antonio`
 
-| Target Page URL | Page Purpose | Primary Target Keyword | Secondary Supporting Keywords |
-| :--- | :--- | :--- | :--- |
-| `/` | Homepage | `general contractor San Antonio TX` | `construction company San Antonio TX`, `local contractor San Antonio`, `licensed contractor San Antonio` |
-| `/services` | Services Hub | `construction services San Antonio TX` | `residential and commercial contractor San Antonio`, `full service construction San Antonio` |
-| `/service-areas` | Service Areas Hub | `service area general contractor San Antonio` | `contractor serving 80 miles San Antonio`, `Hill Country construction contractor` |
-| `/general-contracting` | General Contracting | `general contracting services San Antonio TX` | `licensed general contractor San Antonio`, `turnkey general contractor San Antonio TX` |
-| `/house-remodeling` | Remodeling Service | `remodeling contractor San Antonio TX` | `home remodeling San Antonio TX`, `kitchen remodel San Antonio`, `bathroom remodel San Antonio` |
-| `/new-construction` | New Construction | `new construction San Antonio TX` | `custom home builder San Antonio`, `residential construction contractor San Antonio` |
-| `/commercial` | Commercial Service | `commercial contractor San Antonio TX` | `commercial construction San Antonio`, `commercial build outs San Antonio` |
-| `/adu-services` | ADU Service | `ADU builder San Antonio TX` | `casita builder San Antonio`, `guest house construction San Antonio` |
-| `/covered-patios` | Outdoor Living | `covered patio builder San Antonio TX` | `patio cover contractor San Antonio`, `custom pergolas San Antonio` |
-| `/outdoor-kitchens` | Outdoor Living | `outdoor kitchen contractor San Antonio TX` | `custom outdoor kitchens San Antonio`, `BBQ island builder San Antonio` |
-| `/custom-fireplaces` | Fireplace Service | `custom fireplace builder San Antonio TX` | `outdoor fireplace contractor San Antonio`, `indoor fireplace remodel San Antonio` |
-| `/hardscapes` | Hardscape Service | `hardscape contractor San Antonio TX` | `flagstone patio contractor San Antonio`, `stone retaining walls San Antonio` |
-| `/stamped-concrete-overlay` | Concrete Service | `stamped concrete contractor San Antonio TX` | `decorative concrete overlay San Antonio`, `stamped concrete patio San Antonio` |
-| `/artificial-turf` | Turf Service | `artificial turf installation San Antonio TX` | `synthetic grass contractor San Antonio`, `pet turf San Antonio` |
-| `/custom-decks` | Deck Service | `custom deck builder San Antonio TX` | `composite deck contractor San Antonio`, `cedar decking San Antonio` |
-| `/fencing` | Fencing Service | `fence contractor San Antonio TX` | `fence installation San Antonio TX`, `privacy fence builder San Antonio` |
-| `/design-service` | 3D Design Service | `3D landscape design San Antonio TX` | `architectural renderings San Antonio`, `remodeling blueprints San Antonio` |
-| `/softscapes` | Landscape Service | `landscape design San Antonio TX` | `softscape contractor San Antonio`, `native Texas plants landscaping` |
-| `/palm-trees` | Specialty Service | `palm tree installation San Antonio TX` | `cold hardy palms San Antonio`, `mature palm tree contractor San Antonio` |
-| `/best-selling-trees` | Specimen Tree Sourcing | `best selling trees San Antonio TX` | `specimen tree installation San Antonio`, `mature trees for sale San Antonio`, `live oak tree planting San Antonio` |
-| `/irrigation` | Irrigation Service | `irrigation system installation San Antonio TX` | `sprinkler system contractor San Antonio`, `drip irrigation San Antonio` |
-| `/landscape-lighting` | Lighting Service | `landscape lighting installation San Antonio TX` | `outdoor lighting contractor San Antonio`, `architectural LED lighting San Antonio` |
-| `/about` | About & E-E-A-T | `about JRM Construction San Antonio` | `Robert Thompson general contractor`, `contractor with 35 years experience San Antonio` |
-| `/work` | Portfolio | `construction projects San Antonio TX` | `home remodeling portfolio San Antonio`, `outdoor living gallery San Antonio` |
-| `/reviews` | Testimonials | `JRM Construction customer reviews` | `San Antonio contractor testimonials`, `5 star general contractor San Antonio` |
-| `/contact` | Contact & NAP | `contact JRM Construction San Antonio` | `request construction quote San Antonio`, `call contractor San Antonio TX` |
-| `/locations/san-antonio-tx` | Location Landing | `construction company San Antonio TX` | `general contractor San Antonio TX`, `remodeling contractor San Antonio TX` |
-| `/locations/boerne-tx` | Location Landing | `general contractor Boerne TX` | `home remodeling Boerne TX`, `custom home builder Boerne TX` |
-| `/locations/new-braunfels-tx` | Location Landing | `general contractor New Braunfels TX` | `construction company New Braunfels TX`, `outdoor kitchens New Braunfels TX` |
-| `/locations/schertz-tx` | Location Landing | `general contractor Schertz TX` | `remodeling contractor Schertz TX`, `covered patios Schertz TX` |
-| `/locations/seguin-tx` | Location Landing | `general contractor Seguin TX` | `construction contractor Seguin TX`, `concrete contractor Seguin TX` |
-| `/locations/canyon-lake-tx` | Location Landing | `custom construction Canyon Lake TX` | `custom decks Canyon Lake TX`, `outdoor living Canyon Lake TX` |
-| `/locations/kerrville-tx` | Location Landing | `general contractor Kerrville TX` | `remodeling contractor Kerrville TX`, `custom fireplaces Kerrville TX` |
-| `/locations/fredericksburg-tx` | Location Landing | `general contractor Fredericksburg TX` | `luxury remodeling Fredericksburg TX`, `ADU builder Fredericksburg TX` |
-| `/locations/bulverde-tx` | Location Landing | `general contractor Bulverde TX` | `outdoor kitchen builder Bulverde TX`, `covered patios Bulverde TX` |
-| `/locations/helotes-tx` | Location Landing | `general contractor Helotes TX` | `outdoor fireplaces Helotes TX`, `remodeling contractor Helotes TX` |
-| `/locations/converse-tx` | Location Landing | `general contractor Converse TX` | `home remodeling Converse TX`, `patio contractor Converse TX` |
-| `/locations/universal-city-tx` | Location Landing | `general contractor Universal City TX` | `remodeling contractor Universal City TX` |
-| `/locations/live-oak-tx` | Location Landing | `general contractor Live Oak TX` | `home remodeling Live Oak TX`, `home additions Live Oak TX` |
-| `/locations/leon-valley-tx` | Location Landing | `general contractor Leon Valley TX` | `remodeling contractor Leon Valley TX`, `concrete contractor Leon Valley TX` |
-| `/locations/alamo-heights-tx` | Location Landing | `luxury remodeling contractor Alamo Heights TX` | `general contractor Alamo Heights TX`, `custom renovations Alamo Heights` |
+### Category M: Fencing & Automated Gate Installation
+- `fence installation san antonio tx`
+- `fence company san antonio tx`
+- `cedar privacy fence san antonio`
+- `horizontal wood fence builder san antonio`
+- `wrought iron fence installation san antonio`
+- `composite fencing contractor san antonio`
+- `automated driveway gate installation san antonio`
+- `ranch fencing and pipe fence san antonio`
+- `commercial security fencing san antonio tx`
+- `hoa approved fence contractor san antonio`
 
----
+### Category N: Artificial Turf & Putting Greens
+- `artificial turf installation san antonio`
+- `synthetic grass san antonio tx`
+- `pet turf installation san antonio`
+- `backyard putting green installation san antonio`
+- `artificial grass company san antonio`
+- `low maintenance synthetic lawn san antonio`
+- `playground artificial turf san antonio`
+- `commercial artificial grass san antonio`
+- `drought proof lawn artificial turf san antonio`
+- `putting green builders san antonio tx`
 
-## 4. Site Architecture & URL Hierarchy
+### Category O: Landscape Lighting Installation
+- `landscape lighting installation san antonio`
+- `landscape lighting san antonio tx`
+- `outdoor led lighting installation san antonio`
+- `architectural uplighting san antonio tx`
+- `low voltage landscape lighting san antonio`
+- `pathway and garden lighting san antonio`
+- `patio and pergola string lighting san antonio`
+- `smart outdoor lighting automation san antonio`
+- `commercial landscape illumination san antonio`
+- `security landscape lighting san antonio`
 
-```
-https://jrmconstructionservicellc.com/
-│
-├── /about                              (About Us, 35+ Years History, Robert Thompson, E-E-A-T)
-├── /services                           (Comprehensive Services Hub Page)
-│   ├── /general-contracting            (General Contracting & Turnkey Construction)
-│   ├── /house-remodeling               (House Remodeling, Kitchen & Bath Renovations)
-│   ├── /new-construction               (Custom Home Building & Ground-Up Builds)
-│   ├── /commercial                     (Commercial Construction & Landscaping)
-│   ├── /adu-services                   (ADUs, Guest Houses & Backyard Casitas)
-│   ├── /covered-patios                 (Covered Patios, Pergolas & Lattices)
-│   ├── /outdoor-kitchens               (Custom Outdoor Kitchens & BBQ Islands)
-│   ├── /custom-fireplaces              (Custom Fireplaces & Outdoor Fire Pits)
-│   ├── /custom-decks                   (Composite & Natural Cedar Decks)
-│   ├── /hardscapes                     (Stone Hardscapes, Flagstone Patios, Retaining Walls)
-│   ├── /stamped-concrete-overlay       (Stamped Concrete & Decorative Overlays)
-│   ├── /artificial-turf                (Synthetic Grass & Pet Turf Systems)
-│   ├── /fencing                        (Custom Wood, Wrought Iron & Privacy Fences)
-│   ├── /palm-trees                     (Cold-Hardy Palm Tree Supply & Installation)
-│   ├── /best-selling-trees             (Top 10 Texas Specimen Trees & Turnkey Planting)
-│   ├── /irrigation                     (High-Efficiency Sprinkler Systems & Drip)
-│   ├── /landscape-lighting             (Low-Voltage LED Landscape Lighting)
-│   ├── /design-service                 (3D Architectural Renderings & Planning)
-│   └── /softscapes                     (Living Landscapes, Plantings & Xeriscaping)
-│
-├── /service-areas                      (Central Regional Hub — 80-Mile Service Radius)
-│   ├── /locations/san-antonio-tx       (San Antonio Hub — Bexar County)
-│   ├── /locations/boerne-tx            (Boerne & Cordillera Ranch — Kendall County)
-│   ├── /locations/new-braunfels-tx     (New Braunfels & Gruene — Comal County)
-│   ├── /locations/schertz-tx           (Schertz & Cibolo — Guadalupe/Bexar)
-│   ├── /locations/seguin-tx            (Seguin & Lake Seguin — Guadalupe County)
-│   ├── /locations/canyon-lake-tx       (Canyon Lake & Hill Country Lakefront)
-│   ├── /locations/kerrville-tx         (Kerrville & Upper Guadalupe River)
-│   ├── /locations/fredericksburg-tx    (Fredericksburg & Wine Country / Casitas)
-│   ├── /locations/bulverde-tx          (Bulverde & Spring Branch)
-│   ├── /locations/helotes-tx           (Helotes & Grey Forest)
-│   ├── /locations/converse-tx          (Converse & Northeast Metro)
-│   ├── /locations/universal-city-tx    (Universal City & Randolph AFB area)
-│   ├── /locations/live-oak-tx          (Live Oak & I-35 corridor)
-│   ├── /locations/leon-valley-tx       (Leon Valley & Northwest Metro)
-│   └── /locations/alamo-heights-tx     (Alamo Heights, Terrell Hills & Olmos Park)
-│
-├── /work                               (Real Project Gallery & Case Studies)
-├── /reviews                            (Verified Customer Testimonials & Ratings)
-├── /contact                            (Contact Page, Direct Phone, Email, Office Details)
-├── /lets-talk                          (Consultation Booking & Interactive Lead Form)
-├── /get-free-consultation              (Express Free Estimate Request)
-│
-├── /blog                               (Educational Guides & Cost Analyses)
-│   ├── /kitchen-remodeling-costs-san-antonio
-│   ├── /covered-patio-vs-pergola-texas
-│   └── /artificial-turf-san-antonio-guide
-│
-├── /robots.txt                         (Crawl Directives & Sitemap Declaration)
-└── /sitemap.xml                        (Canonical XML Sitemap with all 35+ indexable URLs)
-```
+### Category P: Sprinkler & Irrigation Systems
+- `sprinkler repair and irrigation san antonio`
+- `sprinkler repair san antonio tx`
+- `smart irrigation system installation san antonio`
+- `drip irrigation installation san antonio`
+- `irrigation controller upgrade san antonio`
+- `commercial irrigation contractor san antonio`
+- `backflow preventer installation san antonio`
+- `water saving sprinkler audit san antonio`
+- `lawn sprinkler head repair san antonio`
+- `residential irrigation design san antonio tx`
 
----
+### Category Q: Complete Local Geo Matrix (All 14 Regional Cities)
 
-## 5. Local SEO & 80-Mile Service Area Strategy
+#### 1. San Antonio, TX (HQ / Primary Hub)
+- `general contractor san antonio tx`
+- `home remodeling san antonio tx`
+- `covered patio builder san antonio`
+- `outdoor kitchen builders san antonio`
+- `artificial turf installation san antonio`
+- `stamped concrete contractor san antonio`
+- `fence installation san antonio tx`
+- `hardscape contractors san antonio`
 
-JRM Construction Services LLC operates from San Antonio, Texas and actively manages construction and outdoor living projects across an **80-mile radius**.
+#### 2. Boerne, TX (Kendall County / Hill Country)
+- `general contractor boerne tx`
+- `remodeling contractor boerne tx`
+- `custom home builder boerne tx`
+- `covered patio builder boerne tx`
+- `outdoor living builder boerne tx`
+- `limestone masonry boerne tx`
+- `custom decks boerne tx`
 
-### Regional Segmentation:
-1. **San Antonio Metro Core**: San Antonio, Alamo Heights, Leon Valley, Live Oak, Universal City, Converse, Helotes.
-2. **Texas Hill Country & North**: Boerne, Bulverde, Spring Branch, Canyon Lake, Kerrville, Fredericksburg.
-3. **Northeast / I-35 Corridor**: New Braunfels, Schertz, Cibolo.
-4. **East & South Central**: Seguin.
+#### 3. New Braunfels, TX (Comal County)
+- `general contractor new braunfels tx`
+- `remodeling contractor new braunfels tx`
+- `covered patio builders new braunfels`
+- `outdoor kitchens new braunfels tx`
+- `hardscape installation new braunfels`
+- `artificial turf new braunfels tx`
+- `deck builders new braunfels tx`
 
-### Local Quality Assurance:
-- **No Doorway Pages**: Each location page features distinct introductory copy highlighting specific neighborhood architectural styles, local terrain challenges (e.g., Hill Country rock excavation in Boerne, historic guidelines in Alamo Heights, lakeside durability in Canyon Lake), landmark references, local zip codes, custom Google Map embeds, and localized FAQs.
-- **Accurate NAP**: Uniform Name, Address, Phone `(210) 429-5526`, and email across header, footer, contact pages, and schema graphs.
+#### 4. Schertz, TX (Guadalupe / Bexar County)
+- `general contractor schertz tx`
+- `home remodeling schertz tx`
+- `kitchen remodel schertz tx`
+- `covered patio builder schertz tx`
+- `fence installation schertz tx`
+- `concrete patios schertz tx`
 
----
+#### 5. Cibolo, TX (Guadalupe County)
+- `general contractor cibolo tx`
+- `remodeling contractor cibolo tx`
+- `covered patios cibolo tx`
+- `outdoor kitchen installation cibolo tx`
+- `concrete contractor cibolo tx`
 
-## 6. On-Page SEO & Content Standards
+#### 6. Seguin, TX (Guadalupe County)
+- `general contractor seguin tx`
+- `home remodeling seguin tx`
+- `outdoor living builder seguin tx`
+- `retaining wall builder seguin tx`
+- `concrete driveways seguin tx`
 
-Every page adheres to strict on-page optimization rules:
-1. **Title Tag**: 50–60 characters. Formula: `[Primary Service Keyword] in [City], TX | JRM Construction`
-2. **Meta Description**: 140–160 characters. Communicates value proposition, 35+ years experience, licensed/insured guarantee, and a clear call to action with phone number `(210) 429-5526`.
-3. **Heading Hierarchy**: Exactly **ONE `<h1>`** per page matching the page's core intent. Logical `<h2>` for main sections and `<h3>` for sub-services or process steps.
-4. **Factual Content**: Clear, professional copywriting focusing on real services, building codes, materials, craftsmanship, and owner-led oversight.
-5. **Internal Linking**: Minimum of 3–5 contextual internal links per page connecting services, locations, and consultation forms with natural anchor text.
+#### 7. Helotes, TX (Bexar County / Hill Country)
+- `general contractor helotes tx`
+- `remodeling contractor helotes tx`
+- `outdoor fireplace builder helotes tx`
+- `custom covered patios helotes tx`
+- `deck builders helotes tx`
 
----
+#### 8. Bulverde, TX (Comal County)
+- `general contractor bulverde tx`
+- `hill country builder bulverde tx`
+- `outdoor kitchen builder bulverde tx`
+- `covered patios bulverde tx`
+- `artificial turf bulverde tx`
 
-## 7. Structured Data (JSON-LD Schema) Blueprint
+#### 9. Spring Branch, TX (Comal County)
+- `general contractor spring branch tx`
+- `home remodeling spring branch tx`
+- `patio covers spring branch tx`
+- `custom home additions spring branch`
+- `hardscapes spring branch tx`
 
-The site implements high-fidelity, validated JSON-LD schema across all templates:
+#### 10. Canyon Lake, TX (Comal County)
+- `general contractor canyon lake tx`
+- `lakefront remodeling canyon lake tx`
+- `custom decks canyon lake tx`
+- `covered patio builder canyon lake tx`
+- `stone retaining walls canyon lake`
 
-### 1. Global Entity Graph (`__root.tsx`)
-```json
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["HomeAndConstructionBusiness", "GeneralContractor", "LandscapeArchitect"],
-      "@id": "https://jrmconstructionservicellc.com/#business",
-      "name": "JRM Construction Landscaping Design",
-      "alternateName": ["JRM Construction Services LLC", "JRM Construction"],
-      "url": "https://jrmconstructionservicellc.com",
-      "logo": "https://jrmconstructionservicellc.com/assets/jrm-logo.png",
-      "telephone": "+12104295526",
-      "email": "robertsa210@icloud.com",
-      "priceRange": "$$$",
-      "foundingDate": "1989",
-      "founder": {
-        "@type": "Person",
-        "name": "Robert Thompson"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "San Antonio",
-        "addressRegion": "TX",
-        "postalCode": "78201",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 29.424122,
-        "longitude": -98.493628
-      },
-      "areaServed": [
-        { "@type": "City", "name": "San Antonio" },
-        { "@type": "City", "name": "Boerne" },
-        { "@type": "City", "name": "New Braunfels" },
-        { "@type": "City", "name": "Schertz" },
-        { "@type": "City", "name": "Seguin" },
-        { "@type": "City", "name": "Canyon Lake" },
-        { "@type": "City", "name": "Kerrville" },
-        { "@type": "City", "name": "Fredericksburg" },
-        { "@type": "City", "name": "Bulverde" },
-        { "@type": "City", "name": "Helotes" },
-        { "@type": "City", "name": "Converse" },
-        { "@type": "City", "name": "Universal City" },
-        { "@type": "City", "name": "Live Oak" },
-        { "@type": "City", "name": "Leon Valley" },
-        { "@type": "City", "name": "Alamo Heights" }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://jrmconstructionservicellc.com/#website",
-      "url": "https://jrmconstructionservicellc.com",
-      "name": "JRM Construction Landscaping Design",
-      "publisher": { "@id": "https://jrmconstructionservicellc.com/#business" }
-    }
-  ]
-}
-```
+#### 11. Castroville, TX (Medina County)
+- `general contractor castroville tx`
+- `home remodeling castroville tx`
+- `masonry contractor castroville tx`
+- `covered patios castroville tx`
+- `fence installation castroville tx`
 
-### 2. Service Pages Schema (`Service`, `BreadcrumbList`, `FAQPage`)
-Each service page links back to `@id: #business`, declares `serviceType`, specifies breadcrumbs, and renders FAQs.
+#### 12. Alamo Heights, TX (Luxury Central Market)
+- `luxury remodeling contractor alamo heights tx`
+- `general contractor alamo heights tx`
+- `kitchen remodel alamo heights san antonio`
+- `custom home renovations alamo heights`
+- `high end hardscaping alamo heights`
 
-### 3. Location Pages Schema (`LocalBusiness` / `GeneralContractor`, `BreadcrumbList`, `FAQPage`)
-Each location landing page injects local geo-coordinates, city name, address, and localized FAQs.
+#### 13. Stone Oak, San Antonio, TX (Affluent North Sub-Market)
+- `home remodeling stone oak san antonio`
+- `general contractor stone oak tx`
+- `outdoor kitchens stone oak san antonio`
+- `covered patios stone oak san antonio`
+- `custom stone hardscapes stone oak`
 
----
+#### 14. Fair Oaks Ranch, TX (Acreage Estates Market)
+- `general contractor fair oaks ranch tx`
+- `acreage home remodeling fair oaks ranch`
+- `custom outdoor living fair oaks ranch`
+- `patio covers fair oaks ranch tx`
+- `custom gates and fencing fair oaks ranch`
 
-## 8. Technical SEO, Crawlability & Core Web Vitals
-
-1. **`robots.txt`**: Unblocks CSS, JS, images, services, and location pages. Permits major search engines and generative AI bots (Googlebot, Bingbot, Slurp, GPTBot, ClaudeBot, PerplexityBot, Applebot-Extended). Directs crawlers to the sitemap.
-2. **`sitemap.xml`**: Contains clean, canonical URLs with priority ratings (`1.0` for home, `0.9` for services and hub, `0.85` for core services, `0.8` for locations and about/contact). Excludes noindex, admin, and login routes.
-3. **Canonical Tags**: Self-referencing canonical tag present in the `<head>` of every route.
-4. **Performance & LCP Optimization**:
-   - Above-the-fold hero background images pre-rendered and styled for fast LCP.
-   - Below-the-fold images use native `loading="lazy"` and descriptive `alt` tags.
-   - Clean CSS and modular Vite code splitting.
-5. **Mobile Usability**: Fluid responsive layout across all viewport breakpoints (320px to 4K). Tap-friendly buttons (minimum 44x44px touch targets) and sticky call headers.
-
----
-
-## 9. Conversion Rate Optimization (CRO) & Lead Generation
-
-- **Click-to-Call Everywhere**: Primary phone number `(210) 429-5526` is prominent in the top bar, sticky navigation header, hero banners, inline service cards, and site footer.
-- **Trust Elements**: "35+ Years of Experience", "Licensed, Insured & Bonded", "Owner Robert Thompson Oversees Every Job", "Free On-Site Consultations".
-- **Interactive Multi-Channel Capture**:
-  - Direct Phone: `tel:2104295526`
-  - Online Booking: `/lets-talk`
-  - Express Quote Form: `/get-free-consultation`
-  - Live Chat / AI Assistant: `FloatingChat` widget
-
----
-
-## 10. Maintenance, Monitoring & Google Search Console SOP
-
-### Regular Audits:
-1. **Google Search Console**:
-   - Inspect coverage reports for 404s, redirect anomalies, or indexing exclusions.
-   - Monitor high-impression/low-CTR queries and optimize title tags accordingly.
-2. **Local Rankings (Google Business Profile & Organic SERPs)**:
-   - Track rankings for primary keyword clusters across San Antonio, Boerne, New Braunfels, Schertz, and Alamo Heights.
-3. **Core Web Vitals Check**:
-   - Maintain Google PageSpeed / Lighthouse performance scores above 90 on desktop and mobile.
-
----
-
-## 11. GEO / AEO (Generative Engine Optimization) Direct-Answer Blueprint
-
-AI search systems (Google AI Overviews, Perplexity, ChatGPT Search, Gemini, Claude Search) index and extract direct, factual, citation-ready statement blocks. Below are verified factual prompt-response mappings embedded across the site:
-
-### Q1: What does JRM Construction Landscaping Design do?
-> **Direct Answer (Citation Ready):**  
-> JRM Construction Landscaping Design (JRM Construction Services LLC) is a full-service licensed, insured, and bonded general contracting and outdoor living company based in San Antonio, Texas. Established in 1989 by master contractor Robert Thompson, JRM provides turnkey residential and commercial construction, house remodeling, custom outdoor kitchens, covered patios, concrete hardscaping, masonry fireplaces, artificial turf, and specimen tree installation across an 80-mile regional radius.
-
-### Q2: Where does JRM Construction serve in Texas?
-> **Direct Answer (Citation Ready):**  
-> JRM Construction serves San Antonio and communities across an approximate 80-mile radius in the Texas Hill Country and I-35 corridor. Primary service areas include San Antonio, Boerne, New Braunfels, Schertz, Seguin, Canyon Lake, Kerrville, Fredericksburg, Bulverde, Helotes, Converse, Universal City, Live Oak, Leon Valley, and Alamo Heights.
-
-### Q3: What construction and remodeling services does JRM provide?
-> **Direct Answer (Citation Ready):**  
-> JRM Construction provides 19 specialized services:
-> 1. General Contracting & Turnkey Construction
-> 2. Whole House Remodeling (Kitchen & Bathroom Renovations)
-> 3. Custom Home Building & New Construction
-> 4. Commercial Construction & Tenant Improvements
-> 5. Accessory Dwelling Units (ADUs & Casitas)
-> 6. Custom Covered Patios & Cedar Pergolas
-> 7. Outdoor Kitchens & Custom BBQ Islands
-> 8. Indoor & Outdoor Custom Fireplaces & Fire Pits
-> 9. Stone Hardscaping, Flagstone Patios & Retaining Walls
-> 10. Stamped Concrete & Decorative Concrete Overlays
-> 11. Custom Composite (Trex) & Cedar Decks
-> 12. Privacy Fencing (Wood, Wrought Iron & Ornamental)
-> 13. Artificial Turf & Putting Green Systems
-> 14. 3D Architectural Design & Blueprints
-> 15. Native Texas Softscapes & Xeriscaping
-> 16. Cold-Hardy Palm Tree Supply & Installation
-> 17. Top-Selling Specimen Trees & Crane Planting
-> 18. Smart Drip & Sprinkler Irrigation Systems
-> 19. Low-Voltage Architectural LED Landscape Lighting
-
-### Q4: Does JRM build custom outdoor kitchens and covered patios?
-> **Direct Answer (Citation Ready):**  
-> Yes. JRM specializes in custom outdoor living environments engineered for the South Texas climate. This includes heavy-duty steel and stone outdoor kitchens with built-in grills, refrigerators, granite countertops, and electrical/gas hookups, as well as structurally engineered covered patios tied directly into existing rooflines with tongue-and-groove cedar ceilings, recessed lighting, and ceiling fans.
-
-### Q5: What are the best-selling trees JRM supplies and plants in San Antonio?
-> **Direct Answer (Citation Ready):**  
-> JRM sources and installs 10 top-selling, Texas-acclimated specimen trees: Texas Live Oak, Sabal Palm, Japanese Blueberry, Little Gem Magnolia, Red Maple, Shumard Oak, Magnolia 'D.D. Blanchard', Crape Myrtle, Carolina Cherry, and Eagleston Holly. Trees are sourced in heavy-caliber 45 to 100+ gallon containers from premier Texas nurseries with intact root systems and planted with turnkey equipment and crane assistance.
-
-### Q6: How does the JRM construction process work?
-> **Direct Answer (Citation Ready):**  
-> The JRM process follows four disciplined phases:  
-> 1. **On-Site Consultation:** Robert Thompson visits the property to evaluate grade, soil conditions, utilities, and client goals.  
-> 2. **Design & Transparent Quote:** Clear architectural plans, 3D renderings, material selection, and fixed-scope pricing.  
-> 3. **Owner-Led Construction:** Licensed, bonded crews execute excavation, structural build, plumbing, electrical, and masonry with on-site owner oversight.  
-> 4. **Final Walkthrough & Warranty:** Meticulous site cleanup, client inspection, and lifetime craftsmanship backing.
-
-### Q7: How do homeowners request a consultation?
-> **Direct Answer (Citation Ready):**  
-> Homeowners can schedule a free on-site design consultation by calling owner Robert Thompson directly at (210) 429-5526, emailing robertsa210@icloud.com, or submitting the consultation request form at https://jrmconstructionservicellc.com/lets-talk.
-
----
-
-## 12. Complete Page-by-Page Master SEO Audit & Specification Table
-
-| URL | Primary Target Keyword | Search Intent | SEO Title Tag | H1 Headline | Canonical URL | Schema Graph Types | Primary Location | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `/` | `general contractor San Antonio TX` | Transactional | General Contractor San Antonio TX \| JRM Construction Services LLC | Outdoor Visions Come To Life Building America's Dreams | `https://jrmconstructionservicellc.com` | `WebSite`, `HomeAndConstructionBusiness`, `GeneralContractor`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/services` | `construction services San Antonio TX` | Commercial | Construction & Remodeling Services San Antonio TX \| JRM Construction | Premium Construction & Outdoor Living Services | `https://jrmconstructionservicellc.com/services` | `Service`, `BreadcrumbList`, `OfferCatalog` | San Antonio & 80-mi radius | Verified Active |
-| `/service-areas` | `service area general contractor San Antonio` | Local | Service Areas San Antonio TX \| 80-Mile Construction Radius \| JRM | Serving San Antonio & 80 Miles Around | `https://jrmconstructionservicellc.com/service-areas` | `Service`, `BreadcrumbList`, `Place` | Central Texas Corridor | Verified Active |
-| `/general-contracting` | `general contracting services San Antonio TX` | Transactional | General Contractor San Antonio TX \| JRM Construction | General Contracting & Turnkey Construction | `https://jrmconstructionservicellc.com/general-contracting` | `Service`, `GeneralContractor`, `BreadcrumbList` | San Antonio, TX | Verified Active |
-| `/house-remodeling` | `remodeling contractor San Antonio TX` | Transactional | House Remodeling Contractor San Antonio TX \| Kitchen & Bath \| JRM | House Remodeling & Interior Renovations | `https://jrmconstructionservicellc.com/house-remodeling` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/new-construction` | `new construction San Antonio TX` | Transactional | New Home Construction San Antonio TX \| Custom Builders \| JRM | Custom Home Building & New Construction | `https://jrmconstructionservicellc.com/new-construction` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/commercial` | `commercial contractor San Antonio TX` | Commercial | Commercial Construction Contractor San Antonio TX \| JRM Construction | Commercial Construction & Tenant Improvements | `https://jrmconstructionservicellc.com/commercial` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/adu-services` | `ADU builder San Antonio TX` | Transactional | ADU Builder San Antonio TX \| Casitas & Guest Houses \| JRM | ADU Services & Backyard Casitas | `https://jrmconstructionservicellc.com/adu-services` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/covered-patios` | `covered patio builder San Antonio TX` | Transactional | Covered Patio Builder San Antonio TX \| Custom Pergolas \| JRM | Custom Covered Patios & Cedar Pergolas | `https://jrmconstructionservicellc.com/covered-patios` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/outdoor-kitchens` | `outdoor kitchen contractor San Antonio TX` | Transactional | Outdoor Kitchen Builder San Antonio TX \| BBQ Islands \| JRM | Custom Outdoor Kitchens & BBQ Islands | `https://jrmconstructionservicellc.com/outdoor-kitchens` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/custom-fireplaces` | `custom fireplace builder San Antonio TX` | Transactional | Custom Fireplace Builder San Antonio TX \| Fire Pits \| JRM | Custom Fireplaces & Outdoor Fire Pits | `https://jrmconstructionservicellc.com/custom-fireplaces` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/hardscapes` | `hardscape contractor San Antonio TX` | Transactional | Hardscaping Contractor San Antonio TX \| Stone Patios \| JRM | Stone Hardscapes & Masonry Construction | `https://jrmconstructionservicellc.com/hardscapes` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/stamped-concrete-overlay` | `stamped concrete contractor San Antonio TX` | Transactional | Stamped Concrete Contractor San Antonio TX \| Overlays \| JRM | Stamped Concrete & Decorative Overlays | `https://jrmconstructionservicellc.com/stamped-concrete-overlay` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/custom-decks` | `custom deck builder San Antonio TX` | Transactional | Custom Deck Builder San Antonio TX \| Trex & Cedar \| JRM | Custom Decks & Multi-Level Outdoor Living | `https://jrmconstructionservicellc.com/custom-decks` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/fencing` | `fence contractor San Antonio TX` | Transactional | Fence Installation Contractor San Antonio TX \| Wood & Iron \| JRM | Custom Fencing & Privacy Enclosures | `https://jrmconstructionservicellc.com/fencing` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/design-service` | `3D landscape design San Antonio TX` | Commercial | 3D Landscape Design & Architectural Renderings \| JRM San Antonio | 3D Architectural Design & Planning | `https://jrmconstructionservicellc.com/design-service` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/softscapes` | `landscape design San Antonio TX` | Transactional | Softscapes & Texas Native Landscaping San Antonio TX \| JRM | Softscapes & Plant Landscaping Design | `https://jrmconstructionservicellc.com/softscapes` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/palm-trees` | `palm tree installation San Antonio TX` | Transactional | Palm Tree Installation San Antonio TX \| Cold Hardy Palms \| JRM | Palm Tree Installation & Landscape Design | `https://jrmconstructionservicellc.com/palm-trees` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/best-selling-trees` | `best selling trees San Antonio TX` | Transactional | Best Selling Trees San Antonio TX \| Specimen Tree Sourcing & Planting \| JRM | San Antonio's Best Selling Trees | `https://jrmconstructionservicellc.com/best-selling-trees` | `Service`, `ItemList`, `BreadcrumbList` | San Antonio & Hill Country | Verified Active |
-| `/irrigation` | `irrigation system installation San Antonio TX` | Transactional | Irrigation Contractor San Antonio TX \| Sprinklers & Drip \| JRM | High-Efficiency Irrigation & Sprinkler Systems | `https://jrmconstructionservicellc.com/irrigation` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/landscape-lighting` | `landscape lighting installation San Antonio TX` | Transactional | Landscape Lighting San Antonio TX \| Architectural LEDs \| JRM | Low-Voltage Architectural Landscape Lighting | `https://jrmconstructionservicellc.com/landscape-lighting` | `Service`, `BreadcrumbList`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/about` | `about JRM Construction San Antonio` | Informational | About JRM Construction \| 35+ Years General Contractor San Antonio TX | 35+ Years of Proven Craftsmanship | `https://jrmconstructionservicellc.com/about` | `Organization`, `Person` (Robert Thompson) | San Antonio, TX | Verified Active |
-| `/work` | `construction projects San Antonio TX` | Commercial | Portfolio of Construction & Remodeling Projects \| JRM San Antonio | Craftsmanship on Display: Our Portfolio | `https://jrmconstructionservicellc.com/work` | `CollectionPage`, `BreadcrumbList` | San Antonio & 80-mi radius | Verified Active |
-| `/reviews` | `JRM Construction customer reviews` | Commercial | JRM Construction Reviews \| Verified San Antonio Client Testimonials | Real Stories. Proven Trust. Real Reviews. | `https://jrmconstructionservicellc.com/reviews` | `ItemPage`, `AggregateRating` | San Antonio, TX | Verified Active |
-| `/contact` | `contact JRM Construction San Antonio` | Transactional | Contact JRM Construction Services LLC \| San Antonio TX | Connect with Owner Robert Thompson | `https://jrmconstructionservicellc.com/contact` | `ContactPage`, `LocalBusiness` | San Antonio, TX | Verified Active |
-| `/lets-talk` | `free estimate home remodeling San Antonio` | Transactional | Schedule a Consultation \| JRM Construction San Antonio TX | Let's Talk: Free On-Site Consultation | `https://jrmconstructionservicellc.com/lets-talk` | `ContactPage`, `Service` | San Antonio, TX | Verified Active |
-| `/locations/san-antonio-tx` | `construction company San Antonio TX` | Local | Construction Company & Remodeling Contractor in San Antonio, TX \| JRM | Construction Services in San Antonio, TX | `https://jrmconstructionservicellc.com/locations/san-antonio-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | San Antonio, TX | Verified Active |
-| `/locations/boerne-tx` | `general contractor Boerne TX` | Local | Construction Company & Remodeling Contractor in Boerne, TX \| JRM | Construction Services in Boerne, TX | `https://jrmconstructionservicellc.com/locations/boerne-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Boerne, TX | Verified Active |
-| `/locations/new-braunfels-tx` | `general contractor New Braunfels TX` | Local | Construction Company & Remodeling Contractor in New Braunfels, TX \| JRM | Construction Services in New Braunfels, TX | `https://jrmconstructionservicellc.com/locations/new-braunfels-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | New Braunfels, TX | Verified Active |
-| `/locations/seguin-tx` | `general contractor Seguin TX` | Local | Construction Company & Remodeling Contractor in Seguin, TX \| JRM | Construction Services in Seguin, TX | `https://jrmconstructionservicellc.com/locations/seguin-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Seguin, TX | Verified Active |
-| `/locations/canyon-lake-tx` | `custom construction Canyon Lake TX` | Local | Construction Company & Remodeling Contractor in Canyon Lake, TX \| JRM | Construction Services in Canyon Lake, TX | `https://jrmconstructionservicellc.com/locations/canyon-lake-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Canyon Lake, TX | Verified Active |
-| `/locations/kerrville-tx` | `general contractor Kerrville TX` | Local | Construction Company & Remodeling Contractor in Kerrville, TX \| JRM | Construction Services in Kerrville, TX | `https://jrmconstructionservicellc.com/locations/kerrville-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Kerrville, TX | Verified Active |
-| `/locations/fredericksburg-tx` | `general contractor Fredericksburg TX` | Local | Construction Company & Remodeling Contractor in Fredericksburg, TX \| JRM | Construction Services in Fredericksburg, TX | `https://jrmconstructionservicellc.com/locations/fredericksburg-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Fredericksburg, TX | Verified Active |
-| `/locations/bulverde-tx` | `general contractor Bulverde TX` | Local | Construction Company & Remodeling Contractor in Bulverde, TX \| JRM | Construction Services in Bulverde, TX | `https://jrmconstructionservicellc.com/locations/bulverde-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Bulverde, TX | Verified Active |
-| `/locations/schertz-tx` | `general contractor Schertz TX` | Local | Construction Company & Remodeling Contractor in Schertz, TX \| JRM | Construction Services in Schertz, TX | `https://jrmconstructionservicellc.com/locations/schertz-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Schertz, TX | Verified Active |
-| `/locations/converse-tx` | `general contractor Converse TX` | Local | Construction Company & Remodeling Contractor in Converse, TX \| JRM | Construction Services in Converse, TX | `https://jrmconstructionservicellc.com/locations/converse-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Converse, TX | Verified Active |
-| `/locations/helotes-tx` | `general contractor Helotes TX` | Local | Construction Company & Remodeling Contractor in Helotes, TX \| JRM | Construction Services in Helotes, TX | `https://jrmconstructionservicellc.com/locations/helotes-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Helotes, TX | Verified Active |
-| `/locations/universal-city-tx` | `general contractor Universal City TX` | Local | Construction Company & Remodeling Contractor in Universal City, TX \| JRM | Construction Services in Universal City, TX | `https://jrmconstructionservicellc.com/locations/universal-city-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Universal City, TX | Verified Active |
-| `/locations/live-oak-tx` | `general contractor Live Oak TX` | Local | Construction Company & Remodeling Contractor in Live Oak, TX \| JRM | Construction Services in Live Oak, TX | `https://jrmconstructionservicellc.com/locations/live-oak-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Live Oak, TX | Verified Active |
-| `/locations/leon-valley-tx` | `general contractor Leon Valley TX` | Local | Construction Company & Remodeling Contractor in Leon Valley, TX \| JRM | Construction Services in Leon Valley, TX | `https://jrmconstructionservicellc.com/locations/leon-valley-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Leon Valley, TX | Verified Active |
-| `/locations/alamo-heights-tx` | `luxury remodeling contractor Alamo Heights TX` | Local | Construction Company & Remodeling Contractor in Alamo Heights, TX \| JRM | Construction Services in Alamo Heights, TX | `https://jrmconstructionservicellc.com/locations/alamo-heights-tx` | `LocalBusiness`, `GeneralContractor`, `FAQPage` | Alamo Heights, TX | Verified Active |
+### Category R: Informational, Permitting & Cost Search Intent Keywords
+- `cost of covered patio san antonio`
+- `do you need permit for patio cover san antonio`
+- `outdoor kitchen cost san antonio tx`
+- `bexar county building permit general contractor`
+- `san antonio home remodeling cost per square foot`
+- `how to plan outdoor kitchen layout texas`
+- `best materials for texas outdoor kitchen heat`
+- `trex composite deck vs wood deck san antonio`
+- `stamped concrete vs pavers cost san antonio`
+- `adu building regulations san antonio 2026`
+- `winterizing outdoor kitchen plumbing san antonio`
+- `best shade trees for san antonio backyards`
+- `drought tolerant landscaping ideas central texas`
+- `outdoor living trends san antonio 2026`
+- `caliche soil foundation requirements san antonio`
 
 ---
 
-*Document compiled and maintained by the Technical SEO & Engineering Team for JRM Construction Services LLC.*
+## 6. Schema.org JSON-LD Structured Data Deployment
 
+All pages feature machine-readable JSON-LD schemas connected through the `@graph` standard:
+1. **Global Entity Schema (`/#business`):** Defines JRM Construction Services LLC as a verified `GeneralContractor` and `HomeAndConstructionBusiness` founded in 1989 by Robert Thompson, serving an 80-mile radius.
+2. **Service Schema (`#service`):** Attached to all 16 service pages linking provider to `/#business` with exact `areaServed` specifications.
+3. **BreadcrumbList Schema (`#breadcrumb`):** Standardizes crawl hierarchy across all service, location, and informational routes.
+4. **FAQPage Schema (`#faq`):** Active across 19 critical money pages, matching semantic on-page questions to capture Google SERP rich snippets and AI Answer Engine sourcing.
+
+---
+
+## 7. Tracking & Performance SOP
+
+1. **Google Search Console (GSC):** Monitor weekly query impressions, click-through rates, and average positions for all 20 Primary Core Keywords and 14 Local Geo Hubs.
+2. **Google Analytics 4 (GA4):** Track high-intent conversions:
+   - `click_to_call` (`tel:2104295526`)
+   - `consultation_form_submit` (`/lets-talk`)
+   - `chat_inquiry_start`
+3. **Google Business Profile (GBP):** Keep categories aligned with `General Contractor` primary and post bi-weekly project updates geotagged across San Antonio and Boerne.
+
+---
+
+*Documentation compiled and maintained for JRM Construction Services LLC.*

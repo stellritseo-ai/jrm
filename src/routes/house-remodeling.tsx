@@ -135,6 +135,29 @@ function HouseRemodelingPage() {
     }
   ];
 
+  const faqs = [
+    {
+      q: "How much does a kitchen or whole-home remodel cost in San Antonio?",
+      a: "Remodeling costs depend on square footage, materials, and structural changes. In San Antonio, typical kitchen remodels range from $15,000 to $65,000+, while bathroom renovations range from $10,000 to $35,000+. During your free on-site consultation, Robert provides transparent, itemized estimates tailored to your vision with zero surprise fees."
+    },
+    {
+      q: "Do I need city building permits for house remodeling in San Antonio?",
+      a: "Yes, the City of San Antonio Development Services Department requires permits for load-bearing alterations, electrical upgrades, plumbing re-routing, and additions. JRM Construction Services LLC manages all municipal permit filings, inspections, and local code compliance on your behalf."
+    },
+    {
+      q: "How long does a typical home renovation project take?",
+      a: "Most dedicated kitchen or bathroom remodels take 3 to 6 weeks, while extensive whole-home renovations or structural additions require 8 to 16 weeks. We provide a milestone-driven schedule upfront and keep you updated every step of the way."
+    },
+    {
+      q: "Can we live in our home during the remodeling process?",
+      a: "Yes. For targeted room remodels, homeowners typically stay comfortably in place. For extensive kitchen or multi-room overhauls, our team sets up sealed dust barriers, floor runners, and dedicated clean staging areas to minimize household disruption."
+    },
+    {
+      q: "Is JRM Construction Services licensed, bonded, and insured in Texas?",
+      a: "Yes. We maintain comprehensive general liability insurance, workers' compensation coverage, and bonding. Owner Robert Thompson brings over 35 years of local construction experience to every job site."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       <script
@@ -164,6 +187,18 @@ function HouseRemodelingPage() {
                   { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
                   { "@type": "ListItem", "position": 3, "name": "House Remodeling", "item": "https://jrmconstructionservicellc.com/house-remodeling" }
                 ]
+              },
+              {
+                "@type": "FAQPage",
+                "@id": "https://jrmconstructionservicellc.com/house-remodeling#faq",
+                "mainEntity": faqs.map((faq) => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
               }
             ]
           })
@@ -463,6 +498,32 @@ function HouseRemodelingPage() {
         </section>
       </div>
 
+      {/* ── FAQS SECTION ── */}
+      <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[15px] px-[15px]">
+        <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#f8f8f8] border border-[#eae8e1] shadow-sm px-6 py-14 md:px-12">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="text-center">
+              <span className="text-xs font-semibold text-[#577a4c] uppercase tracking-wider block mb-2">Got Questions?</span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-900" style={{ fontFamily: "Georgia, serif" }}>
+                Frequently Asked Questions About House Remodeling
+              </h2>
+              <p className="mt-2 text-xs md:text-sm text-neutral-600 max-w-2xl mx-auto">
+                Everything you need to know about planning, permitting, costs, and timeline for your San Antonio home renovation.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-white border border-neutral-200/90 rounded-xl p-6 shadow-sm">
+                  <h3 className="text-base font-bold text-neutral-900 mb-2">{faq.q}</h3>
+                  <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
       {/* ── READY TO TRANSFORM BOTTOM CTA ── */}
       <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[15px] px-[15px]">
         <section
@@ -482,7 +543,7 @@ function HouseRemodelingPage() {
             className="max-w-4xl mx-auto flex flex-col items-center"
           >
             {/* Logo */}
-            <img src={logo} alt="JRM" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
+            <img src={logo} alt="JRM Construction Services LLC Logo" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
 
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
               Ready to Reimagine Your Home?

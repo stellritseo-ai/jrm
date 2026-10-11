@@ -78,7 +78,7 @@ const locationsData: Record<string, LocationInfo> = {
     city: "Boerne",
     state: "TX",
     slug: "boerne-tx",
-    title: "Construction Company & Home Remodeling in Boerne, TX | JRM Construction",
+    title: "General Contractor & Remodeling in Boerne, TX | JRM Construction",
     description: "Premier general contractor and outdoor living specialist in Boerne, TX. 35+ years experience in luxury remodeling, patios, stone hardscapes & land development.",
     landmarks: ["Main Plaza Boerne", "Cibolo Creek", "Cordillera Ranch", "Menger Springs"],
     zipCodes: ["78006", "78015"],
@@ -101,7 +101,7 @@ const locationsData: Record<string, LocationInfo> = {
     city: "New Braunfels",
     state: "TX",
     slug: "new-braunfels-tx",
-    title: "Construction Company & Landscape Design in New Braunfels, TX | JRM Construction",
+    title: "General Contractor & Remodeling in New Braunfels, TX | JRM Construction",
     description: "Leading construction & remodeling contractor in New Braunfels, TX. Custom covered patios, outdoor kitchens, fireplaces & residential renovations. Call (210) 429-5526.",
     landmarks: ["Gruene Historic District", "Comal River", "Guadalupe River", "Landa Park"],
     zipCodes: ["78130", "78132"],
@@ -399,30 +399,84 @@ function LocationPage() {
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       <SiteHeader />
 
-      {/* JSON-LD LocalBusiness Schema for Location */}
+      {/* JSON-LD Structured Data Schema (@graph) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
-            "name": `JRM Construction Landscaping Design - ${info.city}`,
-            "description": info.description,
-            "url": `https://jrmconstructionservicellc.com/locations/${info.slug}`,
-            "telephone": "+12104295526",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": info.city,
-              "addressRegion": "TX",
-              "addressCountry": "US"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": info.lat,
-              "longitude": info.lng
-            },
-            "areaServed": info.city,
-            "priceRange": "$$$"
+            "@graph": [
+              {
+                "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+                "@id": `https://jrmconstructionservicellc.com/locations/${info.slug}#localbusiness`,
+                "name": `JRM Construction Landscaping Design - ${info.city}`,
+                "alternateName": "JRM Construction Services LLC",
+                "description": info.description,
+                "url": `https://jrmconstructionservicellc.com/locations/${info.slug}`,
+                "telephone": "+12104295526",
+                "email": "robertsa210@icloud.com",
+                "priceRange": "$$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "San Antonio",
+                  "addressRegion": "TX",
+                  "postalCode": "78201",
+                  "addressCountry": "US"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": info.lat,
+                  "longitude": info.lng
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": `${info.city}, TX`
+                },
+                "parentOrganization": {
+                  "@id": "https://jrmconstructionservicellc.com/#business"
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": `https://jrmconstructionservicellc.com/locations/${info.slug}#breadcrumb`,
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://jrmconstructionservicellc.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Service Areas",
+                    "item": "https://jrmconstructionservicellc.com/service-areas"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": `${info.city}, TX`,
+                    "item": `https://jrmconstructionservicellc.com/locations/${info.slug}`
+                  }
+                ]
+              },
+              ...(info.faqs && info.faqs.length > 0
+                ? [
+                    {
+                      "@type": "FAQPage",
+                      "@id": `https://jrmconstructionservicellc.com/locations/${info.slug}#faq`,
+                      "mainEntity": info.faqs.map((faq) => ({
+                        "@type": "Question",
+                        "name": faq.q,
+                        "acceptedAnswer": {
+                          "@type": "Answer",
+                          "text": faq.a
+                        }
+                      }))
+                    }
+                  ]
+                : [])
+            ]
           })
         }}
       />
@@ -466,7 +520,7 @@ function LocationPage() {
                 <span>Call (210) 429-5526</span>
               </a>
               <Link
-                to="/get-free-consultation"
+                to="/lets-talk"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-neutral-900 px-7 py-3 text-white text-sm font-bold backdrop-blur-md hover:scale-105 transition-all duration-300"
               >
                 <span>Free Consultation</span>

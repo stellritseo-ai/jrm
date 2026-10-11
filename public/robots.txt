@@ -7,49 +7,48 @@ Disallow: /dashboard
 Disallow: /login
 Disallow: /api/
 
-# Search Engine Crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Generative AI & LLM Search Crawlers (GEO / AI Search)
+# Generative AI & LLM Search Crawlers (GEO / AEO)
 User-agent: GPTBot
 Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
-
-User-agent: ByteSpider
-Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
 
 # Sitemap Location
 Sitemap: https://jrmconstructionservicellc.com/sitemap.xml

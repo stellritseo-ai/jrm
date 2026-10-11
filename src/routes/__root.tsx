@@ -10,6 +10,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 import appCss from "../styles.css?url";
 import favIcon from "@/assets/fav.png";
@@ -338,6 +339,7 @@ function RootComponent() {
         <TranslationProvider>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
+          <Analytics />
         </TranslationProvider>
       </SettingsProvider>
     </QueryClientProvider>

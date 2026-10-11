@@ -736,7 +736,7 @@ function ServicesPage() {
             className="max-w-4xl mx-auto flex flex-col items-center"
           >
             {/* Logo */}
-            <img src={logo} alt="JRM" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
+            <img src={logo} alt="JRM Construction Services LLC Logo" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
 
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
               Ready to Transform Your Property?

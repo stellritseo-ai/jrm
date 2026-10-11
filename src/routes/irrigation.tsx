@@ -27,9 +27,9 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/irrigation")({
   head: () => ({
     meta: [
-      { title: "Sprinkler & Irrigation Repair San Antonio TX | JRM Construction" },
+      { title: "Sprinkler Repair & Irrigation Services San Antonio TX | JRM" },
       { name: "description", content: "Professional sprinkler repair, smart irrigation installation & drip system design in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
-      { property: "og:title", content: "Sprinkler & Irrigation Repair San Antonio TX | JRM Construction" },
+      { property: "og:title", content: "Sprinkler Repair & Irrigation Services San Antonio TX | JRM" },
       { property: "og:description", content: "Professional sprinkler repair, smart irrigation installation & drip system design in San Antonio, TX. 35+ years experience. Free estimate. Call (210) 429-5526." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://jrmconstructionservicellc.com/irrigation" },
@@ -206,7 +206,7 @@ function IrrigationPage() {
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Irrigation Services in San Antonio
+              Sprinkler Repair & Irrigation in San Antonio, TX
             </h1>
 
             {/* Subtitle */}

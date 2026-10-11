@@ -124,6 +124,29 @@ function CoveredPatiosPage() {
     }
   ];
 
+  const faqs = [
+    {
+      q: "Do I need a building permit to build a covered patio in San Antonio?",
+      a: "Yes. Patio covers attached to the main residence or freestanding pavilions exceeding local size thresholds require building permits in San Antonio and Bexar County. JRM Construction Services LLC manages all structural engineering documentation, HOA submittals, and municipal inspections for you."
+    },
+    {
+      q: "What patio roofing style works best for South Texas weather?",
+      a: "Solid-roof patio extensions tied directly into your home's existing roofline with matching composite shingles offer maximum thermal shade and 100% rain protection. Cedar or powder-coated steel pergolas with tinted polycarbonate top panels provide elegant filtered sunlight while shedding rain."
+    },
+    {
+      q: "Can you install ceiling fans, recessed LED lights, and TV mounts?",
+      a: "Yes. We rough-in all outdoor electrical wiring concealed inside posts and beams for outdoor-rated ceiling fans, recessed LED can lighting, weatherproof TV wall mounts, sound systems, and GFCI convenience receptacles."
+    },
+    {
+      q: "How long does it take to construct a custom patio cover?",
+      a: "Once HOA approvals and city permits are secured, physical construction typically takes 1 to 2 weeks. Concrete footings or stamped concrete patios cure first before timber framing, roof tie-in, shingling, and trim-out."
+    },
+    {
+      q: "Can your covered patio structures withstand severe Texas wind and hail?",
+      a: "Yes. We engineer and build every patio structure to meet or exceed San Antonio building code wind-load specifications, using engineered hurricane tie-downs, deeply anchored concrete footings, and heavy-duty structural timber."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       {/* JSON-LD Schema */}
@@ -150,6 +173,18 @@ function CoveredPatiosPage() {
                   { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
                   { "@type": "ListItem", "position": 3, "name": "Covered Patios", "item": "https://jrmconstructionservicellc.com/covered-patios" }
                 ]
+              },
+              {
+                "@type": "FAQPage",
+                "@id": "https://jrmconstructionservicellc.com/covered-patios#faq",
+                "mainEntity": faqs.map((faq) => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
               }
             ]
           })
@@ -446,6 +481,32 @@ function CoveredPatiosPage() {
         </section>
       </div>
 
+      {/* ── FAQS SECTION ── */}
+      <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[15px] px-[15px]">
+        <section className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#f8f8f8] border border-[#eae8e1] shadow-sm px-6 py-14 md:px-12">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="text-center">
+              <span className="text-xs font-semibold text-[#577a4c] uppercase tracking-wider block mb-2">Got Questions?</span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-900" style={{ fontFamily: "Georgia, serif" }}>
+                Frequently Asked Questions About Covered Patios
+              </h2>
+              <p className="mt-2 text-xs md:text-sm text-neutral-600 max-w-2xl mx-auto">
+                Important considerations for building covered patios, pergolas, and outdoor living structures in San Antonio.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div key={i} className="bg-white border border-neutral-200/90 rounded-xl p-6 shadow-sm">
+                  <h3 className="text-base font-bold text-neutral-900 mb-2">{faq.q}</h3>
+                  <p className="text-xs md:text-sm text-neutral-600 font-light leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
       {/* ── READY TO TRANSFORM BOTTOM CTA ── */}
       <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[15px] px-[15px]">
         <section
@@ -465,7 +526,7 @@ function CoveredPatiosPage() {
             className="max-w-4xl mx-auto flex flex-col items-center"
           >
             {/* Logo */}
-            <img src={logo} alt="JRM" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
+            <img src={logo} alt="JRM Construction Services LLC Logo" className="h-14 w-auto object-contain mb-8 filter brightness-110" />
 
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
               Create Your Ultimate Outdoor Room

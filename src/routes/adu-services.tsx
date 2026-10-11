@@ -32,10 +32,10 @@ import logo from "@/assets/jrm-logo.png";
 export const Route = createFileRoute("/adu-services")({
   head: () => ({
     meta: [
-      { title: "ADU Builders San Antonio TX | Guest Houses & In-Law Suites | JRM" },
-      { name: "description", content: "Custom detached ADUs, mother-in-law suites, backyard cottages & garage conversions in San Antonio, TX. 35+ years experience. Free consultation. Call (210) 429-5526." },
-      { property: "og:title", content: "ADU Builders San Antonio TX | Guest Houses & In-Law Suites | JRM" },
-      { property: "og:description", content: "Custom detached ADUs, mother-in-law suites, backyard cottages & garage conversions in San Antonio, TX. 35+ years experience. Free consultation. Call (210) 429-5526." },
+      { title: "ADU Builders San Antonio TX | Custom Accessory Dwelling Units | JRM" },
+      { name: "description", content: "Custom detached ADU builders in San Antonio, TX. In-law suites, backyard cottages, casitas & garage conversions. 35+ years experience. Free consultation: (210) 429-5526." },
+      { property: "og:title", content: "ADU Builders San Antonio TX | Custom Accessory Dwelling Units | JRM" },
+      { property: "og:description", content: "Custom detached ADU builders in San Antonio, TX. In-law suites, backyard cottages, casitas & garage conversions. 35+ years experience. Free consultation: (210) 429-5526." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://jrmconstructionservicellc.com/adu-services" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -278,7 +278,7 @@ function ADUServicesPage() {
 
             {/* Main Title */}
             <h1 className="text-3xl md:text-5xl lg:text-[54px] font-black text-white leading-tight font-serif tracking-tight max-w-3xl">
-              ADU Construction & Design Services in San Antonio
+              ADU Builders & Construction in San Antonio, TX
             </h1>
 
             {/* Subtitle */}
@@ -289,7 +289,7 @@ function ADUServicesPage() {
             {/* Call to Action Button */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/get-free-consultation"
+                to="/lets-talk"
                 className="bg-[#577a4c] hover:bg-[#3d5636] text-white px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
                 <span>Request Free Consultation</span>

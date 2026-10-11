@@ -195,7 +195,7 @@ function FencingPage() {
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Custom Fencing Services in San Antonio
+              Fence Installation & Custom Fencing in San Antonio, TX
             </h1>
 
             {/* Subtitle */}
