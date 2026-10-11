@@ -12,13 +12,6 @@ const env = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");
 Object.assign(process.env, env);
 
 export default defineConfig({
-  vite: {
-    resolve: {
-      alias: {
-        "@vercel/analytics/next": "@vercel/analytics/react",
-      },
-    },
-  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
