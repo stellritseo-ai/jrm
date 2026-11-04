@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceSeoSections } from "@/components/service-seo-sections";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { useTranslation } from "@/context/translation-context";
 import { motion } from "framer-motion";
 import {
@@ -17,7 +19,8 @@ import {
   Zap,
   Hammer,
   Droplets,
-  Activity
+  Activity,
+  Images
 } from "lucide-react";
 
 import imgHardscapes from "@/assets/svc-hardscapes.jpg";
@@ -134,36 +137,11 @@ function HardscapesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Service",
-                "@id": "https://jrmconstructionservicellc.com/hardscapes#service",
-                "name": "Hardscape Design & Installation San Antonio TX",
-                "serviceType": "Hardscape Contractor & Stone Masonry",
-                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
-                "areaServed": "San Antonio, TX and 80-mile radius",
-                "description": "Custom flagstone patios, stone retaining walls, paver walkways, and outdoor living hardscaping in San Antonio, TX."
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://jrmconstructionservicellc.com/hardscapes#breadcrumb",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
-                  { "@type": "ListItem", "position": 3, "name": "Hardscapes", "item": "https://jrmconstructionservicellc.com/hardscapes" }
-                ]
-              }
-            ]
-          })
-        }}
-      />
       <SiteHeader />
+      <main id="main-content">
+
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="Hardscapes" category="Hardscapes" />
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -204,6 +182,25 @@ function HardscapesPage() {
             <p className="mt-6 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-3xl mx-auto">
               Build the Foundation for Outdoor Living with 35 Years of Master Craftsmanship
             </p>
+
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
+              <Link
+                to="/work"
+                search={{ category: "Hardscapes" }}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#577a4c] hover:bg-[#46653c] text-white text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 group"
+              >
+                <Images className="w-4 h-4 text-white/80 group-hover:scale-110 transition-transform" />
+                <span>View Projects</span>
+                <ChevronRight className="w-3.5 h-3.5 text-white/70 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <Link
+                to="/lets-talk"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md text-white text-xs sm:text-sm font-bold border border-white/25 transition-all active:scale-95"
+              >
+                <span>Request Free Quote</span>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Floating scroll indicator */}
@@ -526,6 +523,8 @@ function HardscapesPage() {
         </section>
       </div>
 
+      <ServiceSeoSections slug="hardscapes" />
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>

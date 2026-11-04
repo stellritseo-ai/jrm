@@ -199,6 +199,7 @@ function ReviewsPage() {
         }}
       />
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -328,7 +329,16 @@ function ReviewsPage() {
 
             {/* Right Column: Dynamic Reviews Cards List */}
             <div className="grid gap-6">
-              {reviews.map((r, idx) => (
+              {(reviews.length > 0 ? reviews : reviewsList.map((item, i): Review => ({
+                id: `static-${i}`,
+                title: item.title,
+                text: item.text,
+                author: item.author,
+                location: item.location,
+                rating: 5,
+                featured: true,
+                createdAt: "2025",
+              }))).map((r, idx) => (
                 <motion.div
                   key={r.id || r.title}
                   initial={{ opacity: 0, y: 25 }}
@@ -482,13 +492,13 @@ function ReviewsPage() {
               Words are one thing—seeing is believing. Browse our interactive project gallery to view examples of our custom outdoor kitchens, flagstone patios, pool surrounds, and complete home remodels.
             </p>
           </div>
-          <a
-            href="/#gallery"
+          <Link
+            to="/work"
             className="rounded-full bg-[#3d5636] hover:bg-[#2d3f26] text-white text-xs font-bold uppercase tracking-wider px-8 py-4 flex items-center gap-2 shrink-0 shadow-md hover:scale-[1.03] transition-all duration-300 cursor-pointer"
           >
             <ImageIcon className="w-4 h-4" />
-            <span>View Our Gallery</span>
-          </a>
+            <span>View Project Case Studies & Gallery</span>
+          </Link>
         </section>
       </div>
 
@@ -559,6 +569,7 @@ function ReviewsPage() {
           </motion.div>
         </section>
       </div>
+      </main>
 
       <SiteFooter />
       <FloatingChat />

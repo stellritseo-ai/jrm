@@ -1,8 +1,9 @@
-import { Facebook, Twitter, Youtube } from "lucide-react";
+import { Facebook, Twitter, Youtube, Phone } from "lucide-react";
 import logo from "@/assets/jrm-logo.png";
 import { useTranslation } from "@/context/translation-context";
 import { useSettings } from "@/context/settings-context";
 import { Link } from "@tanstack/react-router";
+import { trackPhoneClick } from "@/lib/analytics";
 import welBg from "@/assets/wel-bg.png";
 
 export function SiteFooter() {
@@ -137,35 +138,22 @@ export function SiteFooter() {
               </li>
             </ul>
 
-            {/* Social Icons */}
-            <div className="mt-6 flex items-center gap-3">
+            {/* Direct Contact Quick Actions */}
+            <div className="mt-6 flex flex-wrap items-center gap-2.5">
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
-                aria-label="Facebook"
+                href={`tel:${phoneClean || "2104295526"}`}
+                onClick={() => trackPhoneClick("Footer")}
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#577a4c]/20 border border-[#577a4c]/40 px-3.5 py-1.5 text-xs font-bold text-[#a5b89d] hover:bg-[#577a4c] hover:text-white transition-all duration-200"
               >
-                <Facebook className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
+                <span>Call {settings.officePhone || "(210) 429-5526"}</span>
               </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
-                aria-label="Twitter"
+              <Link
+                to="/lets-talk"
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-bold text-neutral-300 hover:bg-white/10 hover:text-white transition-all duration-200"
               >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
+                <span>Free Estimate</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -179,7 +167,7 @@ export function SiteFooter() {
               <div>
                 <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#577a4c]" />
-                  Construction & Remodeling
+                  Construction &amp; Remodeling
                 </h5>
                 <ul className="space-y-2.5 text-[13px] text-neutral-400 font-light">
                   <li>
@@ -194,7 +182,7 @@ export function SiteFooter() {
                   </li>
                   <li>
                     <Link to="/new-construction" className="hover:text-white transition-colors duration-150">
-                      Custom Home Builder & Additions
+                      Custom Home Builder &amp; Additions
                     </Link>
                   </li>
                   <li>
@@ -204,12 +192,22 @@ export function SiteFooter() {
                   </li>
                   <li>
                     <Link to="/adu-services" className="hover:text-white transition-colors duration-150">
-                      ADU & Guest House Builders
+                      ADU &amp; Guest House Builders
                     </Link>
                   </li>
                   <li>
                     <Link to="/stamped-concrete-overlay" className="hover:text-white transition-colors duration-150">
-                      Stamped Concrete & Overlay Patios
+                      Stamped Concrete &amp; Overlay Patios
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/design-service" className="hover:text-white transition-colors duration-150">
+                      3D Landscape &amp; Architectural Design
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/blog" className="hover:text-white transition-colors duration-150">
+                      San Antonio Construction Cost &amp; Planning Guides
                     </Link>
                   </li>
                 </ul>
@@ -219,52 +217,62 @@ export function SiteFooter() {
               <div>
                 <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#577a4c]" />
-                  Outdoor Living & Landscaping
+                  Outdoor Living &amp; Landscaping
                 </h5>
                 <ul className="space-y-2.5 text-[13px] text-neutral-400 font-light">
                   <li>
                     <Link to="/covered-patios" className="hover:text-white transition-colors duration-150">
-                      Covered Patio Builder & Pergolas
+                      Covered Patio Builder &amp; Pergolas
                     </Link>
                   </li>
                   <li>
                     <Link to="/outdoor-kitchens" className="hover:text-white transition-colors duration-150">
-                      Custom Outdoor Kitchens & BBQs
+                      Custom Outdoor Kitchens &amp; BBQs
                     </Link>
                   </li>
                   <li>
                     <Link to="/custom-fireplaces" className="hover:text-white transition-colors duration-150">
-                      Outdoor Fireplaces & Stone Fire Pits
+                      Outdoor Fireplaces &amp; Stone Fire Pits
                     </Link>
                   </li>
                   <li>
                     <Link to="/hardscapes" className="hover:text-white transition-colors duration-150">
-                      Hardscaping & Retaining Walls
+                      Hardscaping &amp; Retaining Walls
                     </Link>
                   </li>
                   <li>
                     <Link to="/custom-decks" className="hover:text-white transition-colors duration-150">
-                      Custom Composite & Wood Decks
+                      Custom Composite &amp; Wood Decks
                     </Link>
                   </li>
                   <li>
                     <Link to="/artificial-turf" className="hover:text-white transition-colors duration-150">
-                      Artificial Turf & Putting Greens
+                      Artificial Turf &amp; Putting Greens
                     </Link>
                   </li>
                   <li>
                     <Link to="/fencing" className="hover:text-white transition-colors duration-150">
-                      Wood Privacy & Iron Fencing
+                      Wood Privacy &amp; Iron Fencing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/softscapes" className="hover:text-white transition-colors duration-150">
+                      Softscapes, Native Plants &amp; Xeriscaping
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/palm-trees" className="hover:text-white transition-colors duration-150">
+                      Cold-Hardy Palm Trees &amp; Specimen Trees
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/irrigation" className="hover:text-white transition-colors duration-150">
+                      Irrigation &amp; Smart Sprinkler Systems
                     </Link>
                   </li>
                   <li>
                     <Link to="/landscape-lighting" className="hover:text-white transition-colors duration-150">
-                      Landscape Lighting & 3D Design
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/best-selling-trees" className="hover:text-white transition-colors duration-150">
-                      Best Selling Specimen Trees & Palms
+                      LED Landscape &amp; Architectural Lighting
                     </Link>
                   </li>
                 </ul>
@@ -380,6 +388,14 @@ export function SiteFooter() {
         <div className="mt-12 mb-[-32px] rounded-2xl sm:rounded-full bg-white/[0.02] border border-white/5 py-3 sm:py-3.5 text-xs text-neutral-400 tracking-wide relative z-10 w-full backdrop-blur-md px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
           <span>
             {t("footer.copyright")}{" "}
+            <span className="mx-1.5 text-neutral-700">|</span>{" "}
+            <Link to="/privacy-policy" className="hover:text-white hover:underline transition-all">
+              Privacy Policy
+            </Link>{" "}
+            <span className="mx-1.5 text-neutral-700">|</span>{" "}
+            <Link to="/terms-and-conditions" className="hover:text-white hover:underline transition-all">
+              Terms &amp; Conditions
+            </Link>{" "}
             <span className="mx-1.5 text-neutral-700">|</span>{" "}
             <a href="/dashboard" className="hover:text-white hover:underline transition-all">
               Admin Portal

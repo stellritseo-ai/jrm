@@ -3,11 +3,25 @@ import banner1 from "@/assets/banner1.jpeg";
 import banner2 from "@/assets/banner2.png";
 import banner3 from "@/assets/banner3.png";
 import { useTranslation } from "@/context/translation-context";
-import { ClipboardList, Calendar, Compass, Trees } from "lucide-react";
+import { ClipboardList, Phone, Compass, Trees } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { trackPhoneClick } from "@/lib/analytics";
 
-const banners = [banner1, banner2, banner3];
+const banners = [
+  {
+    src: banner1,
+    alt: "Custom outdoor living, covered patio, and landscaping project in San Antonio, TX by JRM Construction Landscaping Design"
+  },
+  {
+    src: banner2,
+    alt: "Custom stonework, outdoor kitchen, and hardscaping built in San Antonio, TX by JRM Construction"
+  },
+  {
+    src: banner3,
+    alt: "Residential remodeling, custom patio cover, and backyard design in San Antonio, TX by Robert Thompson"
+  }
+];
 
 export function HeroSection() {
   const { t } = useTranslation();
@@ -23,19 +37,25 @@ export function HeroSection() {
   return (
     <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
       <section
+        aria-label="Hero Introduction"
         className="relative mx-auto max-w-[1400px] w-full rounded-[10px] overflow-hidden border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.06)] min-h-[500px] md:min-h-[580px] lg:min-h-[640px] flex items-center"
       >
-        {/* Slideshow background */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Slideshow background using crawlable, LCP-prioritized <img> */}
+        <div className="absolute inset-0 overflow-hidden bg-[#111a0a]">
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.img
               key={currentSlide}
-              initial={{ opacity: 0 }}
+              src={banners[currentSlide].src}
+              alt={banners[currentSlide].alt}
+              width={1400}
+              height={640}
+              fetchPriority={currentSlide === 0 ? "high" : "auto"}
+              decoding="async"
+              initial={{ opacity: 0.85 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ opacity: { duration: 1.5, ease: "easeInOut" } }}
-              className="absolute inset-0 bg-cover bg-center ken-burns-zoom"
-              style={{ backgroundImage: `url(${banners[currentSlide]})` }}
+              transition={{ opacity: { duration: 1.2, ease: "easeInOut" } }}
+              className="absolute inset-0 h-full w-full object-cover object-center ken-burns-zoom"
             />
           </AnimatePresence>
         </div>
@@ -52,7 +72,7 @@ export function HeroSection() {
 
         {/* Premium Dark Forest & Shadow Overlay for High Contrast */}
         <div
-          className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#111a0a]/95 via-[#1c2b11]/80 md:via-[#1c2b11]/50 to-transparent z-10"
+          className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#111a0a]/95 via-[#1c2b11]/80 md:via-[#1c2b11]/55 to-transparent z-10"
         />
 
         {/* Slide Indicator Dots */}
@@ -60,6 +80,7 @@ export function HeroSection() {
           {banners.map((_, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => setCurrentSlide(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentSlide === index ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
@@ -76,13 +97,13 @@ export function HeroSection() {
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs md:text-sm font-semibold uppercase tracking-wider mt-[60px] sm:mt-[80px] md:mt-[100px] mb-5 md:mb-8 animate-fade-in shadow-sm select-none"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs md:text-sm font-semibold uppercase tracking-wider mt-[60px] sm:mt-[80px] md:mt-[90px] mb-5 md:mb-6 animate-fade-in shadow-sm select-none"
             >
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>{t("welcome.badge")}</span>
+              <span>{t("welcome.badge")} · Licensed, Insured &amp; Bonded Since 1989</span>
             </motion.div>
 
             {/* Tagline */}
@@ -90,22 +111,21 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-              className="text-sm md:text-base font-bold uppercase tracking-widest text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#a5b89d] mb-3 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
             >
-              Building Trust in Every Job
+              Owner-Led by Robert Thompson · 35+ Years of San Antonio Craftsmanship
             </motion.p>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-              className="text-[20px] sm:text-[22px] md:text-[26px] lg:text-[32px] xl:text-[36px] sm:whitespace-nowrap leading-[1.3] md:leading-[1.5] capitalize font-bold tracking-tight -mt-[10px] md:-mt-[20px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+              className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px] xl:text-[46px] leading-[1.2] font-extrabold tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+              style={{ fontFamily: "Georgia, serif" }}
             >
               {t("hero.title").split("\n").map((line, i) => (
-                <span key={i} className="block sm:inline">
+                <span key={i} className="block">
                   {line}
-                  {i === 0 && <br className="sm:hidden" />}
-                  {i === 0 && <span className="hidden sm:inline"> </span>}
                 </span>
               ))}
             </motion.h1>
@@ -114,7 +134,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="mt-[10px] text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed text-white/95 max-w-4xl whitespace-pre-line drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
+              className="mt-4 text-[14px] sm:text-[16px] md:text-[17px] leading-relaxed text-white/95 max-w-3xl whitespace-pre-line drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
             >
               {t("hero.description")}
             </motion.p>
@@ -123,46 +143,47 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
-              className="mt-8 md:mt-10 flex flex-wrap items-center justify-center md:justify-start gap-4"
+              className="mt-8 md:mt-9 flex flex-wrap items-center justify-center md:justify-start gap-3.5"
             >
               <Link
                 to="/lets-talk"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] px-6 py-3 text-white text-sm font-semibold hover:from-[#4d6c43] hover:to-[#33472c] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_14px_rgba(87,122,76,0.35)]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] px-6 py-3.5 text-white text-sm font-bold hover:from-[#4d6c43] hover:to-[#33472c] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_14px_rgba(87,122,76,0.35)]"
               >
                 <ClipboardList className="w-4 h-4" />
                 <span>{t("hero.btn.consultation")}</span>
               </Link>
-              <Link
-                to="/lets-talk"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
+              <a
+                href="tel:2104295526"
+                onClick={() => trackPhoneClick("Homepage Hero")}
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 backdrop-blur-md px-6 py-3.5 text-white text-sm font-bold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
               >
-                <Calendar className="w-4 h-4" />
-                <span>{t("hero.btn.book")}</span>
-              </Link>
+                <Phone className="w-4 h-4" />
+                <span>Call (210) 429-5526</span>
+              </a>
               <Link
                 to="/design-service"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-5 py-3.5 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
               >
                 <Compass className="w-4 h-4" />
-                <span>{t("hero.btn.design") || "Design Service"}</span>
+                <span>3D {t("hero.btn.design") || "Design Service"}</span>
               </Link>
               <Link
                 to="/best-selling-trees"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-6 py-3 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-5 py-3.5 text-white text-sm font-semibold hover:bg-white hover:text-neutral-900 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm"
               >
                 <Trees className="w-4 h-4" />
-                <span>{t("hero.btn.bestsellingtree") || "Best Selling Tree"}</span>
+                <span>{t("hero.btn.bestsellingtree") || "Best Selling Trees"}</span>
               </Link>
             </motion.div>
 
-            {/* Star Rating Trust Widget */}
+            {/* Verified Credentials & Local Service Area Bar */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              className="mt-6 md:mt-10 flex flex-wrap items-center justify-center md:justify-start gap-3 text-white/90 text-xs sm:text-sm drop-shadow-sm select-none border-t border-white/10 pt-4 md:pt-6 max-w-md mx-auto md:mx-0"
+              className="mt-6 md:mt-8 flex flex-wrap items-center justify-center md:justify-start gap-3 text-white/90 text-xs sm:text-sm drop-shadow-sm border-t border-white/15 pt-4 md:pt-5 max-w-2xl mx-auto md:mx-0"
             >
-              <div className="flex gap-1 text-amber-400">
+              <div className="flex gap-1 text-amber-400" aria-hidden="true">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
@@ -174,7 +195,9 @@ export function HeroSection() {
                   </svg>
                 ))}
               </div>
-              <span className="font-medium tracking-wide">{t("reviews.basedon")}</span>
+              <span className="font-medium tracking-wide">
+                Serving San Antonio, Alamo Heights, Boerne, New Braunfels, Canyon Lake &amp; Surrounding Communities
+              </span>
             </motion.div>
           </div>
         </div>

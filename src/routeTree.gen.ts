@@ -37,11 +37,13 @@ import { Route as NewConstructionRouteImport } from './routes/new-construction'
 import { Route as OurWorkRouteImport } from './routes/our-work'
 import { Route as OutdoorKitchensRouteImport } from './routes/outdoor-kitchens'
 import { Route as PalmTreesRouteImport } from './routes/palm-trees'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SoftscapesRouteImport } from './routes/softscapes'
 import { Route as StampedConcreteOverlayRouteImport } from './routes/stamped-concrete-overlay'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
@@ -188,6 +190,11 @@ const PalmTreesRoute = PalmTreesRouteImport.update({
   path: '/palm-trees',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
@@ -211,6 +218,11 @@ const SoftscapesRoute = SoftscapesRouteImport.update({
 const StampedConcreteOverlayRoute = StampedConcreteOverlayRouteImport.update({
   id: '/stamped-concrete-overlay',
   path: '/stamped-concrete-overlay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkRoute = WorkRouteImport.update({
@@ -268,11 +280,13 @@ export interface FileRoutesByFullPath {
   '/our-work': typeof OurWorkRoute
   '/outdoor-kitchens': typeof OutdoorKitchensRoute
   '/palm-trees': typeof PalmTreesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/work': typeof WorkRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
@@ -308,11 +322,13 @@ export interface FileRoutesByTo {
   '/our-work': typeof OurWorkRoute
   '/outdoor-kitchens': typeof OutdoorKitchensRoute
   '/palm-trees': typeof PalmTreesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/work': typeof WorkRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
@@ -349,11 +365,13 @@ export interface FileRoutesById {
   '/our-work': typeof OurWorkRoute
   '/outdoor-kitchens': typeof OutdoorKitchensRoute
   '/palm-trees': typeof PalmTreesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/softscapes': typeof SoftscapesRoute
   '/stamped-concrete-overlay': typeof StampedConcreteOverlayRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/work': typeof WorkRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/locations/$location': typeof LocationsLocationRoute
@@ -391,11 +409,13 @@ export interface FileRouteTypes {
     | '/our-work'
     | '/outdoor-kitchens'
     | '/palm-trees'
+    | '/privacy-policy'
     | '/reviews'
     | '/service-areas'
     | '/services'
     | '/softscapes'
     | '/stamped-concrete-overlay'
+    | '/terms-and-conditions'
     | '/work'
     | '/blog/$slug'
     | '/locations/$location'
@@ -431,11 +451,13 @@ export interface FileRouteTypes {
     | '/our-work'
     | '/outdoor-kitchens'
     | '/palm-trees'
+    | '/privacy-policy'
     | '/reviews'
     | '/service-areas'
     | '/services'
     | '/softscapes'
     | '/stamped-concrete-overlay'
+    | '/terms-and-conditions'
     | '/work'
     | '/blog/$slug'
     | '/locations/$location'
@@ -471,11 +493,13 @@ export interface FileRouteTypes {
     | '/our-work'
     | '/outdoor-kitchens'
     | '/palm-trees'
+    | '/privacy-policy'
     | '/reviews'
     | '/service-areas'
     | '/services'
     | '/softscapes'
     | '/stamped-concrete-overlay'
+    | '/terms-and-conditions'
     | '/work'
     | '/blog/$slug'
     | '/locations/$location'
@@ -512,11 +536,13 @@ export interface RootRouteChildren {
   OurWorkRoute: typeof OurWorkRoute
   OutdoorKitchensRoute: typeof OutdoorKitchensRoute
   PalmTreesRoute: typeof PalmTreesRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReviewsRoute: typeof ReviewsRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
   ServicesRoute: typeof ServicesRoute
   SoftscapesRoute: typeof SoftscapesRoute
   StampedConcreteOverlayRoute: typeof StampedConcreteOverlayRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   WorkRoute: typeof WorkRoute
   BlogSlugRoute: typeof BlogSlugRoute
   LocationsLocationRoute: typeof LocationsLocationRoute
@@ -722,6 +748,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PalmTreesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reviews': {
       id: '/reviews'
       path: '/reviews'
@@ -755,6 +788,13 @@ declare module '@tanstack/react-router' {
       path: '/stamped-concrete-overlay'
       fullPath: '/stamped-concrete-overlay'
       preLoaderRoute: typeof StampedConcreteOverlayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -824,11 +864,13 @@ const rootRouteChildren: RootRouteChildren = {
   OurWorkRoute: OurWorkRoute,
   OutdoorKitchensRoute: OutdoorKitchensRoute,
   PalmTreesRoute: PalmTreesRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReviewsRoute: ReviewsRoute,
   ServiceAreasRoute: ServiceAreasRoute,
   ServicesRoute: ServicesRoute,
   SoftscapesRoute: SoftscapesRoute,
   StampedConcreteOverlayRoute: StampedConcreteOverlayRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   WorkRoute: WorkRoute,
   BlogSlugRoute: BlogSlugRoute,
   LocationsLocationRoute: LocationsLocationRoute,

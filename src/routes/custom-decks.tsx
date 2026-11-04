@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceSeoSections } from "@/components/service-seo-sections";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { useTranslation } from "@/context/translation-context";
 import { motion } from "framer-motion";
 import {
@@ -18,7 +20,8 @@ import {
   Compass,
   FileText,
   Hammer,
-  Layers
+  Layers,
+  Images
 } from "lucide-react";
 
 import imgDecks from "@/assets/svc-custom-decks.jpg";
@@ -112,6 +115,7 @@ function CustomDecksPage() {
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       <SiteHeader />
+      <main id="main-content">
 
       {/* JSON-LD Structured Data */}
       <script
@@ -173,6 +177,9 @@ function CustomDecksPage() {
         }}
       />
 
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="Custom Decks" category="Custom Decks" />
+
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
         <section className="relative mx-auto max-w-[1400px] w-full rounded-[10px] overflow-hidden border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.06)] min-h-[380px] md:min-h-[440px] flex items-center justify-center text-center px-6 py-16">
@@ -208,9 +215,18 @@ function CustomDecksPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link
+                to="/work"
+                search={{ category: "Custom Decks" }}
+                className="inline-flex items-center gap-2 rounded-full bg-[#577a4c] hover:bg-[#4d6c43] text-white px-7 py-3 text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-105 group"
+              >
+                <Images className="w-4 h-4 text-white/80 group-hover:scale-110 transition-transform" />
+                <span>View Projects</span>
+                <ChevronRight className="w-3.5 h-3.5 text-white/70 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
               <a
                 href="tel:2104295526"
-                className="inline-flex items-center gap-2 rounded-full bg-[#577a4c] hover:bg-[#4d6c43] text-white px-7 py-3 text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 px-7 py-3 text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-105"
               >
                 <Phone className="w-4 h-4" />
                 <span>Call (210) 429-5526</span>
@@ -401,6 +417,12 @@ function CustomDecksPage() {
         </section>
       </div>
 
+      <ServiceSeoSections
+        slug="custom-decks"
+        renderFaqs={false}
+        includeJsonLd={false}
+      />
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>

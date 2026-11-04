@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceSeoSections } from "@/components/service-seo-sections";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { useTranslation } from "@/context/translation-context";
 import { motion } from "framer-motion";
 import {
@@ -24,7 +26,8 @@ import {
   Scale,
   Award,
   Layers,
-  ArrowRight
+  ArrowRight,
+  Images
 } from "lucide-react";
 
 import imgConstruction from "@/assets/svc-new-construction.jpg";
@@ -159,6 +162,7 @@ function GeneralContractingPage() {
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── JSON-LD STRUCTURED DATA ── */}
       <script
@@ -236,6 +240,9 @@ function GeneralContractingPage() {
         }}
       />
 
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="General Contracting" category="General Contracting" />
+
       {/* ── HERO BANNER ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
         <section className="relative mx-auto max-w-[1400px] w-full rounded-[10px] overflow-hidden border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.06)] min-h-[440px] md:min-h-[520px] flex items-center justify-center text-center px-6 py-16">
@@ -267,16 +274,25 @@ function GeneralContractingPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/work"
+                search={{ category: "General Contracting" }}
+                className="inline-flex items-center gap-2 rounded-full bg-[#577a4c] hover:bg-[#4d6c43] px-6 py-3 text-white text-sm font-bold shadow-lg hover:scale-105 transition-all duration-300 group"
+              >
+                <Images className="w-4 h-4 text-white/80 group-hover:scale-110 transition-transform" />
+                <span>View Projects</span>
+                <ChevronRight className="w-4 h-4 text-white/70 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
               <a
                 href="tel:2104295526"
-                className="inline-flex items-center gap-2 rounded-full bg-[#577a4c] hover:bg-[#4d6c43] px-7 py-3 text-white text-sm font-bold shadow-lg hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 px-6 py-3 text-white text-sm font-bold backdrop-blur-md hover:scale-105 transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call Robert: (210) 429-5526</span>
+                <span>Call (210) 429-5526</span>
               </a>
               <Link
                 to="/lets-talk"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-neutral-900 px-7 py-3 text-white text-sm font-bold backdrop-blur-md hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white hover:text-neutral-900 px-6 py-3 text-white text-sm font-bold backdrop-blur-md hover:scale-105 transition-all duration-300"
               >
                 <span>Request Free Estimate</span>
                 <ArrowRight className="w-4 h-4" />
@@ -476,6 +492,12 @@ function GeneralContractingPage() {
         </section>
       </div>
 
+      <ServiceSeoSections
+        slug="general-contracting"
+        renderFaqs={false}
+        includeJsonLd={false}
+      />
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>

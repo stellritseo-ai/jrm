@@ -13,11 +13,17 @@ import {
   ChevronLeft,
   ChevronRight,
   ZoomIn,
+  CheckCircle2,
+  Hammer,
+  Layers,
+  ArrowRight
 } from "lucide-react";
 import logo from "@/assets/jrm-logo.png";
 import welBg from "@/assets/wel-bg.png";
 import workHero from "@/assets/welcome-pool.jpg";
 import { getGalleryPhotos } from "@/lib/leads-store";
+import { PROJECT_CASE_STUDIES } from "@/data/project-case-studies";
+import { trackPhoneClick } from "@/lib/analytics";
 
 // Project local images from assets folder
 import houseRemodeling from "@/assets/svc-house-remodeling.jpg";
@@ -36,6 +42,7 @@ import palmTrees from "@/assets/svc-palm-trees.jpg";
 import irrigation from "@/assets/svc-irrigation.jpg";
 import landscapeLighting from "@/assets/svc-landscape-lighting.jpg";
 import hardscapes from "@/assets/svc-hardscapes.jpg";
+import imgDesign from "@/assets/svc-design-blueprint.png";
 
 interface WorkSearchParams {
   category?: string;
@@ -49,10 +56,10 @@ export const Route = createFileRoute("/work")({
   },
   head: () => ({
     meta: [
-      { title: "Construction & Remodeling Portfolio San Antonio TX | JRM Construction" },
-      { name: "description", content: "Explore our photo gallery of completed house remodels, covered patios, custom outdoor kitchens, fireplaces & hardscapes across San Antonio & Central Texas." },
-      { property: "og:title", content: "Construction & Remodeling Portfolio San Antonio TX | JRM Construction" },
-      { property: "og:description", content: "Explore our photo gallery of completed house remodels, covered patios, custom outdoor kitchens, fireplaces & hardscapes across San Antonio & Central Texas." },
+      { title: "Construction, Remodeling & Outdoor Living Portfolio & Case Studies | San Antonio TX | JRM" },
+      { name: "description", content: "Explore completed project case studies and jobsite photography from JRM Construction Landscaping Design in San Antonio, Alamo Heights, Boerne, New Braunfels & Canyon Lake. Call (210) 429-5526." },
+      { property: "og:title", content: "Construction, Remodeling & Outdoor Living Portfolio & Case Studies | San Antonio TX | JRM" },
+      { property: "og:description", content: "Explore completed project case studies and jobsite photography from JRM Construction Landscaping Design in San Antonio, Alamo Heights, Boerne, New Braunfels & Canyon Lake." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://jrmconstructionservicellc.com/work" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -131,6 +138,7 @@ const DEFAULT_WORK_CATEGORIES = [
   "Artificial Turf",
   "Fencing",
   "ADU Services",
+  "Design Service",
   "Softscapes",
   "Palm Trees",
   "Irrigation",
@@ -252,6 +260,20 @@ const STATIC_PROJECTS = [
     image: newConstruction,
     category: "Commercial Services",
     services: ["Commercial Services", "Tenant Improvement", "General Contracting"],
+  },
+  {
+    title: "Turnkey Residential General Contracting & Structural Additions",
+    location: "San Antonio, TX",
+    image: statsJobsite,
+    category: "General Contracting",
+    services: ["General Contracting", "Turnkey Construction", "Additions", "Framing"],
+  },
+  {
+    title: "3D Landscape & Architectural Blueprint Master Design",
+    location: "Boerne, TX",
+    image: imgDesign,
+    category: "Design Service",
+    services: ["Design Service", "3D Blueprints", "Landscape Architecture", "Site Planning"],
   },
 ];
 
@@ -401,17 +423,25 @@ function OurWorkPage() {
       return projects;
     }
 
-    const norm = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const norm = (val: unknown): string => {
+      if (typeof val === "string") return val.toLowerCase().replace(/[^a-z0-9]/g, "");
+      if (val && typeof val === "object") {
+        const obj = val as Record<string, unknown>;
+        const text = typeof obj.name === "string" ? obj.name : typeof obj.title === "string" ? obj.title : "";
+        return text.toLowerCase().replace(/[^a-z0-9]/g, "");
+      }
+      return "";
+    };
+
     const target = norm(activeCategory);
 
     return projects.filter((p) => {
       const pCat = norm(p.category || "General");
-      if (pCat === target) return true;
-      if (pCat && target && (pCat.includes(target) || target.includes(pCat))) return true;
+      if (pCat === target || (pCat && target && (pCat.includes(target) || target.includes(pCat)))) return true;
       if (p.services && Array.isArray(p.services)) {
-        if (p.services.some((s: string) => {
+        if (p.services.some((s: unknown) => {
           const sNorm = norm(s);
-          return sNorm === target || sNorm.includes(target) || target.includes(sNorm);
+          return sNorm === target || (sNorm && target && (sNorm.includes(target) || target.includes(sNorm)));
         })) {
           return true;
         }
@@ -419,6 +449,39 @@ function OurWorkPage() {
       return false;
     });
   }, [projects, activeCategory]);
+
+  const matchingCaseStudies = useMemo(() => {
+    if (!activeCategory || activeCategory === "All") return PROJECT_CASE_STUDIES;
+
+    const norm = (val: unknown): string => {
+      if (typeof val === "string") return val.toLowerCase().replace(/[^a-z0-9]/g, "");
+      if (val && typeof val === "object") {
+        const obj = val as Record<string, unknown>;
+        const text = typeof obj.name === "string" ? obj.name : typeof obj.title === "string" ? obj.title : "";
+        return text.toLowerCase().replace(/[^a-z0-9]/g, "");
+      }
+      return "";
+    };
+
+    const target = norm(activeCategory);
+
+    const matched = PROJECT_CASE_STUDIES.filter((cs) => {
+      const cNorm = norm(cs.category);
+      if (cNorm === target || (cNorm && target && (cNorm.includes(target) || target.includes(cNorm)))) return true;
+      if (norm(cs.projectName).includes(target)) return true;
+      if (Array.isArray(cs.relevantServices)) {
+        if (cs.relevantServices.some((svc) => {
+          const sNorm = norm(svc.name);
+          return sNorm === target || (sNorm && target && (sNorm.includes(target) || target.includes(sNorm)));
+        })) {
+          return true;
+        }
+      }
+      return false;
+    });
+
+    return matched.length > 0 ? matched : PROJECT_CASE_STUDIES;
+  }, [activeCategory]);
 
   const openLightbox = (idx: number) => setLightboxIndex(idx);
   const closeLightbox = () => setLightboxIndex(null);
@@ -455,17 +518,46 @@ function OurWorkPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "@id": "https://jrmconstructionservicellc.com/work#webpage",
+                "url": "https://jrmconstructionservicellc.com/work",
+                "name": "Construction, Remodeling & Outdoor Living Portfolio & Project Case Studies | JRM Construction",
+                "description": "Detailed construction, remodeling, hardscaping, and landscaping project case studies completed across San Antonio, Alamo Heights, Boerne, New Braunfels, Canyon Lake, and surrounding Texas communities.",
+                "isPartOf": { "@id": "https://jrmconstructionservicellc.com/#website" },
+                "about": { "@id": "https://jrmconstructionservicellc.com/#business" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://jrmconstructionservicellc.com/work#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Portfolio & Project Case Studies", "item": "https://jrmconstructionservicellc.com/work" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── CINEMATIC HERO ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
         <section className="relative mx-auto max-w-[1400px] w-full rounded-[10px] overflow-hidden border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.06)] min-h-[380px] md:min-h-[460px] flex items-center justify-center text-center px-6 py-16">
-          <motion.div
-            initial={{ scale: 1.08, opacity: 0.95 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${workHero})` }}
+          <img
+            src={workHero}
+            alt="Completed travertine pool deck and outdoor living portfolio in San Antonio, TX by JRM Construction"
+            width={1400}
+            height={460}
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#111a0a]/92 via-[#111a0a]/78 to-[#111a0a]/92 z-10" />
 
@@ -476,25 +568,187 @@ function OurWorkPage() {
             className="relative z-20 max-w-4xl mx-auto flex flex-col items-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
-              {activeCategory === "All" ? "Our Portfolio" : `${activeCategory} Portfolio`}
+              {activeCategory === "All" ? "San Antonio Portfolio & Case Studies" : `${activeCategory} Portfolio`}
             </span>
-            <h1 className="text-[26px] sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-              Transforming San Antonio Properties,<br className="hidden sm:inline" /> One Project at a Time
+            <h1 className="text-[26px] sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight capitalize tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style={{ fontFamily: "Georgia, serif" }}>
+              Completed Construction, Remodeling &amp; Outdoor Living Case Studies
             </h1>
-            <p className="mt-6 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-3xl mx-auto">
-              For over 35 years, JRM Construction Landscaping Design has stood as a hallmark of quality, integrity, and craftsmanship. Click any project to explore it in full detail.
+            <p className="mt-6 text-sm md:text-base text-neutral-200 font-light leading-relaxed max-w-3xl mx-auto">
+              Explore detailed project case studies and original jobsite photographs from real residential and commercial projects built by owner Robert Thompson and JRM Construction Landscaping Design across San Antonio, Alamo Heights, Boerne, New Braunfels, Canyon Lake, and the Texas Hill Country.
             </p>
           </motion.div>
+        </section>
+      </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity duration-300">
-            <span className="text-[9px] font-bold text-white uppercase tracking-widest select-none">Scroll Down</span>
-            <div className="w-[1.5px] h-10 bg-white/20 relative rounded-full overflow-hidden">
-              <motion.div
-                animate={{ y: ["-100%", "200%"] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 left-0 w-full h-1/3 bg-[#a5b89d] rounded-full"
-              />
-            </div>
+      {/* ── DETAILED PROJECT CASE STUDIES SECTION ── */}
+      <div className="w-full bg-[#f4f3ef] pt-[10px] pb-[10px] px-[15px]">
+        <section
+          aria-labelledby="case-studies-heading"
+          className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-white border border-[#eae8e1] shadow-[0_12px_40px_rgb(0,0,0,0.03)] px-6 py-16 md:px-12 lg:px-16"
+        >
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-1.5 bg-[#577a4c]/10 border border-[#577a4c]/20 text-[#3d5636] rounded-full px-5 py-1.5 text-[11px] font-extrabold uppercase tracking-wider mb-3">
+              <Hammer className="w-3.5 h-3.5" /> In-Depth Project Breakdowns
+            </span>
+            <h2 id="case-studies-heading" className="text-3xl md:text-4xl font-extrabold text-neutral-900 tracking-tight" style={{ fontFamily: "Georgia, serif" }}>
+              Featured San Antonio &amp; Hill Country Case Studies
+            </h2>
+            <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
+              Every property in South Central Texas presents unique soil, terrain, and architectural challenges. Review how JRM Construction plans, engineers, and builds lasting transformations.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {matchingCaseStudies.map((cs, index) => (
+              <article
+                key={cs.id}
+                id={cs.id}
+                className="rounded-2xl border border-[#eae8e1] bg-[#fcfbf8] overflow-hidden shadow-xs hover:shadow-md transition-shadow"
+              >
+                <div className="grid lg:grid-cols-[0.95fr_1.35fr] items-stretch">
+                  {/* Left: Original Project Photographs */}
+                  <div className="relative bg-neutral-900 flex flex-col justify-between min-h-[280px] lg:min-h-full">
+                    <img
+                      src={cs.image}
+                      alt={cs.imageAlt}
+                      width={640}
+                      height={480}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                      <span className="bg-[#23321e]/95 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                        Case Study #{String(index + 1).padStart(2, "0")} · {cs.category}
+                      </span>
+                      <Link
+                        to="/locations/$location"
+                        params={{ location: cs.locationSlug }}
+                        className="inline-flex items-center gap-1 bg-white/95 text-[#23321e] hover:bg-[#577a4c] hover:text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm transition-colors"
+                      >
+                        <MapPin className="w-3 h-3" />
+                        <span>{cs.location}</span>
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Right: Structured Case Study Details */}
+                  <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-between space-y-6">
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 leading-snug" style={{ fontFamily: "Georgia, serif" }}>
+                        {cs.projectName}
+                      </h3>
+
+                      <div className="grid sm:grid-cols-2 gap-4 mt-5">
+                        <div className="bg-white rounded-xl p-4 border border-neutral-200/80">
+                          <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-[#3d5636] mb-1.5">
+                            Customer Requirements
+                          </h4>
+                          <p className="text-xs text-neutral-700 leading-relaxed">
+                            {cs.customerRequirements}
+                          </p>
+                        </div>
+
+                        <div className="bg-white rounded-xl p-4 border border-neutral-200/80">
+                          <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-[#3d5636] mb-1.5">
+                            Design Concept
+                          </h4>
+                          <p className="text-xs text-neutral-700 leading-relaxed">
+                            {cs.designConcept}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 bg-amber-50/60 border border-amber-200/70 rounded-xl p-4">
+                        <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-amber-900 mb-1">
+                          San Antonio / Hill Country Construction Challenges
+                        </h4>
+                        <p className="text-xs text-neutral-700 leading-relaxed">
+                          {cs.constructionChallenges}
+                        </p>
+                      </div>
+
+                      <div className="grid sm:grid-cols-2 gap-5 mt-5">
+                        <div>
+                          <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-900 mb-2 flex items-center gap-1.5">
+                            <Layers className="w-3.5 h-3.5 text-[#577a4c]" />
+                            <span>Materials Used</span>
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {cs.materialsUsed.map((mat) => (
+                              <li key={mat} className="flex items-start gap-2 text-xs text-neutral-700 leading-snug">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#577a4c] shrink-0 mt-0.5" />
+                                <span>{mat}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-900 mb-2 flex items-center gap-1.5">
+                            <Hammer className="w-3.5 h-3.5 text-[#577a4c]" />
+                            <span>Work Performed</span>
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {cs.workPerformed.map((work) => (
+                              <li key={work} className="flex items-start gap-2 text-xs text-neutral-700 leading-snug">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#577a4c] shrink-0 mt-0.5" />
+                                <span>{work}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="mt-5 bg-[#577a4c]/10 border border-[#577a4c]/25 rounded-xl p-4">
+                        <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-[#23321e] mb-1">
+                          Final Outcome
+                        </h4>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          {cs.finalOutcome}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Footer: Relevant Services + Contact CTA */}
+                    <div className="pt-4 border-t border-neutral-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider mr-1">
+                          Relevant Services:
+                        </span>
+                        {cs.relevantServices.map((svc) => (
+                          <Link
+                            key={svc.to}
+                            to={svc.to}
+                            className="inline-flex items-center gap-1 rounded-full bg-white border border-neutral-300 hover:border-[#577a4c] hover:text-[#3d5636] px-3 py-1 text-[11px] font-bold text-neutral-800 transition-colors"
+                          >
+                            <span>{svc.name}</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </Link>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                        <Link
+                          to="/lets-talk"
+                          className="inline-flex items-center gap-1.5 rounded-full bg-[#2d3f26] hover:bg-[#23321e] text-white px-4 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors"
+                        >
+                          <span>Request Similar Build Quote</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                        <a
+                          href="tel:2104295526"
+                          onClick={() => trackPhoneClick(`Case Study: ${cs.projectName}`)}
+                          className="inline-flex items-center gap-1 rounded-full border border-neutral-300 bg-white hover:bg-neutral-50 text-neutral-800 px-3.5 py-2 text-[11px] font-bold"
+                        >
+                          <Phone className="w-3 h-3 text-[#577a4c]" />
+                          <span>(210) 429-5526</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
       </div>
@@ -529,25 +783,23 @@ function OurWorkPage() {
             </p>
           </motion.div>
 
-          {/* Category Filter Tabs — Only shown on main /work page */}
-          {activeCategory === "All" && (
-            <div className="flex flex-wrap justify-center gap-2 mb-10 overflow-x-auto pb-1 max-w-5xl mx-auto">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => handleCategorySelect(cat)}
-                  className={`whitespace-nowrap px-4 py-2 rounded-full text-[12px] font-bold uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
-                    activeCategory === cat
-                      ? "bg-[#577a4c] text-white border-[#577a4c] shadow-md scale-[1.02]"
-                      : "bg-white/80 text-neutral-600 border-neutral-200 hover:border-[#577a4c] hover:text-[#577a4c] hover:bg-white"
-                  }`}
-                >
-                  {cat === "All" ? "All Projects" : cat}
-                </button>
-              ))}
-            </div>
-          )}
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8 overflow-x-auto pb-1 max-w-5xl mx-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => handleCategorySelect(cat)}
+                className={`whitespace-nowrap px-4 py-2 rounded-full text-[12px] font-bold uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
+                  activeCategory === cat
+                    ? "bg-[#577a4c] text-white border-[#577a4c] shadow-md scale-[1.02]"
+                    : "bg-white/80 text-neutral-600 border-neutral-200 hover:border-[#577a4c] hover:text-[#577a4c] hover:bg-white"
+                }`}
+              >
+                {cat === "All" ? "All Projects" : cat}
+              </button>
+            ))}
+          </div>
 
           {/* Sub-menu Specific Category View Bar */}
           {activeCategory !== "All" && (
@@ -698,6 +950,7 @@ function OurWorkPage() {
           </motion.div>
         </section>
       </div>
+      </main>
 
       <SiteFooter />
       <FloatingChat />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { addLead, addWebEmail } from "@/lib/leads-store";
+import { trackFormSubmission, trackPhoneClick } from "@/lib/analytics";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
@@ -153,6 +154,7 @@ export function LetUsTalkPage() {
         message: `${formData.description} (Address: ${formData.address}, Best time to contact: ${formData.contactTime})`,
         source: "lets_talk_page"
       });
+      await trackFormSubmission(`lets_talk_page (${formData.projectType})`);
     } catch (error) {
       console.error("Error submitting lead:", error);
     }
@@ -161,7 +163,34 @@ export function LetUsTalkPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": "https://www.jrmconstructionservicellc.com/lets-talk#webpage",
+                "url": "https://www.jrmconstructionservicellc.com/lets-talk",
+                "name": "Schedule a Free Consultation | JRM Construction Landscaping Design",
+                "description": "Schedule your free on-site consultation with owner Robert Thompson in San Antonio, TX.",
+                "isPartOf": { "@id": "https://www.jrmconstructionservicellc.com/#website" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://www.jrmconstructionservicellc.com/lets-talk#breadcrumb",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.jrmconstructionservicellc.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Let's Talk", "item": "https://www.jrmconstructionservicellc.com/lets-talk" }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -504,11 +533,14 @@ export function LetUsTalkPage() {
                     <form className="space-y-4" onSubmit={handleSubmit}>
                       {/* Row 1: Name */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-name" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Your Name
                         </label>
                         <input
+                          id="lets-talk-name"
+                          name="name"
                           type="text"
+                          autoComplete="name"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -519,11 +551,14 @@ export function LetUsTalkPage() {
 
                       {/* Row 2: Email */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-email" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Email Address
                         </label>
                         <input
+                          id="lets-talk-email"
+                          name="email"
                           type="email"
+                          autoComplete="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -534,11 +569,14 @@ export function LetUsTalkPage() {
 
                       {/* Row 3: Phone */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-phone" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Phone Number
                         </label>
                         <input
+                          id="lets-talk-phone"
+                          name="phone"
                           type="tel"
+                          autoComplete="tel"
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -549,11 +587,14 @@ export function LetUsTalkPage() {
 
                       {/* Row 4: Address */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-address" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Property Address
                         </label>
                         <input
+                          id="lets-talk-address"
+                          name="address"
                           type="text"
+                          autoComplete="street-address"
                           required
                           value={formData.address}
                           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
@@ -564,29 +605,39 @@ export function LetUsTalkPage() {
 
                       {/* Row 5: Project Type Dropdown */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-project-type" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Project Type
                         </label>
                         <div className="relative w-full">
                           <select
+                            id="lets-talk-project-type"
+                            name="projectType"
                             required
-                            value={formData.projectType || new URLSearchParams(window.location.search).get('project') || ""}
+                            value={formData.projectType || (typeof window !== "undefined" ? new URLSearchParams(window.location.search).get('project') || "" : "")}
                             onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                             className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200/70 py-3 pl-4 pr-10 text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#577a4c]/30 focus:border-[#577a4c] transition-all appearance-none cursor-pointer"
                           >
                             <option value="" disabled hidden>
                               Select project type...
                             </option>
+                            <option value="general-contracting">General Contracting</option>
                             <option value="remodeling">House Remodeling</option>
                             <option value="new-construction">New Construction</option>
+                            <option value="commercial">Commercial Construction</option>
                             <option value="outdoor-kitchen">Outdoor Kitchen</option>
-                            <option value="fireplace">Custom Fireplace</option>
                             <option value="patio">Covered Patio</option>
-                            <option value="hardscapes">Hardscapes</option>
-                            <option value="softscapes">Softscapes</option>
-                            <option value="fencing">Fencing</option>
+                            <option value="fireplace">Custom Fireplace</option>
+                            <option value="hardscapes">Hardscaping</option>
+                            <option value="stamped-concrete">Stamped Concrete</option>
+                            <option value="custom-decks">Custom Decks</option>
                             <option value="turf">Artificial Turf</option>
-                            <option value="commercial">Commercial Services</option>
+                            <option value="fencing">Fencing</option>
+                            <option value="adu-services">ADU Services / Guest Casita</option>
+                            <option value="landscape-design">Landscape Design</option>
+                            <option value="softscapes">Softscapes</option>
+                            <option value="palm-trees">Palm Trees & Specimen Trees</option>
+                            <option value="irrigation">Irrigation Systems</option>
+                            <option value="landscape-lighting">Landscape Lighting</option>
                             <option value="other">Other</option>
                           </select>
                           <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center text-neutral-500">
@@ -597,10 +648,12 @@ export function LetUsTalkPage() {
 
                       {/* Row 6: Description */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-description" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Brief Description of Your Project
                         </label>
                         <textarea
+                          id="lets-talk-description"
+                          name="description"
                           rows={4}
                           required
                           value={formData.description}
@@ -612,11 +665,13 @@ export function LetUsTalkPage() {
 
                       {/* Row 7: Best Time to Contact */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="lets-talk-contact-time" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Best Time to Contact
                         </label>
                         <div className="relative w-full">
                           <select
+                            id="lets-talk-contact-time"
+                            name="contactTime"
                             required
                             value={formData.contactTime}
                             onChange={(e) => setFormData({ ...formData, contactTime: e.target.value })}
@@ -880,6 +935,7 @@ export function LetUsTalkPage() {
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href="tel:2104295526"
+                onClick={() => trackPhoneClick("lets_talk_footer_cta")}
                 className="rounded-full bg-[#577a4c] hover:bg-[#4d6c43] px-8 py-3.5 text-white text-[14px] font-bold tracking-wider uppercase transition-all duration-300 shadow-lg hover:scale-[1.03]"
               >
                 Call Robert Now
@@ -888,6 +944,7 @@ export function LetUsTalkPage() {
           </motion.div>
         </section>
       </div>
+      </main>
 
       <SiteFooter />
       <FloatingChat />

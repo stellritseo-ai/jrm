@@ -1,54 +1,67 @@
-# User-agent directives for JRM Construction Landscaping Design
-# Website: https://jrmconstructionservicellc.com
+# JRM Construction Landscaping Design - robots.txt
+# Optimized for Google, Bing, and AI Search Engines (OAI-SearchBot, ChatGPT, Perplexity, Claude, Gemini)
 
 User-agent: *
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
 
-# Generative AI & LLM Search Crawlers (GEO / AEO)
-User-agent: GPTBot
+# Search Engine Crawlers
+User-agent: Googlebot
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /dashboard
+Disallow: /login
+
+# ChatGPT Search / OpenAI Search Crawler (Required for ChatGPT Search visibility)
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /dashboard
+Disallow: /login
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
 
-User-agent: Google-Extended
+# OpenAI Model Training Crawler (Separate business decision from OAI-SearchBot search indexing; allowed for brand authority in AI knowledge bases)
+User-agent: GPTBot
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
+
+# Other AI Search & Answer Engine Crawlers
+User-agent: PerplexityBot
+Allow: /
+Disallow: /dashboard
+Disallow: /login
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
 
-User-agent: Claude-Web
+User-agent: anthropic-ai
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
 
-User-agent: PerplexityBot
+User-agent: Google-Extended
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /dashboard
 Disallow: /login
-Disallow: /api/
 
-# Sitemap Location
+# Sitemaps
 Sitemap: https://jrmconstructionservicellc.com/sitemap.xml

@@ -3,11 +3,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceSeoSections } from "@/components/service-seo-sections";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Trees,
   Sparkles,
   CheckCircle2,
+  Images,
   ShieldCheck,
   Phone,
   Mail,
@@ -105,7 +108,7 @@ interface TreeItem {
   growthRate: string;
   foliage: string;
   sunRequirement: string;
-  droughtTolerance: "Moderate" | "High" | "Exceptional";
+  droughtTolerance: string;
   idealUse: string;
   expertTip: string;
   keyBenefits: string[];
@@ -488,6 +491,10 @@ function BestSellingTreesPage() {
       />
 
       <SiteHeader />
+      <main id="main-content">
+
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="Best Selling Trees" category="Palm Trees" />
 
       {/* ── HERO BANNER ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -527,6 +534,14 @@ function BestSellingTreesPage() {
 
             {/* Action Buttons */}
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                to="/work"
+                search={{ category: "Palm Trees" }}
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 px-7 py-3.5 text-white text-sm font-bold tracking-wide uppercase hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-sm backdrop-blur-md group"
+              >
+                <Images className="w-4 h-4 text-[#a5b89d] group-hover:scale-110 transition-transform" />
+                <span>View Projects</span>
+              </Link>
               <a
                 href="#catalog"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] px-7 py-3.5 text-white text-sm font-bold tracking-wide uppercase hover:from-[#4d6c43] hover:to-[#33472c] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_16px_rgba(87,122,76,0.4)]"
@@ -1236,6 +1251,12 @@ function BestSellingTreesPage() {
         )}
       </AnimatePresence>
 
+      <ServiceSeoSections
+        slug="best-selling-trees"
+        renderFaqs={false}
+        includeJsonLd={false}
+      />
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>

@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceSeoSections } from "@/components/service-seo-sections";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { useTranslation } from "@/context/translation-context";
 import { motion } from "framer-motion";
 import {
@@ -19,7 +21,8 @@ import {
   Sparkles,
   ArrowRight,
   Grid,
-  ClipboardList
+  ClipboardList,
+  Images
 } from "lucide-react";
 
 import imgConstruction from "@/assets/svc-new-construction.jpg";
@@ -217,36 +220,11 @@ function ADUServicesPage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Service",
-                "@id": "https://jrmconstructionservicellc.com/adu-services#service",
-                "name": "Accessory Dwelling Unit (ADU) Construction San Antonio TX",
-                "serviceType": "ADU Builder & General Contractor",
-                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
-                "areaServed": "San Antonio, TX and 80-mile radius",
-                "description": "Custom detached ADUs, granny flats, guest houses, in-law suites, and garage conversions in San Antonio, TX."
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://jrmconstructionservicellc.com/adu-services#breadcrumb",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
-                  { "@type": "ListItem", "position": 3, "name": "ADU Services", "item": "https://jrmconstructionservicellc.com/adu-services" }
-                ]
-              }
-            ]
-          })
-        }}
-      />
       <SiteHeader />
+      <main id="main-content">
+
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="ADU Services" category="ADU Services" />
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -289,15 +267,24 @@ function ADUServicesPage() {
             {/* Call to Action Button */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
+                to="/work"
+                search={{ category: "ADU Services" }}
+                className="bg-[#577a4c] hover:bg-[#3d5636] text-white px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02] group"
+              >
+                <Images className="w-4 h-4 text-white/80 group-hover:scale-110 transition-transform" />
+                <span>View Projects</span>
+                <ChevronRight className="w-4 h-4 text-white/70 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <Link
                 to="/lets-talk"
-                className="bg-[#577a4c] hover:bg-[#3d5636] text-white px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 backdrop-blur-md text-white px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <span>Request Free Consultation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:2104295526"
-                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 backdrop-blur-md text-white px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 backdrop-blur-md text-white px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Phone className="w-4 h-4" />
                 <span>Call (210) 429-5526</span>
@@ -674,6 +661,8 @@ function ADUServicesPage() {
         </section>
       </div>
 
+      <ServiceSeoSections slug="adu-services" />
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>

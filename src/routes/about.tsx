@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
@@ -56,31 +56,37 @@ function AboutPage() {
       title: "House Remodeling & New Construction",
       desc: "Complete home renovations, kitchen updates, custom builds, and extensions executed to perfection.",
       icon: Construction,
+      href: "/house-remodeling",
     },
     {
       title: "Custom Hardscapes & Flagstone Patios",
       desc: "Exquisite stone pathways, brick retaining walls, custom flagstone work, and premium concrete solutions.",
       icon: Layers,
+      href: "/hardscapes",
     },
     {
       title: "Outdoor Kitchens & Covered Patios",
       desc: "Gourmet outdoor entertainment areas, built-in BBQ grills, pavilions, and robust patio covers.",
       icon: Utensils,
+      href: "/outdoor-kitchens",
     },
     {
       title: "Creative Landscape Design & Softscapes",
       desc: "Lush garden layouts, strategic sod installation, palm tree styling, and native plant selections.",
       icon: Trees,
+      href: "/design-service",
     },
     {
       title: "Artificial Turf Solutions & Fencing",
       desc: "Low-maintenance putting greens, pristine artificial turf, and secure wood or iron perimeter fencing.",
       icon: Wrench,
+      href: "/artificial-turf",
     },
     {
       title: "Custom Indoor & Outdoor Fireplaces",
       desc: "Elegant and safe stone fireplaces, custom mantels, and cozy outdoor fire pit structures.",
       icon: Flame,
+      href: "/custom-fireplaces",
     },
   ];
 
@@ -134,6 +140,7 @@ function AboutPage() {
         }}
       />
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -365,10 +372,13 @@ function AboutPage() {
                       {item.desc}
                     </p>
                   </div>
-                  <div className="mt-6 flex items-center text-xs font-bold text-[#4a6e28] gap-1 group/btn cursor-pointer hover:opacity-85 select-none w-fit relative z-10">
-                    <span>Learn more</span>
+                  <Link
+                    to={item.href}
+                    className="mt-6 flex items-center text-xs font-bold text-[#4a6e28] gap-1 group/btn cursor-pointer hover:opacity-85 select-none w-fit relative z-10"
+                  >
+                    <span>Explore {item.title.split("&")[0].trim()}</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                  </div>
+                  </Link>
                 </motion.div>
               );
             })}
@@ -687,6 +697,7 @@ function AboutPage() {
           </motion.div>
         </section>
       </div>
+      </main>
 
       <SiteFooter />
       <FloatingChat />

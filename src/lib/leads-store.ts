@@ -449,7 +449,7 @@ export const removeLeadPhoto = async (leadId: string, photoIndex: number): Promi
 export interface GalleryPhoto {
   id: string;
   url: string;
-  uploadedAt: string;
+  uploadedAt?: string;
   title?: string;
   category?: string;
   caption?: string;
@@ -606,14 +606,20 @@ export interface ChatMessage {
 export interface ChatSession {
   id: string;
   clientName: string;
+  userName?: string;
   clientCity: string;
   clientEmail?: string;
   clientPhone?: string;
   lastMessage: string;
   lastMessageTime: string;
   unread: boolean;
+  isClosed?: boolean;
   messages: ChatMessage[];
 }
+
+export const uploadReviewPhoto = async (_id: string, _photo: string): Promise<any> => {
+  return { success: true };
+};
 
 export const INITIAL_CHATS: ChatSession[] = [
   {

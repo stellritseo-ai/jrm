@@ -106,6 +106,7 @@ function ServiceAreasPage() {
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── JSON-LD STRUCTURED DATA ── */}
       <script
@@ -238,7 +239,8 @@ function ServiceAreasPage() {
                   {region.locations.map((loc) => (
                     <Link
                       key={loc.slug}
-                      to={`/locations/${loc.slug}`}
+                      to="/locations/$location"
+                      params={{ location: loc.slug }}
                       className="group bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md hover:border-[#577a4c]/40 hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
                     >
                       <div>
@@ -363,6 +365,7 @@ function ServiceAreasPage() {
           </div>
         </section>
       </div>
+      </main>
 
       <SiteFooter />
       <FloatingChat />

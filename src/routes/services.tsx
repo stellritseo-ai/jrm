@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { useTranslation } from "@/context/translation-context";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -24,7 +25,8 @@ import {
   Smile,
   Zap,
   ArrowRight,
-  ChevronRight
+  ChevronRight,
+  Images
 } from "lucide-react";
 
 import imgRemodeling from "@/assets/svc-house-remodeling.jpg";
@@ -43,6 +45,7 @@ import imgIrrigation from "@/assets/svc-irrigation.jpg";
 import imgLighting from "@/assets/svc-landscape-lighting.jpg";
 import imgCommercial from "@/assets/stats-jobsite.jpg";
 import imgDesign from "@/assets/svc-design-blueprint.png";
+import imgDecks from "@/assets/svc-custom-decks.jpg";
 import logo from "@/assets/jrm-logo.png";
 import welBg from "@/assets/wel-bg.png";
 import heroBg from "@/assets/hero-patio.jpg";
@@ -232,21 +235,22 @@ function ServicesPage() {
       linkText: "Learn More About Outdoor Kitchens →"
     },
     {
-      id: "outdoor-fireplace",
+      id: "custom-decks",
       category: "outdoor",
-      title: "Custom Fireplaces (Outdoor)",
-      icon: Flame,
-      image: imgFireplace,
-      badge: "🔥",
-      desc: "Extend the warmth and ambiance of a fireplace to your outdoor living space. Our custom outdoor fireplaces and fire pits create stunning focal points for your patio, pool area, or gathering space, extending usability into cooler evenings.",
+      title: "Custom Decks",
+      icon: Layers,
+      image: imgDecks,
+      badge: "🪵",
+      desc: "Elevate your backyard with a custom-engineered composite or Western Red Cedar deck. From hillside multi-level platforms and pool surrounds to integrated bench seating and stair LED lighting, we build rot-resistant decks tailored to South Texas terrain.",
       items: [
-        "Grand Outdoor Fireplaces",
-        "Custom Fire Pits & Chimineas",
-        "Fireplace & Outdoor Kitchen Integration",
-        "Stone & Stucco Finishes"
+        "Capped Composite & PVC Decking (Trex / TimberTech)",
+        "Western Red Cedar & Exotic Hardwood Decks",
+        "Multi-Level & Hillside View Decks",
+        "Custom Metal, Cable & Cedar Railing Systems",
+        "Integrated Stair Riser & Post LED Lighting"
       ],
-      link: "/custom-fireplaces",
-      linkText: "Learn More About Custom Fireplaces →"
+      link: "/custom-decks",
+      linkText: "Learn More About Custom Decks →"
     },
     // Landscape & Hardscape
     {
@@ -515,6 +519,10 @@ function ServicesPage() {
         }}
       />
       <SiteHeader />
+      <main id="main-content">
+
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="All Services" category="All" />
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -555,6 +563,24 @@ function ServicesPage() {
             <p className="mt-6 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-3xl mx-auto">
               At JRM Construction Landscaping Design, we offer a full spectrum of residential and commercial services designed to transform your property into a space of beauty, function, and lasting value. With over 35 years of experience, owner Robert Thompson and our skilled team bring unmatched craftsmanship, integrity, and attention to detail to every project—from the smallest repair to the most ambitious new construction.
             </p>
+
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#577a4c] hover:bg-[#46653c] text-white text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 group"
+              >
+                <Images className="w-4 h-4 text-white/80 group-hover:scale-110 transition-transform" />
+                <span>View All Projects</span>
+                <ChevronRight className="w-3.5 h-3.5 text-white/70 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <Link
+                to="/lets-talk"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md text-white text-xs sm:text-sm font-bold border border-white/25 transition-all active:scale-95"
+              >
+                <span>Request Free Quote</span>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Scroll prompt */}
@@ -793,6 +819,7 @@ function ServicesPage() {
         </section>
       </div>
 
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>

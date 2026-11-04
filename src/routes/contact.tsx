@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { addLead, addWebEmail } from "@/lib/leads-store";
+import { trackFormSubmission, trackPhoneClick } from "@/lib/analytics";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
@@ -165,6 +166,7 @@ function ContactPage() {
         message: `${formData.description} (Address: ${formData.address}, Best time to contact: ${formData.contactTime})`,
         source: "contact_page"
       });
+      await trackFormSubmission(`contact_page (${formData.projectType})`);
     } catch (error) {
       console.error("Error submitting lead:", error);
     }
@@ -201,6 +203,7 @@ function ContactPage() {
         }}
       />
       <SiteHeader />
+      <main id="main-content">
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -307,6 +310,7 @@ function ContactPage() {
                 {/* Phone Card */}
                 <a 
                   href={`tel:${phoneClean}`}
+                  onClick={() => trackPhoneClick("contact_page_card")}
                   className="group block p-5 rounded-xl border border-neutral-200/50 bg-white hover:border-[#577a4c]/40 hover:shadow-md transition-all duration-300 text-left"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#577a4c]/10 text-[#3d5636] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
@@ -387,11 +391,14 @@ function ContactPage() {
                     <form className="space-y-4" onSubmit={handleSubmit}>
                       {/* Row 1: Name */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-name" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Your Name
                         </label>
                         <input
+                          id="contact-name"
+                          name="name"
                           type="text"
+                          autoComplete="name"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -402,11 +409,14 @@ function ContactPage() {
 
                       {/* Row 2: Email */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-email" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Email Address
                         </label>
                         <input
+                          id="contact-email"
+                          name="email"
                           type="email"
+                          autoComplete="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -417,11 +427,14 @@ function ContactPage() {
 
                       {/* Row 3: Phone */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-phone" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Phone Number
                         </label>
                         <input
+                          id="contact-phone"
+                          name="phone"
                           type="tel"
+                          autoComplete="tel"
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -432,11 +445,14 @@ function ContactPage() {
 
                       {/* Row 4: Address */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-address" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Property Address
                         </label>
                         <input
+                          id="contact-address"
+                          name="address"
                           type="text"
+                          autoComplete="street-address"
                           required
                           value={formData.address}
                           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
@@ -447,11 +463,13 @@ function ContactPage() {
 
                       {/* Row 5: Project Type Dropdown */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-project-type" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Project Type
                         </label>
                         <div className="relative w-full">
                           <select
+                            id="contact-project-type"
+                            name="projectType"
                             required
                             value={formData.projectType}
                             onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
@@ -460,16 +478,24 @@ function ContactPage() {
                             <option value="" disabled hidden>
                               Select project type...
                             </option>
+                            <option value="general-contracting">General Contracting</option>
                             <option value="remodeling">House Remodeling</option>
                             <option value="new-construction">New Construction</option>
+                            <option value="commercial">Commercial Construction</option>
                             <option value="outdoor-kitchen">Outdoor Kitchen</option>
-                            <option value="fireplace">Custom Fireplace</option>
                             <option value="patio">Covered Patio</option>
-                            <option value="hardscapes">Hardscapes</option>
-                            <option value="softscapes">Softscapes</option>
-                            <option value="fencing">Fencing</option>
+                            <option value="fireplace">Custom Fireplace</option>
+                            <option value="hardscapes">Hardscaping</option>
+                            <option value="stamped-concrete">Stamped Concrete</option>
+                            <option value="custom-decks">Custom Decks</option>
                             <option value="turf">Artificial Turf</option>
-                            <option value="commercial">Commercial Services</option>
+                            <option value="fencing">Fencing</option>
+                            <option value="adu-services">ADU Services / Guest Casita</option>
+                            <option value="landscape-design">Landscape Design</option>
+                            <option value="softscapes">Softscapes</option>
+                            <option value="palm-trees">Palm Trees & Specimen Trees</option>
+                            <option value="irrigation">Irrigation Systems</option>
+                            <option value="landscape-lighting">Landscape Lighting</option>
                             <option value="other">Other</option>
                           </select>
                           <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center text-neutral-500">
@@ -480,10 +506,12 @@ function ContactPage() {
 
                       {/* Row 6: Description */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-description" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Brief Description of Your Project
                         </label>
                         <textarea
+                          id="contact-description"
+                          name="description"
                           rows={4}
                           required
                           value={formData.description}
@@ -495,11 +523,13 @@ function ContactPage() {
 
                       {/* Row 7: Best Time to Contact */}
                       <div>
-                        <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-time" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
                           Best Time to Contact
                         </label>
                         <div className="relative w-full">
                           <select
+                            id="contact-time"
+                            name="contactTime"
                             required
                             value={formData.contactTime}
                             onChange={(e) => setFormData({ ...formData, contactTime: e.target.value })}
@@ -763,6 +793,7 @@ function ContactPage() {
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href="tel:2104295526"
+                onClick={() => trackPhoneClick("contact_page_footer_cta")}
                 className="rounded-full bg-[#577a4c] hover:bg-[#4d6c43] px-8 py-3.5 text-white text-[14px] font-bold tracking-wider uppercase transition-all duration-300 shadow-lg hover:scale-[1.03]"
               >
                 Call Robert Now
@@ -771,6 +802,7 @@ function ContactPage() {
           </motion.div>
         </section>
       </div>
+      </main>
 
       <SiteFooter />
       <FloatingChat />

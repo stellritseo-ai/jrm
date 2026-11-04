@@ -1,40 +1,53 @@
-import { Star, User } from "lucide-react";
+import { Star, User, MapPin, ArrowRight } from "lucide-react";
 import { useTranslation } from "@/context/translation-context";
 import reviewComp from "@/assets/review-comp.webp";
 import { Link } from "@tanstack/react-router";
-import { useRef, useEffect } from "react";
 
-const reviewsList = [
-  { textKey: "reviews.1.text", nameKey: "reviews.1.name", dateKey: "reviews.1.date" },
-  { textKey: "reviews.2.text", nameKey: "reviews.2.name", dateKey: "reviews.2.date" },
-  { textKey: "reviews.3.text", nameKey: "reviews.3.name", dateKey: "reviews.3.date" },
+const testimonials = [
+  {
+    name: "The Carter Family",
+    location: "San Antonio, TX",
+    locationTo: "/locations/san-antonio-tx",
+    serviceName: "House Remodeling & Outdoor Kitchen",
+    serviceTo: "/outdoor-kitchens",
+    text: "Robert and his team finished a complete remodel and backyard overhaul for us. From the new kitchen to the covered patio and outdoor kitchen, the entire process was professional and seamless. His 35 years of experience showed at every turn."
+  },
+  {
+    name: "Melissa & Ben R.",
+    location: "Boerne, TX",
+    locationTo: "/locations/boerne-tx",
+    serviceName: "Flagstone Patio, Pergola & Softscapes",
+    serviceTo: "/hardscapes",
+    text: "JRM built a stunning flagstone patio, a custom pergola, and a softscape garden that looks like it's always been there. Robert's design eye is incredible, and knowing they are licensed and insured gave us complete peace of mind."
+  },
+  {
+    name: "Sofia & Mark T.",
+    location: "Alamo Heights / San Antonio, TX",
+    locationTo: "/locations/alamo-heights-tx",
+    serviceName: "Custom Kitchen Remodeling",
+    serviceTo: "/house-remodeling",
+    text: "We interviewed several contractors for our kitchen remodel. Robert from JRM stood out immediately. His quote was detailed and transparent with no hidden fees, and the craftsmanship on the custom cabinets and tilework is beautiful."
+  },
+  {
+    name: "James & Linda K.",
+    location: "Canyon Lake, TX",
+    locationTo: "/locations/canyon-lake-tx",
+    serviceName: "Custom Stone Fireplace",
+    serviceTo: "/custom-fireplaces",
+    text: "Robert designed and built a floor-to-ceiling stone fireplace that completely transformed our living space. His team handled everything from the gas line to the final mantel. This is the level of skill you get with 35 years in the business."
+  }
 ] as const;
 
 export function ReviewsSection() {
   const { t } = useTranslation();
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  // Pause marquee animation when section is off-screen
-  useEffect(() => {
-    const section = sectionRef.current;
-    const marquee = marqueeRef.current;
-    if (!section || !marquee) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        marquee.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <div ref={sectionRef} className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
-      <section id="reviews" className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fbfaf7] px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[0.8fr_2fr] items-center overflow-hidden">
-
+    <div className="w-full bg-[#f4f3ef] mt-[15px] mb-[15px] pt-[5px] pb-[5px] px-[15px]">
+      <section
+        id="reviews"
+        aria-labelledby="homepage-reviews-heading"
+        className="mx-auto max-w-[1400px] w-full rounded-[10px] bg-[#fbfaf7] px-6 py-12 md:px-10 lg:px-12 border border-[#eae8e1] shadow-[0_12px_40px_rgba(0,0,0,0.04)] grid gap-10 lg:grid-cols-[0.85fr_2fr] items-center overflow-hidden"
+      >
         {/* Left Column: Rating & Trust */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-[420px] mx-auto lg:mx-0 w-full">
           {/* Badge */}
@@ -47,87 +60,89 @@ export function ReviewsSection() {
           </div>
 
           {/* Title */}
-          <h2 className="text-[22px] sm:text-[25px] md:text-[27px] font-extrabold text-neutral-900 leading-tight mb-5 tracking-tight">
+          <h2
+            id="homepage-reviews-heading"
+            className="text-[22px] sm:text-[25px] md:text-[28px] font-extrabold text-neutral-900 leading-tight mb-4 tracking-tight"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
             {t("reviews.title")}
           </h2>
+
+          <p className="text-xs md:text-sm text-neutral-600 leading-relaxed mb-5">
+            Read real feedback from San Antonio, Boerne, New Braunfels, and Hill Country homeowners who partnered with owner Robert Thompson for remodeling, outdoor living, and landscaping projects.
+          </p>
 
           {/* Google Rating Widget Image */}
           <img
             src={reviewComp}
-            alt="Google Reviews Rating"
-            className="w-full max-w-[340px] mb-6 object-contain rounded-xl"
+            alt="Verified Customer Reviews for JRM Construction Landscaping Design"
+            width={340}
+            height={110}
+            loading="lazy"
+            className="w-full max-w-[320px] mb-6 object-contain rounded-xl"
           />
 
           {/* CTA Button */}
           <Link
             to="/reviews"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-[#2c241d] to-[#1a1511] hover:from-[#3d3228] hover:to-[#221c16] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-full px-8 py-4 transition-all duration-300 shadow-[0_4px_14px_rgba(34,28,22,0.25)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="inline-flex items-center gap-2 justify-center bg-gradient-to-r from-[#2c241d] to-[#1a1511] hover:from-[#3d3228] hover:to-[#221c16] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-full px-8 py-4 transition-all duration-300 shadow-[0_4px_14px_rgba(34,28,22,0.25)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
-            {t("reviews.readall")}
+            <span>{t("reviews.readall")}</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* Right Column: Infinite Review Marquee */}
-        <div className="relative min-w-0 w-full overflow-hidden">
-          {/* Premium Fade Gradients */}
-          <div className="absolute inset-y-0 left-0 w-[40px] lg:w-[80px] bg-gradient-to-r from-[#fbfaf7] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-[40px] lg:w-[80px] bg-gradient-to-l from-[#fbfaf7] to-transparent z-10 pointer-events-none" />
-
-          <div className="w-full overflow-hidden">
-            <div ref={marqueeRef} className="flex gap-6 w-fit animate-marquee" style={{ willChange: "transform" }}>
-              {[...reviewsList, ...reviewsList].map((r, i) => (
-                <div
-                  key={i}
-                  className="shrink-0 w-[300px] md:w-[360px] bg-white rounded-2xl p-6 border border-neutral-100 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between select-none"
-                >
-                  <div>
-                    {/* User Info */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-white shrink-0">
-                        <User className="w-5 h-5" />
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="font-bold text-neutral-900 text-[14px] leading-tight truncate">
-                          {t(r.nameKey)}
-                        </span>
-                        <span className="text-[12px] text-neutral-500 leading-tight mt-0.5 truncate">
-                          {t(r.dateKey)}
-                        </span>
-                      </div>
+        {/* Right Column: Non-Duplicated Client Testimonials Grid */}
+        <div className="grid sm:grid-cols-2 gap-5 w-full">
+          {testimonials.map((r) => (
+            <article
+              key={r.name}
+              className="bg-white rounded-2xl p-6 border border-neutral-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-10 h-10 rounded-full bg-[#23321e] flex items-center justify-center text-white shrink-0">
+                      <User className="w-5 h-5" />
                     </div>
-
-                    {/* Stars */}
-                    <div className="flex gap-0.5 mb-3">
-                      {[...Array(5)].map((_, idx) => (
-                        <Star key={idx} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
+                    <div className="flex flex-col min-w-0">
+                      <h3 className="font-bold text-neutral-900 text-[14px] leading-tight truncate">
+                        {r.name}
+                      </h3>
+                      <Link
+                        to={r.locationTo as string}
+                        className="inline-flex items-center gap-1 text-[11px] font-medium text-[#577a4c] hover:underline mt-0.5"
+                      >
+                        <MapPin className="w-3 h-3 shrink-0" />
+                        <span>{r.location}</span>
+                      </Link>
                     </div>
-
-                    {/* Review Text */}
-                    <p className="text-[13px] md:text-sm text-neutral-700 leading-relaxed italic">
-                      "{t(r.textKey)}"
-                    </p>
+                  </div>
+                  <div className="flex gap-0.5 shrink-0" aria-label="5 out of 5 stars">
+                    {[...Array(5)].map((_, idx) => (
+                      <Star key={idx} className="w-3.5 h-3.5 text-amber-400 fill-current" />
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <p className="text-[13px] text-neutral-700 leading-relaxed italic mb-4">
+                  "{r.text}"
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px]">
+                <span className="text-neutral-500 font-medium">Project Scope:</span>
+                <Link
+                  to={r.serviceTo}
+                  className="font-bold text-[#3d5636] hover:text-[#23321e] underline underline-offset-2"
+                >
+                  {r.serviceName}
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
-
-      {/* Marquee Animation Styles */}
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 35s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </div>
   );
 }

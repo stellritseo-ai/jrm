@@ -30,30 +30,42 @@ function NotFoundComponent() {
           The page you are looking for may have been moved or updated. Explore our main construction services or contact owner Robert Thompson directly.
         </p>
 
-        <div className="grid grid-cols-2 gap-3 text-left mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-left mb-8">
           <Link
             to="/general-contracting"
             className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
           >
-            🔨 General Contracting →
+            General Contracting →
           </Link>
           <Link
             to="/house-remodeling"
             className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
           >
-            🏠 House Remodeling →
+            House Remodeling →
+          </Link>
+          <Link
+            to="/outdoor-kitchens"
+            className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
+          >
+            Outdoor Kitchens →
           </Link>
           <Link
             to="/covered-patios"
             className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
           >
-            🌿 Covered Patios →
+            Covered Patios →
+          </Link>
+          <Link
+            to="/work"
+            className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
+          >
+            Project Portfolio →
           </Link>
           <Link
             to="/service-areas"
             className="rounded-xl border border-neutral-200 p-3 hover:border-[#577a4c] hover:bg-[#577a4c]/5 transition-all text-xs font-bold text-neutral-800"
           >
-            📍 80-Mile Service Areas →
+            Service Areas →
           </Link>
         </div>
 
@@ -82,7 +94,7 @@ if (typeof window !== "undefined") {
   });
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: { error: any; reset: () => void }) {
   console.error(error);
   const router = useRouter();
 
@@ -200,28 +212,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": ["HomeAndConstructionBusiness", "GeneralContractor", "LandscapeArchitect"],
+              "@type": ["GeneralContractor", "HomeAndConstructionBusiness", "Organization"],
               "@id": "https://jrmconstructionservicellc.com/#business",
               "name": "JRM Construction Landscaping Design",
+              "legalName": "JRM Construction Services LLC",
               "alternateName": ["JRM Construction Services LLC", "JRM Construction", "JRM Landscaping Design"],
               "url": "https://jrmconstructionservicellc.com",
-              "logo": "https://jrmconstructionservicellc.com/assets/jrm-logo.png",
+              "logo": {
+                "@type": "ImageObject",
+                "@id": "https://jrmconstructionservicellc.com/#logo",
+                "url": "https://jrmconstructionservicellc.com/assets/jrm-logo.png"
+              },
               "image": "https://jrmconstructionservicellc.com/assets/svc-house-remodeling.jpg",
-              "telephone": "+12104295526",
+              "telephone": "+1-210-429-5526",
               "email": "robertsa210@icloud.com",
               "priceRange": "$$$",
-              "description": "San Antonio's trusted licensed, insured, and bonded general contractor and landscape design firm with over 35 years of owner-led craftsmanship.",
+              "description": "JRM Construction Landscaping Design (JRM Construction Services LLC) is a licensed, insured, and bonded general contractor, home remodeling specialist, and outdoor living & landscape builder in San Antonio, TX, led by owner Robert Thompson since 1989.",
               "foundingDate": "1989",
               "founder": {
-                "@type": "Person",
-                "name": "Robert Thompson",
-                "jobTitle": "Owner & Founder"
+                "@id": "https://jrmconstructionservicellc.com/#robert-thompson"
               },
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "San Antonio",
                 "addressRegion": "TX",
-                "postalCode": "78201",
                 "addressCountry": "US"
               },
               "geo": {
@@ -229,65 +243,82 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "latitude": 29.424122,
                 "longitude": -98.493628
               },
-              "areaServed": [
-                { "@type": "City", "name": "San Antonio", "sameAs": "https://en.wikipedia.org/wiki/San_Antonio" },
-                { "@type": "City", "name": "Boerne", "sameAs": "https://en.wikipedia.org/wiki/Boerne,_Texas" },
-                { "@type": "City", "name": "New Braunfels", "sameAs": "https://en.wikipedia.org/wiki/New_Braunfels,_Texas" },
-                { "@type": "City", "name": "Seguin" },
-                { "@type": "City", "name": "Canyon Lake" },
-                { "@type": "City", "name": "Kerrville" },
-                { "@type": "City", "name": "Fredericksburg" },
-                { "@type": "City", "name": "Bulverde" },
-                { "@type": "City", "name": "Schertz" },
-                { "@type": "City", "name": "Converse" },
-                { "@type": "City", "name": "Helotes" },
-                { "@type": "City", "name": "Universal City" },
-                { "@type": "City", "name": "Live Oak" },
-                { "@type": "City", "name": "Leon Valley" },
-                { "@type": "City", "name": "Alamo Heights" }
-              ],
-              "openingHoursSpecification": [
+              "contactPoint": [
                 {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                  "opens": "07:00",
-                  "closes": "19:00"
+                  "@type": "ContactPoint",
+                  "telephone": "+1-210-429-5526",
+                  "contactType": "customer service",
+                  "contactOption": "TollFree",
+                  "areaServed": "US-TX",
+                  "availableLanguage": ["English"]
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+1-210-379-3505",
+                  "contactType": "customer service",
+                  "areaServed": "US-TX",
+                  "availableLanguage": ["Spanish", "English"]
                 }
               ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5.0",
-                "reviewCount": "58",
-                "bestRating": "5",
-                "worstRating": "1"
-              },
-              "sameAs": [
-                "https://www.facebook.com/jrmconstruction",
-                "https://www.instagram.com/jrmconstruction",
-                "https://www.houzz.com/pro/jrmconstruction"
+              "areaServed": [
+                { "@type": "City", "name": "San Antonio", "sameAs": "https://en.wikipedia.org/wiki/San_Antonio" },
+                { "@type": "City", "name": "Alamo Heights", "sameAs": "https://en.wikipedia.org/wiki/Alamo_Heights,_Texas" },
+                { "@type": "City", "name": "Boerne", "sameAs": "https://en.wikipedia.org/wiki/Boerne,_Texas" },
+                { "@type": "City", "name": "New Braunfels", "sameAs": "https://en.wikipedia.org/wiki/New_Braunfels,_Texas" },
+                { "@type": "City", "name": "Seguin", "sameAs": "https://en.wikipedia.org/wiki/Seguin,_Texas" },
+                { "@type": "City", "name": "Canyon Lake", "sameAs": "https://en.wikipedia.org/wiki/Canyon_Lake,_Texas" },
+                { "@type": "City", "name": "Schertz", "sameAs": "https://en.wikipedia.org/wiki/Schertz,_Texas" },
+                { "@type": "City", "name": "Helotes", "sameAs": "https://en.wikipedia.org/wiki/Helotes,_Texas" },
+                { "@type": "City", "name": "Bulverde", "sameAs": "https://en.wikipedia.org/wiki/Bulverde,_Texas" },
+                { "@type": "City", "name": "Universal City", "sameAs": "https://en.wikipedia.org/wiki/Universal_City,_Texas" },
+                { "@type": "City", "name": "Kerrville", "sameAs": "https://en.wikipedia.org/wiki/Kerrville,_Texas" },
+                { "@type": "City", "name": "Fredericksburg", "sameAs": "https://en.wikipedia.org/wiki/Fredericksburg,_Texas" },
+                { "@type": "City", "name": "Converse" },
+                { "@type": "City", "name": "Live Oak" },
+                { "@type": "City", "name": "Leon Valley" }
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Construction & Outdoor Living Services",
+                "name": "Construction, Landscaping & Outdoor Living Services in San Antonio, TX",
                 "itemListElement": [
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "House Remodeling San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen Remodeling San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom Remodeling San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "New Home Construction San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Covered Patios & Pergolas San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outdoor Kitchens San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Fireplaces San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hardscapes & Stamped Concrete San Antonio" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Artificial Turf Installation San Antonio" } }
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "General Contracting", "url": "https://jrmconstructionservicellc.com/general-contracting" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "House Remodeling", "url": "https://jrmconstructionservicellc.com/house-remodeling" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "New Construction", "url": "https://jrmconstructionservicellc.com/new-construction" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Construction", "url": "https://jrmconstructionservicellc.com/commercial" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outdoor Kitchens", "url": "https://jrmconstructionservicellc.com/outdoor-kitchens" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Covered Patios & Pergolas", "url": "https://jrmconstructionservicellc.com/covered-patios" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Fireplaces & Fire Pits", "url": "https://jrmconstructionservicellc.com/custom-fireplaces" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hardscaping & Retaining Walls", "url": "https://jrmconstructionservicellc.com/hardscapes" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stamped Concrete & Overlays", "url": "https://jrmconstructionservicellc.com/stamped-concrete-overlay" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Decks", "url": "https://jrmconstructionservicellc.com/custom-decks" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Artificial Turf Installation", "url": "https://jrmconstructionservicellc.com/artificial-turf" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Fencing", "url": "https://jrmconstructionservicellc.com/fencing" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ADU Construction Services", "url": "https://jrmconstructionservicellc.com/adu-services" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3D Landscape & Architectural Design", "url": "https://jrmconstructionservicellc.com/design-service" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Softscapes & Native Planting", "url": "https://jrmconstructionservicellc.com/softscapes" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Palm Tree Sourcing & Installation", "url": "https://jrmconstructionservicellc.com/palm-trees" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Irrigation & Sprinkler Systems", "url": "https://jrmconstructionservicellc.com/irrigation" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landscape Lighting", "url": "https://jrmconstructionservicellc.com/landscape-lighting" } }
                 ]
               }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://jrmconstructionservicellc.com/#robert-thompson",
+              "name": "Robert Thompson",
+              "jobTitle": "Owner & Lead General Contractor",
+              "worksFor": {
+                "@id": "https://jrmconstructionservicellc.com/#business"
+              },
+              "url": "https://jrmconstructionservicellc.com/about",
+              "description": "Founder and owner of JRM Construction Landscaping Design with over 35 years of hands-on residential and commercial general contracting, remodeling, hardscaping, and outdoor living construction experience in San Antonio, Texas."
             },
             {
               "@type": "WebSite",
               "@id": "https://jrmconstructionservicellc.com/#website",
               "url": "https://jrmconstructionservicellc.com",
               "name": "JRM Construction Landscaping Design",
-              "description": "San Antonio's premier construction, remodeling and outdoor living contractor.",
+              "description": "Construction, Landscaping & Outdoor Living Contractors in San Antonio, TX.",
               "publisher": {
                 "@id": "https://jrmconstructionservicellc.com/#business"
               }
@@ -310,6 +341,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-[#1c140d] focus:px-4 focus:py-2.5 focus:text-xs focus:font-bold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#577a4c]"
+        >
+          Skip to main content
+        </a>
         {children}
         <Scripts />
       </body>

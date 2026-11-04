@@ -62,8 +62,8 @@ export const translations = {
     "nav.talk": "Let's Talk",
 
     // Hero Section
-    "hero.title": "Outdoor Visions Come To Life\nBuilding America's Dreams",
-    "hero.description": "JRM Construction Landscaping Design is a Concrete Contractor in San Antonio, TX.\nWe offer Landscaping, Outdoor Kitchen Design, Hardscaping and more!",
+    "hero.title": "Construction, Landscaping &\nOutdoor Living Contractors in San Antonio, TX",
+    "hero.description": "Led by owner Robert Thompson with 35+ years of experience since 1989, JRM Construction Landscaping Design delivers licensed general contracting, house remodeling, outdoor kitchens, covered patios, custom hardscaping, stamped concrete, and landscape design across San Antonio and the Texas Hill Country.",
     "hero.btn.consultation": "Get Your Free Consultation",
     "hero.btn.book": "Book A Service",
     "hero.btn.design": "Design Service",
@@ -280,8 +280,8 @@ export const translations = {
     "nav.talk": "Hablemos",
 
     // Hero Section
-    "hero.title": "Visiones al Aire Libre Cobran Vida\nConstruyendo los Sueños de América",
-    "hero.description": "San Antonio Outdoor Living es un contratista de concreto en San Antonio, TX. ¡Ofrecemos paisajismo,\ndiseño de cocinas al aire libre, adoquines y más!",
+    "hero.title": "Contratistas de Construcción, Paisajismo y\nEspacios Exteriores en San Antonio, TX",
+    "hero.description": "Dirigido por el propietario Robert Thompson con más de 35 años de experiencia desde 1989, JRM Construction Landscaping Design ofrece contratación general, remodelación de casas, cocinas al aire libre, patios techados, adoquines, concreto estampado y diseño de jardines en San Antonio y Hill Country.",
     "hero.btn.consultation": "Obtenga Su Consulta Gratis",
     "hero.btn.book": "Reservar un Servicio",
     "hero.btn.design": "Servicio de Diseño",

@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingChat } from "@/components/floating-chat";
+import { ServiceSeoSections } from "@/components/service-seo-sections";
+import { ServiceBreadcrumbBar } from "@/components/service-breadcrumb-bar";
 import { useTranslation } from "@/context/translation-context";
 import { motion } from "framer-motion";
 import {
@@ -20,7 +22,8 @@ import {
   Video,
   Map,
   Settings,
-  FileText
+  FileText,
+  Images
 } from "lucide-react";
 
 import imgBlueprint from "@/assets/svc-design-blueprint.png";
@@ -210,36 +213,11 @@ function DesignServicePage() {
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] font-sans">
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Service",
-                "@id": "https://jrmconstructionservicellc.com/design-service#service",
-                "name": "3D Landscape & Architectural Design Services San Antonio TX",
-                "serviceType": "Landscape Architect & 3D Design Service",
-                "provider": { "@id": "https://jrmconstructionservicellc.com/#business" },
-                "areaServed": "San Antonio, TX and 80-mile radius",
-                "description": "Photorealistic 3D renderings, master site planning, floor plans, and permit drawings in San Antonio, TX."
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://jrmconstructionservicellc.com/design-service#breadcrumb",
-                "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jrmconstructionservicellc.com/" },
-                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://jrmconstructionservicellc.com/services" },
-                  { "@type": "ListItem", "position": 3, "name": "Design Services", "item": "https://jrmconstructionservicellc.com/design-service" }
-                ]
-              }
-            ]
-          })
-        }}
-      />
       <SiteHeader />
+      <main id="main-content">
+
+      {/* ── BREADCRUMB & GALLERY SHORTCUT BAR ── */}
+      <ServiceBreadcrumbBar serviceTitle="Design Service" category="Design Service" />
 
       {/* ── CINEMATIC HERO SECTION ── */}
       <div className="w-full bg-[#f4f3ef] pt-[5px] pb-[5px] px-[15px]">
@@ -276,15 +254,24 @@ function DesignServicePage() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                to="/lets-talk"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#577a4c] to-[#3d5636] hover:from-[#4d6c43] hover:to-[#33472c] text-white font-bold text-sm shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+                to="/work"
+                search={{ category: "Design Service" }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#577a4c] hover:bg-[#46653c] text-white font-bold text-sm shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 group"
               >
-                Schedule A Design Meeting
+                <Images className="w-4 h-4 text-white/80 group-hover:scale-110 transition-transform" />
+                <span>View Projects</span>
+                <ChevronRight className="w-4 h-4 text-white/70 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <Link
+                to="/lets-talk"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-sm hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+              >
+                <span>Schedule A Design Meeting</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:2104295526"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-sm hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-sm hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
               >
                 Call (210) 429-5526
               </a>
@@ -684,6 +671,8 @@ function DesignServicePage() {
         </section>
       </div>
 
+      <ServiceSeoSections slug="design-service" />
+      </main>
       <SiteFooter />
       <FloatingChat />
     </div>
