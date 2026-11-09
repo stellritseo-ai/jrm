@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import banner1 from "@/assets/banner1.jpeg";
 import banner2 from "@/assets/banner2.png";
 import banner3 from "@/assets/banner3.png";
+import banner4 from "@/assets/banner4.jpeg";
 import { useTranslation } from "@/context/translation-context";
 import { ClipboardList, Phone, Compass, Trees } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,6 +10,10 @@ import { Link } from "@tanstack/react-router";
 import { trackPhoneClick } from "@/lib/analytics";
 
 const banners = [
+  {
+    src: banner4,
+    alt: "Luxury outdoor living, custom landscaping, and construction in San Antonio, TX by JRM Construction Landscaping Design"
+  },
   {
     src: banner1,
     alt: "Custom outdoor living, covered patio, and landscaping project in San Antonio, TX by JRM Construction Landscaping Design"
@@ -82,9 +87,8 @@ export function HeroSection() {
               key={index}
               type="button"
               onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${currentSlide === index ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
