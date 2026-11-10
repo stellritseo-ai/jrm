@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -14,14 +15,13 @@ import {
   ChevronRight,
   CheckCircle2,
   Smile,
-  Sun,
-  LayoutGrid,
   Sparkles,
   Compass,
-  Hammer,
-  Droplets,
-  Activity,
-  Images
+  Images,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX
 } from "lucide-react";
 
 import imgTurf from "@/assets/svc-artificial-turf.jpg";
@@ -259,27 +259,8 @@ function ArtificialTurfPage() {
               </p>
             </motion.div>
 
-            {/* Right Visual Image Frame */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-full max-w-[440px] mx-auto flex items-center justify-center py-6"
-            >
-              {/* Offset frame behind image */}
-              <div className="absolute top-2 left-2 right-[-4px] bottom-[-4px] sm:right-[-8px] sm:bottom-[-8px] border-2 border-[#577a4c]/20 rounded-2xl z-0 select-none pointer-events-none" />
-
-              <img
-                src={imgTurf}
-                alt="Flawless artificial grass putting green by JRM"
-                className="relative z-10 w-full h-auto object-cover rounded-2xl shadow-xl border border-neutral-200/50 aspect-[4/3]"
-              />
-              <div className="absolute -bottom-1 -right-2 sm:-right-8 bg-white/95 backdrop-blur-md border border-neutral-200 rounded-xl p-4 shadow-xl flex flex-col select-none z-20">
-                <span className="text-3xl font-black text-[#3d5636]">35+</span>
-                <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest leading-none mt-0.5">Years Experience</span>
-              </div>
-            </motion.div>
+            {/* Right Visual Showcase Video */}
+            <TurfShowcaseVideo />
           </div>
         </section>
       </div>
@@ -529,5 +510,314 @@ function ArtificialTurfPage() {
       <SiteFooter />
       <FloatingChat />
     </div>
+  );
+}
+
+const TURF_VIDEO_BASE = "https://res.cloudinary.com/dgpdydebp/video/upload";
+const TURF_VIDEO_ID = "v1794334696/artificial_turf_usyljk";
+
+function TurfShowcaseVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const userPausedRef = useRef(false);
+  const prefersReducedMotionRef = useRef(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Ensure DOM muted flags are set before autoplay runs across all browsers & React hydration
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const attemptPlay = () => {
+      if (userPausedRef.current || prefersReducedMotionRef.current) return;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setAutoplayBlocked(false);
+            setIsPlaying(true);
+          })
+          .catch((err) => {
+            // Only show paused fallback if browser policy blocked autoplay (e.g. Low Power Mode)
+            if (err?.name === "NotAllowedError") {
+              setAutoplayBlocked(true);
+              setIsPlaying(false);
+            }
+          });
+      }
+    };
+
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    prefersReducedMotionRef.current = reducedMotionQuery.matches;
+
+    if (reducedMotionQuery.matches) {
+      video.removeAttribute("autoplay");
+      video.pause();
+      setIsPlaying(false);
+    } else {
+      attemptPlay();
+    }
+
+    const handleMotionChange = (event: MediaQueryListEvent) => {
+      prefersReducedMotionRef.current = event.matches;
+      if (event.matches) {
+        video.removeAttribute("autoplay");
+        video.pause();
+        setIsPlaying(false);
+      } else if (!userPausedRef.current) {
+        attemptPlay();
+      }
+    };
+    reducedMotionQuery.addEventListener("change", handleMotionChange);
+
+    // Pause when scrolled far offscreen; auto-play seamlessly whenever near or inside viewport
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          attemptPlay();
+        } else if (!video.paused) {
+          video.pause();
+        }
+      },
+      { threshold: 0.01, rootMargin: "250px 0px" }
+    );
+
+    observer.observe(video);
+
+    const onPlay = () => {
+      setIsPlaying(true);
+      setAutoplayBlocked(false);
+    };
+    const onPause = () => {
+      if (userPausedRef.current || prefersReducedMotionRef.current) {
+        setIsPlaying(false);
+      }
+    };
+    const onCanPlay = () => attemptPlay();
+    const onTimeUpdate = () => setCurrentTime(video.currentTime);
+    const onLoadedMetadata = () => {
+      if (Number.isFinite(video.duration) && video.duration > 0) {
+        setDuration(video.duration);
+      }
+    };
+    const onVolumeChange = () => setIsMuted(video.muted);
+
+    video.addEventListener("play", onPlay);
+    video.addEventListener("playing", onPlay);
+    video.addEventListener("pause", onPause);
+    video.addEventListener("canplay", onCanPlay);
+    video.addEventListener("loadeddata", onCanPlay);
+    video.addEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("loadedmetadata", onLoadedMetadata);
+    video.addEventListener("volumechange", onVolumeChange);
+
+    if (Number.isFinite(video.duration) && video.duration > 0) {
+      setDuration(video.duration);
+    }
+
+    return () => {
+      observer.disconnect();
+      reducedMotionQuery.removeEventListener("change", handleMotionChange);
+      video.removeEventListener("play", onPlay);
+      video.removeEventListener("playing", onPlay);
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("canplay", onCanPlay);
+      video.removeEventListener("loadeddata", onCanPlay);
+      video.removeEventListener("timeupdate", onTimeUpdate);
+      video.removeEventListener("loadedmetadata", onLoadedMetadata);
+      video.removeEventListener("volumechange", onVolumeChange);
+    };
+  }, []);
+
+  const togglePlayPause = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused || video.ended) {
+      userPausedRef.current = false;
+      setAutoplayBlocked(false);
+      video.play().catch(() => {});
+      setIsPlaying(true);
+    } else {
+      userPausedRef.current = true;
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
+  const formatSeconds = (secs: number) => {
+    const total = Math.max(0, Math.floor(secs));
+    const m = Math.floor(total / 60);
+    const s = total % 60;
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  };
+
+  const progress = duration > 0 ? Math.min(1, Math.max(0, currentTime / duration)) : 0;
+  const showPausedState = !isPlaying || autoplayBlocked;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.96 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      className="relative w-full max-w-[310px] sm:max-w-[350px] mx-auto py-4"
+    >
+      <figure className="m-0">
+        {/* Video Frame Stage */}
+        <div className="relative">
+          {/* Architectural Offset Frame hugging only the video card */}
+          <div
+            className="absolute top-3 left-3 -right-2.5 -bottom-2.5 sm:-right-3.5 sm:-bottom-3.5 border-2 border-[#577a4c]/25 rounded-[22px] z-0 select-none pointer-events-none"
+            aria-hidden="true"
+          />
+
+          {/* Floating Experience Card positioned top-right so bottom controls remain unobstructed */}
+          <div className="absolute -top-4 -right-2 sm:-right-7 bg-white/95 backdrop-blur-md border border-[#eae8e1] rounded-xl px-4 py-3 shadow-[0_12px_30px_rgba(17,26,10,0.12)] flex flex-col select-none z-30">
+            <span className="text-2xl sm:text-3xl font-black text-[#3d5636] leading-none tracking-tight">35+</span>
+            <span className="text-[9px] sm:text-[10px] font-bold text-neutral-500 uppercase tracking-widest leading-none mt-1">
+              Years Experience
+            </span>
+          </div>
+
+          {/* Video Frame */}
+          <div className="relative z-10 w-full aspect-[9/16] rounded-[18px] overflow-hidden bg-[#111a0a] shadow-[0_24px_60px_-15px_rgba(17,26,10,0.28)] ring-1 ring-black/10 group">
+          {/* Interactive surface for pointer/touch play-pause without duplicate keyboard tab stop */}
+          <div onClick={togglePlayPause} className="relative w-full h-full cursor-pointer">
+            <video
+              ref={videoRef}
+              width={720}
+              height={1280}
+              poster={`${TURF_VIDEO_BASE}/so_0,f_auto,w_720,q_auto/${TURF_VIDEO_ID}.jpg`}
+              autoPlay
+              playsInline
+              muted={isMuted}
+              loop
+              preload="auto"
+              aria-label="Custom artificial turf lawn and backyard putting green walkthrough in San Antonio, TX"
+              className="w-full h-full object-cover block"
+            >
+              <source
+                src={`${TURF_VIDEO_BASE}/w_720,f_mp4,vc_h264,q_auto/${TURF_VIDEO_ID}.mp4`}
+                type="video/mp4"
+              />
+              <source
+                src={`${TURF_VIDEO_BASE}/w_720,f_webm,q_auto/${TURF_VIDEO_ID}.webm`}
+                type="video/webm"
+              />
+              <source src={`${TURF_VIDEO_BASE}/${TURF_VIDEO_ID}.mov`} type="video/quicktime" />
+            </video>
+
+            {/* Top Subtle Gradient Scrim */}
+            <div
+              className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#111a0a]/55 via-[#111a0a]/20 to-transparent pointer-events-none"
+              aria-hidden="true"
+            />
+
+            {/* Bottom Subtle Gradient Scrim */}
+            <div
+              className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#111a0a]/75 via-[#111a0a]/30 to-transparent pointer-events-none"
+              aria-hidden="true"
+            />
+
+            {/* Top-Left Live Status Pill */}
+            <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#111a0a]/65 backdrop-blur-md border border-white/15 text-white text-[10px] font-bold uppercase tracking-widest select-none pointer-events-none">
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${
+                  !showPausedState ? "bg-emerald-400 motion-safe:animate-pulse" : "bg-amber-300"
+                }`}
+                aria-hidden="true"
+              />
+              <span>{!showPausedState ? "Project Showcase" : "Paused"}</span>
+            </div>
+
+            {/* Center Visual Play Indicator when Paused */}
+            {showPausedState && (
+              <div
+                className="absolute inset-0 flex items-center justify-center bg-[#111a0a]/25 transition-opacity duration-300 pointer-events-none"
+                aria-hidden="true"
+              >
+                <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md shadow-[0_12px_32px_rgba(0,0,0,0.35)] border border-white flex items-center justify-center text-[#3d5636] transition-transform duration-300 group-hover:scale-105">
+                  <Play className="w-7 h-7 fill-current ml-0.5" />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Bottom Frosted Glass Controls Bar */}
+          <div className="absolute bottom-3 left-3 right-3 z-20 rounded-xl bg-[#111a0a]/80 backdrop-blur-md border border-white/15 px-3 py-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.3)]">
+            <div
+              className="h-[3px] w-full rounded-full bg-white/15 overflow-hidden mb-2.5"
+              aria-hidden="true"
+            >
+              <div
+                className="h-full w-full bg-gradient-to-r from-[#8eb581] to-emerald-400 origin-left transition-transform duration-150 ease-linear"
+                style={{ transform: `scaleX(${progress})` }}
+              />
+            </div>
+
+            <div className="flex items-center justify-between gap-2">
+              <button
+                type="button"
+                onClick={togglePlayPause}
+                aria-label={!showPausedState ? "Pause showcase video" : "Play showcase video"}
+                className="inline-flex items-center gap-1.5 min-h-[36px] min-w-[36px] px-3.5 py-1.5 rounded-lg bg-[#577a4c] hover:bg-[#49683f] active:scale-95 text-white text-[11px] font-bold tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white cursor-pointer"
+              >
+                {!showPausedState ? (
+                  <>
+                    <Pause className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+                    <span>Pause</span>
+                  </>
+                ) : (
+                  <>
+                    <Play className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+                    <span>Play</span>
+                  </>
+                )}
+              </button>
+
+              <span className="text-[11px] font-medium text-white/85 tabular-nums select-none">
+                {formatSeconds(currentTime)}
+                {duration > 0 ? ` / ${formatSeconds(duration)}` : ""}
+              </span>
+
+              <button
+                type="button"
+                onClick={toggleMute}
+                aria-label={isMuted ? "Unmute showcase video" : "Mute showcase video"}
+                className="inline-flex items-center justify-center min-h-[36px] min-w-[36px] px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 active:scale-95 text-white border border-white/10 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white cursor-pointer"
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4" aria-hidden="true" />
+                ) : (
+                  <Volume2 className="w-4 h-4" aria-hidden="true" />
+                )}
+              </button>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <figcaption className="mt-6 flex items-center justify-between gap-3 px-0.5 text-[11px] text-neutral-600 font-medium">
+          <span className="truncate">Putting Green &amp; Turf · San Antonio, TX</span>
+          <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-[#3d5636]">
+            Walkthrough
+          </span>
+        </figcaption>
+      </figure>
+    </motion.div>
   );
 }
